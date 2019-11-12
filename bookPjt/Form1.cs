@@ -19,7 +19,7 @@ namespace bookPjt
         public void selectList()
         {
             table.Rows.Clear();
-            list = bookDAO.selectList(categoryList.Text,searchBook.Text);
+            list = bookDAO.selectList(categoryList.Text, searchBook.Text);
             foreach (BookDTO book in list)
             {
                 table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock);
@@ -243,7 +243,7 @@ namespace bookPjt
             try
             {
                 BookDTO bookDTO = bookDAO.selectBook(int.Parse(table.Rows[table.CurrentRow.Index].Cells[0].Value.ToString()));
-                subBookImg.Image = Image.FromFile(Environment.CurrentDirectory.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt\\bin\\Debug", "") + bookDTO.B_img);
+                subBookImg.Image = Image.FromFile((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + bookDTO.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
             }
             catch (Exception a)
             {
@@ -261,5 +261,6 @@ namespace bookPjt
             categoryList.SelectedIndex = 0;
             selectList();
         }
+
     }
 }

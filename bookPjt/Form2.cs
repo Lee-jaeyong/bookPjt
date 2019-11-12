@@ -23,7 +23,8 @@ namespace bookPjt
         private void Form2_Load(object sender, EventArgs e)
         {
             bookName.Text = book.B_name;
-            bookImage.Image = Image.FromFile(Environment.CurrentDirectory.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt\\bin\\Debug", "") + book.B_img);
+            //bookImage.Image = Image.FromFile(Environment.CurrentDirectory.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt\\bin\\Debug", "") + book.B_img);
+            bookImage.Image = Image.FromFile((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + book.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
             bookStock.Text = book.B_stock.ToString();
             bookName.Focus();
         }
