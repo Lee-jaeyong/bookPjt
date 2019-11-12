@@ -77,6 +77,7 @@
     <Compile Include="admin\UpdateOrDelete.Designer.cs">
       <DependentUpon>UpdateOrDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="user\IdPw_SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
