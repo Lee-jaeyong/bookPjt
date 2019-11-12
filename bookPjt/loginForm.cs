@@ -34,7 +34,7 @@ namespace BookManagement
                 if (re)
                 {
                     this.Visible = false;
-                    bookManagement frm = new bookManagement();
+                    index frm = new index();
                     frm.Owner = this;
                     frm.Show();
                 }

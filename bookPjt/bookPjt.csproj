@@ -77,6 +77,12 @@
     <Compile Include="admin\UpdateOrDelete.Designer.cs">
       <DependentUpon>UpdateOrDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="user\IdPw_SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="user\IdPw_SearchForm.designer.cs">
+      <DependentUpon>IdPw_SearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="user\index.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="admin\UpdateOrDelete.resx">
       <DependentUpon>UpdateOrDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user\IdPw_SearchForm.resx">
+      <DependentUpon>IdPw_SearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="user\index.resx">
       <DependentUpon>index.cs</DependentUpon>
