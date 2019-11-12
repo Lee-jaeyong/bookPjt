@@ -9,6 +9,8 @@ namespace bookPjt
 {
     class BookDAO
     {
+        public static int dbStatus = 1;
+
         private static BookDAO bookDAO = null;
         private string dbInfo = "Server=localhost;Database=library;Uid=root;Pwd=apmsetup;charset=utf8";
         public static BookDAO getInstance()
@@ -255,7 +257,7 @@ namespace bookPjt
             sql += " where book.b_idx = category.ct_b_id and book.b_idx = publisher.p_b_id";
             sql += " and category.ct_idx = categoryName.c_n_idx and publisher.p_idx = publisherName.p_n_idx";
             sql += " and b_name like '%" + search + "%'";
-            if (category != "도서 분류")
+            if (category != "도서 분류" && category != "")
                 sql += " and c_n_name = '" + category + "'";
             try
             {
