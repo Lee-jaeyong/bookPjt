@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
+using BookManagement;
 
 namespace bookPjt
 {
@@ -277,9 +278,14 @@ namespace bookPjt
             selectList();
         }
 
-        private void bookManagement_Load(object sender, EventArgs e)
-        {
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Hide();
+            BookDAO.dbStatus = 1;
+            MessageBox.Show("로그아웃 완료");
+            loginForm login = new loginForm();
+            login.Show();
         }
     }
 }
