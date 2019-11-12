@@ -62,33 +62,106 @@ namespace BookManagement
             MySqlConnection connection = new MySqlConnection(dbInfo);
             string sql = "insert customer values(NULL,'"+name+"','"+ph1+"','"+ph2+"','"+ph3+"','"+id+"','"+pw+"')";
 
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(sql, connection);
-            int joinResult = command.ExecuteNonQuery();
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                int joinResult = command.ExecuteNonQuery();
 
-            if(joinResult == 0)
+                if (joinResult == 0)
+                {
+                    connection.Close();
+                    return false;
+                }
+                else
+                {
+                    connection.Close();
+                    return true;
+                }
+            }catch(Exception e)
             {
-                connection.Close();
-                return false;
+                Console.Write("오류");
             }
-            else
-            {
-                connection.Close();
-                return true;
-            }
-            
+            return false;
         }
 
-        public int dupCheck(string id)
+        public bool dupCheck(string id)
+        {
+                MySqlConnection connection = new MySqlConnection(dbInfo);
+                string sql = "select count(*) from customer where c_identy = '"+id+"'";
+                try { 
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader dupResult = command.ExecuteReader();
+                dupResult.Read();
+                int dupCount = int.Parse(dupResult["count(*)"].ToString());
+                connection.Close();
+
+                if(dupCount > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }catch(Exception e)
+            {
+                Console.Write("오류");
+            }
+            return true;
+
+
+        }
+
+        public string findId(string name,string ph0,string ph1,string ph2)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);
-            string sql = "";
+            string sql = "select c_identy from customer where c_name='" + name + "' and c_phone1='" + ph0 + "' and c_phone2='" + ph1 + "'and c_phone3='" + ph2 + "'";
 
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(sql, connection);
-            int joinResult = command.ExecuteNonQuery();
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader findId = command.ExecuteReader();
+                findId.Read();
+                string result = findId["c_identy"].ToString();
+                connection.Close();
 
-            return 0;
+                return "ID  :  "+result;
+
+            }
+            catch(Exception e)
+            {
+                Console.Write("오류");
+            }
+
+            return "일치하는 정보가 없습니다.";
+        }
+
+        public string findPw(string name, string id)
+        {
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            string sql = "select c_password from customer where c_name='" + name + "' and c_identy='" + id + "'";
+
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader findPw = command.ExecuteReader();
+                findPw.Read();
+                string result = findPw["c_password"].ToString();
+                connection.Close();
+
+                return "PASSWORD  :  " + result;
+
+            }
+            catch (Exception e)
+            {
+                Console.Write("오류");
+            }
+
+            return "일치하는 정보가 없습니다.";
         }
 
     }

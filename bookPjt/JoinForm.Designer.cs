@@ -125,7 +125,7 @@
             // cancelBtn
             // 
             this.cancelBtn.Font = new System.Drawing.Font("나눔고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cancelBtn.Location = new System.Drawing.Point(93, 320);
+            this.cancelBtn.Location = new System.Drawing.Point(201, 319);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(95, 38);
             this.cancelBtn.TabIndex = 8;
@@ -136,10 +136,10 @@
             // okBtn
             // 
             this.okBtn.Font = new System.Drawing.Font("나눔고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.okBtn.Location = new System.Drawing.Point(194, 320);
+            this.okBtn.Location = new System.Drawing.Point(100, 319);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(95, 38);
-            this.okBtn.TabIndex = 9;
+            this.okBtn.TabIndex = 7;
             this.okBtn.Text = "확인";
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
@@ -160,7 +160,7 @@
             this.ph0Select.Location = new System.Drawing.Point(124, 258);
             this.ph0Select.Name = "ph0Select";
             this.ph0Select.Size = new System.Drawing.Size(60, 25);
-            this.ph0Select.TabIndex = 10;
+            this.ph0Select.TabIndex = 4;
             // 
             // ph1Txt
             // 
@@ -168,7 +168,7 @@
             this.ph1Txt.Location = new System.Drawing.Point(202, 257);
             this.ph1Txt.Name = "ph1Txt";
             this.ph1Txt.Size = new System.Drawing.Size(69, 27);
-            this.ph1Txt.TabIndex = 11;
+            this.ph1Txt.TabIndex = 5;
             this.ph1Txt.Leave += new System.EventHandler(this.ph1Txt_Leave);
             // 
             // ph2Txt
@@ -177,7 +177,7 @@
             this.ph2Txt.Location = new System.Drawing.Point(290, 257);
             this.ph2Txt.Name = "ph2Txt";
             this.ph2Txt.Size = new System.Drawing.Size(69, 27);
-            this.ph2Txt.TabIndex = 12;
+            this.ph2Txt.TabIndex = 6;
             this.ph2Txt.Leave += new System.EventHandler(this.ph2Txt_Leave);
             // 
             // label5

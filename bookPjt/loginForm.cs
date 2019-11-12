@@ -34,7 +34,7 @@ namespace BookManagement
                 if (re)
                 {
                     this.Visible = false;
-                    bookManagement frm = new bookManagement();
+                    index frm = new index();
                     frm.Owner = this;
                     frm.Show();
                 }
@@ -42,6 +42,13 @@ namespace BookManagement
                 {
                     MessageBox.Show("아이디 또는 비밀번호 오류 입니다.");
                 }
+        }
+
+
+        private void joinBtn_Click(object sender, EventArgs e)
+        {
+            JoinForm joinF = new JoinForm();
+            joinF.ShowDialog();
         }
 
         private void pwTxt_KeyDown(object sender, KeyEventArgs e)
@@ -53,10 +60,10 @@ namespace BookManagement
 
         }
 
-        private void joinBtn_Click(object sender, EventArgs e)
+        private void id_pwFindBtn_Click(object sender, EventArgs e)
         {
-            JoinForm joinF = new JoinForm();
-            joinF.ShowDialog();
+            IdPw_SearchForm findForm = new IdPw_SearchForm();
+            findForm.ShowDialog();
         }
     }
 }

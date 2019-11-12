@@ -52,6 +52,7 @@
             this.pwTxt.PasswordChar = '●';
             this.pwTxt.Size = new System.Drawing.Size(304, 34);
             this.pwTxt.TabIndex = 1;
+            this.pwTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pwTxt_KeyDown);
             // 
             // loginBtn
             // 
@@ -84,6 +85,7 @@
             this.id_pwFindBtn.TabIndex = 4;
             this.id_pwFindBtn.Text = "아이디 / 비밀번호 찾기";
             this.id_pwFindBtn.UseVisualStyleBackColor = true;
+            this.id_pwFindBtn.Click += new System.EventHandler(this.id_pwFindBtn_Click);
             // 
             // loginForm
             // 

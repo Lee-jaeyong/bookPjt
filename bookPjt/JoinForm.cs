@@ -32,6 +32,7 @@ namespace BookManagement
 
         private void okBtn_Click(object sender, EventArgs e)
         {
+            UserDAO dao = UserDAO.getInstance();
             string inputName = nameTxt.Text;
             string inputId = idTxt.Text;
             string inputPw = pwTxt.Text;
@@ -57,12 +58,27 @@ namespace BookManagement
                 pw2Txt.Text = "";
                 pw2Txt.Focus();
             }
+            else if (dao.dupCheck(inputId))
+            {
+                MessageBox.Show("이미 사용중인 아이디 입니다");
+                idTxt.Text = "";
+                idTxt.Focus();
+            }
             else
             {
                 //DAO연결 insert
-                UserDAO dao = UserDAO.getInstance();
+                
                 bool result = dao.joinDB(inputName, inputPh0, inputPh1, inputPh2, inputId, inputPw);
-                MessageBox.Show(result.ToString());
+                if(result == true)
+                {
+                    MessageBox.Show("회원가입이 완료되었습니다");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("회원가입 실행 오류");
+                    this.Hide();
+                }
             }
         }
 
