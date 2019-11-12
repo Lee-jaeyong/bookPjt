@@ -35,7 +35,7 @@ namespace bookPjt
                 mysqlCommand.ExecuteNonQuery();
                 sql = "delete from category where ct_b_id = " + bookid;
                 mysqlCommand = new MySqlCommand(sql, mySqlConnection);
-                mysqlCommand.ExecuteNonQuery(); 
+                mysqlCommand.ExecuteNonQuery();
                 sql = "delete from publisher where p_b_id = " + bookid;
                 mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
@@ -245,7 +245,7 @@ namespace bookPjt
             return list;
         }
 
-        public List<BookDTO> selectList()
+        public List<BookDTO> selectList(string category, string search)
         {
             List<BookDTO> list = new List<BookDTO>();
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
@@ -254,6 +254,9 @@ namespace bookPjt
             sql += " from book, category, categoryName, publisher, publisherName";
             sql += " where book.b_idx = category.ct_b_id and book.b_idx = publisher.p_b_id";
             sql += " and category.ct_idx = categoryName.c_n_idx and publisher.p_idx = publisherName.p_n_idx";
+            sql += " and b_name like '%" + search + "%'";
+            if (category != "도서 분류")
+                sql += " and c_n_name = '" + category + "'";
             try
             {
                 mySqlConnection.Open();

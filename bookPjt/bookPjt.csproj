@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="BookDAO.cs" />
     <Compile Include="BookDTO.cs" />
+    <Compile Include="CheckStatus.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -19,11 +19,21 @@ namespace bookPjt
         public void selectList()
         {
             table.Rows.Clear();
-            list = bookDAO.selectList();
+            list = bookDAO.selectList(categoryList.Text,searchBook.Text);
             foreach (BookDTO book in list)
             {
                 table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock);
             }
+        }
+
+        private void selectCategoryList()
+        {
+            categoryList.Items.Clear();
+            List<string> list = bookDAO.getCategoryList();
+            categoryList.Items.Add("도서 분류");
+            categoryList.SelectedIndex = 0;
+            foreach (string listItem in list)
+                categoryList.Items.Add(listItem);
         }
 
         List<BookDTO> list;
@@ -32,6 +42,7 @@ namespace bookPjt
         {
             InitializeComponent();
             selectList();
+            selectCategoryList();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,6 +90,7 @@ namespace bookPjt
         {
             tabControl1.SelectedIndex = 0;
             selectList();
+            selectCategoryList();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -237,6 +249,17 @@ namespace bookPjt
             {
 
             }
+        }
+
+        private void categoryList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectList();
+        }
+
+        private void searchBook_KeyUp(object sender, KeyEventArgs e)
+        {
+            categoryList.SelectedIndex = 0;
+            selectList();
         }
     }
 }
