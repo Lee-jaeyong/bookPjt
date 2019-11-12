@@ -60,9 +60,9 @@ namespace BookManagement
             else
             {
                 //DAO연결 insert
-                
+
                 bool result = dao.joinDB(inputName, inputPh0, inputPh1, inputPh2, inputId, inputPw);
-                if(result == true)
+                if (result == true)
                 {
                     MessageBox.Show("회원가입이 완료되었습니다");
                     this.Hide();
