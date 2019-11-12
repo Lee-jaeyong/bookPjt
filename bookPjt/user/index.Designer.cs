@@ -75,6 +75,7 @@
             this.outBtn.TabIndex = 1;
             this.outBtn.Text = "나가기";
             this.outBtn.UseVisualStyleBackColor = true;
+            this.outBtn.Click += new System.EventHandler(this.outBtn_Click);
             // 
             // meBtn
             // 
@@ -85,7 +86,6 @@
             this.meBtn.TabIndex = 2;
             this.meBtn.Text = "내정보";
             this.meBtn.UseVisualStyleBackColor = true;
-            this.meBtn.Click += new System.EventHandler(this.button3_Click);
             // 
             // bookPanel
             // 
@@ -146,7 +146,6 @@
             this.bookImg.Size = new System.Drawing.Size(162, 205);
             this.bookImg.TabIndex = 5;
             this.bookImg.TabStop = false;
-            this.bookImg.Click += new System.EventHandler(this.bookImg_Click);
             // 
             // label5
             // 
@@ -282,7 +281,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "검색 : ";
             // 
-            // Form1
+            // index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -291,8 +290,9 @@
             this.Controls.Add(this.meBtn);
             this.Controls.Add(this.outBtn);
             this.Controls.Add(this.bookBtn);
-            this.Name = "Form1";
+            this.Name = "index";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.index_Load);
             this.bookPanel.ResumeLayout(false);
             this.bookPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookImg)).EndInit();

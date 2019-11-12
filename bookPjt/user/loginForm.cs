@@ -26,8 +26,12 @@ namespace BookManagement
 
             if (re)
             {
+                Form frm;
                 this.Visible = false;
-                bookManagement frm = new bookManagement();
+                if (inputId == "dlwodyd202")
+                    frm = new bookManagement();
+                else
+                    frm = new index(inputId);
                 frm.Owner = this;
                 frm.Show();
             }
