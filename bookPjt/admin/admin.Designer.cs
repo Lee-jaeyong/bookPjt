@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.subBookImg = new System.Windows.Forms.Label();
@@ -105,11 +105,11 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.ItemSize = new System.Drawing.Size(0, 1);
-            this.tabControl1.Location = new System.Drawing.Point(0, 55);
+            this.tabControl1.Location = new System.Drawing.Point(0, 69);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(928, 555);
+            this.tabControl1.Size = new System.Drawing.Size(1061, 694);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
@@ -126,16 +126,16 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(920, 546);
+            this.tabPage1.Size = new System.Drawing.Size(1053, 685);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // subBookImg
             // 
             this.subBookImg.BackColor = System.Drawing.Color.DarkGray;
-            this.subBookImg.Location = new System.Drawing.Point(578, 78);
+            this.subBookImg.Location = new System.Drawing.Point(661, 98);
             this.subBookImg.Name = "subBookImg";
-            this.subBookImg.Size = new System.Drawing.Size(332, 283);
+            this.subBookImg.Size = new System.Drawing.Size(379, 354);
             this.subBookImg.TabIndex = 7;
             // 
             // categoryList
@@ -143,19 +143,19 @@
             this.categoryList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoryList.Font = new System.Drawing.Font("굴림", 20F);
             this.categoryList.FormattingEnabled = true;
-            this.categoryList.Location = new System.Drawing.Point(172, 6);
+            this.categoryList.Location = new System.Drawing.Point(197, 8);
             this.categoryList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryList.Name = "categoryList";
-            this.categoryList.Size = new System.Drawing.Size(230, 35);
+            this.categoryList.Size = new System.Drawing.Size(262, 41);
             this.categoryList.TabIndex = 5;
             this.categoryList.SelectedIndexChanged += new System.EventHandler(this.categoryList_SelectedIndexChanged);
             // 
             // bookUpdateAndDelete
             // 
-            this.bookUpdateAndDelete.Location = new System.Drawing.Point(18, 4);
+            this.bookUpdateAndDelete.Location = new System.Drawing.Point(21, 5);
             this.bookUpdateAndDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bookUpdateAndDelete.Name = "bookUpdateAndDelete";
-            this.bookUpdateAndDelete.Size = new System.Drawing.Size(122, 35);
+            this.bookUpdateAndDelete.Size = new System.Drawing.Size(139, 44);
             this.bookUpdateAndDelete.TabIndex = 4;
             this.bookUpdateAndDelete.Text = "수정 및 삭제";
             this.bookUpdateAndDelete.UseVisualStyleBackColor = true;
@@ -165,29 +165,29 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(426, 10);
+            this.label2.Location = new System.Drawing.Point(487, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 24);
+            this.label2.Size = new System.Drawing.Size(108, 30);
             this.label2.TabIndex = 3;
             this.label2.Text = "검 색 :";
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(823, 5);
+            this.button7.Location = new System.Drawing.Point(941, 6);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(95, 34);
+            this.button7.Size = new System.Drawing.Size(109, 42);
             this.button7.TabIndex = 2;
             this.button7.Text = "검색";
             this.button7.UseVisualStyleBackColor = true;
             // 
             // searchBook
             // 
-            this.searchBook.Location = new System.Drawing.Point(522, 5);
+            this.searchBook.Location = new System.Drawing.Point(597, 6);
             this.searchBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchBook.Multiline = true;
             this.searchBook.Name = "searchBook";
-            this.searchBook.Size = new System.Drawing.Size(297, 35);
+            this.searchBook.Size = new System.Drawing.Size(339, 43);
             this.searchBook.TabIndex = 1;
             this.searchBook.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchBook_KeyUp);
             // 
@@ -202,23 +202,23 @@
             this.Column2,
             this.Column4,
             this.Column3});
-            this.table.Location = new System.Drawing.Point(3, 44);
+            this.table.Location = new System.Drawing.Point(3, 55);
             this.table.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table.Name = "table";
             this.table.ReadOnly = true;
             this.table.RowHeadersWidth = 51;
             this.table.RowTemplate.Height = 27;
             this.table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.table.Size = new System.Drawing.Size(564, 368);
+            this.table.Size = new System.Drawing.Size(645, 460);
             this.table.TabIndex = 0;
             this.table.Tag = "";
             this.table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.table_CellClick);
             // 
             // bookIdx
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle4;
             this.bookIdx.HeaderText = "도서 번호";
             this.bookIdx.MinimumWidth = 6;
             this.bookIdx.Name = "bookIdx";
@@ -235,8 +235,8 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGray;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column5.HeaderText = "저자";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -253,8 +253,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column4.HeaderText = "분류";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -292,7 +292,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(920, 546);
+            this.tabPage2.Size = new System.Drawing.Size(1053, 685);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
@@ -301,10 +301,10 @@
             this.category.Cursor = System.Windows.Forms.Cursors.Default;
             this.category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.category.FormattingEnabled = true;
-            this.category.Location = new System.Drawing.Point(111, 229);
+            this.category.Location = new System.Drawing.Point(127, 286);
             this.category.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.category.Name = "category";
-            this.category.Size = new System.Drawing.Size(260, 20);
+            this.category.Size = new System.Drawing.Size(297, 23);
             this.category.TabIndex = 14;
             // 
             // publisher
@@ -312,108 +312,108 @@
             this.publisher.Cursor = System.Windows.Forms.Cursors.Default;
             this.publisher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.publisher.FormattingEnabled = true;
-            this.publisher.Location = new System.Drawing.Point(111, 182);
+            this.publisher.Location = new System.Drawing.Point(127, 228);
             this.publisher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.publisher.Name = "publisher";
-            this.publisher.Size = new System.Drawing.Size(260, 20);
+            this.publisher.Size = new System.Drawing.Size(297, 23);
             this.publisher.TabIndex = 14;
             // 
             // bookContent
             // 
-            this.bookContent.Location = new System.Drawing.Point(111, 282);
+            this.bookContent.Location = new System.Drawing.Point(127, 352);
             this.bookContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bookContent.Multiline = true;
             this.bookContent.Name = "bookContent";
-            this.bookContent.Size = new System.Drawing.Size(260, 74);
+            this.bookContent.Size = new System.Drawing.Size(297, 92);
             this.bookContent.TabIndex = 11;
             // 
             // bookStock
             // 
-            this.bookStock.Location = new System.Drawing.Point(111, 130);
+            this.bookStock.Location = new System.Drawing.Point(127, 162);
             this.bookStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bookStock.Multiline = true;
             this.bookStock.Name = "bookStock";
-            this.bookStock.Size = new System.Drawing.Size(260, 30);
+            this.bookStock.Size = new System.Drawing.Size(297, 36);
             this.bookStock.TabIndex = 11;
             // 
             // bookAuthor
             // 
-            this.bookAuthor.Location = new System.Drawing.Point(111, 83);
+            this.bookAuthor.Location = new System.Drawing.Point(127, 104);
             this.bookAuthor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bookAuthor.Multiline = true;
             this.bookAuthor.Name = "bookAuthor";
-            this.bookAuthor.Size = new System.Drawing.Size(260, 30);
+            this.bookAuthor.Size = new System.Drawing.Size(297, 36);
             this.bookAuthor.TabIndex = 11;
             // 
             // bookName
             // 
-            this.bookName.Location = new System.Drawing.Point(111, 31);
+            this.bookName.Location = new System.Drawing.Point(127, 39);
             this.bookName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bookName.Multiline = true;
             this.bookName.Name = "bookName";
-            this.bookName.Size = new System.Drawing.Size(260, 30);
+            this.bookName.Size = new System.Drawing.Size(297, 36);
             this.bookName.TabIndex = 10;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 284);
+            this.label6.Location = new System.Drawing.Point(32, 355);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 12);
+            this.label6.Size = new System.Drawing.Size(72, 15);
             this.label6.TabIndex = 9;
             this.label6.Text = "줄 거 리 :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 234);
+            this.label5.Location = new System.Drawing.Point(53, 292);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.Size = new System.Drawing.Size(52, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "분 류 :";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(46, 138);
+            this.label7.Location = new System.Drawing.Point(53, 172);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.Size = new System.Drawing.Size(52, 15);
             this.label7.TabIndex = 6;
             this.label7.Text = "수 량 :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 186);
+            this.label4.Location = new System.Drawing.Point(32, 232);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 12);
+            this.label4.Size = new System.Drawing.Size(72, 15);
             this.label4.TabIndex = 7;
             this.label4.Text = "출 판 사 :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 92);
+            this.label3.Location = new System.Drawing.Point(53, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(52, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = "저 자 :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 40);
+            this.label1.Location = new System.Drawing.Point(37, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 5;
             this.label1.Text = "책 이름 :";
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(706, 332);
+            this.button10.Location = new System.Drawing.Point(807, 415);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(194, 72);
+            this.button10.Size = new System.Drawing.Size(222, 90);
             this.button10.TabIndex = 4;
             this.button10.Text = "확 인";
             this.button10.UseVisualStyleBackColor = true;
@@ -421,10 +421,10 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(508, 332);
+            this.button9.Location = new System.Drawing.Point(581, 415);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(194, 72);
+            this.button9.Size = new System.Drawing.Size(222, 90);
             this.button9.TabIndex = 3;
             this.button9.Text = "초기화";
             this.button9.UseVisualStyleBackColor = true;
@@ -433,25 +433,25 @@
             // bookImage
             // 
             this.bookImage.BackColor = System.Drawing.Color.Turquoise;
-            this.bookImage.Location = new System.Drawing.Point(494, 65);
+            this.bookImage.Location = new System.Drawing.Point(565, 81);
             this.bookImage.Name = "bookImage";
-            this.bookImage.Size = new System.Drawing.Size(420, 245);
+            this.bookImage.Size = new System.Drawing.Size(480, 306);
             this.bookImage.TabIndex = 2;
             // 
             // bookImg
             // 
             this.bookImg.BackColor = System.Drawing.Color.MediumPurple;
-            this.bookImg.Location = new System.Drawing.Point(616, 25);
+            this.bookImg.Location = new System.Drawing.Point(704, 31);
             this.bookImg.Name = "bookImg";
-            this.bookImg.Size = new System.Drawing.Size(298, 27);
+            this.bookImg.Size = new System.Drawing.Size(341, 34);
             this.bookImg.TabIndex = 1;
             // 
             // btnAddImg
             // 
-            this.btnAddImg.Location = new System.Drawing.Point(496, 25);
+            this.btnAddImg.Location = new System.Drawing.Point(567, 31);
             this.btnAddImg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddImg.Name = "btnAddImg";
-            this.btnAddImg.Size = new System.Drawing.Size(110, 29);
+            this.btnAddImg.Size = new System.Drawing.Size(126, 36);
             this.btnAddImg.TabIndex = 0;
             this.btnAddImg.Text = "이미지 추가";
             this.btnAddImg.UseVisualStyleBackColor = true;
@@ -465,16 +465,16 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 5);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(920, 546);
+            this.tabPage3.Size = new System.Drawing.Size(1053, 685);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.DarkGray;
-            this.label8.Location = new System.Drawing.Point(465, -7);
+            this.label8.Location = new System.Drawing.Point(531, -9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(9, 433);
+            this.label8.Size = new System.Drawing.Size(10, 541);
             this.label8.TabIndex = 0;
             // 
             // panel2
@@ -483,10 +483,10 @@
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.publisherAddBtn);
             this.panel2.Controls.Add(this.AddPublisherName);
-            this.panel2.Location = new System.Drawing.Point(469, 0);
+            this.panel2.Location = new System.Drawing.Point(536, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(452, 427);
+            this.panel2.Size = new System.Drawing.Size(517, 534);
             this.panel2.TabIndex = 1;
             // 
             // publisherTable
@@ -495,13 +495,13 @@
             this.publisherTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.publisherTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.publisherName});
-            this.publisherTable.Location = new System.Drawing.Point(22, 154);
+            this.publisherTable.Location = new System.Drawing.Point(25, 192);
             this.publisherTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.publisherTable.Name = "publisherTable";
             this.publisherTable.ReadOnly = true;
             this.publisherTable.RowHeadersWidth = 51;
             this.publisherTable.RowTemplate.Height = 27;
-            this.publisherTable.Size = new System.Drawing.Size(401, 250);
+            this.publisherTable.Size = new System.Drawing.Size(458, 312);
             this.publisherTable.TabIndex = 6;
             // 
             // publisherName
@@ -516,18 +516,18 @@
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(167, 43);
+            this.label10.Location = new System.Drawing.Point(191, 54);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(150, 26);
+            this.label10.Size = new System.Drawing.Size(171, 32);
             this.label10.TabIndex = 4;
             this.label10.Text = "출판사 관리";
             // 
             // publisherAddBtn
             // 
-            this.publisherAddBtn.Location = new System.Drawing.Point(22, 96);
+            this.publisherAddBtn.Location = new System.Drawing.Point(25, 120);
             this.publisherAddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.publisherAddBtn.Name = "publisherAddBtn";
-            this.publisherAddBtn.Size = new System.Drawing.Size(94, 38);
+            this.publisherAddBtn.Size = new System.Drawing.Size(107, 48);
             this.publisherAddBtn.TabIndex = 3;
             this.publisherAddBtn.Text = "추가";
             this.publisherAddBtn.UseVisualStyleBackColor = true;
@@ -535,11 +535,11 @@
             // 
             // AddPublisherName
             // 
-            this.AddPublisherName.Location = new System.Drawing.Point(130, 97);
+            this.AddPublisherName.Location = new System.Drawing.Point(149, 121);
             this.AddPublisherName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddPublisherName.Multiline = true;
             this.AddPublisherName.Name = "AddPublisherName";
-            this.AddPublisherName.Size = new System.Drawing.Size(293, 38);
+            this.AddPublisherName.Size = new System.Drawing.Size(334, 46);
             this.AddPublisherName.TabIndex = 2;
             // 
             // panel1
@@ -551,7 +551,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(464, 427);
+            this.panel1.Size = new System.Drawing.Size(530, 534);
             this.panel1.TabIndex = 0;
             // 
             // categoryTable
@@ -560,13 +560,13 @@
             this.categoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.categoryTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.categoryname});
-            this.categoryTable.Location = new System.Drawing.Point(26, 154);
+            this.categoryTable.Location = new System.Drawing.Point(30, 192);
             this.categoryTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryTable.Name = "categoryTable";
             this.categoryTable.ReadOnly = true;
             this.categoryTable.RowHeadersWidth = 51;
             this.categoryTable.RowTemplate.Height = 27;
-            this.categoryTable.Size = new System.Drawing.Size(401, 250);
+            this.categoryTable.Size = new System.Drawing.Size(458, 312);
             this.categoryTable.TabIndex = 5;
             // 
             // categoryname
@@ -580,18 +580,18 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(130, 43);
+            this.label9.Location = new System.Drawing.Point(149, 54);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(173, 27);
+            this.label9.Size = new System.Drawing.Size(198, 34);
             this.label9.TabIndex = 4;
             this.label9.Text = "카테고리 관리";
             // 
             // categoryAddBtn
             // 
-            this.categoryAddBtn.Location = new System.Drawing.Point(26, 97);
+            this.categoryAddBtn.Location = new System.Drawing.Point(30, 121);
             this.categoryAddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryAddBtn.Name = "categoryAddBtn";
-            this.categoryAddBtn.Size = new System.Drawing.Size(94, 38);
+            this.categoryAddBtn.Size = new System.Drawing.Size(107, 48);
             this.categoryAddBtn.TabIndex = 3;
             this.categoryAddBtn.Text = "추가";
             this.categoryAddBtn.UseVisualStyleBackColor = true;
@@ -599,11 +599,11 @@
             // 
             // AddcategoryName
             // 
-            this.AddcategoryName.Location = new System.Drawing.Point(135, 98);
+            this.AddcategoryName.Location = new System.Drawing.Point(154, 122);
             this.AddcategoryName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddcategoryName.Multiline = true;
             this.AddcategoryName.Name = "AddcategoryName";
-            this.AddcategoryName.Size = new System.Drawing.Size(293, 38);
+            this.AddcategoryName.Size = new System.Drawing.Size(334, 46);
             this.AddcategoryName.TabIndex = 2;
             // 
             // tabPage4
@@ -611,7 +611,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 5);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(920, 546);
+            this.tabPage4.Size = new System.Drawing.Size(1053, 685);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
@@ -621,17 +621,17 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 5);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(920, 546);
+            this.tabPage5.Size = new System.Drawing.Size(1053, 685);
             this.tabPage5.TabIndex = 4;
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(167, 1);
+            this.button2.Location = new System.Drawing.Point(191, 1);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 58);
+            this.button2.Size = new System.Drawing.Size(187, 72);
             this.button2.TabIndex = 2;
             this.button2.Text = "도서 추가";
             this.button2.UseVisualStyleBackColor = false;
@@ -641,10 +641,10 @@
             // 
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(494, 1);
+            this.button3.Location = new System.Drawing.Point(565, 1);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 58);
+            this.button3.Size = new System.Drawing.Size(187, 72);
             this.button3.TabIndex = 4;
             this.button3.Text = "사용자 관리";
             this.button3.UseVisualStyleBackColor = false;
@@ -654,10 +654,10 @@
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button4.Location = new System.Drawing.Point(331, 1);
+            this.button4.Location = new System.Drawing.Point(378, 1);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(164, 58);
+            this.button4.Size = new System.Drawing.Size(187, 72);
             this.button4.TabIndex = 3;
             this.button4.Text = "관리 모드";
             this.button4.UseVisualStyleBackColor = false;
@@ -667,10 +667,10 @@
             // 
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button6.Location = new System.Drawing.Point(658, 1);
+            this.button6.Location = new System.Drawing.Point(752, 1);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(164, 58);
+            this.button6.Size = new System.Drawing.Size(119, 72);
             this.button6.TabIndex = 5;
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -678,22 +678,24 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(822, 0);
+            this.button5.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold);
+            this.button5.Location = new System.Drawing.Point(872, 0);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(103, 58);
+            this.button5.Size = new System.Drawing.Size(185, 72);
             this.button5.TabIndex = 6;
-            this.button5.Text = " ";
+            this.button5.Text = " 로그아웃";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button8.Location = new System.Drawing.Point(4, 1);
+            this.button8.Location = new System.Drawing.Point(5, 1);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(164, 58);
+            this.button8.Size = new System.Drawing.Size(187, 72);
             this.button8.TabIndex = 7;
             this.button8.Text = "도서 목록";
             this.button8.UseVisualStyleBackColor = false;
@@ -701,9 +703,9 @@
             // 
             // bookManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 487);
+            this.ClientSize = new System.Drawing.Size(1061, 609);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
@@ -713,7 +715,7 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "bookManagement";
-            this.Text = "Form1";
+            this.Text = "admin";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

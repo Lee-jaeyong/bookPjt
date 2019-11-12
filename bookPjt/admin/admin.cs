@@ -9,20 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
+using BookManagement;
 
 namespace bookPjt
 {
     public partial class bookManagement : Form
     {
-        public static int bookrowItem = 0;
+        public int bookrowItem = 0;
         public static bool status = false;
+        List<BookDTO> list;
+        BookDAO bookDAO = BookDAO.getInstance();
+
         public void selectList()
         {
-            table.Rows.Clear();
-            list = bookDAO.selectList(categoryList.Text, searchBook.Text);
-            foreach (BookDTO book in list)
+            if (BookDAO.dbStatus == 1)
             {
-                table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock);
+                table.Rows.Clear();
+                list = bookDAO.selectList(categoryList.Text, searchBook.Text);
+                foreach (BookDTO book in list)
+                {
+                    table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock);
+                }
+                BookDAO.dbStatus = 0;
             }
         }
 
@@ -36,8 +44,6 @@ namespace bookPjt
                 categoryList.Items.Add(listItem);
         }
 
-        List<BookDTO> list;
-        BookDAO bookDAO = BookDAO.getInstance();
         public bookManagement()
         {
             InitializeComponent();
@@ -126,6 +132,16 @@ namespace bookPjt
 
         private void button10_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int.Parse(bookStock.Text);
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("수량을 다시 입력해주세요.");
+                bookStock.Focus();
+                return;
+            }
             if (bookName.Text == "")
             {
                 MessageBox.Show("도서 명을 입력해주세요.");
@@ -176,11 +192,11 @@ namespace bookPjt
                     clearText();
                     selectList();
                     tabControl1.SelectedIndex = 0;
+                    BookDAO.dbStatus = 1;
                 }
                 catch (Exception a)
                 {
-                    MessageBox.Show("수량을 다시 입력해주세요.");
-                    bookStock.Focus();
+                    MessageBox.Show("책 등록 도중 문제가 발생했습니다.");
                 }
             }
         }
@@ -234,7 +250,7 @@ namespace bookPjt
         private void bookUpdateAndDelete_Click(object sender, EventArgs e)
         {
             bookrowItem = int.Parse(table.Rows[table.CurrentRow.Index].Cells[0].Value.ToString());
-            Form2 form = new Form2();
+            Form2 form = new Form2(this, bookrowItem);
             form.Show();
         }
 
@@ -262,5 +278,14 @@ namespace bookPjt
             selectList();
         }
 
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Hide();
+            BookDAO.dbStatus = 1;
+            MessageBox.Show("로그아웃 완료");
+            loginForm login = new loginForm();
+            login.Show();
+        }
     }
 }
