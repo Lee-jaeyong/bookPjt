@@ -87,6 +87,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
@@ -115,6 +116,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.subBookImg);
             this.tabPage1.Controls.Add(this.comboBox2);
             this.tabPage1.Controls.Add(this.comboBox1);
@@ -673,6 +675,15 @@
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(228, 299);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // bookManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -762,6 +773,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button button1;
     }
 }
 
