@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace BookManagement
 {
@@ -25,7 +21,7 @@ namespace BookManagement
 
         }
 
-        public bool userLogin(string id,string pw)
+        public bool userLogin(string id, string pw)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);
 
@@ -47,20 +43,20 @@ namespace BookManagement
                 {
                     return false;//로그인실패
                 }
-                
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.Write("오류");
             }
             return false;
-            
+
         }
 
-        public bool joinDB(string name,string ph1,string ph2,string ph3,string id,string pw)
+        public bool joinDB(string name, string ph1, string ph2, string ph3, string id, string pw)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);
-            string sql = "insert customer values(NULL,'"+name+"','"+ph1+"','"+ph2+"','"+ph3+"','"+id+"','"+pw+"')";
+            string sql = "insert customer values(NULL,'" + name + "','" + ph1 + "','" + ph2 + "','" + ph3 + "','" + id + "','" + pw + "')";
 
             try
             {
@@ -78,7 +74,8 @@ namespace BookManagement
                     connection.Close();
                     return true;
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.Write("오류");
             }
@@ -87,9 +84,10 @@ namespace BookManagement
 
         public bool dupCheck(string id)
         {
-                MySqlConnection connection = new MySqlConnection(dbInfo);
-                string sql = "select count(*) from customer where c_identy = '"+id+"'";
-                try { 
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            string sql = "select count(*) from customer where c_identy = '" + id + "'";
+            try
+            {
                 connection.Open();
                 MySqlCommand command = new MySqlCommand(sql, connection);
                 MySqlDataReader dupResult = command.ExecuteReader();
@@ -97,7 +95,7 @@ namespace BookManagement
                 int dupCount = int.Parse(dupResult["count(*)"].ToString());
                 connection.Close();
 
-                if(dupCount > 0)
+                if (dupCount > 0)
                 {
                     return true;
                 }
@@ -105,7 +103,8 @@ namespace BookManagement
                 {
                     return false;
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.Write("오류");
             }
@@ -114,7 +113,7 @@ namespace BookManagement
 
         }
 
-        public string findId(string name,string ph0,string ph1,string ph2)
+        public string findId(string name, string ph0, string ph1, string ph2)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);
             string sql = "select c_identy from customer where c_name='" + name + "' and c_phone1='" + ph0 + "' and c_phone2='" + ph1 + "'and c_phone3='" + ph2 + "'";
@@ -128,10 +127,10 @@ namespace BookManagement
                 string result = findId["c_identy"].ToString();
                 connection.Close();
 
-                return "ID  :  "+result;
+                return "ID  :  " + result;
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.Write("오류");
             }

@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace BookManagement
 {
@@ -51,7 +44,7 @@ namespace BookManagement
                 MessageBox.Show("아이디는 영문,숫자 8자 이상입니다");
                 idTxt.Focus();
             }
-            else if(inputPw != pwCheck)
+            else if (inputPw != pwCheck)
             {
                 MessageBox.Show("비밀번호가 일치하지 않습니다");
                 pw2Txt.Text = "";

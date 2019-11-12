@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using bookPjt;
+using System;
 using System.Windows.Forms;
-using bookPjt;
 
 namespace BookManagement
 {
@@ -31,17 +24,17 @@ namespace BookManagement
 
             bool re = dao.userLogin(inputId, inputPw);
 
-                if (re)
-                {
-                    this.Visible = false;
-                    bookManagement frm = new bookManagement();
-                    frm.Owner = this;
-                    frm.Show();
-                }
-                else
-                {
-                    MessageBox.Show("아이디 또는 비밀번호 오류 입니다.");
-                }
+            if (re)
+            {
+                this.Visible = false;
+                bookManagement frm = new bookManagement();
+                frm.Owner = this;
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("아이디 또는 비밀번호 오류 입니다.");
+            }
         }
 
 

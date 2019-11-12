@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace bookPjt
+﻿namespace bookPjt
 {
     class BookDTO
     {
@@ -17,7 +11,7 @@ namespace bookPjt
         private string b_category;
         private string b_publisher;
 
-        public BookDTO(string bookname, string author, string publisher, string category, string content, string img,int stock)
+        public BookDTO(string bookname, string author, string publisher, string category, string content, string img, int stock)
         {
             this.b_name = bookname;
             this.b_author = author;
@@ -27,7 +21,7 @@ namespace bookPjt
             this.b_img = img;
             this.b_stock = stock;
         }
-        public BookDTO(int b_idx, string b_name, int b_stock, string b_author, string b_publisher, string b_category,string content,string b_img)
+        public BookDTO(int b_idx, string b_name, int b_stock, string b_author, string b_publisher, string b_category, string content, string b_img)
         {
             this.b_name = b_name;
             this.b_stock = b_stock;
