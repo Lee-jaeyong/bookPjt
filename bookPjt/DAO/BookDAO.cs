@@ -75,7 +75,7 @@ namespace bookPjt
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
             BookDTO bookDTO = null;
 
-            string sql = "select b_idx ,b_name,b_stock,b_author, p_n_name , c_n_name , b_summary , b_img";
+            string sql = "select b_idx ,b_name,b_stock,b_author, p_n_name , c_n_name , b_summary , b_img, b_guest, b_date, searchBook(b_idx)";
             sql += " from book, category, categoryName, publisher, publisherName";
             sql += " where book.b_idx = category.ct_b_id and book.b_idx = publisher.p_b_id";
             sql += " and category.ct_idx = categoryName.c_n_idx and publisher.p_idx = publisherName.p_n_idx and b_idx = " + bookid;
@@ -87,6 +87,14 @@ namespace bookPjt
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 while (rdr.Read())
                 {
+                    string guest = Convert.ToString(rdr[8]) + "세 이용";
+                    if (Convert.ToString(rdr[8]) == "0")
+                    {
+                        guest = "전체 이용";
+                    }
+                    string status = "대출 가능";
+                    if (Convert.ToInt32(rdr[10]) >= 3)
+                        status = "대출 불가";
                     bookDTO = new BookDTO(
                         Convert.ToInt32(rdr[0]),
                         Convert.ToString(rdr[1]),
@@ -95,7 +103,10 @@ namespace bookPjt
                         Convert.ToString(rdr[4]),
                         Convert.ToString(rdr[5]),
                         Convert.ToString(rdr[6]),
-                        Convert.ToString(rdr[7])
+                        Convert.ToString(rdr[7]),
+                        guest,
+                        Convert.ToString(rdr[9]), 
+                        status
                         );
                 }
                 mySqlConnection.Close();
@@ -244,18 +255,20 @@ namespace bookPjt
             return list;
         }
 
-        public List<BookDTO> selectList(string category, string search)
+        public List<BookDTO> selectList(string category, string search, bool sort)
         {
             List<BookDTO> list = new List<BookDTO>();
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
 
-            string sql = "select b_idx ,b_name,b_stock,b_author, p_n_name , c_n_name, b_summary, b_img";
+            string sql = "select b_idx ,b_name,b_stock,b_author, p_n_name , c_n_name, b_summary, b_img, b_guest, b_date, searchBook(b_idx)";
             sql += " from book, category, categoryName, publisher, publisherName";
             sql += " where book.b_idx = category.ct_b_id and book.b_idx = publisher.p_b_id";
             sql += " and category.ct_idx = categoryName.c_n_idx and publisher.p_idx = publisherName.p_n_idx";
             sql += " and b_name like '%" + search + "%'";
             if (category != "도서 분류" && category != "")
                 sql += " and c_n_name = '" + category + "'";
+            if (sort)
+                sql += "order by b_idx desc";
             try
             {
                 mySqlConnection.Open();
@@ -263,6 +276,16 @@ namespace bookPjt
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 while (rdr.Read())
                 {
+                    string guest = Convert.ToString(rdr[8]) + "세 이용";
+                    if (Convert.ToString(rdr[8]) == "0")
+                    {
+                        guest = "전체 이용";
+                    }
+                    string status = "대출 가능";
+                    if (Convert.ToInt32(rdr[10]) >= 3)
+                    {
+                        status = "대출 불가";
+                    }
                     BookDTO bookDTO = new BookDTO(
                         Convert.ToInt32(rdr[0]),
                         Convert.ToString(rdr[1]),
@@ -271,7 +294,10 @@ namespace bookPjt
                         Convert.ToString(rdr[4]),
                         Convert.ToString(rdr[5]),
                         Convert.ToString(rdr[6]),
-                        Convert.ToString(rdr[7]));
+                        Convert.ToString(rdr[7]),
+                        guest,
+                        Convert.ToString(rdr[9]),
+                        status);
                     list.Add(bookDTO);
                 }
                 mySqlConnection.Close();

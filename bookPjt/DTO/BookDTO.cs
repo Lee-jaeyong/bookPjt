@@ -10,6 +10,9 @@
         private string b_img;
         private string b_category;
         private string b_publisher;
+        private string b_guest;
+        private string b_date;
+        private string b_status;
 
         public BookDTO(string bookname, string author, string publisher, string category, string content, string img, int stock)
         {
@@ -21,7 +24,7 @@
             this.b_img = img;
             this.b_stock = stock;
         }
-        public BookDTO(int b_idx, string b_name, int b_stock, string b_author, string b_publisher, string b_category, string content, string b_img)
+        public BookDTO(int b_idx, string b_name, int b_stock, string b_author, string b_publisher, string b_category, string content, string b_img,string b_guest,string b_date,string b_status)
         {
             this.b_name = b_name;
             this.b_stock = b_stock;
@@ -31,6 +34,43 @@
             this.b_category = b_category;
             this.b_summary = content;
             this.b_img = b_img;
+            this.b_date = b_date;
+            this.b_guest = b_guest;
+            this.b_status = b_status;
+        }
+        public string B_status
+        {
+            get
+            {
+                return this.b_status;
+            }
+            set
+            {
+                b_status = value;
+            }
+        }
+        public string B_guest
+        {
+            get
+            {
+                return this.b_guest;
+            }
+            set
+            {
+                b_guest = value;
+            }
+        }
+
+        public string B_date
+        {
+            get
+            {
+                return this.b_date;
+            }
+            set
+            {
+                b_date = value;
+            }
         }
 
         public string B_puBlisher

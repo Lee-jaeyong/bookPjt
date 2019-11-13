@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using bookPjt;
 
 namespace BookManagement
 {
@@ -13,7 +14,7 @@ namespace BookManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loginForm());
+            Application.Run(new bookManagement());
         }
     }
 }

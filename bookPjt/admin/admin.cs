@@ -20,10 +20,10 @@ namespace bookPjt
             if (BookDAO.dbStatus == 1)
             {
                 table.Rows.Clear();
-                list = bookDAO.selectList(categoryList.Text, searchBook.Text);
+                list = bookDAO.selectList(categoryList.Text, searchBook.Text,false);
                 foreach (BookDTO book in list)
                 {
-                    table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock);
+                    table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock, book.B_guest);
                 }
                 BookDAO.dbStatus = 0;
             }
@@ -246,19 +246,34 @@ namespace bookPjt
 
         private void bookUpdateAndDelete_Click(object sender, EventArgs e)
         {
-            bookrowItem = int.Parse(table.Rows[table.CurrentRow.Index].Cells[0].Value.ToString());
-            Form2 form = new Form2(this, bookrowItem);
-            form.Show();
+            try
+            {
+                bookrowItem = int.Parse(table.Rows[table.CurrentRow.Index].Cells[0].Value.ToString());
+                Form2 form = new Form2(this, bookrowItem);
+                form.Show();
+            }
+            catch (Exception a)
+            {
+                bookUpdateAndDelete.Enabled = false;
+            }
         }
 
         private void table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
+                bookUpdateAndDelete.Enabled = true;
                 BookDTO bookDTO = bookDAO.selectBook(int.Parse(table.Rows[table.CurrentRow.Index].Cells[0].Value.ToString()));
                 Bitmap sourceImage = new Bitmap((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + bookDTO.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
                 sourceImage = UtilClass.imgResize(sourceImage, 337, 164);
                 subBookImg.Image = sourceImage;
+
+                txtTitle.Text = bookDTO.B_name;
+                txtAuthor.Text = bookDTO.B_author;
+                txtPublisher.Text = bookDTO.B_puBlisher;
+                txtDate.Text = bookDTO.B_date;
+                txtCategory.Text = bookDTO.B_category;
+                txtStatus.Text = bookDTO.B_status;
             }
             catch (Exception a)
             {
@@ -268,11 +283,13 @@ namespace bookPjt
 
         private void categoryList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            BookDAO.dbStatus = 1;
             selectList();
         }
 
         private void searchBook_KeyUp(object sender, KeyEventArgs e)
         {
+            BookDAO.dbStatus = 1;
             categoryList.SelectedIndex = 0;
             selectList();
         }
@@ -292,5 +309,22 @@ namespace bookPjt
             TabControll.SelectedIndex = 4;
         }
 
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            table.Rows.Clear();
+            foreach (BookDTO book in list)
+            {
+                if (book.B_status == "대출 가능")
+                {
+                    table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock, book.B_guest);
+                }
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            BookDAO.dbStatus = 1;
+            selectList();
+        }
     }
 }
