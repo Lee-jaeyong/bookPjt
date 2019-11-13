@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bookManagement));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControll = new System.Windows.Forms.TabControl();
             this.TagBookList = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -103,26 +103,26 @@
             this.categoryAddBtn = new System.Windows.Forms.Button();
             this.TagRental = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtCustomerExtend = new System.Windows.Forms.TextBox();
+            this.txtBookManage = new System.Windows.Forms.TextBox();
+            this.txtCustomerPhone = new System.Windows.Forms.TextBox();
+            this.txtCustomerBirth = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtBookCategory = new System.Windows.Forms.TextBox();
+            this.txtBookAuthor = new System.Windows.Forms.TextBox();
+            this.txtBookPublisher = new System.Windows.Forms.TextBox();
+            this.txtBookName = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.subImg = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -130,14 +130,6 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.rentalTable = new System.Windows.Forms.DataGridView();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TagUser = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -152,6 +144,15 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exclamation = new System.Windows.Forms.Label();
             this.TabControll.SuspendLayout();
             this.TagBookList.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -452,9 +453,9 @@
             // 
             // bookIdx
             // 
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle5;
             this.bookIdx.HeaderText = "도서 번호";
             this.bookIdx.MinimumWidth = 6;
             this.bookIdx.Name = "bookIdx";
@@ -471,8 +472,8 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.LightGray;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column5.HeaderText = "저자";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -489,8 +490,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.LightGray;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightGray;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column4.HeaderText = "분류";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -507,8 +508,8 @@
             // 
             // Column14
             // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.LightGray;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightGray;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column14.HeaderText = "연령 제한";
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
@@ -947,12 +948,12 @@
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.textBox16);
-            this.panel9.Controls.Add(this.textBox15);
-            this.panel9.Controls.Add(this.textBox14);
-            this.panel9.Controls.Add(this.textBox13);
+            this.panel9.Controls.Add(this.txtCustomerExtend);
+            this.panel9.Controls.Add(this.txtBookManage);
+            this.panel9.Controls.Add(this.txtCustomerPhone);
+            this.panel9.Controls.Add(this.txtCustomerBirth);
             this.panel9.Controls.Add(this.label28);
-            this.panel9.Controls.Add(this.textBox12);
+            this.panel9.Controls.Add(this.txtCustomerName);
             this.panel9.Controls.Add(this.label27);
             this.panel9.Controls.Add(this.label26);
             this.panel9.Controls.Add(this.label25);
@@ -963,41 +964,41 @@
             this.panel9.Size = new System.Drawing.Size(378, 234);
             this.panel9.TabIndex = 2;
             // 
-            // textBox16
+            // txtCustomerExtend
             // 
-            this.textBox16.Enabled = false;
-            this.textBox16.Location = new System.Drawing.Point(126, 173);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(224, 29);
-            this.textBox16.TabIndex = 10;
+            this.txtCustomerExtend.Enabled = false;
+            this.txtCustomerExtend.Location = new System.Drawing.Point(126, 173);
+            this.txtCustomerExtend.Multiline = true;
+            this.txtCustomerExtend.Name = "txtCustomerExtend";
+            this.txtCustomerExtend.Size = new System.Drawing.Size(224, 29);
+            this.txtCustomerExtend.TabIndex = 10;
             // 
-            // textBox15
+            // txtBookManage
             // 
-            this.textBox15.Enabled = false;
-            this.textBox15.Location = new System.Drawing.Point(126, 137);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(224, 29);
-            this.textBox15.TabIndex = 10;
+            this.txtBookManage.Enabled = false;
+            this.txtBookManage.Location = new System.Drawing.Point(126, 137);
+            this.txtBookManage.Multiline = true;
+            this.txtBookManage.Name = "txtBookManage";
+            this.txtBookManage.Size = new System.Drawing.Size(224, 29);
+            this.txtBookManage.TabIndex = 10;
             // 
-            // textBox14
+            // txtCustomerPhone
             // 
-            this.textBox14.Enabled = false;
-            this.textBox14.Location = new System.Drawing.Point(126, 100);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(224, 29);
-            this.textBox14.TabIndex = 10;
+            this.txtCustomerPhone.Enabled = false;
+            this.txtCustomerPhone.Location = new System.Drawing.Point(126, 100);
+            this.txtCustomerPhone.Multiline = true;
+            this.txtCustomerPhone.Name = "txtCustomerPhone";
+            this.txtCustomerPhone.Size = new System.Drawing.Size(224, 29);
+            this.txtCustomerPhone.TabIndex = 10;
             // 
-            // textBox13
+            // txtCustomerBirth
             // 
-            this.textBox13.Enabled = false;
-            this.textBox13.Location = new System.Drawing.Point(126, 63);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(224, 29);
-            this.textBox13.TabIndex = 10;
+            this.txtCustomerBirth.Enabled = false;
+            this.txtCustomerBirth.Location = new System.Drawing.Point(126, 63);
+            this.txtCustomerBirth.Multiline = true;
+            this.txtCustomerBirth.Name = "txtCustomerBirth";
+            this.txtCustomerBirth.Size = new System.Drawing.Size(224, 29);
+            this.txtCustomerBirth.TabIndex = 10;
             // 
             // label28
             // 
@@ -1008,14 +1009,14 @@
             this.label28.TabIndex = 9;
             this.label28.Text = "해당 연장 수 :";
             // 
-            // textBox12
+            // txtCustomerName
             // 
-            this.textBox12.Enabled = false;
-            this.textBox12.Location = new System.Drawing.Point(126, 22);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(224, 29);
-            this.textBox12.TabIndex = 10;
+            this.txtCustomerName.Enabled = false;
+            this.txtCustomerName.Location = new System.Drawing.Point(126, 22);
+            this.txtCustomerName.Multiline = true;
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(224, 29);
+            this.txtCustomerName.TabIndex = 10;
             // 
             // label27
             // 
@@ -1056,56 +1057,57 @@
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.textBox11);
-            this.panel8.Controls.Add(this.textBox10);
-            this.panel8.Controls.Add(this.textBox9);
-            this.panel8.Controls.Add(this.textBox8);
+            this.panel8.Controls.Add(this.exclamation);
+            this.panel8.Controls.Add(this.txtBookCategory);
+            this.panel8.Controls.Add(this.txtBookAuthor);
+            this.panel8.Controls.Add(this.txtBookPublisher);
+            this.panel8.Controls.Add(this.txtBookName);
             this.panel8.Controls.Add(this.label23);
             this.panel8.Controls.Add(this.label22);
             this.panel8.Controls.Add(this.label21);
             this.panel8.Controls.Add(this.label20);
-            this.panel8.Controls.Add(this.label18);
+            this.panel8.Controls.Add(this.subImg);
             this.panel8.Location = new System.Drawing.Point(656, 5);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(378, 314);
             this.panel8.TabIndex = 1;
             // 
-            // textBox11
+            // txtBookCategory
             // 
-            this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(114, 276);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(224, 29);
-            this.textBox11.TabIndex = 10;
+            this.txtBookCategory.Enabled = false;
+            this.txtBookCategory.Location = new System.Drawing.Point(114, 276);
+            this.txtBookCategory.Multiline = true;
+            this.txtBookCategory.Name = "txtBookCategory";
+            this.txtBookCategory.Size = new System.Drawing.Size(224, 29);
+            this.txtBookCategory.TabIndex = 10;
             // 
-            // textBox10
+            // txtBookAuthor
             // 
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(114, 238);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(224, 29);
-            this.textBox10.TabIndex = 10;
+            this.txtBookAuthor.Enabled = false;
+            this.txtBookAuthor.Location = new System.Drawing.Point(114, 238);
+            this.txtBookAuthor.Multiline = true;
+            this.txtBookAuthor.Name = "txtBookAuthor";
+            this.txtBookAuthor.Size = new System.Drawing.Size(224, 29);
+            this.txtBookAuthor.TabIndex = 10;
             // 
-            // textBox9
+            // txtBookPublisher
             // 
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(114, 198);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(224, 29);
-            this.textBox9.TabIndex = 10;
+            this.txtBookPublisher.Enabled = false;
+            this.txtBookPublisher.Location = new System.Drawing.Point(114, 198);
+            this.txtBookPublisher.Multiline = true;
+            this.txtBookPublisher.Name = "txtBookPublisher";
+            this.txtBookPublisher.Size = new System.Drawing.Size(224, 29);
+            this.txtBookPublisher.TabIndex = 10;
             // 
-            // textBox8
+            // txtBookName
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(114, 159);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(224, 29);
-            this.textBox8.TabIndex = 10;
+            this.txtBookName.Enabled = false;
+            this.txtBookName.Location = new System.Drawing.Point(114, 159);
+            this.txtBookName.Multiline = true;
+            this.txtBookName.Name = "txtBookName";
+            this.txtBookName.Size = new System.Drawing.Size(224, 29);
+            this.txtBookName.TabIndex = 10;
             // 
             // label23
             // 
@@ -1143,14 +1145,14 @@
             this.label20.TabIndex = 9;
             this.label20.Text = "도서 명 :";
             // 
-            // label18
+            // subImg
             // 
-            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label18.Image = ((System.Drawing.Image)(resources.GetObject("label18.Image")));
-            this.label18.Location = new System.Drawing.Point(3, 4);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(369, 147);
-            this.label18.TabIndex = 0;
+            this.subImg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.subImg.Image = ((System.Drawing.Image)(resources.GetObject("subImg.Image")));
+            this.subImg.Location = new System.Drawing.Point(3, 4);
+            this.subImg.Name = "subImg";
+            this.subImg.Size = new System.Drawing.Size(369, 147);
+            this.subImg.TabIndex = 0;
             // 
             // panel7
             // 
@@ -1219,77 +1221,24 @@
             // 
             this.rentalTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rentalTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column10,
+            this.Column11,
             this.Column12,
             this.Column13,
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11});
+            this.Column9});
             this.rentalTable.Location = new System.Drawing.Point(3, 81);
             this.rentalTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rentalTable.Name = "rentalTable";
+            this.rentalTable.ReadOnly = true;
             this.rentalTable.RowHeadersWidth = 51;
             this.rentalTable.RowTemplate.Height = 23;
+            this.rentalTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.rentalTable.Size = new System.Drawing.Size(638, 470);
             this.rentalTable.TabIndex = 3;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "도서명";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.Width = 125;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "대여자";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "대여 일자";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "반납 일자";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 125;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "연장 횟수";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 125;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "연 체";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 125;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "분 류";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 125;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "출판사";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.Width = 125;
+            this.rentalTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rentalTable_CellClick);
             // 
             // TagUser
             // 
@@ -1503,6 +1452,81 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "idx";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            this.Column10.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "c_idx";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            this.Column11.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "도서명";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 140;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "대여자";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "대여 일자";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "반납 일자";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "연장 횟수";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "연 체";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
+            // 
+            // exclamation
+            // 
+            this.exclamation.Image = ((System.Drawing.Image)(resources.GetObject("exclamation.Image")));
+            this.exclamation.Location = new System.Drawing.Point(13, 65);
+            this.exclamation.Name = "exclamation";
+            this.exclamation.Size = new System.Drawing.Size(82, 76);
+            this.exclamation.TabIndex = 11;
+            this.exclamation.Visible = false;
+            // 
             // bookManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1625,35 +1649,27 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox AddPublisherName;
         private System.Windows.Forms.TextBox AddcategoryName;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label subImg;
         private System.Windows.Forms.DataGridView rentalTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtCustomerExtend;
+        private System.Windows.Forms.TextBox txtBookManage;
+        private System.Windows.Forms.TextBox txtCustomerPhone;
+        private System.Windows.Forms.TextBox txtCustomerBirth;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtBookCategory;
+        private System.Windows.Forms.TextBox txtBookAuthor;
+        private System.Windows.Forms.TextBox txtBookPublisher;
+        private System.Windows.Forms.TextBox txtBookName;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
@@ -1674,6 +1690,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Label exclamation;
     }
 }
 

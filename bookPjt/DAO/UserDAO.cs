@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using bookPjt.DTO;
 
 namespace BookManagement
 {
@@ -161,6 +162,35 @@ namespace BookManagement
             }
 
             return "일치하는 정보가 없습니다.";
+        }
+
+        public UserDTO selectUser(int c_idx)
+        {
+            UserDTO userDTO;
+
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            string sql = "select c_identy, c_birth,c_phone1,c_phone2,c_phone3,totalCustomerManageCount(c_idx) from customer where c_idx = " + c_idx;
+
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader rdr = command.ExecuteReader();
+                rdr.Read();
+                userDTO = new UserDTO(
+                    rdr[0].ToString(),
+                    rdr[1].ToString(),
+                    rdr[2].ToString() + "-" + rdr[3].ToString() + "-" + rdr[4].ToString(),
+                    Convert.ToInt32(rdr[5])
+                    );
+                connection.Close();
+                return userDTO;
+            }
+            catch (Exception e)
+            {
+                Console.Write("오류");
+            }
+            return null;
         }
 
     }

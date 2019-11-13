@@ -6,15 +6,36 @@ using System.IO;
 using System.Windows.Forms;
 using bookPjt.util;
 using bookPjt.admin;
+using bookPjt.DAO;
+using bookPjt.DTO;
 
 namespace bookPjt
 {
     public partial class bookManagement : Form
     {
         public int bookrowItem = 0;
-        public static bool status = false;
+        List<BookManageDTO> manageList;
         List<BookDTO> list;
         BookDAO bookDAO = BookDAO.getInstance();
+        BookManageDAO bookManageDAO = BookManageDAO.getInstance();
+        UserDAO userDAO = UserDAO.getInstance();
+
+        public void selectManageList()
+        {
+            if (BookManageDAO.status == 1)
+            {
+                rentalTable.Rows.Clear();
+                manageList = bookManageDAO.getManageList();
+                foreach (BookManageDTO bookManage in manageList)
+                {
+                    string delinquent = "미 연체";
+                    if (Convert.ToDateTime(bookManage.Bm_returnDate) < DateTime.Now)
+                        delinquent = "연체";
+                    rentalTable.Rows.Add(bookManage.Bm_b_idx, bookManage.C_idx, bookManage.B_name, bookManage.C_name, bookManage.Bm_takeDate, bookManage.Bm_returnDate, bookManage.Bm_extend, delinquent);
+                }
+                BookManageDAO.status = 0;
+            }
+        }
 
         public void selectList()
         {
@@ -85,6 +106,7 @@ namespace bookPjt
         private void button3_Click(object sender, EventArgs e)
         {
             TabControll.SelectedIndex = 3;
+            selectManageList();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -364,13 +386,51 @@ namespace bookPjt
         private void btnCategoryUpdate_Click(object sender, EventArgs e)
         {
             string updateCategoryStr = categoryTable.Rows[categoryTable.CurrentRow.Index].Cells[0].Value.ToString();
-            updateCategoryForm updateCategory = new updateCategoryForm(this,updateCategoryStr);
+            updateCategoryForm updateCategory = new updateCategoryForm(this, updateCategoryStr);
             updateCategory.Show();
         }
 
         private void btnCategoryDelete_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void selectRentalBook(int b_idx)
+        {
+            BookDTO bookDTO = bookDAO.selectBook(b_idx);
+            txtBookName.Text = bookDTO.B_name;
+            txtBookAuthor.Text = bookDTO.B_author;
+            txtBookPublisher.Text = bookDTO.B_puBlisher;
+            txtBookCategory.Text = bookDTO.B_category;
+            Bitmap sourceImage = new Bitmap((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + bookDTO.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
+            sourceImage = UtilClass.imgResize(sourceImage, 369, 147);
+            subImg.Image = sourceImage;
+        }
+        private void selectRentalCustomer(int c_idx)
+        {
+            UserDTO userDTO = userDAO.selectUser(c_idx);
+            txtCustomerName.Text = userDTO.C_identy;
+            txtCustomerPhone.Text = userDTO.C_phone;
+            txtCustomerBirth.Text = userDTO.C_birth;
+            txtBookManage.Text = userDTO.TotalManageCount.ToString();
+            txtCustomerExtend.Text = rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[6].Value.ToString();
+        }
+
+        private void rentalTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectRentalBook(int.Parse(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[0].Value.ToString()));
+                selectRentalCustomer(int.Parse(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[1].Value.ToString()));
+                if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[7].Value.ToString() == "연체")
+                    exclamation.Visible = true;
+                else
+                    exclamation.Visible = false;
+            }
+            catch (Exception a)
+            {
+
+            }
         }
     }
 }

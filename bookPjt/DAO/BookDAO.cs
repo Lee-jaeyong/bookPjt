@@ -75,7 +75,6 @@ namespace bookPjt
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
             BookDTO bookDTO = null;
-
             string sql = "select b_idx ,b_name,b_stock,b_author, p_n_name , c_n_name , b_summary , b_img, b_guest, b_date, searchBook(b_idx)";
             sql += " from book, category, categoryName, publisher, publisherName";
             sql += " where book.b_idx = category.ct_b_id and book.b_idx = publisher.p_b_id";

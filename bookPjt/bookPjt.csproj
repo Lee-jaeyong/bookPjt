@@ -71,6 +71,7 @@
       <DependentUpon>UpdateCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="DAO\BookManageDAO.cs" />
     <Compile Include="DTO\BookDTO.cs" />
     <Compile Include="admin\admin.cs">
       <SubType>Form</SubType>
@@ -84,6 +85,7 @@
     <Compile Include="admin\UpdateOrDelete.Designer.cs">
       <DependentUpon>UpdateOrDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="DTO\BookManageDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="user\IdPw_SearchForm.cs">
       <SubType>Form</SubType>
