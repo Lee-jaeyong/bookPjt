@@ -48,7 +48,7 @@ namespace bookPjt
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 1;
+            TabControll.SelectedIndex = 1;
             publisher.Items.Clear();
             category.Items.Clear();
             List<string> list = bookDAO.getCategoryList();
@@ -65,7 +65,7 @@ namespace bookPjt
 
         private void button4_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 2;
+            TabControll.SelectedIndex = 2;
             categoryTable.Rows.Clear();
             publisherTable.Rows.Clear();
             List<string> list = bookDAO.getCategoryList();
@@ -79,17 +79,17 @@ namespace bookPjt
 
         private void button3_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 3;
+            TabControll.SelectedIndex = 3;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 4;
+            TabControll.SelectedIndex = 4;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 0;
+            TabControll.SelectedIndex = 0;
             selectList();
             selectCategoryList();
         }
@@ -188,7 +188,7 @@ namespace bookPjt
                     MessageBox.Show("도서 등록 완료");
                     clearText();
                     selectList();
-                    tabControl1.SelectedIndex = 0;
+                    TabControll.SelectedIndex = 0;
                     BookDAO.dbStatus = 1;
                 }
                 catch (Exception a)
@@ -287,9 +287,10 @@ namespace bookPjt
             login.Show();
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-
+            TabControll.SelectedIndex = 4;
         }
+
     }
 }
