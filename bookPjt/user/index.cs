@@ -22,9 +22,5 @@ namespace BookManagement
             Hide();
         }
 
-        private void index_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
