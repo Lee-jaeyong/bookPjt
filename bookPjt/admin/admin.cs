@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using bookPjt.util;
 
 namespace bookPjt
 {
@@ -102,7 +103,9 @@ namespace bookPjt
                 foreach (string filename in openFileDlg.FileNames)
                 {
                     bookImg.Text = filename;
-                    bookImage.Image = Image.FromFile(bookImg.Text);
+                    Bitmap img = new Bitmap(bookImg.Text);
+                    img = UtilClass.imgResize(img, 420, 245);
+                    bookImage.Image = img;
                 }
             }
         }
@@ -253,7 +256,9 @@ namespace bookPjt
             try
             {
                 BookDTO bookDTO = bookDAO.selectBook(int.Parse(table.Rows[table.CurrentRow.Index].Cells[0].Value.ToString()));
-                subBookImg.Image = Image.FromFile((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + bookDTO.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
+                Bitmap sourceImage = new Bitmap((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + bookDTO.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
+                sourceImage = UtilClass.imgResize(sourceImage, 337, 164);
+                subBookImg.Image = sourceImage;
             }
             catch (Exception a)
             {
@@ -282,6 +287,9 @@ namespace bookPjt
             login.Show();
         }
 
+        private void label10_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
