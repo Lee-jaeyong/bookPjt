@@ -294,6 +294,9 @@ namespace bookPjt
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 while (rdr.Read())
                 {
+                    string guest = Convert.ToString(rdr[8]) + "세 이용";
+                    if (Convert.ToString(rdr[8]) == "0")
+                        guest = "전체 이용";
                     string status = "대출 가능";
                     if (Convert.ToInt32(rdr[10]) >= 3)
                     {
@@ -308,7 +311,7 @@ namespace bookPjt
                         Convert.ToString(rdr[5]),
                         Convert.ToString(rdr[6]),
                         Convert.ToString(rdr[7]),
-                        Convert.ToString(rdr[8]),
+                        guest,
                         Convert.ToString(rdr[9]),
                         status);
                     list.Add(bookDTO);
