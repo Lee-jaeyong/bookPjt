@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using bookPjt.util;
 
 namespace bookPjt
 {
@@ -47,7 +48,7 @@ namespace bookPjt
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 1;
+            TabControll.SelectedIndex = 1;
             publisher.Items.Clear();
             category.Items.Clear();
             List<string> list = bookDAO.getCategoryList();
@@ -64,7 +65,7 @@ namespace bookPjt
 
         private void button4_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 2;
+            TabControll.SelectedIndex = 2;
             categoryTable.Rows.Clear();
             publisherTable.Rows.Clear();
             List<string> list = bookDAO.getCategoryList();
@@ -78,17 +79,17 @@ namespace bookPjt
 
         private void button3_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 3;
+            TabControll.SelectedIndex = 3;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 4;
+            TabControll.SelectedIndex = 4;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 0;
+            TabControll.SelectedIndex = 0;
             selectList();
             selectCategoryList();
         }
@@ -102,7 +103,9 @@ namespace bookPjt
                 foreach (string filename in openFileDlg.FileNames)
                 {
                     bookImg.Text = filename;
-                    bookImage.Image = Image.FromFile(bookImg.Text);
+                    Bitmap img = new Bitmap(bookImg.Text);
+                    img = UtilClass.imgResize(img, 420, 245);
+                    bookImage.Image = img;
                 }
             }
         }
@@ -185,7 +188,7 @@ namespace bookPjt
                     MessageBox.Show("도서 등록 완료");
                     clearText();
                     selectList();
-                    tabControl1.SelectedIndex = 0;
+                    TabControll.SelectedIndex = 0;
                     BookDAO.dbStatus = 1;
                 }
                 catch (Exception a)
@@ -253,7 +256,9 @@ namespace bookPjt
             try
             {
                 BookDTO bookDTO = bookDAO.selectBook(int.Parse(table.Rows[table.CurrentRow.Index].Cells[0].Value.ToString()));
-                subBookImg.Image = Image.FromFile((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + bookDTO.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
+                Bitmap sourceImage = new Bitmap((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + bookDTO.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
+                sourceImage = UtilClass.imgResize(sourceImage, 337, 164);
+                subBookImg.Image = sourceImage;
             }
             catch (Exception a)
             {
@@ -281,5 +286,11 @@ namespace bookPjt
             loginForm login = new loginForm();
             login.Show();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            TabControll.SelectedIndex = 4;
+        }
+
     }
 }
