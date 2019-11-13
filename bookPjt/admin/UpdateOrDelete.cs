@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using bookPjt.util;
 
 namespace bookPjt
 {
@@ -21,9 +22,12 @@ namespace bookPjt
         private void Form2_Load(object sender, EventArgs e)
         {
             bookName.Text = book.B_name;
-            bookImage.Image = Image.FromFile(Environment.CurrentDirectory.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt\\bin\\Debug", "") + book.B_img);
+
+            Bitmap img = new Bitmap(Environment.CurrentDirectory.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt\\bin\\Debug", "") + book.B_img);
+            img = UtilClass.imgResize(img, 480, 348);
+            bookImage.Image = img;
             //bookImage.Image = Image.FromFile((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + book.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
-            bookStock.Text = book.B_stock.ToString();
+            txtSummery.Text = book.B_summary;
             bookName.Focus();
         }
 
@@ -40,12 +44,17 @@ namespace bookPjt
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (bookDAO.updateBook(bookrowItem, int.Parse(bookStock.Text)))
-                MessageBox.Show("재고 수정 완료");
+            if (bookDAO.updateBook(bookrowItem, bookName.Text, txtSummery.Text))
+                MessageBox.Show("상품 수정 완료");
             else
-                MessageBox.Show("재고 수정 실패");
+                MessageBox.Show("상품 수정 실패");
             BookDAO.dbStatus = 1;
             bookManage.selectList();
+            Hide();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
             Hide();
         }
     }

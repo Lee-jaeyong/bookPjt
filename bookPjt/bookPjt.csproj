@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\UpdateCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\UpdateCategory.Designer.cs">
+      <DependentUpon>UpdateCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DTO\BookDTO.cs" />
     <Compile Include="admin\admin.cs">
@@ -109,6 +115,9 @@
     <Compile Include="util\UtilClass.cs" />
     <EmbeddedResource Include="admin\admin.resx">
       <DependentUpon>admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\UpdateCategory.resx">
+      <DependentUpon>UpdateCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="admin\UpdateOrDelete.resx">
       <DependentUpon>UpdateOrDelete.cs</DependentUpon>

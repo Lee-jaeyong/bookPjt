@@ -35,7 +35,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControll = new System.Windows.Forms.TabControl();
             this.TagBookList = new System.Windows.Forms.TabPage();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtDate = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.subBookImg = new System.Windows.Forms.Label();
             this.categoryList = new System.Windows.Forms.ComboBox();
             this.bookUpdateAndDelete = new System.Windows.Forms.Button();
@@ -70,7 +70,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.bookName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.bookGuest = new System.Windows.Forms.ComboBox();
             this.category = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.publisher = new System.Windows.Forms.ComboBox();
@@ -92,15 +92,13 @@
             this.AddPublisherName = new System.Windows.Forms.TextBox();
             this.publisherTable = new System.Windows.Forms.DataGridView();
             this.publisherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button11 = new System.Windows.Forms.Button();
             this.publisherAddBtn = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.AddcategoryName = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnCategoryUpdate = new System.Windows.Forms.Button();
             this.categoryTable = new System.Windows.Forms.DataGridView();
             this.categoryname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button7 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.categoryAddBtn = new System.Windows.Forms.Button();
             this.TagRental = new System.Windows.Forms.TabPage();
@@ -194,9 +192,9 @@
             // 
             // TagBookList
             // 
-            this.TagBookList.Controls.Add(this.checkBox3);
+            this.TagBookList.Controls.Add(this.radioButton2);
+            this.TagBookList.Controls.Add(this.radioButton1);
             this.TagBookList.Controls.Add(this.panel3);
-            this.TagBookList.Controls.Add(this.checkBox1);
             this.TagBookList.Controls.Add(this.subBookImg);
             this.TagBookList.Controls.Add(this.categoryList);
             this.TagBookList.Controls.Add(this.bookUpdateAndDelete);
@@ -211,17 +209,29 @@
             this.TagBookList.TabIndex = 0;
             this.TagBookList.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // radioButton2
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(381, 25);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(94, 19);
-            this.checkBox3.TabIndex = 13;
-            this.checkBox3.Text = "대출 가능";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(498, 24);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(93, 19);
+            this.radioButton2.TabIndex = 15;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "대출 불가";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(381, 24);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(93, 19);
+            this.radioButton1.TabIndex = 14;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "대출 가능";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // panel3
             // 
@@ -357,18 +367,6 @@
             this.label11.Size = new System.Drawing.Size(62, 15);
             this.label11.TabIndex = 11;
             this.label11.Text = "도서명 :";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(505, 25);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(114, 19);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "최신 등록 순";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // subBookImg
             // 
@@ -558,7 +556,7 @@
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(222, 46);
-            this.button10.TabIndex = 4;
+            this.button10.TabIndex = 5;
             this.button10.Text = "확 인";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
@@ -568,7 +566,7 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.bookName);
             this.panel5.Controls.Add(this.label1);
-            this.panel5.Controls.Add(this.comboBox2);
+            this.panel5.Controls.Add(this.bookGuest);
             this.panel5.Controls.Add(this.category);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.publisher);
@@ -592,8 +590,9 @@
             this.bookName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bookName.Multiline = true;
             this.bookName.Name = "bookName";
+            this.bookName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bookName.Size = new System.Drawing.Size(297, 36);
-            this.bookName.TabIndex = 10;
+            this.bookName.TabIndex = 1;
             // 
             // label1
             // 
@@ -604,22 +603,22 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "책 이름 :";
             // 
-            // comboBox2
+            // bookGuest
             // 
-            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.bookGuest.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bookGuest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bookGuest.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.bookGuest.FormattingEnabled = true;
+            this.bookGuest.Items.AddRange(new object[] {
             "전체 이용",
             "12세 이용",
             "15세 이용",
             "성인"});
-            this.comboBox2.Location = new System.Drawing.Point(123, 326);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(297, 23);
-            this.comboBox2.TabIndex = 14;
+            this.bookGuest.Location = new System.Drawing.Point(123, 326);
+            this.bookGuest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bookGuest.Name = "bookGuest";
+            this.bookGuest.Size = new System.Drawing.Size(297, 23);
+            this.bookGuest.TabIndex = 14;
             // 
             // category
             // 
@@ -668,7 +667,7 @@
             this.bookContent.Multiline = true;
             this.bookContent.Name = "bookContent";
             this.bookContent.Size = new System.Drawing.Size(297, 92);
-            this.bookContent.TabIndex = 11;
+            this.bookContent.TabIndex = 4;
             // 
             // label7
             // 
@@ -695,7 +694,7 @@
             this.bookStock.Multiline = true;
             this.bookStock.Name = "bookStock";
             this.bookStock.Size = new System.Drawing.Size(297, 36);
-            this.bookStock.TabIndex = 11;
+            this.bookStock.TabIndex = 3;
             // 
             // label5
             // 
@@ -713,7 +712,7 @@
             this.bookAuthor.Multiline = true;
             this.bookAuthor.Name = "bookAuthor";
             this.bookAuthor.Size = new System.Drawing.Size(297, 36);
-            this.bookAuthor.TabIndex = 11;
+            this.bookAuthor.TabIndex = 2;
             // 
             // label6
             // 
@@ -790,7 +789,6 @@
             // 
             this.panel2.Controls.Add(this.AddPublisherName);
             this.panel2.Controls.Add(this.publisherTable);
-            this.panel2.Controls.Add(this.button11);
             this.panel2.Controls.Add(this.publisherAddBtn);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Location = new System.Drawing.Point(536, 0);
@@ -832,23 +830,12 @@
             this.publisherName.ReadOnly = true;
             this.publisherName.Width = 345;
             // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(384, 125);
-            this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(63, 48);
-            this.button11.TabIndex = 3;
-            this.button11.Text = "삭 제";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.publisherAddBtn_Click);
-            // 
             // publisherAddBtn
             // 
             this.publisherAddBtn.Location = new System.Drawing.Point(314, 125);
             this.publisherAddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.publisherAddBtn.Name = "publisherAddBtn";
-            this.publisherAddBtn.Size = new System.Drawing.Size(63, 48);
+            this.publisherAddBtn.Size = new System.Drawing.Size(129, 48);
             this.publisherAddBtn.TabIndex = 3;
             this.publisherAddBtn.Text = "추가";
             this.publisherAddBtn.UseVisualStyleBackColor = true;
@@ -869,9 +856,8 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.AddcategoryName);
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.btnCategoryUpdate);
             this.panel1.Controls.Add(this.categoryTable);
-            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.categoryAddBtn);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -882,22 +868,23 @@
             // 
             // AddcategoryName
             // 
-            this.AddcategoryName.Location = new System.Drawing.Point(30, 125);
+            this.AddcategoryName.Location = new System.Drawing.Point(66, 125);
             this.AddcategoryName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddcategoryName.Multiline = true;
             this.AddcategoryName.Name = "AddcategoryName";
             this.AddcategoryName.Size = new System.Drawing.Size(238, 46);
             this.AddcategoryName.TabIndex = 7;
             // 
-            // button6
+            // btnCategoryUpdate
             // 
-            this.button6.Location = new System.Drawing.Point(351, 125);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(65, 48);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "수 정";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnCategoryUpdate.Location = new System.Drawing.Point(385, 125);
+            this.btnCategoryUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCategoryUpdate.Name = "btnCategoryUpdate";
+            this.btnCategoryUpdate.Size = new System.Drawing.Size(65, 48);
+            this.btnCategoryUpdate.TabIndex = 6;
+            this.btnCategoryUpdate.Text = "수 정";
+            this.btnCategoryUpdate.UseVisualStyleBackColor = true;
+            this.btnCategoryUpdate.Click += new System.EventHandler(this.btnCategoryUpdate_Click);
             // 
             // categoryTable
             // 
@@ -922,17 +909,6 @@
             this.categoryname.ReadOnly = true;
             this.categoryname.Width = 345;
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(423, 125);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(65, 48);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "삭 제";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.categoryAddBtn_Click);
-            // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("굴림", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -947,7 +923,7 @@
             // 
             // categoryAddBtn
             // 
-            this.categoryAddBtn.Location = new System.Drawing.Point(275, 125);
+            this.categoryAddBtn.Location = new System.Drawing.Point(311, 125);
             this.categoryAddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryAddBtn.Name = "categoryAddBtn";
             this.categoryAddBtn.Size = new System.Drawing.Size(65, 48);
@@ -1606,7 +1582,6 @@
         private System.Windows.Forms.Button bookUpdateAndDelete;
         private System.Windows.Forms.Label subBookImg;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel3;
@@ -1641,12 +1616,10 @@
         private System.Windows.Forms.Label bookImage;
         private System.Windows.Forms.Button btnAddImg;
         private System.Windows.Forms.Label bookImg;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox bookGuest;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnCategoryUpdate;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
@@ -1699,7 +1672,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
 

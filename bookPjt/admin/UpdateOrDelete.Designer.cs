@@ -29,78 +29,56 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.bookStock = new System.Windows.Forms.TextBox();
             this.bookName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnBookDelete = new System.Windows.Forms.Button();
+            this.btnBookUpdate = new System.Windows.Forms.Button();
             this.bookImage = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtSummery = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bookStock
-            // 
-            this.bookStock.Location = new System.Drawing.Point(149, 83);
-            this.bookStock.Multiline = true;
-            this.bookStock.Name = "bookStock";
-            this.bookStock.Size = new System.Drawing.Size(296, 36);
-            this.bookStock.TabIndex = 28;
-            // 
             // bookName
             // 
-            this.bookName.Enabled = false;
-            this.bookName.Location = new System.Drawing.Point(149, 30);
+            this.bookName.Location = new System.Drawing.Point(147, 76);
             this.bookName.Multiline = true;
             this.bookName.Name = "bookName";
             this.bookName.Size = new System.Drawing.Size(296, 36);
             this.bookName.TabIndex = 26;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(84, 94);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 15);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "수 량 :";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 41);
+            this.label1.Location = new System.Drawing.Point(72, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 15);
             this.label1.TabIndex = 20;
             this.label1.Text = "도서명 :";
             // 
-            // button10
+            // btnBookDelete
             // 
-            this.button10.Location = new System.Drawing.Point(375, 15);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(287, 90);
-            this.button10.TabIndex = 19;
-            this.button10.Text = "삭 제";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.btnBookDelete.Location = new System.Drawing.Point(375, 15);
+            this.btnBookDelete.Name = "btnBookDelete";
+            this.btnBookDelete.Size = new System.Drawing.Size(287, 90);
+            this.btnBookDelete.TabIndex = 19;
+            this.btnBookDelete.Text = "삭 제";
+            this.btnBookDelete.UseVisualStyleBackColor = true;
+            this.btnBookDelete.Click += new System.EventHandler(this.button10_Click);
             // 
-            // button9
+            // btnBookUpdate
             // 
-            this.button9.Location = new System.Drawing.Point(49, 15);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(287, 90);
-            this.button9.TabIndex = 18;
-            this.button9.Text = "수 정";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.btnBookUpdate.Location = new System.Drawing.Point(49, 15);
+            this.btnBookUpdate.Name = "btnBookUpdate";
+            this.btnBookUpdate.Size = new System.Drawing.Size(287, 90);
+            this.btnBookUpdate.TabIndex = 18;
+            this.btnBookUpdate.Text = "수 정";
+            this.btnBookUpdate.UseVisualStyleBackColor = true;
+            this.btnBookUpdate.Click += new System.EventHandler(this.button9_Click);
             // 
             // bookImage
             // 
@@ -112,63 +90,42 @@
             this.bookImage.Size = new System.Drawing.Size(480, 348);
             this.bookImage.TabIndex = 17;
             // 
-            // button1
+            // btnExit
             // 
-            this.button1.Location = new System.Drawing.Point(701, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(287, 90);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "취 소";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 15);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "나이 제한 :";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(149, 135);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(296, 36);
-            this.textBox1.TabIndex = 28;
+            this.btnExit.Location = new System.Drawing.Point(701, 15);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(287, 90);
+            this.btnExit.TabIndex = 19;
+            this.btnExit.Text = "취 소";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(74, 203);
+            this.label3.Location = new System.Drawing.Point(72, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 15);
             this.label3.TabIndex = 22;
             this.label3.Text = "줄거리 :";
             // 
-            // textBox2
+            // txtSummery
             // 
-            this.textBox2.Location = new System.Drawing.Point(149, 192);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(296, 122);
-            this.textBox2.TabIndex = 28;
+            this.txtSummery.Location = new System.Drawing.Point(147, 131);
+            this.txtSummery.Multiline = true;
+            this.txtSummery.Name = "txtSummery";
+            this.txtSummery.Size = new System.Drawing.Size(296, 122);
+            this.txtSummery.TabIndex = 28;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtSummery);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.bookName);
-            this.panel1.Controls.Add(this.bookStock);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(23, 21);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(512, 348);
@@ -177,9 +134,9 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button10);
-            this.panel2.Controls.Add(this.button9);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnBookDelete);
+            this.panel2.Controls.Add(this.btnBookUpdate);
+            this.panel2.Controls.Add(this.btnExit);
             this.panel2.Location = new System.Drawing.Point(22, 382);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1019, 119);
@@ -205,18 +162,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox bookStock;
         private System.Windows.Forms.TextBox bookName;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnBookDelete;
+        private System.Windows.Forms.Button btnBookUpdate;
         private System.Windows.Forms.Label bookImage;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtSummery;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
     }

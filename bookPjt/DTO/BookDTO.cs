@@ -14,7 +14,7 @@
         private string b_date;
         private string b_status;
 
-        public BookDTO(string bookname, string author, string publisher, string category, string content, string img, int stock)
+        public BookDTO(string bookname, string author, string publisher, string category, string content, string img, int stock, string b_guest)
         {
             this.b_name = bookname;
             this.b_author = author;
@@ -23,6 +23,7 @@
             this.b_summary = content;
             this.b_img = img;
             this.b_stock = stock;
+            this.b_guest = b_guest;
         }
         public BookDTO(int b_idx, string b_name, int b_stock, string b_author, string b_publisher, string b_category, string content, string b_img,string b_guest,string b_date,string b_status)
         {

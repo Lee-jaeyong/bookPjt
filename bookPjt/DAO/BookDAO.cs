@@ -25,10 +25,11 @@ namespace bookPjt
         public bool deleteBook(int bookid)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            mySqlConnection.Open();
+            MySqlTransaction trans = mySqlConnection.BeginTransaction();
 
             try
             {
-                mySqlConnection.Open();
                 string sql = "delete from book where b_idx = " + bookid;
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
@@ -38,21 +39,22 @@ namespace bookPjt
                 sql = "delete from publisher where p_b_id = " + bookid;
                 mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
+                trans.Commit();
                 mySqlConnection.Close();
             }
             catch (Exception e)
             {
+                trans.Rollback();
                 return false;
-                MessageBox.Show(e.Message);
             }
             return true;
         }
 
-        public bool updateBook(int bookid, int stock)
+        public bool updateBook(int bookid, string bookName, string summary)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
 
-            string sql = "update book set b_stock = " + stock + " where b_idx = " + bookid;
+            string sql = "update book set b_name = '" + bookName + "',b_summary = '" + summary + "' where b_idx = " + bookid;
 
             try
             {
@@ -65,7 +67,6 @@ namespace bookPjt
             catch (Exception e)
             {
                 return false;
-                MessageBox.Show(e.Message);
             }
             return true;
         }
@@ -87,11 +88,6 @@ namespace bookPjt
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 while (rdr.Read())
                 {
-                    string guest = Convert.ToString(rdr[8]) + "세 이용";
-                    if (Convert.ToString(rdr[8]) == "0")
-                    {
-                        guest = "전체 이용";
-                    }
                     string status = "대출 가능";
                     if (Convert.ToInt32(rdr[10]) >= 3)
                         status = "대출 불가";
@@ -104,8 +100,8 @@ namespace bookPjt
                         Convert.ToString(rdr[5]),
                         Convert.ToString(rdr[6]),
                         Convert.ToString(rdr[7]),
-                        guest,
-                        Convert.ToString(rdr[9]), 
+                        Convert.ToString(rdr[8]),
+                        Convert.ToString(rdr[9]),
                         status
                         );
                 }
@@ -169,6 +165,8 @@ namespace bookPjt
         public bool insertBook(BookDTO bookDTO)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            mySqlConnection.Open();
+            MySqlTransaction trans = mySqlConnection.BeginTransaction();
 
             string b_name = bookDTO.B_name;
             string b_author = bookDTO.B_author;
@@ -177,12 +175,12 @@ namespace bookPjt
             string b_summery = bookDTO.B_summary;
             string b_img = bookDTO.B_img;
             int b_stock = bookDTO.B_stock;
+            string b_guest = bookDTO.B_guest;
 
             try
             {
-                string sql = "insert into book values (NULL,'" + b_name + "'," + b_stock + ",'" + b_author + "','" + b_summery + "','" + b_img + "')";
+                string sql = "insert into book values (NULL,'" + b_name + "'," + b_stock + ",'" + b_author + "','" + b_summery + "','" + b_img + "','" + b_guest + "',now())";
 
-                mySqlConnection.Open();
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
 
@@ -197,13 +195,14 @@ namespace bookPjt
                 mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
 
-                mySqlConnection.Close();
+                trans.Commit();
 
+                mySqlConnection.Close();
             }
             catch (Exception e)
             {
+                trans.Rollback();
                 MessageBox.Show(e.Message);
-                return false;
             }
             return true;
         }
@@ -229,6 +228,26 @@ namespace bookPjt
                 MessageBox.Show(e.Message);
             }
             return list;
+        }
+
+        public bool updateCategory(string before, string after)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+
+            string sql = "UPDATE categoryName SET c_n_name = '" + after + "' WHERE c_n_name = '" + before + "' ";
+            try
+            {
+                mySqlConnection.Open();
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
         }
 
         public List<string> getCategoryList()
@@ -276,11 +295,6 @@ namespace bookPjt
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 while (rdr.Read())
                 {
-                    string guest = Convert.ToString(rdr[8]) + "세 이용";
-                    if (Convert.ToString(rdr[8]) == "0")
-                    {
-                        guest = "전체 이용";
-                    }
                     string status = "대출 가능";
                     if (Convert.ToInt32(rdr[10]) >= 3)
                     {
@@ -295,7 +309,7 @@ namespace bookPjt
                         Convert.ToString(rdr[5]),
                         Convert.ToString(rdr[6]),
                         Convert.ToString(rdr[7]),
-                        guest,
+                        Convert.ToString(rdr[8]),
                         Convert.ToString(rdr[9]),
                         status);
                     list.Add(bookDTO);

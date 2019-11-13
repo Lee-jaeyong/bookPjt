@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using bookPjt.util;
+using bookPjt.admin;
 
 namespace bookPjt
 {
@@ -20,7 +21,7 @@ namespace bookPjt
             if (BookDAO.dbStatus == 1)
             {
                 table.Rows.Clear();
-                list = bookDAO.selectList(categoryList.Text, searchBook.Text,false);
+                list = bookDAO.selectList(categoryList.Text, searchBook.Text, false);
                 foreach (BookDTO book in list)
                 {
                     table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock, book.B_guest);
@@ -61,6 +62,10 @@ namespace bookPjt
             {
                 publisher.Items.Add(publisherItem);
             }
+            publisher.SelectedIndex = 0;
+            category.SelectedIndex = 0;
+            bookGuest.SelectedIndex = 0;
+            bookImage.Image = null;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -117,8 +122,10 @@ namespace bookPjt
             bookContent.Text = "";
             bookImg.Text = "";
             bookStock.Text = "";
-            publisher.Text = "";
-            category.Text = "";
+            publisher.SelectedIndex = 0;
+            bookGuest.SelectedIndex = 0;
+            category.SelectedIndex = 0;
+            bookImage.Image = null;
             bookName.Focus();
         }
 
@@ -164,6 +171,11 @@ namespace bookPjt
                 MessageBox.Show("카테고리를 선택해주세요.");
                 category.Focus();
             }
+            else if (bookGuest.Text == "")
+            {
+                MessageBox.Show("연령 제한을 선택해주세요.");
+                bookGuest.Focus();
+            }
             else if (bookContent.Text == "")
             {
                 MessageBox.Show("줄거리를 입력해주세요.");
@@ -176,26 +188,44 @@ namespace bookPjt
             }
             else
             {
+                string realPath = "\\\\source\\\\repos\\\\bookPjt\\\\bookPjt\\\\Resources\\\\BookImg";
+                string imgPath = bookImg.Text.ToString().Replace("\\", "\\\\");
+                string fileName = imgPath.Substring(imgPath.LastIndexOf("\\\\"));
+                string copyPath = Environment.CurrentDirectory.ToString().Replace("\\bin\\Debug", "\\Resources\\BookImg") + fileName;
                 try
                 {
-                    string realPath = "\\\\source\\\\repos\\\\bookPjt\\\\bookPjt\\\\Resources\\\\BookImg";
-                    string imgPath = bookImg.Text.ToString().Replace("\\", "\\\\");
-                    string fileName = imgPath.Substring(imgPath.LastIndexOf("\\\\"));
-                    BookDTO bookDTO = new BookDTO(bookName.Text, bookAuthor.Text, publisher.Text, category.Text, bookContent.Text, (realPath + fileName), int.Parse(bookStock.Text));
+                    BookDTO bookDTO = new BookDTO(bookName.Text, bookAuthor.Text, publisher.Text, category.Text, bookContent.Text, (realPath + fileName), int.Parse(bookStock.Text), bookGuest.Text);
                     bookDAO.insertBook(bookDTO);
-                    string copyPath = Environment.CurrentDirectory.ToString().Replace("\\bin\\Debug", "\\Resources\\BookImg") + fileName;
-                    File.Copy(@imgPath, @copyPath);
-                    MessageBox.Show("도서 등록 완료");
-                    clearText();
-                    selectList();
-                    TabControll.SelectedIndex = 0;
-                    BookDAO.dbStatus = 1;
                 }
                 catch (Exception a)
                 {
-                    MessageBox.Show("책 등록 도중 문제가 발생했습니다.");
+                    MessageBox.Show("도서 추가 중 문제가 발생했습니다.");
+                }
+                try
+                {
+                    File.Copy(@imgPath, @copyPath);
+                }
+                catch (Exception a)
+                {
+
+                }
+                finally
+                {
+                    MessageBox.Show("도서 등록 완료");
+                    clearText();
+                    BookDAO.dbStatus = 1;
+                    selectList();
+                    TabControll.SelectedIndex = 0;
                 }
             }
+        }
+
+        public void categoryListShow()
+        {
+            categoryTable.Rows.Clear();
+            List<string> list = bookDAO.getCategoryList();
+            foreach (string category in list)
+                categoryTable.Rows.Add(category);
         }
 
         private void categoryAddBtn_Click(object sender, EventArgs e)
@@ -206,10 +236,7 @@ namespace bookPjt
                 {
                     MessageBox.Show("카테고리 추가 완료");
                     AddcategoryName.Text = "";
-                    categoryTable.Rows.Clear();
-                    List<string> list = bookDAO.getCategoryList();
-                    foreach (string category in list)
-                        categoryTable.Rows.Add(category);
+                    categoryListShow();
                 }
                 else
                     MessageBox.Show("카테고리 추가 실패");
@@ -309,7 +336,8 @@ namespace bookPjt
             TabControll.SelectedIndex = 4;
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             table.Rows.Clear();
             foreach (BookDTO book in list)
@@ -321,10 +349,28 @@ namespace bookPjt
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            BookDAO.dbStatus = 1;
-            selectList();
+            table.Rows.Clear();
+            foreach (BookDTO book in list)
+            {
+                if (book.B_status == "대출 불가")
+                {
+                    table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock, book.B_guest);
+                }
+            }
+        }
+
+        private void btnCategoryUpdate_Click(object sender, EventArgs e)
+        {
+            string updateCategoryStr = categoryTable.Rows[categoryTable.CurrentRow.Index].Cells[0].Value.ToString();
+            updateCategoryForm updateCategory = new updateCategoryForm(this,updateCategoryStr);
+            updateCategory.Show();
+        }
+
+        private void btnCategoryDelete_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
