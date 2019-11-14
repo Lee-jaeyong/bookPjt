@@ -16,39 +16,49 @@ namespace bookPjt
         public int bookrowItem = 0;
         List<BookManageDTO> manageList;
         List<BookDTO> list;
+        List<RentalChkDTO> rentalChkList;
         BookDAO bookDAO = BookDAO.getInstance();
         BookManageDAO bookManageDAO = BookManageDAO.getInstance();
         UserDAO userDAO = UserDAO.getInstance();
+        BookRentalChkDAO bookRentalChkDAO = BookRentalChkDAO.getInstance();
 
-        public void selectManageList()
+        private void selectRentalChkList()
         {
-            if (BookManageDAO.status == 1)
+
+            rentalChkTable.Rows.Clear();
+            rentalChkList = bookRentalChkDAO.getRentalChkList();
+            foreach (RentalChkDTO item in rentalChkList)
             {
-                rentalTable.Rows.Clear();
-                manageList = bookManageDAO.getManageList();
-                foreach (BookManageDTO bookManage in manageList)
-                {
-                    string delinquent = "미 연체";
-                    if (Convert.ToDateTime(bookManage.Bm_returnDate) < Convert.ToDateTime(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString()))
-                        delinquent = "연체";
-                    rentalTable.Rows.Add(bookManage.Bm_b_idx, bookManage.C_idx, bookManage.B_name, bookManage.C_name, bookManage.Bm_takeDate, bookManage.Bm_returnDate, bookManage.Bm_extend, delinquent);
-                }
-                BookManageDAO.status = 0;
+                rentalChkTable.Rows.Add(item.B_idx, item.C_idx, item.BookImg, item.BookTitle, item.RentalUser, item.RentalChkDate);
+            }
+        }
+
+        public void selectManageList(string search)
+        {
+
+            rentalTable.Rows.Clear();
+            manageList = bookManageDAO.getManageList(search);
+            foreach (BookManageDTO bookManage in manageList)
+            {
+                string delinquent = "미 연체";
+                string status = "미 반납";
+                if (Convert.ToDateTime(bookManage.Bm_returnDate) < Convert.ToDateTime(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString()))
+                    delinquent = "연체";
+                if (bookManage.Status == 1)
+                    status = "반납";
+                rentalTable.Rows.Add(bookManage.Bm_b_idx, bookManage.C_idx, bookManage.B_name, bookManage.C_name, bookManage.Bm_takeDate, bookManage.Bm_returnDate, bookManage.Bm_extend, delinquent, bookManage.Bm_idx, status);
             }
         }
 
         public void selectList()
         {
-            if (BookDAO.dbStatus == 1)
+            table.Rows.Clear();
+            list = bookDAO.selectList(categoryList.Text, searchBook.Text, false);
+            foreach (BookDTO book in list)
             {
-                table.Rows.Clear();
-                list = bookDAO.selectList(categoryList.Text, searchBook.Text, false);
-                foreach (BookDTO book in list)
-                {
-                    table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock, book.B_guest);
-                }
-                BookDAO.dbStatus = 0;
+                table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock, book.B_guest);
             }
+            BookDAO.dbStatus = 0;
         }
 
         private void selectCategoryList()
@@ -106,7 +116,8 @@ namespace bookPjt
         private void button3_Click(object sender, EventArgs e)
         {
             TabControll.SelectedIndex = 3;
-            selectManageList();
+            ComboRentalStatus.SelectedIndex = 0;
+            selectManageList("");
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -415,6 +426,11 @@ namespace bookPjt
         {
             try
             {
+                if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[9].Value.ToString() == "반납")
+                    rentalOkImg.Visible = true;
+                else
+                    rentalOkImg.Visible = false;
+
                 selectRentalBook(int.Parse(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[0].Value.ToString()));
                 selectRentalCustomer(int.Parse(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[1].Value.ToString()));
                 if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[7].Value.ToString() == "연체")
@@ -424,13 +440,156 @@ namespace bookPjt
             }
             catch (Exception a)
             {
-
             }
         }
 
         private void button6_Click_1(object sender, EventArgs e)
         {
             TabControll.SelectedIndex = 5;
+            selectRentalChkList();
+        }
+
+        private void rentalChkTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                Bitmap sourceImage = new Bitmap((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
+                sourceImage = UtilClass.imgResize(sourceImage, 346, 263);
+                rentalChkImg.Image = sourceImage;
+                rentalChkBname.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[2].Value.ToString();
+                rentalChkCname.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[3].Value.ToString();
+                rentalChkDate.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[4].Value.ToString();
+            }
+            catch (Exception a)
+            {
+
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (bookRentalChkDAO.insertRental(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value)))
+                    MessageBox.Show("대여 처리 완료");
+                else
+                    MessageBox.Show("대여 처리 실패");
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("처리할 데이터를 선택해주세요");
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (bookRentalChkDAO.deleteRentalChk(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value)))
+                    MessageBox.Show("삭제 완료");
+                else
+                    MessageBox.Show("삭제 실패");
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("처리할 데이터를 선택해주세요");
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[6].Value) < 3)
+            {
+                if (bookManageDAO.extendRental(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
+                {
+                    MessageBox.Show("연장 완료");
+                    selectManageList("");
+                }
+                else
+                    MessageBox.Show("연장 실패");
+            }
+            else
+                MessageBox.Show("연장 횟수 초과");
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[9].Value.ToString() == "반납")
+            {
+                MessageBox.Show("이미 반납한 도서입니다");
+                return;
+            }
+            if (bookManageDAO.returnBook(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
+            {
+                MessageBox.Show("반납 완료");
+                selectManageList("");
+            }
+            else
+                MessageBox.Show("반납 실패");
+        }
+
+        public void comborentalStatusModul(int status, string output)
+        {
+            rentalTable.Rows.Clear();
+            foreach (BookManageDTO bookManage in manageList)
+            {
+                string delinquent = "미 연체";
+                if (Convert.ToDateTime(bookManage.Bm_returnDate) < Convert.ToDateTime(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString()))
+                {
+                    delinquent = "연체";
+                    if (output == "연체")
+                        rentalTable.Rows.Add(bookManage.Bm_b_idx, bookManage.C_idx, bookManage.B_name, bookManage.C_name, bookManage.Bm_takeDate, bookManage.Bm_returnDate, bookManage.Bm_extend, delinquent, bookManage.Bm_idx, "미 반납");
+                }
+                if (output != "연체" && bookManage.Status == status)
+                    rentalTable.Rows.Add(bookManage.Bm_b_idx, bookManage.C_idx, bookManage.B_name, bookManage.C_name, bookManage.Bm_takeDate, bookManage.Bm_returnDate, bookManage.Bm_extend, delinquent, bookManage.Bm_idx, output);
+            }
+            if (status == 0)
+            {
+                btnExtend.Visible = true;
+                btnReturn.Visible = true;
+            }
+            else
+            {
+                btnExtend.Visible = false;
+                btnReturn.Visible = false;
+            }
+        }
+
+        private void ComboRentalStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboRentalStatus.SelectedIndex == 0)
+            {
+                btnExtend.Visible = true;
+                btnReturn.Visible = true;
+                selectManageList("");
+                return;
+            }
+            else if (ComboRentalStatus.SelectedIndex == 1)
+            {
+                comborentalStatusModul(0, "미 반납");
+            }
+            else if (ComboRentalStatus.SelectedIndex == 2)
+            {
+                comborentalStatusModul(1, "반납");
+            }
+            else if (ComboRentalStatus.SelectedIndex == 3)
+            {
+                comborentalStatusModul(0, "연체");
+            }
+        }
+
+        private void btnSelectRentalUser_Click(object sender, EventArgs e)
+        {
+            selectManageList(txtSearchRentalUser.Text.Trim());
+        }
+
+        private void txtSearchRentalUser_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                selectManageList(txtSearchRentalUser.Text.Trim());
+                btnSelectRentalUser.Focus();
+            }
         }
     }
 }

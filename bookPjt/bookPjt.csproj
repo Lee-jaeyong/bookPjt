@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\BookManageDAO.cs" />
+    <Compile Include="DAO\BookRentalChkDAO.cs" />
     <Compile Include="DTO\BookDTO.cs" />
     <Compile Include="admin\admin.cs">
       <SubType>Form</SubType>
@@ -86,6 +87,7 @@
       <DependentUpon>UpdateOrDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="DTO\BookManageDTO.cs" />
+    <Compile Include="DTO\RentalChkDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="user\IdPw_SearchForm.cs">
       <SubType>Form</SubType>

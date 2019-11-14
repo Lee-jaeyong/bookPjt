@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bookManagement));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControll = new System.Windows.Forms.TabControl();
             this.TagBookList = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -125,20 +125,12 @@
             this.label20 = new System.Windows.Forms.Label();
             this.subImg = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.ComboRentalStatus = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.txtSearchRentalUser = new System.Windows.Forms.TextBox();
+            this.btnExtend = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.rentalTable = new System.Windows.Forms.DataGridView();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TagUser = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -147,6 +139,24 @@
             this.button14 = new System.Windows.Forms.Button();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TagRentalChk = new System.Windows.Forms.TabPage();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.rentalChkDate = new System.Windows.Forms.TextBox();
+            this.rentalChkBname = new System.Windows.Forms.TextBox();
+            this.rentalChkCname = new System.Windows.Forms.TextBox();
+            this.rentalChkImg = new System.Windows.Forms.Label();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.rentalChkTable = new System.Windows.Forms.DataGridView();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -154,18 +164,23 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.TagRentalChk = new System.Windows.Forms.TabPage();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
+            this.btnSelectRentalUser = new System.Windows.Forms.Button();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rentalOkImg = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabControll.SuspendLayout();
             this.TagBookList.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -188,7 +203,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.TagRentalChk.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalChkTable)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControll
@@ -470,9 +485,9 @@
             // 
             // bookIdx
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle13;
             this.bookIdx.HeaderText = "도서 번호";
             this.bookIdx.MinimumWidth = 6;
             this.bookIdx.Name = "bookIdx";
@@ -489,8 +504,8 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.LightGray;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column5.HeaderText = "저자";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -507,8 +522,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightGray;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.LightGray;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column4.HeaderText = "분류";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -525,8 +540,8 @@
             // 
             // Column14
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightGray;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.LightGray;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column14.HeaderText = "연령 제한";
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
@@ -1074,6 +1089,7 @@
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.rentalOkImg);
             this.panel8.Controls.Add(this.exclamation);
             this.panel8.Controls.Add(this.txtBookCategory);
             this.panel8.Controls.Add(this.txtBookAuthor);
@@ -1092,10 +1108,11 @@
             // 
             // exclamation
             // 
+            this.exclamation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.exclamation.Image = ((System.Drawing.Image)(resources.GetObject("exclamation.Image")));
-            this.exclamation.Location = new System.Drawing.Point(13, 65);
+            this.exclamation.Location = new System.Drawing.Point(9, 9);
             this.exclamation.Name = "exclamation";
-            this.exclamation.Size = new System.Drawing.Size(82, 76);
+            this.exclamation.Size = new System.Drawing.Size(106, 137);
             this.exclamation.TabIndex = 11;
             this.exclamation.Visible = false;
             // 
@@ -1183,11 +1200,12 @@
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.comboBox3);
+            this.panel7.Controls.Add(this.ComboRentalStatus);
             this.panel7.Controls.Add(this.label19);
-            this.panel7.Controls.Add(this.textBox7);
-            this.panel7.Controls.Add(this.button13);
-            this.panel7.Controls.Add(this.button12);
+            this.panel7.Controls.Add(this.txtSearchRentalUser);
+            this.panel7.Controls.Add(this.btnSelectRentalUser);
+            this.panel7.Controls.Add(this.btnExtend);
+            this.panel7.Controls.Add(this.btnReturn);
             this.panel7.Controls.Add(this.rentalTable);
             this.panel7.Location = new System.Drawing.Point(7, 5);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1195,53 +1213,58 @@
             this.panel7.Size = new System.Drawing.Size(645, 557);
             this.panel7.TabIndex = 0;
             // 
-            // comboBox3
+            // ComboRentalStatus
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "검색 항목",
-            "도서명",
-            "대여자",
-            "대여 일자"});
-            this.comboBox3.Location = new System.Drawing.Point(33, 29);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(151, 23);
-            this.comboBox3.TabIndex = 6;
+            this.ComboRentalStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboRentalStatus.FormattingEnabled = true;
+            this.ComboRentalStatus.Items.AddRange(new object[] {
+            "전체보기",
+            "미 반납",
+            "반 납",
+            "연 체"});
+            this.ComboRentalStatus.Location = new System.Drawing.Point(12, 29);
+            this.ComboRentalStatus.Name = "ComboRentalStatus";
+            this.ComboRentalStatus.Size = new System.Drawing.Size(104, 23);
+            this.ComboRentalStatus.TabIndex = 6;
+            this.ComboRentalStatus.SelectedIndexChanged += new System.EventHandler(this.ComboRentalStatus_SelectedIndexChanged);
             // 
             // label19
             // 
             this.label19.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label19.Image = ((System.Drawing.Image)(resources.GetObject("label19.Image")));
-            this.label19.Location = new System.Drawing.Point(204, 18);
+            this.label19.Location = new System.Drawing.Point(123, 18);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(51, 45);
             this.label19.TabIndex = 5;
             // 
-            // textBox7
+            // txtSearchRentalUser
             // 
-            this.textBox7.Location = new System.Drawing.Point(257, 22);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(167, 36);
-            this.textBox7.TabIndex = 4;
+            this.txtSearchRentalUser.Location = new System.Drawing.Point(177, 22);
+            this.txtSearchRentalUser.Multiline = true;
+            this.txtSearchRentalUser.Name = "txtSearchRentalUser";
+            this.txtSearchRentalUser.Size = new System.Drawing.Size(167, 36);
+            this.txtSearchRentalUser.TabIndex = 4;
+            this.txtSearchRentalUser.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchRentalUser_KeyUp);
             // 
-            // button13
+            // btnExtend
             // 
-            this.button13.Location = new System.Drawing.Point(453, 17);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(81, 47);
-            this.button13.TabIndex = 3;
-            this.button13.Text = "연 장";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnExtend.Location = new System.Drawing.Point(463, 17);
+            this.btnExtend.Name = "btnExtend";
+            this.btnExtend.Size = new System.Drawing.Size(81, 47);
+            this.btnExtend.TabIndex = 3;
+            this.btnExtend.Text = "연 장";
+            this.btnExtend.UseVisualStyleBackColor = true;
+            this.btnExtend.Click += new System.EventHandler(this.button13_Click);
             // 
-            // button12
+            // btnReturn
             // 
-            this.button12.Location = new System.Drawing.Point(540, 17);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(81, 47);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "반 납";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnReturn.Location = new System.Drawing.Point(550, 17);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(81, 47);
+            this.btnReturn.TabIndex = 3;
+            this.btnReturn.Text = "반 납";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.button12_Click);
             // 
             // rentalTable
             // 
@@ -1254,7 +1277,9 @@
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Column9});
+            this.Column9,
+            this.Column21,
+            this.Column22});
             this.rentalTable.Location = new System.Drawing.Point(3, 81);
             this.rentalTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rentalTable.Name = "rentalTable";
@@ -1265,72 +1290,6 @@
             this.rentalTable.Size = new System.Drawing.Size(638, 470);
             this.rentalTable.TabIndex = 3;
             this.rentalTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rentalTable_CellClick);
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "idx";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Visible = false;
-            this.Column10.Width = 125;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "c_idx";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Visible = false;
-            this.Column11.Width = 125;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "도서명";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 140;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "대여자";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "대여 일자";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "반납 일자";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 125;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "연장 횟수";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 125;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "연 체";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 125;
             // 
             // TagUser
             // 
@@ -1405,12 +1364,198 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
             this.dataGridView1.Location = new System.Drawing.Point(7, 76);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(1033, 490);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // TagRentalChk
+            // 
+            this.TagRentalChk.Controls.Add(this.panel10);
+            this.TagRentalChk.Location = new System.Drawing.Point(4, 5);
+            this.TagRentalChk.Name = "TagRentalChk";
+            this.TagRentalChk.Size = new System.Drawing.Size(1048, 572);
+            this.TagRentalChk.TabIndex = 5;
+            this.TagRentalChk.UseVisualStyleBackColor = true;
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.label32);
+            this.panel10.Controls.Add(this.label31);
+            this.panel10.Controls.Add(this.label30);
+            this.panel10.Controls.Add(this.rentalChkDate);
+            this.panel10.Controls.Add(this.rentalChkBname);
+            this.panel10.Controls.Add(this.rentalChkCname);
+            this.panel10.Controls.Add(this.rentalChkImg);
+            this.panel10.Controls.Add(this.button11);
+            this.panel10.Controls.Add(this.button7);
+            this.panel10.Controls.Add(this.rentalChkTable);
+            this.panel10.Location = new System.Drawing.Point(7, 7);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1033, 559);
+            this.panel10.TabIndex = 0;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(702, 503);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(62, 15);
+            this.label32.TabIndex = 14;
+            this.label32.Text = "신청 일:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(702, 451);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(67, 15);
+            this.label31.TabIndex = 14;
+            this.label31.Text = "도서 명 :";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(687, 398);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(82, 15);
+            this.label30.TabIndex = 14;
+            this.label30.Text = "신청자 명 :";
+            // 
+            // rentalChkDate
+            // 
+            this.rentalChkDate.Enabled = false;
+            this.rentalChkDate.Location = new System.Drawing.Point(775, 496);
+            this.rentalChkDate.Multiline = true;
+            this.rentalChkDate.Name = "rentalChkDate";
+            this.rentalChkDate.Size = new System.Drawing.Size(225, 31);
+            this.rentalChkDate.TabIndex = 13;
+            // 
+            // rentalChkBname
+            // 
+            this.rentalChkBname.Enabled = false;
+            this.rentalChkBname.Location = new System.Drawing.Point(775, 444);
+            this.rentalChkBname.Multiline = true;
+            this.rentalChkBname.Name = "rentalChkBname";
+            this.rentalChkBname.Size = new System.Drawing.Size(225, 31);
+            this.rentalChkBname.TabIndex = 13;
+            // 
+            // rentalChkCname
+            // 
+            this.rentalChkCname.Enabled = false;
+            this.rentalChkCname.Location = new System.Drawing.Point(775, 391);
+            this.rentalChkCname.Multiline = true;
+            this.rentalChkCname.Name = "rentalChkCname";
+            this.rentalChkCname.Size = new System.Drawing.Size(225, 31);
+            this.rentalChkCname.TabIndex = 13;
+            // 
+            // rentalChkImg
+            // 
+            this.rentalChkImg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rentalChkImg.Location = new System.Drawing.Point(673, 105);
+            this.rentalChkImg.Name = "rentalChkImg";
+            this.rentalChkImg.Size = new System.Drawing.Size(346, 263);
+            this.rentalChkImg.TabIndex = 12;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(846, 12);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(181, 81);
+            this.button11.TabIndex = 11;
+            this.button11.Text = "대 출 취 소";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(664, 12);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(181, 81);
+            this.button7.TabIndex = 10;
+            this.button7.Text = "대 출 완 료";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // rentalChkTable
+            // 
+            this.rentalChkTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rentalChkTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column19,
+            this.Column20,
+            this.Column15,
+            this.Column16,
+            this.Column17,
+            this.Column18});
+            this.rentalChkTable.Location = new System.Drawing.Point(3, 3);
+            this.rentalChkTable.Name = "rentalChkTable";
+            this.rentalChkTable.ReadOnly = true;
+            this.rentalChkTable.RowHeadersWidth = 51;
+            this.rentalChkTable.RowTemplate.Height = 27;
+            this.rentalChkTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.rentalChkTable.Size = new System.Drawing.Size(656, 551);
+            this.rentalChkTable.TabIndex = 9;
+            this.rentalChkTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rentalChkTable_CellClick);
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "b_idx";
+            this.Column19.MinimumWidth = 6;
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            this.Column19.Visible = false;
+            this.Column19.Width = 125;
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "c_idx";
+            this.Column20.MinimumWidth = 6;
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            this.Column20.Visible = false;
+            this.Column20.Width = 125;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "bookImg";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            this.Column15.Width = 125;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "도서명";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 200;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "대여자명";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            this.Column17.Width = 200;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "대출신청일";
+            this.Column18.MinimumWidth = 6;
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            this.Column18.Width = 200;
             // 
             // button2
             // 
@@ -1566,119 +1711,143 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
-            // TagRentalChk
+            // btnSelectRentalUser
             // 
-            this.TagRentalChk.Controls.Add(this.panel10);
-            this.TagRentalChk.Location = new System.Drawing.Point(4, 5);
-            this.TagRentalChk.Name = "TagRentalChk";
-            this.TagRentalChk.Size = new System.Drawing.Size(1048, 572);
-            this.TagRentalChk.TabIndex = 5;
-            this.TagRentalChk.UseVisualStyleBackColor = true;
+            this.btnSelectRentalUser.Location = new System.Drawing.Point(353, 15);
+            this.btnSelectRentalUser.Name = "btnSelectRentalUser";
+            this.btnSelectRentalUser.Size = new System.Drawing.Size(60, 47);
+            this.btnSelectRentalUser.TabIndex = 3;
+            this.btnSelectRentalUser.Text = "대여자 검색";
+            this.btnSelectRentalUser.UseVisualStyleBackColor = true;
+            this.btnSelectRentalUser.Click += new System.EventHandler(this.btnSelectRentalUser_Click);
             // 
-            // panel10
+            // Column10
             // 
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.label32);
-            this.panel10.Controls.Add(this.label31);
-            this.panel10.Controls.Add(this.label30);
-            this.panel10.Controls.Add(this.textBox3);
-            this.panel10.Controls.Add(this.textBox2);
-            this.panel10.Controls.Add(this.textBox1);
-            this.panel10.Controls.Add(this.label18);
-            this.panel10.Controls.Add(this.button11);
-            this.panel10.Controls.Add(this.button7);
-            this.panel10.Controls.Add(this.dataGridView2);
-            this.panel10.Location = new System.Drawing.Point(7, 7);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1033, 559);
-            this.panel10.TabIndex = 0;
+            this.Column10.HeaderText = "idx";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            this.Column10.Width = 125;
             // 
-            // dataGridView2
+            // Column11
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 27;
-            this.dataGridView2.Size = new System.Drawing.Size(656, 551);
-            this.dataGridView2.TabIndex = 9;
+            this.Column11.HeaderText = "c_idx";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            this.Column11.Width = 125;
             // 
-            // button7
+            // Column12
             // 
-            this.button7.Location = new System.Drawing.Point(664, 12);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(181, 81);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "대 출 완 료";
-            this.button7.UseVisualStyleBackColor = true;
+            this.Column12.HeaderText = "도서명";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 140;
             // 
-            // button11
+            // Column13
             // 
-            this.button11.Location = new System.Drawing.Point(846, 12);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(181, 81);
-            this.button11.TabIndex = 11;
-            this.button11.Text = "대 출 취 소";
-            this.button11.UseVisualStyleBackColor = true;
+            this.Column13.HeaderText = "대여자";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 125;
             // 
-            // label18
+            // Column6
             // 
-            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label18.Location = new System.Drawing.Point(673, 105);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(346, 263);
-            this.label18.TabIndex = 12;
+            this.Column6.HeaderText = "대여 일자";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 125;
             // 
-            // textBox1
+            // Column7
             // 
-            this.textBox1.Location = new System.Drawing.Point(775, 391);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 31);
-            this.textBox1.TabIndex = 13;
+            this.Column7.HeaderText = "반납 일자";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 125;
             // 
-            // label30
+            // Column8
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(687, 398);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(82, 15);
-            this.label30.TabIndex = 14;
-            this.label30.Text = "신청자 명 :";
+            this.Column8.HeaderText = "연장 횟수";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
             // 
-            // label31
+            // Column9
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(702, 451);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(67, 15);
-            this.label31.TabIndex = 14;
-            this.label31.Text = "도서 명 :";
+            this.Column9.HeaderText = "연 체";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
             // 
-            // textBox2
+            // Column21
             // 
-            this.textBox2.Location = new System.Drawing.Point(775, 444);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(225, 31);
-            this.textBox2.TabIndex = 13;
+            this.Column21.HeaderText = "bm_idx";
+            this.Column21.MinimumWidth = 6;
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
+            this.Column21.Visible = false;
+            this.Column21.Width = 125;
             // 
-            // textBox3
+            // Column22
             // 
-            this.textBox3.Location = new System.Drawing.Point(775, 496);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(225, 31);
-            this.textBox3.TabIndex = 13;
+            this.Column22.HeaderText = "상태";
+            this.Column22.MinimumWidth = 6;
+            this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
+            this.Column22.Width = 125;
             // 
-            // label32
+            // rentalOkImg
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(702, 503);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(62, 15);
-            this.label32.TabIndex = 14;
-            this.label32.Text = "신청 일:";
+            this.rentalOkImg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rentalOkImg.Image = ((System.Drawing.Image)(resources.GetObject("rentalOkImg.Image")));
+            this.rentalOkImg.Location = new System.Drawing.Point(251, 9);
+            this.rentalOkImg.Name = "rentalOkImg";
+            this.rentalOkImg.Size = new System.Drawing.Size(117, 137);
+            this.rentalOkImg.TabIndex = 12;
+            this.rentalOkImg.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "아이디";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "사용자 이름";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "생년월일";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "핸드폰 번호";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "등 급";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
             // bookManagement
             // 
@@ -1730,7 +1899,7 @@
             this.TagRentalChk.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentalChkTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1809,11 +1978,11 @@
         private System.Windows.Forms.TextBox AddcategoryName;
         private System.Windows.Forms.Label subImg;
         private System.Windows.Forms.DataGridView rentalTable;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox ComboRentalStatus;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.TextBox txtSearchRentalUser;
+        private System.Windows.Forms.Button btnExtend;
+        private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.TextBox txtCustomerExtend;
         private System.Windows.Forms.TextBox txtBookManage;
         private System.Windows.Forms.TextBox txtCustomerPhone;
@@ -1848,6 +2017,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label exclamation;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TabPage TagRentalChk;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox rentalChkDate;
+        private System.Windows.Forms.TextBox rentalChkBname;
+        private System.Windows.Forms.TextBox rentalChkCname;
+        private System.Windows.Forms.Label rentalChkImg;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView rentalChkTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.Button btnSelectRentalUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
@@ -1856,20 +2046,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Label exclamation;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TabPage TagRentalChk;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
+        private System.Windows.Forms.Label rentalOkImg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
 

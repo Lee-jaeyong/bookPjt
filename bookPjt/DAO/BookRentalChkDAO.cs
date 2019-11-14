@@ -3,37 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using bookPjt.DTO;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using bookPjt.DTO;
 
 namespace bookPjt.DAO
 {
-    class BookManageDAO
+    class BookRentalChkDAO
     {
         public static int status = 1;
-        private static BookManageDAO bookManageDAO = null;
+        private static BookRentalChkDAO bookRentalChkDAO = null;
         private string dbInfo = "Server=localhost;Database=library;Uid=root;Pwd=apmsetup;charset=utf8";
-        public static BookManageDAO getInstance()
+        public static BookRentalChkDAO getInstance()
         {
-            if (bookManageDAO == null)
-                bookManageDAO = new BookManageDAO();
-            return bookManageDAO;
+            if (bookRentalChkDAO == null)
+                bookRentalChkDAO = new BookRentalChkDAO();
+            return bookRentalChkDAO;
         }
 
-        private BookManageDAO()
+        private BookRentalChkDAO()
         {
 
         }
 
-        public List<BookManageDTO> getManageList(string search)
+        public List<RentalChkDTO> getRentalChkList()
         {
-            List<BookManageDTO> list = new List<BookManageDTO>();
+            List<RentalChkDTO> list = new List<RentalChkDTO>();
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
 
-            string sql = "SELECT bm_idx,c_idx,b_idx,b_name,c_name,bm_takeDate,bm_returnDate,bm_extend,bm_status FROM customer, book_management, book WHERE customer.c_idx = book_management.bm_c_idx AND book_management.bm_b_idx = book.b_idx";
-            if (search != "")
-                sql += " AND c_name like '" + search + "'";
+            string sql = "SELECT b_idx,c_idx,b_img,b_name, c_name, rc_date FROM rentalchk, book, customer WHERE rentalchk.rc_b_idx = book.b_idx AND rentalchk.rc_c_idx = customer.c_idx";
             try
             {
                 mySqlConnection.Open();
@@ -41,16 +39,13 @@ namespace bookPjt.DAO
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 while (rdr.Read())
                 {
-                    list.Add(new BookManageDTO(
+                    list.Add(new RentalChkDTO(
                             Convert.ToInt32(rdr[0]),
                             Convert.ToInt32(rdr[1]),
-                            Convert.ToInt32(rdr[2]),
-                            Convert.ToString(rdr[3]),
-                            Convert.ToString(rdr[4]),
-                            Convert.ToString(rdr[5]),
-                            Convert.ToString(rdr[6]),
-                            Convert.ToInt32(rdr[7]),
-                            Convert.ToInt32(rdr[8])
+                            rdr[2].ToString(),
+                            rdr[3].ToString(),
+                            rdr[4].ToString(),
+                            rdr[5].ToString()
                         ));
                 }
                 mySqlConnection.Close();
@@ -62,41 +57,42 @@ namespace bookPjt.DAO
             return list;
         }
 
-        public bool extendRental(int rental_idx)
+        public bool insertRental(int b_idx, int c_idx)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
-
-            string sql = "UPDATE book_management SET bm_extend = bm_extend + 1,bm_returnDate = DATE_ADD(bm_returnDate, INTERVAL 3 DAY) WHERE bm_idx = " + rental_idx;
+            mySqlConnection.Open();
+            MySqlTransaction trans = mySqlConnection.BeginTransaction();
             try
             {
-                mySqlConnection.Open();
+                string sql = "INSERT INTO book_management VALUES (NULL," + b_idx + "," + c_idx + ",left(now(),10),DATE_ADD(left(now(),10), INTERVAL 7 DAY),0)";
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
+                sql = "DELETE FROM rentalchk WHERE rc_c_idx = "+c_idx+" AND rc_b_idx = " + b_idx;
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
                 mySqlConnection.Close();
+                trans.Commit();
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
                 return false;
             }
             return true;
         }
 
-        public bool returnBook(int rental_idx)
+        public bool deleteRentalChk(int b_idx, int c_idx)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
-
-            string sql = "UPDATE book_management SET bm_status = 1 WHERE bm_idx = " + rental_idx;
+            mySqlConnection.Open();
             try
             {
-                mySqlConnection.Open();
+                string sql = "DELETE FROM rentalchk WHERE rc_c_idx = " + c_idx + " AND rc_b_idx = " + b_idx;
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
                 mySqlConnection.Close();
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
                 return false;
             }
             return true;
