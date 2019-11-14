@@ -17,10 +17,19 @@ namespace bookPjt
         List<BookManageDTO> manageList;
         List<BookDTO> list;
         List<RentalChkDTO> rentalChkList;
+        List<UserDTO> userList;
         BookDAO bookDAO = BookDAO.getInstance();
         BookManageDAO bookManageDAO = BookManageDAO.getInstance();
         UserDAO userDAO = UserDAO.getInstance();
         BookRentalChkDAO bookRentalChkDAO = BookRentalChkDAO.getInstance();
+
+        private void selectUserList(string type, string search, bool overdueChk)
+        {
+            userListTable.Rows.Clear();
+            userList = userDAO.getUserList(type, search, overdueChk);
+            foreach (UserDTO user in userList)
+                userListTable.Rows.Add(user.C_identy, user.C_name, user.C_birth, user.C_phone, user.C_rank, user.C_idx);
+        }
 
         private void selectRentalChkList()
         {
@@ -367,6 +376,8 @@ namespace bookPjt
         private void button1_Click_1(object sender, EventArgs e)
         {
             TabControll.SelectedIndex = 4;
+            selectUserList("", "", false);
+            comboUserSelectType.SelectedIndex = 0;
         }
 
 
@@ -519,6 +530,11 @@ namespace bookPjt
                 MessageBox.Show("이미 반납한 도서입니다");
                 return;
             }
+            if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[7].Value.ToString() == "연체")
+            {
+                TimeSpan timeSpan = Convert.ToDateTime(DateTime.Now.ToString().Substring(0, 10)) - Convert.ToDateTime(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[5].Value.ToString());
+                bookManageDAO.addReturnOverdue(timeSpan.Days, Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value));
+            }
             if (bookManageDAO.returnBook(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
             {
                 MessageBox.Show("반납 완료");
@@ -590,6 +606,61 @@ namespace bookPjt
                 selectManageList(txtSearchRentalUser.Text.Trim());
                 btnSelectRentalUser.Focus();
             }
+        }
+
+        public void serachUser()
+        {
+            string type = "c_identy";
+            if (comboUserSelectType.SelectedIndex == 1)
+                type = "c_name";
+            selectUserList(type, txtUserSelect.Text.Trim(), false);
+        }
+
+        private void btnSelectUser_Click(object sender, EventArgs e)
+        {
+            serachUser();
+        }
+
+        private void txtUserSelect_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSelectUser.Focus();
+                serachUser();
+            }
+        }
+
+        private bool changeRentalOverdue = true;
+        private void rentalOverdue_CheckedChanged(object sender, EventArgs e)
+        {
+            if (changeRentalOverdue)
+            {
+                selectUserList("", "", true);
+                changeRentalOverdue = false;
+                btnOverdueRelease.Visible = true;
+            }
+            else
+            {
+                selectUserList("", "", false);
+                changeRentalOverdue = true;
+                btnOverdueRelease.Visible = false;
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("연체를 강제 해제하시겠습니까?", "연체 관리", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (bookManageDAO.overdueRelease(Convert.ToInt32(userListTable.Rows[userListTable.CurrentRow.Index].Cells[5].Value)))
+                    MessageBox.Show("연체 해제 완료");
+                else
+                    MessageBox.Show("연체 해제 실패");
+            }
+        }
+
+        private void btnRankUpdate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

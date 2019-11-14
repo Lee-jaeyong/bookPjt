@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using bookPjt.DTO;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BookManagement
 {
@@ -162,6 +164,45 @@ namespace BookManagement
             }
 
             return "일치하는 정보가 없습니다.";
+        }
+
+        public List<UserDTO> getUserList(string type, string search, bool overdueChk)
+        {
+            List<UserDTO> list = new List<UserDTO>();
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            string sql = "";
+            if (overdueChk)
+                sql += "SELECT c_idx,c_identy,c_name,c_birth,CONCAT(c_phone1,'-',c_phone2,'-',c_phone3),c_rank FROM customer WHERE searchOverdue(c_idx) > 0 or c_idx IN(SELECT bm_c_idx FROM book_management WHERE bm_returnDate < LEFT(NOW(), 10) AND bm_status = 0)";
+            else
+            {
+                sql = "SELECT c_idx,c_identy,c_name,c_birth,CONCAT(c_phone1,'-',c_phone2,'-',c_phone3),c_rank FROM customer";
+                if (search != "")
+                    sql += " WHERE " + type + " like '%" + search + "%'";
+            }
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader rdr = command.ExecuteReader();
+                while (rdr.Read())
+                {
+                    list.Add(new UserDTO(
+                            rdr[1].ToString(),
+                            rdr[2].ToString(),
+                            rdr[3].ToString(),
+                            rdr[4].ToString(),
+                            rdr[5].ToString(),
+                            Convert.ToInt32(rdr[0])
+                        ));
+                }
+                connection.Close();
+                return list;
+            }
+            catch (Exception e)
+            {
+                Console.Write("오류");
+            }
+            return list;
         }
 
         public UserDTO selectUser(int c_idx)

@@ -82,6 +82,50 @@ namespace bookPjt.DAO
             return true;
         }
 
+        public bool overdueRelease(int c_idx)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            try
+            {
+                mySqlConnection.Open();
+                string sql = "UPDATE book_management SET bm_status = 1 WHERE bm_c_idx = " + c_idx;
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+
+                sql = "DELETE FROM delinquent WHERE d_c_idx = " + c_idx;
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public bool addReturnOverdue(int overdueDay, int idx)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+
+            string sql = "INSERT INTO delinquent VALUES (" + idx + "," + overdueDay * 1000 + ")";
+            try
+            {
+                mySqlConnection.Open();
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
+
         public bool returnBook(int rental_idx)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);

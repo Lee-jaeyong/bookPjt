@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using bookPjt.DTO;
 
 namespace bookPjt.DTO
 {
@@ -16,7 +17,17 @@ namespace bookPjt.DTO
         private string c_rank;
         private int totalManageCount;
 
-        public UserDTO(string c_identy,string c_birth,string c_phone,int totalManageCount)
+        public UserDTO(string c_identy, string c_name, string c_birth, string c_phone, string c_rank, int c_idx)
+        {
+            this.c_idx = c_idx;
+            this.c_name = c_name;
+            this.c_identy = c_identy;
+            this.c_birth = c_birth;
+            this.c_phone = c_phone;
+            this.c_rank = c_rank;
+        }
+
+        public UserDTO(string c_identy, string c_birth, string c_phone, int totalManageCount)
         {
             this.c_identy = c_identy;
             this.c_birth = c_birth;
