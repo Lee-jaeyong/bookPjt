@@ -29,7 +29,7 @@ namespace bookPjt
                 foreach (BookManageDTO bookManage in manageList)
                 {
                     string delinquent = "미 연체";
-                    if (Convert.ToDateTime(bookManage.Bm_returnDate) < DateTime.Now)
+                    if (Convert.ToDateTime(bookManage.Bm_returnDate) < Convert.ToDateTime(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString()))
                         delinquent = "연체";
                     rentalTable.Rows.Add(bookManage.Bm_b_idx, bookManage.C_idx, bookManage.B_name, bookManage.C_name, bookManage.Bm_takeDate, bookManage.Bm_returnDate, bookManage.Bm_extend, delinquent);
                 }
@@ -390,11 +390,6 @@ namespace bookPjt
             updateCategory.Show();
         }
 
-        private void btnCategoryDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void selectRentalBook(int b_idx)
         {
             BookDTO bookDTO = bookDAO.selectBook(b_idx);
@@ -431,6 +426,11 @@ namespace bookPjt
             {
 
             }
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            TabControll.SelectedIndex = 5;
         }
     }
 }
