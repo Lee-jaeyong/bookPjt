@@ -17,6 +17,19 @@ namespace bookPjt.DTO
         private string c_rank;
         private int totalManageCount;
 
+        public UserDTO()
+        {
+
+        }
+
+        public UserDTO(int c_idx,string c_identy, string c_name, string c_phone, string c_birth)
+        {
+            this.c_idx = c_idx;
+            this.c_name = c_name;
+            this.c_identy = c_identy;
+            this.c_birth = c_birth;
+            this.c_phone = c_phone;
+        }
         public UserDTO(string c_identy, string c_name, string c_birth, string c_phone, string c_rank, int c_idx)
         {
             this.c_idx = c_idx;

@@ -8,8 +8,6 @@ namespace BookManagement
 {
     class UserDAO
     {
-        //MySqlConnection connection = new MySqlConnection("Server=localhost;Database=library;Uid=root;Pwd=apmsetup;");
-
         private static UserDAO userDAO = null;
         private string dbInfo = "Server=localhost;Database=library;Uid=root;Pwd=apmsetup;charset=utf8";
         public static UserDAO getInstance()
@@ -234,5 +232,40 @@ namespace BookManagement
             return null;
         }
 
+        public bool updateUserRank(string rank, int c_idx)
+        {
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            string sql = "UPDATE customer SET c_rank = '" + rank + "' WHERE c_idx = " + c_idx;
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.Write("오류");
+                return false;
+            }
+            return true;
+        }
+
+        public bool updateUser(UserDTO userDTO,string[] phone)
+        {
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            string sql = "UPDATE customer SET c_name = '"+userDTO.C_name+"', c_birth = '"+userDTO.C_birth+"', c_phone1 = '"+phone[0]+ "', c_phone2 = '" + phone[1] + "', c_phone3 = '" + phone[2] + "' WHERE c_idx = " + userDTO.C_idx+" ";
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.Write("오류");
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -12,8 +12,8 @@ namespace bookPjt.admin
 {
     public partial class updateCategoryForm : Form
     {
-        bookManagement form;
-        public updateCategoryForm(bookManagement form,string updateCategory)
+        BookAdmin form;
+        public updateCategoryForm(BookAdmin form,string updateCategory)
         {
             InitializeComponent();
             txtBefore.Text = updateCategory;

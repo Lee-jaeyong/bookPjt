@@ -1,6 +1,6 @@
 ﻿namespace bookPjt
 {
-    partial class bookManagement
+    partial class BookAdmin
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bookManagement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookAdmin));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControll = new System.Windows.Forms.TabControl();
             this.TagBookList = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -148,7 +150,7 @@
             this.comboUserSelectType = new System.Windows.Forms.ComboBox();
             this.rentalOverdue = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
+            this.btnUserUpdate = new System.Windows.Forms.Button();
             this.btnOverdueRelease = new System.Windows.Forms.Button();
             this.btnRankUpdate = new System.Windows.Forms.Button();
             this.txtUserSelect = new System.Windows.Forms.TextBox();
@@ -178,6 +180,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.btnPublisherUpdate = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -488,9 +491,9 @@
             // 
             // bookIdx
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle1;
             this.bookIdx.HeaderText = "도서 번호";
             this.bookIdx.MinimumWidth = 6;
             this.bookIdx.Name = "bookIdx";
@@ -507,8 +510,8 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column5.HeaderText = "저자";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -525,8 +528,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightGray;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column4.HeaderText = "분류";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -543,8 +546,8 @@
             // 
             // Column14
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightGray;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column14.HeaderText = "연령 제한";
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
@@ -825,6 +828,7 @@
             // 
             this.panel2.Controls.Add(this.AddPublisherName);
             this.panel2.Controls.Add(this.publisherTable);
+            this.panel2.Controls.Add(this.btnPublisherUpdate);
             this.panel2.Controls.Add(this.publisherAddBtn);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Location = new System.Drawing.Point(536, 0);
@@ -835,7 +839,7 @@
             // 
             // AddPublisherName
             // 
-            this.AddPublisherName.Location = new System.Drawing.Point(55, 125);
+            this.AddPublisherName.Location = new System.Drawing.Point(49, 125);
             this.AddPublisherName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddPublisherName.Multiline = true;
             this.AddPublisherName.Name = "AddPublisherName";
@@ -868,12 +872,12 @@
             // 
             // publisherAddBtn
             // 
-            this.publisherAddBtn.Location = new System.Drawing.Point(314, 125);
+            this.publisherAddBtn.Location = new System.Drawing.Point(303, 125);
             this.publisherAddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.publisherAddBtn.Name = "publisherAddBtn";
-            this.publisherAddBtn.Size = new System.Drawing.Size(129, 48);
+            this.publisherAddBtn.Size = new System.Drawing.Size(72, 48);
             this.publisherAddBtn.TabIndex = 3;
-            this.publisherAddBtn.Text = "추가";
+            this.publisherAddBtn.Text = "추 가";
             this.publisherAddBtn.UseVisualStyleBackColor = true;
             this.publisherAddBtn.Click += new System.EventHandler(this.publisherAddBtn_Click);
             // 
@@ -1404,7 +1408,7 @@
             this.TagUser.Controls.Add(this.comboUserSelectType);
             this.TagUser.Controls.Add(this.rentalOverdue);
             this.TagUser.Controls.Add(this.label29);
-            this.TagUser.Controls.Add(this.button15);
+            this.TagUser.Controls.Add(this.btnUserUpdate);
             this.TagUser.Controls.Add(this.btnOverdueRelease);
             this.TagUser.Controls.Add(this.btnRankUpdate);
             this.TagUser.Controls.Add(this.txtUserSelect);
@@ -1457,14 +1461,15 @@
             this.label29.Size = new System.Drawing.Size(51, 45);
             this.label29.TabIndex = 6;
             // 
-            // button15
+            // btnUserUpdate
             // 
-            this.button15.Location = new System.Drawing.Point(946, 19);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(86, 37);
-            this.button15.TabIndex = 2;
-            this.button15.Text = "수 정";
-            this.button15.UseVisualStyleBackColor = true;
+            this.btnUserUpdate.Location = new System.Drawing.Point(946, 19);
+            this.btnUserUpdate.Name = "btnUserUpdate";
+            this.btnUserUpdate.Size = new System.Drawing.Size(86, 37);
+            this.btnUserUpdate.TabIndex = 2;
+            this.btnUserUpdate.Text = "수 정";
+            this.btnUserUpdate.UseVisualStyleBackColor = true;
+            this.btnUserUpdate.Click += new System.EventHandler(this.btnUserUpdate_Click);
             // 
             // btnOverdueRelease
             // 
@@ -1848,16 +1853,29 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
+            // btnPublisherUpdate
+            // 
+            this.btnPublisherUpdate.Location = new System.Drawing.Point(386, 125);
+            this.btnPublisherUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPublisherUpdate.Name = "btnPublisherUpdate";
+            this.btnPublisherUpdate.Size = new System.Drawing.Size(72, 48);
+            this.btnPublisherUpdate.TabIndex = 3;
+            this.btnPublisherUpdate.Text = "수 정";
+            this.btnPublisherUpdate.UseVisualStyleBackColor = true;
+            this.btnPublisherUpdate.Click += new System.EventHandler(this.btnPublisherUpdate_Click);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "아이디";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 125;
+            this.dataGridViewTextBoxColumn1.Width = 200;
             // 
             // dataGridViewTextBoxColumn2
             // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.HeaderText = "사용자 이름";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -1870,15 +1888,17 @@
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 125;
+            this.dataGridViewTextBoxColumn3.Width = 210;
             // 
             // dataGridViewTextBoxColumn4
             // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn4.HeaderText = "핸드폰 번호";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 125;
+            this.dataGridViewTextBoxColumn4.Width = 200;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1897,7 +1917,7 @@
             this.Column23.Visible = false;
             this.Column23.Width = 125;
             // 
-            // bookManagement
+            // BookAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1913,7 +1933,7 @@
             this.Controls.Add(this.TabControll);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "bookManagement";
+            this.Name = "BookAdmin";
             this.Text = "admin";
             this.TabControll.ResumeLayout(false);
             this.TagBookList.ResumeLayout(false);
@@ -2049,7 +2069,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btnUserUpdate;
         private System.Windows.Forms.Button btnRankUpdate;
         private System.Windows.Forms.TextBox txtUserSelect;
         private System.Windows.Forms.DataGridView userListTable;
@@ -2099,6 +2119,7 @@
         private System.Windows.Forms.Label rentalOkImg;
         private System.Windows.Forms.ComboBox comboUserSelectType;
         private System.Windows.Forms.Button btnSelectUser;
+        private System.Windows.Forms.Button btnPublisherUpdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

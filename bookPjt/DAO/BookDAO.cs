@@ -344,6 +344,24 @@ namespace bookPjt
             return true;
         }
 
+        public bool updatePublisher(string beforePublisherName,string publisherName)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            try
+            {
+                mySqlConnection.Open();
+                string sql = "UPDATE publisherName SET p_n_name = '" + publisherName + "' WHERE p_n_name = '" + beforePublisherName + "' ";
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
         public bool insertPublisher(string publisherName)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);

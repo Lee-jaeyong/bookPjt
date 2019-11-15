@@ -11,7 +11,7 @@ using bookPjt.DTO;
 
 namespace bookPjt
 {
-    public partial class bookManagement : Form
+    public partial class BookAdmin : Form
     {
         public int bookrowItem = 0;
         List<BookManageDTO> manageList;
@@ -23,7 +23,7 @@ namespace bookPjt
         UserDAO userDAO = UserDAO.getInstance();
         BookRentalChkDAO bookRentalChkDAO = BookRentalChkDAO.getInstance();
 
-        private void selectUserList(string type, string search, bool overdueChk)
+        public void selectUserList(string type, string search, bool overdueChk)
         {
             userListTable.Rows.Clear();
             userList = userDAO.getUserList(type, search, overdueChk);
@@ -80,7 +80,7 @@ namespace bookPjt
                 categoryList.Items.Add(listItem);
         }
 
-        public bookManagement()
+        public BookAdmin()
         {
             InitializeComponent();
             selectList();
@@ -298,10 +298,7 @@ namespace bookPjt
                 {
                     MessageBox.Show("출판사 추가 완료");
                     AddPublisherName.Text = "";
-                    publisherTable.Rows.Clear();
-                    List<string> list = bookDAO.getPublisherList();
-                    foreach (string publisher in list)
-                        publisherTable.Rows.Add(publisher);
+                    selectPublisherList();
                 }
                 else
                     MessageBox.Show("출판사 추가 실패");
@@ -649,18 +646,69 @@ namespace bookPjt
 
         private void button16_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("연체를 강제 해제하시겠습니까?", "연체 관리", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                if (bookManageDAO.overdueRelease(Convert.ToInt32(userListTable.Rows[userListTable.CurrentRow.Index].Cells[5].Value)))
-                    MessageBox.Show("연체 해제 완료");
+                int c_idx = Convert.ToInt32(userListTable.Rows[userListTable.CurrentRow.Index].Cells[5].Value);
+                if (c_idx != 0)
+                {
+                    if (MessageBox.Show("연체를 강제 해제하시겠습니까?", "연체 관리", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (bookManageDAO.overdueRelease(c_idx))
+                            MessageBox.Show("연체 해제 완료");
+                        else
+                            MessageBox.Show("연체 해제 실패");
+                    }
+                }
                 else
-                    MessageBox.Show("연체 해제 실패");
+                    MessageBox.Show("선택해주세요");
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("선택해주세요");
             }
         }
 
         private void btnRankUpdate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                UserRankUpdate userRankUpdate = new UserRankUpdate(this, userListTable.Rows[userListTable.CurrentRow.Index].Cells[4].Value.ToString(), Convert.ToInt32(userListTable.Rows[userListTable.CurrentRow.Index].Cells[5].Value));
+                userRankUpdate.Show();
+            }catch(Exception a)
+            {
+                MessageBox.Show("선택해주세요");
+            }
+        }
 
+        private void btnUserUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UpdateUser updateUser = new UpdateUser(this, userListTable.Rows[userListTable.CurrentRow.Index].Cells[0].Value.ToString()
+                    , userListTable.Rows[userListTable.CurrentRow.Index].Cells[1].Value.ToString(),
+                    userListTable.Rows[userListTable.CurrentRow.Index].Cells[3].Value.ToString(),
+                    userListTable.Rows[userListTable.CurrentRow.Index].Cells[2].Value.ToString(),
+                    Convert.ToInt32(userListTable.Rows[userListTable.CurrentRow.Index].Cells[5].Value));
+                updateUser.Show();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("선택해주세요");
+            }
+        }
+
+        public void selectPublisherList()
+        {
+            publisherTable.Rows.Clear();
+            List<string> list = bookDAO.getPublisherList();
+            foreach (string publisher in list)
+                publisherTable.Rows.Add(publisher);
+        }
+
+        private void btnPublisherUpdate_Click(object sender, EventArgs e)
+        {
+            UpdatePublisher updatePublisher = new UpdatePublisher(this,publisherTable.Rows[publisherTable.CurrentRow.Index].Cells[0].Value.ToString());
+            updatePublisher.Show();
         }
     }
 }

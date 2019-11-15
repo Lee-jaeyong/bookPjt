@@ -9,9 +9,9 @@ namespace bookPjt
     {
         BookDAO bookDAO = BookDAO.getInstance();
         BookDTO book;
-        bookManagement bookManage;
+        BookAdmin bookManage;
         int bookrowItem;
-        public Form2(bookManagement bookManage, int bookrowItem)
+        public Form2(BookAdmin bookManage, int bookrowItem)
         {
             InitializeComponent();
             this.bookManage = bookManage;
