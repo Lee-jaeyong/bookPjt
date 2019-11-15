@@ -44,6 +44,54 @@ namespace bookPjt.DAO
             }
             return true;
         }
+        public List<RentalChkDTO> getRentalList(string id)
+        {
+            List<RentalChkDTO> list = new List<RentalChkDTO>();
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+
+            string sql = "SELECT b_name,rc_date FROM book, rentalchk WHERE book.b_idx = rentalchk.rc_b_idx AND rc_c_id = '" + id + "'";
+            try
+            {
+                mySqlConnection.Open();
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                while (rdr.Read())
+                {
+                    list.Add(new RentalChkDTO(
+                            rdr[0].ToString(),
+                            rdr[1].ToString()));
+                }
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return list;
+        }
+        public bool getChkRental(string id, int b_idx)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            mySqlConnection.Open();
+            try
+            {
+                string sql = "SELECT COUNT(rc_idx) FROM rentalchk WHERE rc_c_id = '" + id + "' AND rc_b_idx = " + b_idx;
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
+                int count = Convert.ToInt32(rdr[0]);
+                rdr.Close();
+                if (count >= 1)
+                    return false;
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
         public List<RentalChkDTO> getRentalChkList()
         {
             List<RentalChkDTO> list = new List<RentalChkDTO>();

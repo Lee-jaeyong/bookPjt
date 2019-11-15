@@ -20,7 +20,6 @@ namespace bookPjt.DTO
         {
 
         }
-
         public UserDTO(int c_idx,string c_identy, string c_name, string c_phone, string c_birth)
         {
             this.c_idx = c_idx;

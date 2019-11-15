@@ -54,10 +54,10 @@ namespace BookManagement
 
         }
 
-        public bool joinDB(string name, string ph1, string ph2, string ph3, string id, string pw,string birth)
+        public bool joinDB(string name, string ph1, string ph2, string ph3, string id, string pw, string birth)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);
-            string sql = "insert customer values(NULL,'" + name + "','" + ph1 + "','" + ph2 + "','" + ph3 + "','" + id + "','" + pw + "','"+birth+"','A')";
+            string sql = "insert customer values(NULL,'" + name + "','" + ph1 + "','" + ph2 + "','" + ph3 + "','" + id + "','" + pw + "','" + birth + "','A')";
 
             try
             {
@@ -203,6 +203,32 @@ namespace BookManagement
             return list;
         }
 
+        public UserDTO getUserInfo(string c_id)
+        {
+            UserDTO userDTO;
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            string sql = "SELECT c_idx,c_identy,c_name,CONCAT(c_phone1,'-',c_phone2,'-',c_phone3),c_birth FROM customer where c_identy ='" + c_id + "'";
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader rdr = command.ExecuteReader();
+                rdr.Read();
+                userDTO = new UserDTO(
+                    Convert.ToInt32(rdr[0]),
+                    rdr[1].ToString(),
+                    rdr[2].ToString(),
+                    rdr[3].ToString(),
+                    rdr[4].ToString());
+                connection.Close();
+                return userDTO;
+            }
+            catch (Exception e)
+            {
+                Console.Write("오류");
+            }
+            return null;
+        }
         public UserDTO selectUser(int c_idx)
         {
             UserDTO userDTO;
@@ -249,11 +275,28 @@ namespace BookManagement
             }
             return true;
         }
-
-        public bool updateUser(UserDTO userDTO,string[] phone)
+        public bool updateUser(UserDTO userDTO, string[] phone)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);
-            string sql = "UPDATE customer SET c_name = '"+userDTO.C_name+"', c_birth = '"+userDTO.C_birth+"', c_phone1 = '"+phone[0]+ "', c_phone2 = '" + phone[1] + "', c_phone3 = '" + phone[2] + "' WHERE c_idx = " + userDTO.C_idx+" ";
+            string sql = "UPDATE customer SET c_name = '" + userDTO.C_name + "', c_birth = '" + userDTO.C_birth + "', c_phone1 = '" + phone[0] + "', c_phone2 = '" + phone[1] + "', c_phone3 = '" + phone[2] + "' WHERE c_identy = '" + userDTO.C_identy + "' or c_idx = " + userDTO.C_idx + " ";
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.Write("오류");
+                return false;
+            }
+            return true;
+        }
+
+        public bool updatePassWord(string pass, string id)
+        {
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            string sql = "UPDATE customer SET c_password = '" + pass + "' WHERE c_identy = '" + id + "' ";
             try
             {
                 connection.Open();

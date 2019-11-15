@@ -67,7 +67,7 @@
             // bookBtn
             // 
             this.bookBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bookBtn.Location = new System.Drawing.Point(-1, -1);
+            this.bookBtn.Location = new System.Drawing.Point(5, 4);
             this.bookBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bookBtn.Name = "bookBtn";
             this.bookBtn.Size = new System.Drawing.Size(103, 112);
@@ -79,7 +79,7 @@
             // outBtn
             // 
             this.outBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.outBtn.Location = new System.Drawing.Point(209, -1);
+            this.outBtn.Location = new System.Drawing.Point(215, 4);
             this.outBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.outBtn.Name = "outBtn";
             this.outBtn.Size = new System.Drawing.Size(103, 112);
@@ -91,13 +91,14 @@
             // meBtn
             // 
             this.meBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.meBtn.Location = new System.Drawing.Point(104, -1);
+            this.meBtn.Location = new System.Drawing.Point(110, 4);
             this.meBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.meBtn.Name = "meBtn";
             this.meBtn.Size = new System.Drawing.Size(103, 112);
             this.meBtn.TabIndex = 2;
             this.meBtn.Text = "내정보";
             this.meBtn.UseVisualStyleBackColor = true;
+            this.meBtn.Click += new System.EventHandler(this.meBtn_Click);
             // 
             // bookPanel
             // 
@@ -112,16 +113,16 @@
             this.bookPanel.Controls.Add(this.searchSelect);
             this.bookPanel.Controls.Add(this.searchBook);
             this.bookPanel.Controls.Add(this.label1);
-            this.bookPanel.Location = new System.Drawing.Point(-1, 108);
+            this.bookPanel.Location = new System.Drawing.Point(-1, 119);
             this.bookPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bookPanel.Name = "bookPanel";
-            this.bookPanel.Size = new System.Drawing.Size(1218, 668);
+            this.bookPanel.Size = new System.Drawing.Size(1218, 657);
             this.bookPanel.TabIndex = 0;
             // 
             // takeBtn
             // 
             this.takeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.takeBtn.Location = new System.Drawing.Point(770, 557);
+            this.takeBtn.Location = new System.Drawing.Point(770, 549);
             this.takeBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.takeBtn.Name = "takeBtn";
             this.takeBtn.Size = new System.Drawing.Size(424, 92);
@@ -134,7 +135,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(772, 331);
+            this.label6.Location = new System.Drawing.Point(772, 328);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 24);
             this.label6.TabIndex = 11;
@@ -143,7 +144,7 @@
             // txtBookSummary
             // 
             this.txtBookSummary.Enabled = false;
-            this.txtBookSummary.Location = new System.Drawing.Point(770, 359);
+            this.txtBookSummary.Location = new System.Drawing.Point(770, 356);
             this.txtBookSummary.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBookSummary.Multiline = true;
             this.txtBookSummary.Name = "txtBookSummary";
@@ -152,8 +153,8 @@
             // 
             // bookImg
             // 
-            this.bookImg.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.bookImg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.bookImg.BackColor = System.Drawing.Color.White;
+            this.bookImg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bookImg.Location = new System.Drawing.Point(1009, 58);
             this.bookImg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bookImg.Name = "bookImg";
@@ -213,14 +214,14 @@
             this.category,
             this.Column2,
             this.Column3});
-            this.bookListTable.Location = new System.Drawing.Point(15, 58);
+            this.bookListTable.Location = new System.Drawing.Point(15, 56);
             this.bookListTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bookListTable.Name = "bookListTable";
             this.bookListTable.ReadOnly = true;
             this.bookListTable.RowHeadersWidth = 51;
             this.bookListTable.RowTemplate.Height = 23;
             this.bookListTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bookListTable.Size = new System.Drawing.Size(735, 591);
+            this.bookListTable.Size = new System.Drawing.Size(735, 585);
             this.bookListTable.TabIndex = 4;
             this.bookListTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bookListTable_CellClick);
             // 

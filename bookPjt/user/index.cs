@@ -7,6 +7,7 @@ using System.Linq;
 using bookPjt.util;
 using System.Drawing;
 using bookPjt.DAO;
+using bookPjt.user;
 
 namespace BookManagement
 {
@@ -97,16 +98,25 @@ namespace BookManagement
             {
                 if (MessageBox.Show("대출 신청 하시겠습니까?", "대출 신청", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (bookRentalChkDAO.insertRentalChk(id, Convert.ToInt32(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value)))
-                        MessageBox.Show("대출 신청 완료");
+                    if(bookRentalChkDAO.getChkRental(id, Convert.ToInt32(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value)))
+                        if (bookRentalChkDAO.insertRentalChk(id, Convert.ToInt32(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value)))
+                            MessageBox.Show("대출 신청 완료");
+                        else
+                            MessageBox.Show("대출 신청 실패");
                     else
-                        MessageBox.Show("대출 신청 실패");
+                        MessageBox.Show("이미 신청한 도서입니다");
                 }
             }
             catch (Exception a)
             {
                 MessageBox.Show("도서를 클릭해주세요");
             }
+        }
+
+        private void meBtn_Click(object sender, EventArgs e)
+        {
+            MyInfo myinfo = new MyInfo(id);
+            myinfo.Show();
         }
     }
 }
