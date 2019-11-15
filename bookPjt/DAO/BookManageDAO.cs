@@ -25,7 +25,39 @@ namespace bookPjt.DAO
         {
 
         }
-
+        public List<BookManageDTO> getUserManageList(string c_id, int status)
+        {
+            List<BookManageDTO> list = new List<BookManageDTO>();
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            try
+            {
+                mySqlConnection.Open();
+                string sql = "SELECT c_idx FROM customer WHERE c_identy = '" + c_id + "'";
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
+                int c_idx = Convert.ToInt32(rdr[0]);
+                rdr.Close();
+                sql = "SELECT b_name, bm_takeDate, bm_returnDate, bm_extend, bm_status FROM book, book_management WHERE book.b_idx = book_management.bm_b_idx AND bm_c_idx = " + c_idx + " AND bm_status = " + status;
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                rdr = mysqlCommand.ExecuteReader();
+                while (rdr.Read())
+                {
+                    list.Add(new BookManageDTO(
+                            Convert.ToString(rdr[0]),
+                            Convert.ToString(rdr[1]),
+                            Convert.ToString(rdr[2]),
+                            Convert.ToInt32(rdr[3]),
+                            Convert.ToInt32(rdr[4])));
+                }
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return list;
+        }
         public List<BookManageDTO> getManageList(string search)
         {
             List<BookManageDTO> list = new List<BookManageDTO>();

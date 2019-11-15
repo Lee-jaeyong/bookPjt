@@ -20,7 +20,14 @@ namespace bookPjt.DTO
         private string bm_returnDate;
         private int bm_extend;
         private int status;
-
+        public BookManageDTO(string b_name,string bm_takeDate, string bm_returnDate, int bm_extend,int bm_status)
+        {
+            this.b_name = b_name;
+            this.bm_takeDate = bm_takeDate;
+            this.bm_returnDate = bm_returnDate;
+            this.bm_extend = bm_extend;
+            this.status = bm_status;
+        }
         public BookManageDTO(int bm_idx, int b_idx, int c_idx, string b_name, string c_name, string bm_takeDate, string bm_returnDate, int bm_extend, int status)
         {
             this.status = status;

@@ -712,5 +712,7 @@ namespace bookPjt
             UpdatePublisher updatePublisher = new UpdatePublisher(this,publisherTable.Rows[publisherTable.CurrentRow.Index].Cells[0].Value.ToString());
             updatePublisher.Show();
         }
+
+
     }
 }
