@@ -6,7 +6,7 @@ namespace BookManagement
 {
     public partial class JoinForm : Form
     {
-
+        UserDAO dao = UserDAO.getInstance();
         public JoinForm()
         {
             InitializeComponent();
@@ -20,12 +20,11 @@ namespace BookManagement
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            Dispose();
         }
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            UserDAO dao = UserDAO.getInstance();
             string inputName = nameTxt.Text;
             string inputId = idTxt.Text;
             string inputPw = pwTxt.Text;
@@ -33,12 +32,24 @@ namespace BookManagement
             string inputPh1 = ph1Txt.Text;
             string inputPh2 = ph2Txt.Text;
             string inputPh0 = ph0Select.Text;
+            string inputBirth = txtBirth.Text;
+            int birth;
             Regex regex_name = new Regex(@"^[가-힣]+$");
             Regex regex_id = new Regex(@"^[a-zA-Z0-9]+$");
             if (!(regex_name.IsMatch(inputName)))
             {
                 MessageBox.Show("한글 이름을 입력해주세요");
                 nameTxt.Focus();
+            }
+            else if (!(int.TryParse(inputBirth, out birth)))
+            {
+                MessageBox.Show("생년월일을 다시 입력해주세요.");
+                txtBirth.Focus();
+            }
+            else if (inputBirth.Length > 6)
+            {
+                MessageBox.Show("생년월일을 6자리까지만 입력해주세요.");
+                txtBirth.Focus();
             }
             else if (!(regex_id.IsMatch(inputId)) || inputId.Length < 8)
             {
@@ -61,7 +72,7 @@ namespace BookManagement
             {
                 //DAO연결 insert
 
-                bool result = dao.joinDB(inputName, inputPh0, inputPh1, inputPh2, inputId, inputPw);
+                bool result = dao.joinDB(inputName, inputPh0, inputPh1, inputPh2, inputId, inputPw, inputBirth);
                 if (result == true)
                 {
                     MessageBox.Show("회원가입이 완료되었습니다");
@@ -70,7 +81,6 @@ namespace BookManagement
                 else
                 {
                     MessageBox.Show("회원가입 실행 오류");
-                    this.Hide();
                 }
             }
         }
@@ -133,6 +143,19 @@ namespace BookManagement
                 }
             }
 
+        }
+
+        private void idTxt_KeyUp(object sender, KeyEventArgs e)
+        {
+            string inputId = idTxt.Text;
+            Regex regex_id = new Regex(@"^[a-zA-Z0-9]+$");
+            if (!(regex_id.IsMatch(inputId)) || inputId.Length < 8)
+                lblDupChk.Text = "* 아이디는 영문,숫자 8자 이상입니다";
+            else
+                if (dao.dupCheck(inputId))
+                    lblDupChk.Text = "* 중복된 아이디가 존재합니다";
+                else
+                    lblDupChk.Text = "* 사용 가능한 아이디입니다";
         }
     }
 }

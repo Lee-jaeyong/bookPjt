@@ -28,7 +28,7 @@ namespace BookManagement
             {
                 Form frm;
                 this.Visible = false;
-                if (inputId == "dlwodyd202")
+                if (inputId == "root")
                     frm = new BookAdmin();
                 else
                     frm = new index(inputId);

@@ -54,10 +54,10 @@ namespace BookManagement
 
         }
 
-        public bool joinDB(string name, string ph1, string ph2, string ph3, string id, string pw)
+        public bool joinDB(string name, string ph1, string ph2, string ph3, string id, string pw,string birth)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);
-            string sql = "insert customer values(NULL,'" + name + "','" + ph1 + "','" + ph2 + "','" + ph3 + "','" + id + "','" + pw + "')";
+            string sql = "insert customer values(NULL,'" + name + "','" + ph1 + "','" + ph2 + "','" + ph3 + "','" + id + "','" + pw + "','"+birth+"','A')";
 
             try
             {

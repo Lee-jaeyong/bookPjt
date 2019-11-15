@@ -71,6 +71,39 @@ namespace bookPjt
             return true;
         }
 
+        public List<BookDTO> getBookList(string type, string search)
+        {
+            List<BookDTO> list = new List<BookDTO>();
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            string sql = "SELECT b_idx,b_name,b_author,c_n_name,p_n_name,IF(rentalBookCountChk(b_idx) >= 3,'대출 불가','대출 가능'),b_img,b_summary FROM book, category, categoryName, publisher, publisherName WHERE book.b_idx = category.ct_b_id AND book.b_idx = publisher.p_b_id AND categoryname.c_n_idx = category.ct_idx AND publisherName.p_n_idx = publisher.p_idx";
+            if (search != "")
+                sql += " AND " + type + " like '%" + search + "%'";
+            try
+            {
+                mySqlConnection.Open();
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                while (rdr.Read())
+                {
+                    list.Add(new BookDTO(
+                        Convert.ToInt32(rdr[0]),
+                        rdr[1].ToString(),
+                        rdr[2].ToString(),
+                        rdr[3].ToString(),
+                        rdr[4].ToString(),
+                        rdr[5].ToString(),
+                        rdr[6].ToString(),
+                        rdr[7].ToString()
+                        ));
+                }
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return list;
+        }
         public BookDTO selectBook(int bookid)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
@@ -344,7 +377,7 @@ namespace bookPjt
             return true;
         }
 
-        public bool updatePublisher(string beforePublisherName,string publisherName)
+        public bool updatePublisher(string beforePublisherName, string publisherName)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
             try

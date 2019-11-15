@@ -10,16 +10,16 @@ namespace bookPjt.DTO
     {
         private int rentalChk_idx;
         private int b_idx;
-        private int c_idx;
+        private string c_id;
         private string bookImg;
         private string bookTitle;
         private string rentalUser;
         private string rentalChkDate;
 
-        public RentalChkDTO(int b_idx,int c_idx, string bookImg,string bookTitle,string rentalUser,string rentalChkDate)
+        public RentalChkDTO(int b_idx,string c_id, string bookImg,string bookTitle,string rentalUser,string rentalChkDate)
         {
             this.b_idx = b_idx;
-            this.c_idx = c_idx;
+            this.c_id = c_id;
             this.bookImg = bookImg;
             this.bookTitle = bookTitle;
             this.rentalChkDate = rentalChkDate;
@@ -27,7 +27,7 @@ namespace bookPjt.DTO
         }
 
         public int B_idx { get { return b_idx; } set { b_idx = value; } }
-        public int C_idx { get { return c_idx; } set { c_idx = value; } }
+        public string C_id { get { return c_id; } set { c_id = value; } }
         public int RentalChk_idx { get { return rentalChk_idx; } set { rentalChk_idx = value; } }
         public string BookImg { get {return bookImg; } set { bookImg = value; } }
         public string BookTitle { get { return bookTitle; } set { bookTitle = value; } }

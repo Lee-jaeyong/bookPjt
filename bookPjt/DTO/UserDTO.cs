@@ -16,7 +16,6 @@ namespace bookPjt.DTO
         private string c_birth;
         private string c_rank;
         private int totalManageCount;
-
         public UserDTO()
         {
 

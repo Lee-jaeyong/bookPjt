@@ -38,7 +38,7 @@ namespace bookPjt
             rentalChkList = bookRentalChkDAO.getRentalChkList();
             foreach (RentalChkDTO item in rentalChkList)
             {
-                rentalChkTable.Rows.Add(item.B_idx, item.C_idx, item.BookImg, item.BookTitle, item.RentalUser, item.RentalChkDate);
+                rentalChkTable.Rows.Add(item.B_idx, item.C_id, item.BookImg, item.BookTitle, item.RentalUser, item.RentalChkDate);
             }
         }
 
@@ -461,12 +461,12 @@ namespace bookPjt
         {
             try
             {
-                Bitmap sourceImage = new Bitmap((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
+                Bitmap sourceImage = new Bitmap((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[2].Value.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
                 sourceImage = UtilClass.imgResize(sourceImage, 346, 263);
                 rentalChkImg.Image = sourceImage;
-                rentalChkBname.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[2].Value.ToString();
-                rentalChkCname.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[3].Value.ToString();
-                rentalChkDate.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[4].Value.ToString();
+                rentalChkBname.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[3].Value.ToString();
+                rentalChkCname.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[4].Value.ToString();
+                rentalChkDate.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[5].Value.ToString();
             }
             catch (Exception a)
             {
@@ -478,10 +478,11 @@ namespace bookPjt
         {
             try
             {
-                if (bookRentalChkDAO.insertRental(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value)))
+                if (bookRentalChkDAO.insertRental(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString()))
                     MessageBox.Show("대여 처리 완료");
                 else
                     MessageBox.Show("대여 처리 실패");
+                selectRentalChkList();
             }
             catch (Exception a)
             {
@@ -493,10 +494,11 @@ namespace bookPjt
         {
             try
             {
-                if (bookRentalChkDAO.deleteRentalChk(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value)))
+                if (bookRentalChkDAO.deleteRentalChk(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString()))
                     MessageBox.Show("삭제 완료");
                 else
                     MessageBox.Show("삭제 실패");
+                selectRentalChkList();
             }
             catch (Exception a)
             {

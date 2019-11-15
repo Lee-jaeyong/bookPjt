@@ -26,12 +26,30 @@ namespace bookPjt.DAO
 
         }
 
+        public bool insertRentalChk(string u_id, int b_idx)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            mySqlConnection.Open();
+            try
+            {
+                string sql = "INSERT INTO rentalchk VALUES (" + b_idx + ",'" + u_id + "',LEFT(NOW(),10),NULL)";
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
         public List<RentalChkDTO> getRentalChkList()
         {
             List<RentalChkDTO> list = new List<RentalChkDTO>();
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
 
-            string sql = "SELECT b_idx,c_idx,b_img,b_name, c_name, rc_date FROM rentalchk, book, customer WHERE rentalchk.rc_b_idx = book.b_idx AND rentalchk.rc_c_idx = customer.c_idx";
+            string sql = "SELECT b_idx,c_identy,b_img,b_name, c_name, rc_date FROM rentalchk, book, customer WHERE rentalchk.rc_b_idx = book.b_idx AND rentalchk.rc_c_id = customer.c_identy";
             try
             {
                 mySqlConnection.Open();
@@ -41,7 +59,7 @@ namespace bookPjt.DAO
                 {
                     list.Add(new RentalChkDTO(
                             Convert.ToInt32(rdr[0]),
-                            Convert.ToInt32(rdr[1]),
+                            rdr[1].ToString(),
                             rdr[2].ToString(),
                             rdr[3].ToString(),
                             rdr[4].ToString(),
@@ -57,42 +75,48 @@ namespace bookPjt.DAO
             return list;
         }
 
-        public bool insertRental(int b_idx, int c_idx)
+        public bool insertRental(int b_idx, string c_id)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
             mySqlConnection.Open();
-            MySqlTransaction trans = mySqlConnection.BeginTransaction();
             try
             {
-                string sql = "INSERT INTO book_management VALUES (NULL," + b_idx + "," + c_idx + ",left(now(),10),DATE_ADD(left(now(),10), INTERVAL 7 DAY),0)";
+                string sql = "SELECT c_idx FROM customer WHERE c_identy = '" + c_id + "'";
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
+                int c_idx = Convert.ToInt32(rdr[0]);
+                rdr.Close();
+                sql = "INSERT INTO book_management VALUES (NULL," + c_idx + "," + b_idx + ",left(now(),10),DATE_ADD(left(now(),10), INTERVAL 7 DAY),0,0)";
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
-                sql = "DELETE FROM rentalchk WHERE rc_c_idx = "+c_idx+" AND rc_b_idx = " + b_idx;
+                sql = "DELETE FROM rentalchk WHERE rc_c_id = '" + c_id + "' AND rc_b_idx = " + b_idx;
                 mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
                 mySqlConnection.Close();
-                trans.Commit();
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return false;
             }
             return true;
         }
 
-        public bool deleteRentalChk(int b_idx, int c_idx)
+        public bool deleteRentalChk(int b_idx, string c_id)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
             mySqlConnection.Open();
             try
             {
-                string sql = "DELETE FROM rentalchk WHERE rc_c_idx = " + c_idx + " AND rc_b_idx = " + b_idx;
+                string sql = "DELETE FROM rentalchk WHERE rc_c_id = '" + c_id + "' AND rc_b_idx = " + b_idx;
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
                 mySqlConnection.Close();
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return false;
             }
             return true;
