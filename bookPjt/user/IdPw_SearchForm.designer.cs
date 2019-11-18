@@ -86,9 +86,12 @@
             // 
             // idFindBtn
             // 
-            this.idFindBtn.Location = new System.Drawing.Point(126, 254);
+            this.idFindBtn.FlatAppearance.BorderSize = 0;
+            this.idFindBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.idFindBtn.Image = ((System.Drawing.Image)(resources.GetObject("idFindBtn.Image")));
+            this.idFindBtn.Location = new System.Drawing.Point(122, 244);
             this.idFindBtn.Name = "idFindBtn";
-            this.idFindBtn.Size = new System.Drawing.Size(124, 40);
+            this.idFindBtn.Size = new System.Drawing.Size(140, 52);
             this.idFindBtn.TabIndex = 10;
             this.idFindBtn.Text = "확인";
             this.idFindBtn.UseVisualStyleBackColor = true;
@@ -189,9 +192,12 @@
             // 
             // pwFindBtn
             // 
-            this.pwFindBtn.Location = new System.Drawing.Point(126, 254);
+            this.pwFindBtn.FlatAppearance.BorderSize = 0;
+            this.pwFindBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pwFindBtn.Image = ((System.Drawing.Image)(resources.GetObject("pwFindBtn.Image")));
+            this.pwFindBtn.Location = new System.Drawing.Point(123, 243);
             this.pwFindBtn.Name = "pwFindBtn";
-            this.pwFindBtn.Size = new System.Drawing.Size(124, 40);
+            this.pwFindBtn.Size = new System.Drawing.Size(137, 54);
             this.pwFindBtn.TabIndex = 4;
             this.pwFindBtn.Text = "확인";
             this.pwFindBtn.UseVisualStyleBackColor = true;

@@ -88,7 +88,7 @@
             this.outBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outBtn.Image = ((System.Drawing.Image)(resources.GetObject("outBtn.Image")));
             this.outBtn.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.outBtn.Location = new System.Drawing.Point(972, 3);
+            this.outBtn.Location = new System.Drawing.Point(183, 3);
             this.outBtn.Name = "outBtn";
             this.outBtn.Size = new System.Drawing.Size(90, 98);
             this.outBtn.TabIndex = 1;
@@ -115,13 +115,13 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(18, 12);
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(24, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 20);
+            this.label1.Size = new System.Drawing.Size(42, 36);
             this.label1.TabIndex = 0;
-            this.label1.Text = "검색 : ";
+            this.label1.Text = "      ";
             // 
             // searchBook
             // 
@@ -258,7 +258,7 @@
             // txtBookSummary
             // 
             this.txtBookSummary.Enabled = false;
-            this.txtBookSummary.Location = new System.Drawing.Point(674, 282);
+            this.txtBookSummary.Location = new System.Drawing.Point(674, 281);
             this.txtBookSummary.Multiline = true;
             this.txtBookSummary.Name = "txtBookSummary";
             this.txtBookSummary.Size = new System.Drawing.Size(371, 150);
@@ -276,10 +276,13 @@
             // 
             // takeBtn
             // 
-            this.takeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.takeBtn.Location = new System.Drawing.Point(674, 436);
+            this.takeBtn.FlatAppearance.BorderSize = 0;
+            this.takeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.takeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.takeBtn.Image = ((System.Drawing.Image)(resources.GetObject("takeBtn.Image")));
+            this.takeBtn.Location = new System.Drawing.Point(669, 432);
             this.takeBtn.Name = "takeBtn";
-            this.takeBtn.Size = new System.Drawing.Size(371, 74);
+            this.takeBtn.Size = new System.Drawing.Size(383, 79);
             this.takeBtn.TabIndex = 13;
             this.takeBtn.Text = "대출 신청";
             this.takeBtn.UseVisualStyleBackColor = true;
@@ -287,6 +290,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.txtBookCategory);
             this.panel1.Controls.Add(this.txtBookPublisher);
@@ -384,7 +388,7 @@
             // 
             // bookPanel
             // 
-            this.bookPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bookPanel.BackColor = System.Drawing.Color.White;
             this.bookPanel.Controls.Add(this.panel1);
             this.bookPanel.Controls.Add(this.takeBtn);
             this.bookPanel.Controls.Add(this.label6);
@@ -404,6 +408,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1062, 617);
             this.Controls.Add(this.bookPanel);
             this.Controls.Add(this.meBtn);

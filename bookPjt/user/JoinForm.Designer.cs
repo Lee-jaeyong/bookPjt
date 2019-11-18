@@ -62,7 +62,7 @@
             // pwTxt
             // 
             this.pwTxt.Font = new System.Drawing.Font("굴림", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.pwTxt.Location = new System.Drawing.Point(123, 140);
+            this.pwTxt.Location = new System.Drawing.Point(123, 143);
             this.pwTxt.Name = "pwTxt";
             this.pwTxt.PasswordChar = '●';
             this.pwTxt.Size = new System.Drawing.Size(234, 27);
@@ -109,7 +109,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(46, 143);
+            this.label3.Location = new System.Drawing.Point(46, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 20);
             this.label3.TabIndex = 6;
@@ -128,10 +128,14 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Font = new System.Drawing.Font("나눔고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cancelBtn.Location = new System.Drawing.Point(200, 346);
+            this.cancelBtn.FlatAppearance.BorderSize = 0;
+            this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelBtn.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cancelBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cancelBtn.Image = ((System.Drawing.Image)(resources.GetObject("cancelBtn.Image")));
+            this.cancelBtn.Location = new System.Drawing.Point(194, 335);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(95, 38);
+            this.cancelBtn.Size = new System.Drawing.Size(103, 49);
             this.cancelBtn.TabIndex = 9;
             this.cancelBtn.Text = "취소";
             this.cancelBtn.UseVisualStyleBackColor = true;
@@ -139,10 +143,14 @@
             // 
             // okBtn
             // 
-            this.okBtn.Font = new System.Drawing.Font("나눔고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.okBtn.Location = new System.Drawing.Point(99, 346);
+            this.okBtn.FlatAppearance.BorderSize = 0;
+            this.okBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.okBtn.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.okBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.okBtn.Image = ((System.Drawing.Image)(resources.GetObject("okBtn.Image")));
+            this.okBtn.Location = new System.Drawing.Point(93, 335);
             this.okBtn.Name = "okBtn";
-            this.okBtn.Size = new System.Drawing.Size(95, 38);
+            this.okBtn.Size = new System.Drawing.Size(103, 49);
             this.okBtn.TabIndex = 8;
             this.okBtn.Text = "확인";
             this.okBtn.UseVisualStyleBackColor = true;
