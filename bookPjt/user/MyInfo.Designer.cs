@@ -135,7 +135,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(32, 23);
+            this.label6.Location = new System.Drawing.Point(38, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 17);
             this.label6.TabIndex = 0;
@@ -143,14 +143,11 @@
             // 
             // changePass
             // 
-            this.changePass.FlatAppearance.BorderSize = 0;
-            this.changePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changePass.Font = new System.Drawing.Font("나눔고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.changePass.Image = ((System.Drawing.Image)(resources.GetObject("changePass.Image")));
-            this.changePass.Location = new System.Drawing.Point(463, 20);
+            this.changePass.Location = new System.Drawing.Point(473, 24);
             this.changePass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.changePass.Name = "changePass";
-            this.changePass.Size = new System.Drawing.Size(142, 61);
+            this.changePass.Size = new System.Drawing.Size(132, 53);
             this.changePass.TabIndex = 2;
             this.changePass.Text = "비밀번호 변경";
             this.changePass.UseVisualStyleBackColor = true;
@@ -160,7 +157,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(19, 60);
+            this.label5.Location = new System.Drawing.Point(25, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 17);
             this.label5.TabIndex = 0;
@@ -168,7 +165,7 @@
             // 
             // txtChangePassChk
             // 
-            this.txtChangePassChk.Location = new System.Drawing.Point(145, 53);
+            this.txtChangePassChk.Location = new System.Drawing.Point(151, 53);
             this.txtChangePassChk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtChangePassChk.Multiline = true;
             this.txtChangePassChk.Name = "txtChangePassChk";
@@ -178,7 +175,7 @@
             // 
             // txtChangePass
             // 
-            this.txtChangePass.Location = new System.Drawing.Point(145, 16);
+            this.txtChangePass.Location = new System.Drawing.Point(151, 16);
             this.txtChangePass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtChangePass.Multiline = true;
             this.txtChangePass.Name = "txtChangePass";
@@ -188,14 +185,11 @@
             // 
             // btnUserUpdateCencel
             // 
-            this.btnUserUpdateCencel.FlatAppearance.BorderSize = 0;
-            this.btnUserUpdateCencel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserUpdateCencel.Font = new System.Drawing.Font("나눔고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnUserUpdateCencel.Image = ((System.Drawing.Image)(resources.GetObject("btnUserUpdateCencel.Image")));
-            this.btnUserUpdateCencel.Location = new System.Drawing.Point(477, 93);
+            this.btnUserUpdateCencel.Location = new System.Drawing.Point(487, 98);
             this.btnUserUpdateCencel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUserUpdateCencel.Name = "btnUserUpdateCencel";
-            this.btnUserUpdateCencel.Size = new System.Drawing.Size(142, 61);
+            this.btnUserUpdateCencel.Size = new System.Drawing.Size(132, 53);
             this.btnUserUpdateCencel.TabIndex = 2;
             this.btnUserUpdateCencel.Text = "취 소";
             this.btnUserUpdateCencel.UseVisualStyleBackColor = true;
@@ -204,14 +198,11 @@
             // 
             // btnUserUpdateExecute
             // 
-            this.btnUserUpdateExecute.FlatAppearance.BorderSize = 0;
-            this.btnUserUpdateExecute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserUpdateExecute.Font = new System.Drawing.Font("나눔고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnUserUpdateExecute.Image = ((System.Drawing.Image)(resources.GetObject("btnUserUpdateExecute.Image")));
-            this.btnUserUpdateExecute.Location = new System.Drawing.Point(477, 27);
+            this.btnUserUpdateExecute.Location = new System.Drawing.Point(487, 31);
             this.btnUserUpdateExecute.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUserUpdateExecute.Name = "btnUserUpdateExecute";
-            this.btnUserUpdateExecute.Size = new System.Drawing.Size(142, 61);
+            this.btnUserUpdateExecute.Size = new System.Drawing.Size(132, 53);
             this.btnUserUpdateExecute.TabIndex = 2;
             this.btnUserUpdateExecute.Text = "수 정";
             this.btnUserUpdateExecute.UseVisualStyleBackColor = true;
@@ -220,6 +211,7 @@
             // 
             // btnUserUpdate
             // 
+            this.btnUserUpdate.Font = new System.Drawing.Font("나눔고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnUserUpdate.Location = new System.Drawing.Point(487, 31);
             this.btnUserUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUserUpdate.Name = "btnUserUpdate";
@@ -232,7 +224,7 @@
             // txtUserBirth
             // 
             this.txtUserBirth.Enabled = false;
-            this.txtUserBirth.Location = new System.Drawing.Point(151, 164);
+            this.txtUserBirth.Location = new System.Drawing.Point(157, 164);
             this.txtUserBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserBirth.Multiline = true;
             this.txtUserBirth.Name = "txtUserBirth";
@@ -242,7 +234,7 @@
             // txtUserPhone3
             // 
             this.txtUserPhone3.Enabled = false;
-            this.txtUserPhone3.Location = new System.Drawing.Point(371, 121);
+            this.txtUserPhone3.Location = new System.Drawing.Point(377, 121);
             this.txtUserPhone3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserPhone3.Multiline = true;
             this.txtUserPhone3.Name = "txtUserPhone3";
@@ -252,7 +244,7 @@
             // txtUserPhone2
             // 
             this.txtUserPhone2.Enabled = false;
-            this.txtUserPhone2.Location = new System.Drawing.Point(263, 121);
+            this.txtUserPhone2.Location = new System.Drawing.Point(269, 121);
             this.txtUserPhone2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserPhone2.Multiline = true;
             this.txtUserPhone2.Name = "txtUserPhone2";
@@ -262,7 +254,7 @@
             // txtUserPhone1
             // 
             this.txtUserPhone1.Enabled = false;
-            this.txtUserPhone1.Location = new System.Drawing.Point(151, 121);
+            this.txtUserPhone1.Location = new System.Drawing.Point(157, 121);
             this.txtUserPhone1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserPhone1.Multiline = true;
             this.txtUserPhone1.Name = "txtUserPhone1";
@@ -272,7 +264,7 @@
             // txtUserName
             // 
             this.txtUserName.Enabled = false;
-            this.txtUserName.Location = new System.Drawing.Point(151, 79);
+            this.txtUserName.Location = new System.Drawing.Point(157, 79);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
@@ -282,7 +274,7 @@
             // txtUserId
             // 
             this.txtUserId.Enabled = false;
-            this.txtUserId.Location = new System.Drawing.Point(151, 31);
+            this.txtUserId.Location = new System.Drawing.Point(157, 31);
             this.txtUserId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserId.Multiline = true;
             this.txtUserId.Name = "txtUserId";
@@ -293,7 +285,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(64, 170);
+            this.label4.Location = new System.Drawing.Point(70, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 17);
             this.label4.TabIndex = 0;
@@ -302,7 +294,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(347, 129);
+            this.label8.Location = new System.Drawing.Point(353, 129);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(11, 12);
             this.label8.TabIndex = 0;
@@ -311,7 +303,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(238, 129);
+            this.label7.Location = new System.Drawing.Point(244, 129);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(11, 12);
             this.label7.TabIndex = 0;
@@ -321,7 +313,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(46, 127);
+            this.label3.Location = new System.Drawing.Point(52, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 17);
             this.label3.TabIndex = 0;
@@ -331,7 +323,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(86, 85);
+            this.label2.Location = new System.Drawing.Point(92, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 17);
             this.label2.TabIndex = 0;
@@ -341,7 +333,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(77, 37);
+            this.label1.Location = new System.Drawing.Point(83, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 17);
             this.label1.TabIndex = 0;
