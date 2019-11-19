@@ -8,15 +8,20 @@ using bookPjt.util;
 using System.Drawing;
 using bookPjt.DAO;
 using bookPjt.user;
+using bookPjt.DTO;
 
 namespace BookManagement
 {
     public partial class index : Form
     {
         BookDAO bookDAO = BookDAO.getInstance();
+        UserDAO userDAO = UserDAO.getInstance();
+        BookManageDAO bookManageDAO = BookManageDAO.getInstance();
         BookRentalChkDAO bookRentalChkDAO = BookRentalChkDAO.getInstance();
+        UserDTO userDTO;
 
         private string id;
+
         List<BookDTO> bookList;
         private void getBookList(string type, string search)
         {
@@ -33,6 +38,19 @@ namespace BookManagement
             foreach (BookDTO book in bookList)
                 bookListTable.Rows.Add(book.B_idx, book.B_name, book.B_status, book.B_author, book.B_puBlisher, book.B_category, book.B_img, book.B_summary);
         }
+
+        private void infoOut()
+        {
+            userDTO = userDAO.getUserInfo(id);
+            txtUserId.Text = userDTO.C_identy;
+            txtUserName.Text = userDTO.C_name;
+            txtUserBirth.Text = userDTO.C_birth;
+            string[] phone = userDTO.C_phone.Split('-');
+            txtUserPhone1.Text = phone[0];
+            txtUserPhone2.Text = phone[1];
+            txtUserPhone3.Text = phone[2];
+        }
+
         public index(string id)
         {
             this.id = id;
@@ -48,6 +66,7 @@ namespace BookManagement
         }
         private void bookBtn_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedIndex = 0;
             getBookList("", "");
             searchSelect.SelectedIndex = 0;
         }
@@ -115,8 +134,112 @@ namespace BookManagement
 
         private void meBtn_Click(object sender, EventArgs e)
         {
-            MyInfo myinfo = new MyInfo(id);
-            myinfo.Show();
+            tabControl1.SelectedIndex = 1;
+            infoOut();
+        }
+
+        private void btnUserUpdateExecute_Click(object sender, EventArgs e)
+        {
+            txtUserName.Enabled = false;
+            txtUserBirth.Enabled = false;
+            txtUserPhone1.Enabled = false;
+            txtUserPhone2.Enabled = false;
+            txtUserPhone3.Enabled = false;
+            btnUserUpdate.Visible = true;
+            btnUserUpdateExecute.Visible = false;
+            btnUserUpdateCencel.Visible = false;
+
+            UserDTO userUpdate = new UserDTO();
+            userUpdate.C_identy = userDTO.C_identy;
+            userUpdate.C_name = txtUserName.Text;
+            userUpdate.C_birth = txtUserBirth.Text;
+            string[] phone = new string[] { txtUserPhone1.Text, txtUserPhone2.Text, txtUserPhone3.Text };
+            if (userDAO.updateUser(userUpdate, phone))
+            {
+                MessageBox.Show("수정 완료");
+                infoOut();
+            }
+            else
+                MessageBox.Show("수정 실패");
+        }
+
+        private void btnUserUpdateCencel_Click(object sender, EventArgs e)
+        {
+            txtUserName.Enabled = false;
+            txtUserBirth.Enabled = false;
+            txtUserPhone1.Enabled = false;
+            txtUserPhone2.Enabled = false;
+            txtUserPhone3.Enabled = false;
+            btnUserUpdate.Visible = true;
+            btnUserUpdateExecute.Visible = false;
+            btnUserUpdateCencel.Visible = false;
+        }
+
+        private void changePass_Click(object sender, EventArgs e)
+        {
+            if (txtChangePass.Text != txtChangePassChk.Text)
+                MessageBox.Show("비밀번호가 일치하지 않습니다");
+            else
+            {
+                if (userDAO.updatePassWord(txtChangePass.Text, id))
+                    MessageBox.Show("비밀번호 변경 완료");
+                else
+                    MessageBox.Show("비밀번호 변경 실패");
+            }
+            txtChangePass.Text = "";
+            txtChangePassChk.Text = "";
+        }
+
+        private void btnUserUpdate_Click(object sender, EventArgs e)
+        {
+            txtUserName.Enabled = true;
+            txtUserBirth.Enabled = true;
+            txtUserPhone1.Enabled = true;
+            txtUserPhone2.Enabled = true;
+            txtUserPhone3.Enabled = true;
+            btnUserUpdate.Visible = false;
+            btnUserUpdateExecute.Visible = true;
+            btnUserUpdateCencel.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 2;
+            rentalChkTable.Rows.Clear();
+            List<RentalChkDTO> list = bookRentalChkDAO.getRentalList(id);
+            foreach (RentalChkDTO item in list)
+            {
+                rentalChkTable.Rows.Add(item.BookTitle, item.RentalChkDate);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 3;
+            ComboRental.SelectedIndex = 0;
+            showRentalBookInfo();
+        }
+
+        private void ComboRental_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            showRentalBookInfo();
+        }
+
+        private void showRentalBookInfo()
+        {
+            if (ComboRental.Text == "대출 중" || ComboRental.Text == "반납 완료")
+            {
+                rentalBookInfoTable.Rows.Clear();
+                List<BookManageDTO> list;
+                if (ComboRental.Text == "대출 중")
+                    list = bookManageDAO.getUserManageList(id, 0);
+                else
+                    list = bookManageDAO.getUserManageList(id, 1);
+                foreach (BookManageDTO item in list)
+                {
+                    rentalBookInfoTable.Rows.Add(item.B_name, item.Bm_takeDate, item.Bm_returnDate, item.Bm_extend, item.Status);
+                }
+            }
         }
     }
 }
