@@ -37,27 +37,27 @@
             this.searchSelect = new System.Windows.Forms.ComboBox();
             this.searchBtn = new System.Windows.Forms.Button();
             this.bookListTable = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookImg = new System.Windows.Forms.PictureBox();
             this.txtBookSummary = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.takeBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtBookName = new System.Windows.Forms.TextBox();
-            this.txtBookAuthor = new System.Windows.Forms.TextBox();
-            this.txtBookPublisher = new System.Windows.Forms.TextBox();
             this.txtBookCategory = new System.Windows.Forms.TextBox();
+            this.txtBookPublisher = new System.Windows.Forms.TextBox();
+            this.txtBookAuthor = new System.Windows.Forms.TextBox();
+            this.txtBookName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.bookPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.bookListTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookImg)).BeginInit();
@@ -181,52 +181,14 @@
             this.bookListTable.TabIndex = 4;
             this.bookListTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bookListTable_CellClick);
             // 
-            // Column3
+            // Column1
             // 
-            this.Column3.HeaderText = "책 줄거리";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "책 이미지";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
-            // 
-            // category
-            // 
-            this.category.HeaderText = "분 류";
-            this.category.MinimumWidth = 6;
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Width = 125;
-            // 
-            // publisher
-            // 
-            this.publisher.HeaderText = "출판사";
-            this.publisher.MinimumWidth = 6;
-            this.publisher.Name = "publisher";
-            this.publisher.ReadOnly = true;
-            this.publisher.Width = 150;
-            // 
-            // author
-            // 
-            this.author.HeaderText = "저 자";
-            this.author.MinimumWidth = 6;
-            this.author.Name = "author";
-            this.author.ReadOnly = true;
-            this.author.Width = 125;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "상 태";
-            this.stock.MinimumWidth = 6;
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
+            this.Column1.HeaderText = "책 번호";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 125;
             // 
             // bookName
             // 
@@ -236,14 +198,52 @@
             this.bookName.ReadOnly = true;
             this.bookName.Width = 200;
             // 
-            // Column1
+            // stock
             // 
-            this.Column1.HeaderText = "책 번호";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            this.Column1.Width = 125;
+            this.stock.HeaderText = "상 태";
+            this.stock.MinimumWidth = 6;
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            // 
+            // author
+            // 
+            this.author.HeaderText = "저 자";
+            this.author.MinimumWidth = 6;
+            this.author.Name = "author";
+            this.author.ReadOnly = true;
+            this.author.Width = 125;
+            // 
+            // publisher
+            // 
+            this.publisher.HeaderText = "출판사";
+            this.publisher.MinimumWidth = 6;
+            this.publisher.Name = "publisher";
+            this.publisher.ReadOnly = true;
+            this.publisher.Width = 150;
+            // 
+            // category
+            // 
+            this.category.HeaderText = "분 류";
+            this.category.MinimumWidth = 6;
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "책 이미지";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "책 줄거리";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
             // 
             // bookImg
             // 
@@ -270,7 +270,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.Location = new System.Drawing.Point(676, 259);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 18);
+            this.label6.Size = new System.Drawing.Size(49, 18);
             this.label6.TabIndex = 11;
             this.label6.Text = "상세 : ";
             // 
@@ -306,65 +306,15 @@
             this.panel1.Size = new System.Drawing.Size(204, 209);
             this.panel1.TabIndex = 14;
             // 
-            // label5
+            // txtBookCategory
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(15, 157);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 18);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "분류 : ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(15, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 18);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "저자 : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(15, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 18);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "제목 : ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(1, 114);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 18);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "출판사 : ";
-            // 
-            // txtBookName
-            // 
-            this.txtBookName.Enabled = false;
-            this.txtBookName.Location = new System.Drawing.Point(62, 27);
-            this.txtBookName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBookName.Multiline = true;
-            this.txtBookName.Name = "txtBookName";
-            this.txtBookName.Size = new System.Drawing.Size(134, 28);
-            this.txtBookName.TabIndex = 10;
-            // 
-            // txtBookAuthor
-            // 
-            this.txtBookAuthor.Enabled = false;
-            this.txtBookAuthor.Location = new System.Drawing.Point(62, 70);
-            this.txtBookAuthor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBookAuthor.Multiline = true;
-            this.txtBookAuthor.Name = "txtBookAuthor";
-            this.txtBookAuthor.Size = new System.Drawing.Size(134, 28);
-            this.txtBookAuthor.TabIndex = 10;
+            this.txtBookCategory.Enabled = false;
+            this.txtBookCategory.Location = new System.Drawing.Point(62, 152);
+            this.txtBookCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBookCategory.Multiline = true;
+            this.txtBookCategory.Name = "txtBookCategory";
+            this.txtBookCategory.Size = new System.Drawing.Size(134, 28);
+            this.txtBookCategory.TabIndex = 10;
             // 
             // txtBookPublisher
             // 
@@ -376,15 +326,65 @@
             this.txtBookPublisher.Size = new System.Drawing.Size(134, 28);
             this.txtBookPublisher.TabIndex = 10;
             // 
-            // txtBookCategory
+            // txtBookAuthor
             // 
-            this.txtBookCategory.Enabled = false;
-            this.txtBookCategory.Location = new System.Drawing.Point(62, 152);
-            this.txtBookCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBookCategory.Multiline = true;
-            this.txtBookCategory.Name = "txtBookCategory";
-            this.txtBookCategory.Size = new System.Drawing.Size(134, 28);
-            this.txtBookCategory.TabIndex = 10;
+            this.txtBookAuthor.Enabled = false;
+            this.txtBookAuthor.Location = new System.Drawing.Point(62, 70);
+            this.txtBookAuthor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBookAuthor.Multiline = true;
+            this.txtBookAuthor.Name = "txtBookAuthor";
+            this.txtBookAuthor.Size = new System.Drawing.Size(134, 28);
+            this.txtBookAuthor.TabIndex = 10;
+            // 
+            // txtBookName
+            // 
+            this.txtBookName.Enabled = false;
+            this.txtBookName.Location = new System.Drawing.Point(62, 27);
+            this.txtBookName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBookName.Multiline = true;
+            this.txtBookName.Name = "txtBookName";
+            this.txtBookName.Size = new System.Drawing.Size(134, 28);
+            this.txtBookName.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(1, 114);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 18);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "출판사 : ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(15, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 18);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "제목 : ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(15, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 18);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "저자 : ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(15, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 18);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "분류 : ";
             // 
             // bookPanel
             // 
