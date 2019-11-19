@@ -72,8 +72,11 @@ namespace BookManagement
 
         private void index_Load(object sender, EventArgs e)
         {
-            if (bookManageDAO.userChkOverDue(id))
-                OverDueChk.Text = "* 연체된 도서가\n존재합니다.";
+            OverDueImg.Visible = false;
+            if (bookManageDAO.userChkOverDue(id)) { 
+                OverDueChk.Text = "*연체된 도서가 존재합니다.";
+                OverDueImg.Visible = true;
+            }
             getBookList("", "");
             searchSelect.SelectedIndex = 0;
         }
@@ -252,5 +255,7 @@ namespace BookManagement
         {
             tabControl1.SelectedIndex = 5;
         }
+
+        
     }
 }

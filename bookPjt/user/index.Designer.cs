@@ -99,30 +99,31 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.OverDueChk = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.OverDueImg = new System.Windows.Forms.PictureBox();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookListTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookImg)).BeginInit();
             this.panel1.SuspendLayout();
@@ -137,12 +138,13 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentalBookInfoTable)).BeginInit();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OverDueImg)).BeginInit();
             this.SuspendLayout();
             // 
             // bookBtn
@@ -154,7 +156,7 @@
             this.bookBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bookBtn.Location = new System.Drawing.Point(3, 3);
             this.bookBtn.Name = "bookBtn";
-            this.bookBtn.Size = new System.Drawing.Size(90, 98);
+            this.bookBtn.Size = new System.Drawing.Size(100, 98);
             this.bookBtn.TabIndex = 0;
             this.bookBtn.Text = "책목록";
             this.bookBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -184,9 +186,9 @@
             this.meBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.meBtn.Image = ((System.Drawing.Image)(resources.GetObject("meBtn.Image")));
             this.meBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.meBtn.Location = new System.Drawing.Point(92, 3);
+            this.meBtn.Location = new System.Drawing.Point(106, 3);
             this.meBtn.Name = "meBtn";
-            this.meBtn.Size = new System.Drawing.Size(90, 98);
+            this.meBtn.Size = new System.Drawing.Size(100, 98);
             this.meBtn.TabIndex = 2;
             this.meBtn.Text = "내정보";
             this.meBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -794,14 +796,14 @@
             this.rentalChkTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.rentalChkTable.Location = new System.Drawing.Point(7, 58);
+            this.rentalChkTable.Location = new System.Drawing.Point(18, 23);
             this.rentalChkTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rentalChkTable.Name = "rentalChkTable";
             this.rentalChkTable.ReadOnly = true;
             this.rentalChkTable.RowHeadersWidth = 51;
             this.rentalChkTable.RowTemplate.Height = 27;
             this.rentalChkTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rentalChkTable.Size = new System.Drawing.Size(645, 278);
+            this.rentalChkTable.Size = new System.Drawing.Size(478, 451);
             this.rentalChkTable.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn2
@@ -927,55 +929,36 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             // 
-            // button1
+            // panel4
             // 
-            this.button1.Location = new System.Drawing.Point(188, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 98);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "대출 신청 현황";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Location = new System.Drawing.Point(534, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(500, 489);
+            this.panel4.TabIndex = 1;
             // 
-            // button2
+            // textBox2
             // 
-            this.button2.Location = new System.Drawing.Point(308, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 98);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "대출 현황";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.textBox2.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox2.Location = new System.Drawing.Point(15, 71);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(468, 390);
+            this.textBox2.TabIndex = 0;
             // 
-            // OverDueChk
+            // textBox1
             // 
-            this.OverDueChk.AutoSize = true;
-            this.OverDueChk.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.OverDueChk.Location = new System.Drawing.Point(806, 19);
-            this.OverDueChk.Name = "OverDueChk";
-            this.OverDueChk.Size = new System.Drawing.Size(35, 13);
-            this.OverDueChk.TabIndex = 5;
-            this.OverDueChk.Text = "연체";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(428, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(114, 98);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "공지 사항";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(548, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(114, 98);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "Q/A";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.textBox1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox1.Location = new System.Drawing.Point(14, 16);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(469, 32);
+            this.textBox1.TabIndex = 0;
             // 
             // dataGridView1
             // 
@@ -984,65 +967,13 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(546, 490);
+            this.dataGridView1.Size = new System.Drawing.Size(503, 490);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "작성일";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "제 목";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 200;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "조회수";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 70;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.textBox1);
-            this.panel4.Location = new System.Drawing.Point(556, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(485, 489);
-            this.panel4.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.Location = new System.Drawing.Point(15, 30);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(456, 32);
-            this.textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(15, 87);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(456, 374);
-            this.textBox2.TabIndex = 0;
             // 
             // tabPage6
             // 
@@ -1056,6 +987,70 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "tabPage6";
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.textBox6);
+            this.panel6.Controls.Add(this.textBox5);
+            this.panel6.Location = new System.Drawing.Point(520, 240);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(519, 253);
+            this.panel6.TabIndex = 1;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(15, 51);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(490, 192);
+            this.textBox6.TabIndex = 0;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(15, 18);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(304, 27);
+            this.textBox5.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.button7);
+            this.panel5.Controls.Add(this.textBox4);
+            this.panel5.Controls.Add(this.textBox3);
+            this.panel5.Location = new System.Drawing.Point(520, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(519, 231);
+            this.panel5.TabIndex = 1;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(328, 183);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(177, 34);
+            this.button7.TabIndex = 1;
+            this.button7.Text = "수 정";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(15, 49);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(490, 127);
+            this.textBox4.TabIndex = 0;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(15, 16);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(304, 27);
+            this.textBox3.TabIndex = 0;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1068,31 +1063,110 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(631, 490);
+            this.dataGridView2.Size = new System.Drawing.Size(510, 490);
             this.dataGridView2.TabIndex = 0;
             // 
-            // panel5
+            // button1
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.button7);
-            this.panel5.Controls.Add(this.textBox4);
-            this.panel5.Controls.Add(this.textBox3);
-            this.panel5.Location = new System.Drawing.Point(639, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(400, 231);
-            this.panel5.TabIndex = 1;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(209, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 98);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "대출 신청 현황";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel6
+            // button2
             // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.textBox6);
-            this.panel6.Controls.Add(this.textBox5);
-            this.panel6.Location = new System.Drawing.Point(639, 240);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(400, 253);
-            this.panel6.TabIndex = 1;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.Location = new System.Drawing.Point(312, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 98);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "대출 현황";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // OverDueChk
+            // 
+            this.OverDueChk.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.OverDueChk.Location = new System.Drawing.Point(749, 86);
+            this.OverDueChk.Name = "OverDueChk";
+            this.OverDueChk.Size = new System.Drawing.Size(190, 19);
+            this.OverDueChk.TabIndex = 5;
+            // 
+            // button5
+            // 
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button5.Location = new System.Drawing.Point(415, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(100, 98);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "공지 사항";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button6.Location = new System.Drawing.Point(518, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 98);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Q/A";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // OverDueImg
+            // 
+            this.OverDueImg.Image = ((System.Drawing.Image)(resources.GetObject("OverDueImg.Image")));
+            this.OverDueImg.Location = new System.Drawing.Point(718, 75);
+            this.OverDueImg.Name = "OverDueImg";
+            this.OverDueImg.Size = new System.Drawing.Size(32, 32);
+            this.OverDueImg.TabIndex = 15;
+            this.OverDueImg.TabStop = false;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "작성일";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 160;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "제 목";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 230;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "조회수";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 70;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1106,7 +1180,7 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "글 내용";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 200;
+            this.dataGridViewTextBoxColumn9.Width = 215;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -1114,53 +1188,13 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(15, 20);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(369, 27);
-            this.textBox3.TabIndex = 0;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(15, 64);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(369, 112);
-            this.textBox4.TabIndex = 0;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(15, 33);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(369, 27);
-            this.textBox5.TabIndex = 0;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(15, 73);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(369, 172);
-            this.textBox6.TabIndex = 0;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(15, 185);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(369, 34);
-            this.button7.TabIndex = 1;
-            this.button7.Text = "수 정";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1062, 617);
+            this.Controls.Add(this.OverDueImg);
             this.Controls.Add(this.OverDueChk);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -1172,7 +1206,7 @@
             this.Controls.Add(this.bookBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "index";
-            this.Text = "Form1";
+            this.Text = "ㅇㅈㅇ도서관";
             this.Load += new System.EventHandler(this.index_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bookListTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookImg)).EndInit();
@@ -1192,17 +1226,17 @@
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rentalBookInfoTable)).EndInit();
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OverDueImg)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1287,21 +1321,22 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.PictureBox OverDueImg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     }
 }
 
