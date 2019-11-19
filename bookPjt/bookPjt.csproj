@@ -70,6 +70,12 @@
     <Compile Include="admin\AddNotice.Designer.cs">
       <DependentUpon>AddNotice.cs</DependentUpon>
     </Compile>
+    <Compile Include="admin\QA_answer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\QA_answer.Designer.cs">
+      <DependentUpon>QA_answer.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin\UpdatePublisher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,7 @@
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\BookManageDAO.cs" />
     <Compile Include="DAO\BookRentalChkDAO.cs" />
+    <Compile Include="DAO\UserQADAO.cs" />
     <Compile Include="DAO\NoticeDAO.cs" />
     <Compile Include="DTO\BookDTO.cs" />
     <Compile Include="admin\BookAdmin.cs">
@@ -115,6 +122,7 @@
     <Compile Include="DTO\NoticeDTO.cs" />
     <Compile Include="DTO\RentalChkDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\UserQADTO.cs" />
     <Compile Include="user\IdPw_SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="admin\AddNotice.resx">
       <DependentUpon>AddNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\QA_answer.resx">
+      <DependentUpon>QA_answer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="admin\UpdatePublisher.resx">
       <DependentUpon>UpdatePublisher.cs</DependentUpon>

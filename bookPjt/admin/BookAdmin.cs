@@ -23,6 +23,9 @@ namespace bookPjt
         UserDAO userDAO = UserDAO.getInstance();
         BookRentalChkDAO bookRentalChkDAO = BookRentalChkDAO.getInstance();
         NoticeDAO noticeDAO = NoticeDAO.getInstance();
+        UserQADAO userQADAO = UserQADAO.getInstance();
+
+        private int qaNumber;
         private int noticeNumber;
         public void selectUserList(string type, string search, bool overdueChk)
         {
@@ -799,6 +802,54 @@ namespace bookPjt
                     MessageBox.Show("삭제 실패");
             else
                 MessageBox.Show("삭제할 항목을 선택해주세요");
+        }
+
+        public void getQAlist()
+        {
+            userQAtable.Rows.Clear();
+            List<UserQADTO> list = userQADAO.getUserQAList();
+            foreach (UserQADTO userQA in list)
+            {
+                userQAtable.Rows.Add(userQA.Q_idx, userQA.Q_c_name, userQA.Q_title, userQA.Q_content, userQA.Q_date, userQA.Q_status);
+            }
+        }
+
+        private void button13_Click_1(object sender, EventArgs e)
+        {
+            TabControll.SelectedIndex = 7;
+            getQAlist();
+            qaNumber = -1;
+        }
+
+        private void userQAtable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txtQAtitle.Text = userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[2].Value.ToString();
+                txtQAcust.Text = userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[1].Value.ToString();
+                txtQAcontent.Text = userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[3].Value.ToString();
+                qaNumber = Convert.ToInt32(userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[0].Value);
+                if(userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[5].Value.ToString() == "답변 완료")
+                    btnAnswer.Enabled = false;
+                else
+                    btnAnswer.Enabled = true;
+
+            }
+            catch (Exception a)
+            {
+                qaNumber = -1;
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            if (qaNumber != -1)
+            {
+                QA_answer qA_Answer = new QA_answer(this, Convert.ToInt32(userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[0].Value));
+                qA_Answer.Show();
+            }
+            else
+                MessageBox.Show("답변할 항목을 선택해주세요.");
         }
     }
 }

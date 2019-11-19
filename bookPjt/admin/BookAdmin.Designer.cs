@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControll = new System.Windows.Forms.TabControl();
             this.TagBookList = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -188,7 +188,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TagNotice = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.noticeTable = new System.Windows.Forms.DataGridView();
             this.txtNoticeTitle = new System.Windows.Forms.TextBox();
@@ -203,6 +203,20 @@
             this.btnUpdateNoticExcute = new System.Windows.Forms.Button();
             this.btnUpdateNoticeCencel = new System.Windows.Forms.Button();
             this.btnNoticeDelete = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.TagQA = new System.Windows.Forms.TabPage();
+            this.userQAtable = new System.Windows.Forms.DataGridView();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.txtQAtitle = new System.Windows.Forms.TextBox();
+            this.txtQAcontent = new System.Windows.Forms.TextBox();
+            this.btnAnswer = new System.Windows.Forms.Button();
+            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtQAcust = new System.Windows.Forms.TextBox();
             this.TabControll.SuspendLayout();
             this.TagBookList.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -226,9 +240,12 @@
             this.TagRentalChk.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentalChkTable)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.TagNotice.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.noticeTable)).BeginInit();
+            this.TagQA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userQAtable)).BeginInit();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControll
@@ -239,7 +256,8 @@
             this.TabControll.Controls.Add(this.TagRental);
             this.TabControll.Controls.Add(this.TagUser);
             this.TabControll.Controls.Add(this.TagRentalChk);
-            this.TabControll.Controls.Add(this.tabPage1);
+            this.TabControll.Controls.Add(this.TagNotice);
+            this.TabControll.Controls.Add(this.TagQA);
             this.TabControll.ItemSize = new System.Drawing.Size(0, 1);
             this.TabControll.Location = new System.Drawing.Point(5, 168);
             this.TabControll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -511,9 +529,9 @@
             // 
             // bookIdx
             // 
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle1;
             this.bookIdx.HeaderText = "도서 번호";
             this.bookIdx.MinimumWidth = 6;
             this.bookIdx.Name = "bookIdx";
@@ -530,8 +548,8 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.LightGray;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column5.HeaderText = "저자";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -548,8 +566,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.LightGray;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column4.HeaderText = "분류";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -566,8 +584,8 @@
             // 
             // Column14
             // 
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.LightGray;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column14.HeaderText = "연령 제한";
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
@@ -1560,8 +1578,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.HeaderText = "사용자 이름";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -1578,8 +1596,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn4.HeaderText = "핸드폰 번호";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -1947,6 +1965,7 @@
             this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
             this.button12.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button12.Location = new System.Drawing.Point(611, 13);
             this.button12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1958,15 +1977,15 @@
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click_1);
             // 
-            // tabPage1
+            // TagNotice
             // 
-            this.tabPage1.Controls.Add(this.panel11);
-            this.tabPage1.Location = new System.Drawing.Point(4, 5);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1048, 572);
-            this.tabPage1.TabIndex = 6;
-            this.tabPage1.Text = "TagNotice";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.TagNotice.Controls.Add(this.panel11);
+            this.TagNotice.Location = new System.Drawing.Point(4, 5);
+            this.TagNotice.Name = "TagNotice";
+            this.TagNotice.Size = new System.Drawing.Size(1048, 572);
+            this.TagNotice.TabIndex = 6;
+            this.TagNotice.Text = "TagNotice";
+            this.TagNotice.UseVisualStyleBackColor = true;
             // 
             // panel11
             // 
@@ -2114,12 +2133,163 @@
             this.btnNoticeDelete.UseVisualStyleBackColor = true;
             this.btnNoticeDelete.Click += new System.EventHandler(this.btnNoticeDelete_Click);
             // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.White;
+            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button13.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button13.Location = new System.Drawing.Point(711, 11);
+            this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(95, 134);
+            this.button13.TabIndex = 9;
+            this.button13.Text = "질문 답변";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click_1);
+            // 
+            // TagQA
+            // 
+            this.TagQA.Controls.Add(this.panel12);
+            this.TagQA.Controls.Add(this.userQAtable);
+            this.TagQA.Location = new System.Drawing.Point(4, 5);
+            this.TagQA.Name = "TagQA";
+            this.TagQA.Size = new System.Drawing.Size(1048, 572);
+            this.TagQA.TabIndex = 7;
+            this.TagQA.Text = "TagQA";
+            this.TagQA.UseVisualStyleBackColor = true;
+            // 
+            // userQAtable
+            // 
+            this.userQAtable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userQAtable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column29,
+            this.Column30,
+            this.Column31,
+            this.Column32,
+            this.Column33,
+            this.Column34});
+            this.userQAtable.Location = new System.Drawing.Point(7, 12);
+            this.userQAtable.Name = "userQAtable";
+            this.userQAtable.ReadOnly = true;
+            this.userQAtable.RowHeadersWidth = 51;
+            this.userQAtable.RowTemplate.Height = 27;
+            this.userQAtable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.userQAtable.Size = new System.Drawing.Size(647, 554);
+            this.userQAtable.TabIndex = 0;
+            this.userQAtable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userQAtable_CellClick);
+            // 
+            // panel12
+            // 
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel12.Controls.Add(this.btnAnswer);
+            this.panel12.Controls.Add(this.txtQAcontent);
+            this.panel12.Controls.Add(this.txtQAcust);
+            this.panel12.Controls.Add(this.txtQAtitle);
+            this.panel12.Location = new System.Drawing.Point(660, 12);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(380, 554);
+            this.panel12.TabIndex = 1;
+            // 
+            // txtQAtitle
+            // 
+            this.txtQAtitle.Location = new System.Drawing.Point(17, 20);
+            this.txtQAtitle.Multiline = true;
+            this.txtQAtitle.Name = "txtQAtitle";
+            this.txtQAtitle.ReadOnly = true;
+            this.txtQAtitle.Size = new System.Drawing.Size(346, 41);
+            this.txtQAtitle.TabIndex = 10;
+            // 
+            // txtQAcontent
+            // 
+            this.txtQAcontent.Location = new System.Drawing.Point(17, 128);
+            this.txtQAcontent.Multiline = true;
+            this.txtQAcontent.Name = "txtQAcontent";
+            this.txtQAcontent.ReadOnly = true;
+            this.txtQAcontent.Size = new System.Drawing.Size(346, 336);
+            this.txtQAcontent.TabIndex = 10;
+            // 
+            // btnAnswer
+            // 
+            this.btnAnswer.Location = new System.Drawing.Point(17, 478);
+            this.btnAnswer.Name = "btnAnswer";
+            this.btnAnswer.Size = new System.Drawing.Size(346, 61);
+            this.btnAnswer.TabIndex = 11;
+            this.btnAnswer.Text = "답변하기";
+            this.btnAnswer.UseVisualStyleBackColor = true;
+            this.btnAnswer.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // Column29
+            // 
+            this.Column29.HeaderText = "q_c_idx";
+            this.Column29.MinimumWidth = 6;
+            this.Column29.Name = "Column29";
+            this.Column29.ReadOnly = true;
+            this.Column29.Visible = false;
+            this.Column29.Width = 125;
+            // 
+            // Column30
+            // 
+            this.Column30.HeaderText = "질문자";
+            this.Column30.MinimumWidth = 6;
+            this.Column30.Name = "Column30";
+            this.Column30.ReadOnly = true;
+            this.Column30.Width = 125;
+            // 
+            // Column31
+            // 
+            this.Column31.HeaderText = "제 목";
+            this.Column31.MinimumWidth = 6;
+            this.Column31.Name = "Column31";
+            this.Column31.ReadOnly = true;
+            this.Column31.Width = 125;
+            // 
+            // Column32
+            // 
+            this.Column32.HeaderText = "내 용";
+            this.Column32.MinimumWidth = 6;
+            this.Column32.Name = "Column32";
+            this.Column32.ReadOnly = true;
+            this.Column32.Width = 125;
+            // 
+            // Column33
+            // 
+            this.Column33.HeaderText = "날 짜";
+            this.Column33.MinimumWidth = 6;
+            this.Column33.Name = "Column33";
+            this.Column33.ReadOnly = true;
+            this.Column33.Width = 125;
+            // 
+            // Column34
+            // 
+            this.Column34.HeaderText = "답변 상태";
+            this.Column34.MinimumWidth = 6;
+            this.Column34.Name = "Column34";
+            this.Column34.ReadOnly = true;
+            this.Column34.Width = 125;
+            // 
+            // txtQAcust
+            // 
+            this.txtQAcust.Location = new System.Drawing.Point(17, 71);
+            this.txtQAcust.Multiline = true;
+            this.txtQAcust.Name = "txtQAcust";
+            this.txtQAcust.ReadOnly = true;
+            this.txtQAcust.Size = new System.Drawing.Size(346, 41);
+            this.txtQAcust.TabIndex = 10;
+            // 
             // BookAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1061, 751);
+            this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button8);
@@ -2166,10 +2336,14 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentalChkTable)).EndInit();
-            this.tabPage1.ResumeLayout(false);
+            this.TagNotice.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.noticeTable)).EndInit();
+            this.TagQA.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.userQAtable)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2329,7 +2503,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage TagNotice;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button btnNoticeUpdate;
         private System.Windows.Forms.Button btnNoticeAdd;
@@ -2344,6 +2518,20 @@
         private System.Windows.Forms.Button btnUpdateNoticeCencel;
         private System.Windows.Forms.Button btnUpdateNoticExcute;
         private System.Windows.Forms.Button btnNoticeDelete;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.TabPage TagQA;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button btnAnswer;
+        private System.Windows.Forms.TextBox txtQAcontent;
+        private System.Windows.Forms.TextBox txtQAtitle;
+        private System.Windows.Forms.DataGridView userQAtable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column34;
+        private System.Windows.Forms.TextBox txtQAcust;
     }
 }
 
