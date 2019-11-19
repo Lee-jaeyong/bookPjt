@@ -117,7 +117,7 @@ namespace BookManagement
             {
                 if (MessageBox.Show("대출 신청 하시겠습니까?", "대출 신청", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if(bookRentalChkDAO.getChkRental(id, Convert.ToInt32(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value)))
+                    if (bookRentalChkDAO.getChkRental(id, Convert.ToInt32(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value)))
                         if (bookRentalChkDAO.insertRentalChk(id, Convert.ToInt32(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value)))
                             MessageBox.Show("대출 신청 완료");
                         else
@@ -227,18 +227,18 @@ namespace BookManagement
 
         private void showRentalBookInfo()
         {
-            if (ComboRental.Text == "대출 중" || ComboRental.Text == "반납 완료")
+            rentalBookInfoTable.Rows.Clear();
+            List<BookManageDTO> list;
+            if (ComboRental.Text == "대출 중")
+                list = bookManageDAO.getUserManageList(id, 0, false);
+            else if (ComboRental.Text == "반납 완료")
+                list = bookManageDAO.getUserManageList(id, 1, false);
+            else
+                list = bookManageDAO.getUserManageList(id, 0, true);
+
+            foreach (BookManageDTO item in list)
             {
-                rentalBookInfoTable.Rows.Clear();
-                List<BookManageDTO> list;
-                if (ComboRental.Text == "대출 중")
-                    list = bookManageDAO.getUserManageList(id, 0);
-                else
-                    list = bookManageDAO.getUserManageList(id, 1);
-                foreach (BookManageDTO item in list)
-                {
-                    rentalBookInfoTable.Rows.Add(item.B_name, item.Bm_takeDate, item.Bm_returnDate, item.Bm_extend, item.Status);
-                }
+                rentalBookInfoTable.Rows.Add(item.B_name, item.Bm_takeDate, item.Bm_returnDate, item.Bm_extend, item.Status);
             }
         }
     }

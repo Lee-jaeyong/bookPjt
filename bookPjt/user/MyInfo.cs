@@ -138,14 +138,7 @@ namespace bookPjt.user
                 rentalChkTable.Visible = false;
                 rentalBookInfoTable.Rows.Clear();
                 List<BookManageDTO> list;
-                if (ComboRental.Text == "대출 중")
-                    list = bookManageDAO.getUserManageList(c_id, 0);
-                else
-                    list = bookManageDAO.getUserManageList(c_id, 1);
-                foreach (BookManageDTO item in list)
-                {
-                    rentalBookInfoTable.Rows.Add(item.B_name, item.Bm_takeDate, item.Bm_returnDate, item.Bm_extend, item.Status);
-                }
+                
             }else
             {
                 rentalBookInfoTable.Visible = false;

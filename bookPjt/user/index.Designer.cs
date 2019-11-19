@@ -767,8 +767,10 @@
             this.rentalChkTable.Location = new System.Drawing.Point(7, 58);
             this.rentalChkTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rentalChkTable.Name = "rentalChkTable";
+            this.rentalChkTable.ReadOnly = true;
             this.rentalChkTable.RowHeadersWidth = 51;
             this.rentalChkTable.RowTemplate.Height = 27;
+            this.rentalChkTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.rentalChkTable.Size = new System.Drawing.Size(645, 278);
             this.rentalChkTable.TabIndex = 4;
             // 
@@ -825,8 +827,10 @@
             this.rentalBookInfoTable.Location = new System.Drawing.Point(5, 54);
             this.rentalBookInfoTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rentalBookInfoTable.Name = "rentalBookInfoTable";
+            this.rentalBookInfoTable.ReadOnly = true;
             this.rentalBookInfoTable.RowHeadersWidth = 51;
             this.rentalBookInfoTable.RowTemplate.Height = 27;
+            this.rentalBookInfoTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.rentalBookInfoTable.Size = new System.Drawing.Size(1034, 436);
             this.rentalBookInfoTable.TabIndex = 10;
             // 

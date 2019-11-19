@@ -25,7 +25,7 @@ namespace bookPjt.DAO
         {
 
         }
-        public List<BookManageDTO> getUserManageList(string c_id, int status)
+        public List<BookManageDTO> getUserManageList(string c_id, int status, bool overDue)
         {
             List<BookManageDTO> list = new List<BookManageDTO>();
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
@@ -39,6 +39,8 @@ namespace bookPjt.DAO
                 int c_idx = Convert.ToInt32(rdr[0]);
                 rdr.Close();
                 sql = "SELECT b_name, bm_takeDate, bm_returnDate, bm_extend, bm_status FROM book, book_management WHERE book.b_idx = book_management.bm_b_idx AND bm_c_idx = " + c_idx + " AND bm_status = " + status;
+                if (overDue)
+                    sql += " AND bm_returnDate < left(now(),10)";
                 mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 rdr = mysqlCommand.ExecuteReader();
                 while (rdr.Read())
