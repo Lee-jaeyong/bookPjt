@@ -807,7 +807,7 @@ namespace bookPjt
         public void getQAlist()
         {
             userQAtable.Rows.Clear();
-            List<UserQADTO> list = userQADAO.getUserQAList();
+            List<UserQADTO> list = userQADAO.getUserQAList("");
             foreach (UserQADTO userQA in list)
             {
                 userQAtable.Rows.Add(userQA.Q_idx, userQA.Q_c_name, userQA.Q_title, userQA.Q_content, userQA.Q_date, userQA.Q_status);

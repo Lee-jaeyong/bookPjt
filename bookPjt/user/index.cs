@@ -17,6 +17,8 @@ namespace BookManagement
         UserDAO userDAO = UserDAO.getInstance();
         BookManageDAO bookManageDAO = BookManageDAO.getInstance();
         BookRentalChkDAO bookRentalChkDAO = BookRentalChkDAO.getInstance();
+        NoticeDAO noticeDAO = NoticeDAO.getInstance();
+        UserQADAO userQADAO = UserQADAO.getInstance();
         UserDTO userDTO;
 
         private string id;
@@ -73,7 +75,8 @@ namespace BookManagement
         private void index_Load(object sender, EventArgs e)
         {
             OverDueImg.Visible = false;
-            if (bookManageDAO.userChkOverDue(id)) { 
+            if (bookManageDAO.userChkOverDue(id))
+            {
                 OverDueChk.Text = "*연체된 도서가 존재합니다.";
                 OverDueImg.Visible = true;
             }
@@ -249,13 +252,71 @@ namespace BookManagement
         private void button5_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 4;
+            noticeTable.Rows.Clear();
+            List<NoticeDTO> list = noticeDAO.getNoticeList();
+            foreach (NoticeDTO notice in list)
+                noticeTable.Rows.Add(notice.No_date, notice.No_title, notice.No_content);
+
+        }
+
+        private void getUserQnA()
+        {
+            userQnAtable.Rows.Clear();
+            List<UserQADTO> list = userQADAO.getUserQAList(id);
+            foreach (UserQADTO userQ in list)
+                userQnAtable.Rows.Add(userQ.Q_date, userQ.Q_title, userQ.Q_content, userQ.Q_status, userQ.Q_idx);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 5;
+            getUserQnA();
         }
 
-        
+        private void noticeTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txtNoticeTitle.Text = noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[1].Value.ToString();
+                txtNoticeContent.Text = noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[2].Value.ToString();
+            }
+            catch (Exception a)
+            {
+            }
+        }
+
+        private void btnQadd_Click(object sender, EventArgs e)
+        {
+            if (userQADAO.insertUserQ(id, txtQtitle.Text, txtQcontent.Text))
+            {
+                MessageBox.Show("질문 등록 완료");
+                txtQtitle.Text = "";
+                txtQcontent.Text = "";
+                getUserQnA();
+            }
+            else
+                MessageBox.Show("질문 등록 실패");
+        }
+
+        private void userQnAtable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtQtitle.Text = userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[1].Value.ToString();
+            txtQcontent.Text = userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[2].Value.ToString();
+            txtQtitle.ReadOnly = true;
+            txtQcontent.ReadOnly = true;
+
+            if (userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[3].Value.ToString() == "답변 완료")
+            {
+                AdminAnswerDTO adminAnswerDTO = userQADAO.getAnswerInfo(Convert.ToInt32(userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[4].Value));
+                txtAnsTitle.Text = adminAnswerDTO.Ans_title;
+                txtAnsContent.Text = adminAnswerDTO.Ans_content;
+            }
+            else
+            {
+                txtAnsTitle.Text = "";
+                txtAnsContent.Text = "";
+            }
+        }
+
     }
 }
