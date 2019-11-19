@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IdPw_SearchForm));
             this.idTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.idFindBtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.idFindPh2 = new System.Windows.Forms.TextBox();
             this.idFindPh1 = new System.Windows.Forms.TextBox();
             this.idFindPh0 = new System.Windows.Forms.ComboBox();
@@ -37,14 +41,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.idFindBtn = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pwFindName = new System.Windows.Forms.TextBox();
-            this.pwFindId = new System.Windows.Forms.TextBox();
             this.pwFindBtn = new System.Windows.Forms.Button();
+            this.pwFindId = new System.Windows.Forms.TextBox();
+            this.pwFindName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.idTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,6 +83,37 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "아이디찾기";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // idFindBtn
+            // 
+            this.idFindBtn.FlatAppearance.BorderSize = 0;
+            this.idFindBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.idFindBtn.Image = ((System.Drawing.Image)(resources.GetObject("idFindBtn.Image")));
+            this.idFindBtn.Location = new System.Drawing.Point(122, 244);
+            this.idFindBtn.Name = "idFindBtn";
+            this.idFindBtn.Size = new System.Drawing.Size(140, 52);
+            this.idFindBtn.TabIndex = 10;
+            this.idFindBtn.Text = "확인";
+            this.idFindBtn.UseVisualStyleBackColor = true;
+            this.idFindBtn.Click += new System.EventHandler(this.idFindBtn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(251, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(15, 19);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(162, 157);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 19);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "-";
             // 
             // idFindPh2
             // 
@@ -158,59 +190,18 @@
             this.tabPage2.Text = "비밀번호찾기";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // pwFindBtn
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(162, 157);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 19);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "-";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(251, 157);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(15, 19);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "-";
-            // 
-            // idFindBtn
-            // 
-            this.idFindBtn.Location = new System.Drawing.Point(126, 254);
-            this.idFindBtn.Name = "idFindBtn";
-            this.idFindBtn.Size = new System.Drawing.Size(124, 40);
-            this.idFindBtn.TabIndex = 10;
-            this.idFindBtn.Text = "확인";
-            this.idFindBtn.UseVisualStyleBackColor = true;
-            this.idFindBtn.Click += new System.EventHandler(this.idFindBtn_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(47, 102);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 19);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "이름 : ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 157);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 19);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "아이디 : ";
-            // 
-            // pwFindName
-            // 
-            this.pwFindName.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.pwFindName.Location = new System.Drawing.Point(101, 99);
-            this.pwFindName.Name = "pwFindName";
-            this.pwFindName.Size = new System.Drawing.Size(238, 26);
-            this.pwFindName.TabIndex = 2;
+            this.pwFindBtn.FlatAppearance.BorderSize = 0;
+            this.pwFindBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pwFindBtn.Image = ((System.Drawing.Image)(resources.GetObject("pwFindBtn.Image")));
+            this.pwFindBtn.Location = new System.Drawing.Point(123, 243);
+            this.pwFindBtn.Name = "pwFindBtn";
+            this.pwFindBtn.Size = new System.Drawing.Size(137, 54);
+            this.pwFindBtn.TabIndex = 4;
+            this.pwFindBtn.Text = "확인";
+            this.pwFindBtn.UseVisualStyleBackColor = true;
+            this.pwFindBtn.Click += new System.EventHandler(this.pwFindBtn_Click);
             // 
             // pwFindId
             // 
@@ -221,15 +212,31 @@
             this.pwFindId.TabIndex = 3;
             this.pwFindId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.pwFindId_KeyUp);
             // 
-            // pwFindBtn
+            // pwFindName
             // 
-            this.pwFindBtn.Location = new System.Drawing.Point(126, 254);
-            this.pwFindBtn.Name = "pwFindBtn";
-            this.pwFindBtn.Size = new System.Drawing.Size(124, 40);
-            this.pwFindBtn.TabIndex = 4;
-            this.pwFindBtn.Text = "확인";
-            this.pwFindBtn.UseVisualStyleBackColor = true;
-            this.pwFindBtn.Click += new System.EventHandler(this.pwFindBtn_Click);
+            this.pwFindName.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.pwFindName.Location = new System.Drawing.Point(101, 99);
+            this.pwFindName.Name = "pwFindName";
+            this.pwFindName.Size = new System.Drawing.Size(238, 26);
+            this.pwFindName.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(32, 157);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 19);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "아이디 : ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(47, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "이름 : ";
             // 
             // IdPw_SearchForm
             // 
@@ -237,6 +244,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 416);
             this.Controls.Add(this.idTab);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IdPw_SearchForm";
             this.Text = "아이디/비번 찾기";
             this.idTab.ResumeLayout(false);
