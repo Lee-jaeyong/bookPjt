@@ -25,6 +25,34 @@ namespace bookPjt.DAO
         {
 
         }
+
+        public bool userChkOverDue(string c_id)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            try
+            {
+                mySqlConnection.Open();
+                string sql = "SELECT c_idx FROM customer WHERE c_identy = '" + c_id + "'";
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
+                int c_idx = Convert.ToInt32(rdr[0]);
+                rdr.Close();
+                sql = "SELECT count(bm_c_idx) FROM book, book_management WHERE book.b_idx = book_management.bm_b_idx AND bm_status = 0 AND bm_c_idx = " + c_idx + " AND bm_returnDate < left(now(),10)";
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
+                if (Convert.ToInt32(rdr[0]) > 0)
+                    return true;
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return false;
+        }
+
         public List<BookManageDTO> getUserManageList(string c_id, int status, bool overDue)
         {
             List<BookManageDTO> list = new List<BookManageDTO>();

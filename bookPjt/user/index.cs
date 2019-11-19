@@ -7,7 +7,6 @@ using System.Linq;
 using bookPjt.util;
 using System.Drawing;
 using bookPjt.DAO;
-using bookPjt.user;
 using bookPjt.DTO;
 
 namespace BookManagement
@@ -73,6 +72,8 @@ namespace BookManagement
 
         private void index_Load(object sender, EventArgs e)
         {
+            if (bookManageDAO.userChkOverDue(id))
+                OverDueChk.Text = "* 연체된 도서가\n존재합니다.";
             getBookList("", "");
             searchSelect.SelectedIndex = 0;
         }
@@ -240,6 +241,16 @@ namespace BookManagement
             {
                 rentalBookInfoTable.Rows.Add(item.B_name, item.Bm_takeDate, item.Bm_returnDate, item.Bm_extend, item.Status);
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 4;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 5;
         }
     }
 }
