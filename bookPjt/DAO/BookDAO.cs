@@ -6,8 +6,6 @@ namespace bookPjt
 {
     class BookDAO
     {
-        public static int dbStatus = 1;
-
         private static BookDAO bookDAO = null;
         private string dbInfo = "Server=localhost;Database=library;Uid=root;Pwd=apmsetup;charset=utf8";
         public static BookDAO getInstance()

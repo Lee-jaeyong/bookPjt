@@ -37,7 +37,6 @@ namespace bookPjt
                 MessageBox.Show("상품 삭제 완료");
             else
                 MessageBox.Show("상품 삭제 실패");
-            BookDAO.dbStatus = 1;
             bookManage.selectList();
             Hide();
         }
@@ -48,7 +47,6 @@ namespace bookPjt
                 MessageBox.Show("상품 수정 완료");
             else
                 MessageBox.Show("상품 수정 실패");
-            BookDAO.dbStatus = 1;
             bookManage.selectList();
             Hide();
         }

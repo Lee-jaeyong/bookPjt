@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\AddNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\AddNotice.Designer.cs">
+      <DependentUpon>AddNotice.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin\UpdatePublisher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,7 @@
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\BookManageDAO.cs" />
     <Compile Include="DAO\BookRentalChkDAO.cs" />
+    <Compile Include="DAO\NoticeDAO.cs" />
     <Compile Include="DTO\BookDTO.cs" />
     <Compile Include="admin\BookAdmin.cs">
       <SubType>Form</SubType>
@@ -105,6 +112,7 @@
       <DependentUpon>UpdateOrDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="DTO\BookManageDTO.cs" />
+    <Compile Include="DTO\NoticeDTO.cs" />
     <Compile Include="DTO\RentalChkDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="user\IdPw_SearchForm.cs">
@@ -137,6 +145,9 @@
     <Compile Include="util\UtilClass.cs" />
     <EmbeddedResource Include="admin\BookAdmin.resx">
       <DependentUpon>BookAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\AddNotice.resx">
+      <DependentUpon>AddNotice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="admin\UpdatePublisher.resx">
       <DependentUpon>UpdatePublisher.cs</DependentUpon>

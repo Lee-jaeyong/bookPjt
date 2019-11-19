@@ -22,7 +22,8 @@ namespace bookPjt
         BookManageDAO bookManageDAO = BookManageDAO.getInstance();
         UserDAO userDAO = UserDAO.getInstance();
         BookRentalChkDAO bookRentalChkDAO = BookRentalChkDAO.getInstance();
-
+        NoticeDAO noticeDAO = NoticeDAO.getInstance();
+        private int noticeNumber;
         public void selectUserList(string type, string search, bool overdueChk)
         {
             userListTable.Rows.Clear();
@@ -67,7 +68,6 @@ namespace bookPjt
             {
                 table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock, book.B_guest);
             }
-            BookDAO.dbStatus = 0;
         }
 
         private void selectCategoryList()
@@ -255,7 +255,6 @@ namespace bookPjt
                 {
                     MessageBox.Show("도서 등록 완료");
                     clearText();
-                    BookDAO.dbStatus = 1;
                     selectList();
                     TabControll.SelectedIndex = 0;
                 }
@@ -349,13 +348,11 @@ namespace bookPjt
 
         private void categoryList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BookDAO.dbStatus = 1;
             selectList();
         }
 
         private void searchBook_KeyUp(object sender, KeyEventArgs e)
         {
-            BookDAO.dbStatus = 1;
             categoryList.SelectedIndex = 0;
             selectList();
         }
@@ -364,7 +361,6 @@ namespace bookPjt
         private void button5_Click(object sender, EventArgs e)
         {
             Hide();
-            BookDAO.dbStatus = 1;
             MessageBox.Show("로그아웃 완료");
             loginForm login = new loginForm();
             login.Show();
@@ -676,7 +672,8 @@ namespace bookPjt
             {
                 UserRankUpdate userRankUpdate = new UserRankUpdate(this, userListTable.Rows[userListTable.CurrentRow.Index].Cells[4].Value.ToString(), Convert.ToInt32(userListTable.Rows[userListTable.CurrentRow.Index].Cells[5].Value));
                 userRankUpdate.Show();
-            }catch(Exception a)
+            }
+            catch (Exception a)
             {
                 MessageBox.Show("선택해주세요");
             }
@@ -709,10 +706,99 @@ namespace bookPjt
 
         private void btnPublisherUpdate_Click(object sender, EventArgs e)
         {
-            UpdatePublisher updatePublisher = new UpdatePublisher(this,publisherTable.Rows[publisherTable.CurrentRow.Index].Cells[0].Value.ToString());
+            UpdatePublisher updatePublisher = new UpdatePublisher(this, publisherTable.Rows[publisherTable.CurrentRow.Index].Cells[0].Value.ToString());
             updatePublisher.Show();
         }
 
+        public void showNoticeList()
+        {
+            List<NoticeDTO> list = noticeDAO.getNoticeList();
+            noticeTable.Rows.Clear();
+            foreach (NoticeDTO notice in list)
+            {
+                noticeTable.Rows.Add(notice.No_idx, notice.No_title, notice.No_content, notice.No_date, notice.No_hit);
+            }
+        }
 
+        private void button12_Click_1(object sender, EventArgs e)
+        {
+            TabControll.SelectedIndex = 6;
+            showNoticeList();
+            noticeNumber = -1;
+        }
+
+        private void btnNoticeAdd_Click(object sender, EventArgs e)
+        {
+            AddNotice addNotice = new AddNotice(this);
+            addNotice.Show();
+        }
+
+        private void noticeTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txtNoticeTitle.Text = noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[1].Value.ToString();
+                txtNoticeContent.Text = noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[2].Value.ToString();
+                noticeNumber = Convert.ToInt32(noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[0].Value);
+                txtNoticeTitle.ReadOnly = true;
+                txtNoticeContent.ReadOnly = true;
+                btnUpdateNoticExcute.Visible = false;
+                btnUpdateNoticeCencel.Visible = false;
+            }
+            catch (Exception a)
+            {
+                txtNoticeTitle.ReadOnly = true;
+                txtNoticeContent.ReadOnly = true;
+                btnUpdateNoticExcute.Visible = false;
+                btnUpdateNoticeCencel.Visible = false;
+            }
+        }
+
+        private void btnNoticeUpdate_Click(object sender, EventArgs e)
+        {
+            txtNoticeTitle.ReadOnly = false;
+            txtNoticeContent.ReadOnly = false;
+            btnUpdateNoticExcute.Visible = true;
+            btnUpdateNoticeCencel.Visible = true;
+        }
+
+        private void btnUpdateNoticeCencel_Click(object sender, EventArgs e)
+        {
+            btnUpdateNoticExcute.Visible = false;
+            btnUpdateNoticeCencel.Visible = false;
+        }
+
+        private void btnUpdateNoticExcute_Click(object sender, EventArgs e)
+        {
+            if (noticeDAO.updateNotice(txtNoticeTitle.Text, txtNoticeContent.Text, noticeNumber))
+            {
+                MessageBox.Show("수정 완료");
+                showNoticeList();
+                btnUpdateNoticExcute.Visible = false;
+                btnUpdateNoticeCencel.Visible = false;
+                txtNoticeTitle.ReadOnly = true;
+                txtNoticeContent.ReadOnly = true;
+            }
+            else
+                MessageBox.Show("수정 실패");
+        }
+
+        private void btnNoticeDelete_Click(object sender, EventArgs e)
+        {
+            if (noticeNumber != -1)
+                if (noticeDAO.deleteNotice(noticeNumber))
+                {
+                    MessageBox.Show("삭제 완료");
+                    showNoticeList();
+                    txtNoticeTitle.ReadOnly = true;
+                    txtNoticeContent.ReadOnly = true;
+                    txtNoticeTitle.Text = "";
+                    txtNoticeContent.Text = "";
+                }
+                else
+                    MessageBox.Show("삭제 실패");
+            else
+                MessageBox.Show("삭제할 항목을 선택해주세요");
+        }
     }
 }
