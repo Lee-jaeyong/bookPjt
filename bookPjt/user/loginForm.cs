@@ -29,7 +29,7 @@ namespace BookManagement
                 string userRank = dao.checkUserRank(inputId);
                 Form frm;
                 this.Visible = false;
-                if (inputId == "root" || userRank == "C")
+                if (inputId == "root" || userRank == "C" || userRank == "B")
                     frm = new BookAdmin(userRank);
                 else
                     frm = new index(inputId);
