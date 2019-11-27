@@ -22,6 +22,28 @@ namespace BookManagement
 
         }
 
+        public string checkUserRank(string id)
+        {
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            try
+            {
+                string sql = "select c_rank from customer where c_identy = '" + id + "'";
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader chk = command.ExecuteReader();
+                chk.Read();
+                string chkUser = chk[0].ToString();
+                chk.Close();
+                connection.Close();
+                return chkUser;
+            }
+            catch (Exception e)
+            {
+                Console.Write("오류");
+            }
+            return null;
+        }
+
         public bool userLogin(string id, string pw)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);

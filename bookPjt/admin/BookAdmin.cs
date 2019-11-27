@@ -24,7 +24,7 @@ namespace bookPjt
         BookRentalChkDAO bookRentalChkDAO = BookRentalChkDAO.getInstance();
         NoticeDAO noticeDAO = NoticeDAO.getInstance();
         UserQADAO userQADAO = UserQADAO.getInstance();
-
+        private string userRank;
         private int qaNumber;
         private int noticeNumber;
         public void selectUserList(string type, string search, bool overdueChk)
@@ -83,9 +83,16 @@ namespace bookPjt
                 categoryList.Items.Add(listItem);
         }
 
-        public BookAdmin()
+        public BookAdmin(string userRank)
         {
             InitializeComponent();
+            this.userRank = userRank;
+            if (userRank != "C")
+            {
+                btnCategory.Visible = false;
+                btnCustomer.Visible = false;
+                btnNotice.Visible = false;
+            }
             selectList();
             selectCategoryList();
         }
@@ -522,7 +529,7 @@ namespace bookPjt
                 else
                     MessageBox.Show("연장 횟수 초과");
             }
-            catch(Exception a)
+            catch (Exception a)
             {
 
             }
@@ -549,7 +556,8 @@ namespace bookPjt
                 }
                 else
                     MessageBox.Show("반납 실패");
-            }catch(Exception a)
+            }
+            catch (Exception a)
             {
 
             }
@@ -842,7 +850,7 @@ namespace bookPjt
                 txtQAcust.Text = userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[1].Value.ToString();
                 txtQAcontent.Text = userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[3].Value.ToString();
                 qaNumber = Convert.ToInt32(userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[0].Value);
-                if(userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[5].Value.ToString() == "답변 완료")
+                if (userQAtable.Rows[userQAtable.CurrentRow.Index].Cells[5].Value.ToString() == "답변 완료")
                     btnAnswer.Enabled = false;
                 else
                     btnAnswer.Enabled = true;
@@ -863,6 +871,11 @@ namespace bookPjt
             }
             else
                 MessageBox.Show("답변할 항목을 선택해주세요.");
+        }
+
+        private void BookAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

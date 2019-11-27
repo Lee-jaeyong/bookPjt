@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControll = new System.Windows.Forms.TabControl();
             this.TagBookList = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -180,43 +180,43 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             this.TagNotice = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.noticeTable = new System.Windows.Forms.DataGridView();
-            this.txtNoticeTitle = new System.Windows.Forms.TextBox();
-            this.txtNoticeContent = new System.Windows.Forms.TextBox();
-            this.btnNoticeAdd = new System.Windows.Forms.Button();
+            this.btnUpdateNoticeCencel = new System.Windows.Forms.Button();
+            this.btnUpdateNoticExcute = new System.Windows.Forms.Button();
             this.btnNoticeUpdate = new System.Windows.Forms.Button();
+            this.btnNoticeAdd = new System.Windows.Forms.Button();
+            this.txtNoticeContent = new System.Windows.Forms.TextBox();
+            this.txtNoticeTitle = new System.Windows.Forms.TextBox();
+            this.noticeTable = new System.Windows.Forms.DataGridView();
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUpdateNoticExcute = new System.Windows.Forms.Button();
-            this.btnUpdateNoticeCencel = new System.Windows.Forms.Button();
             this.btnNoticeDelete = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
             this.TagQA = new System.Windows.Forms.TabPage();
-            this.userQAtable = new System.Windows.Forms.DataGridView();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.txtQAtitle = new System.Windows.Forms.TextBox();
-            this.txtQAcontent = new System.Windows.Forms.TextBox();
             this.btnAnswer = new System.Windows.Forms.Button();
+            this.txtQAcontent = new System.Windows.Forms.TextBox();
+            this.txtQAcust = new System.Windows.Forms.TextBox();
+            this.txtQAtitle = new System.Windows.Forms.TextBox();
+            this.userQAtable = new System.Windows.Forms.DataGridView();
             this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtQAcust = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnCategory = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.btnCustomer = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btnNotice = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.TabControll.SuspendLayout();
             this.TagBookList.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -244,8 +244,8 @@
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.noticeTable)).BeginInit();
             this.TagQA.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userQAtable)).BeginInit();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userQAtable)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControll
@@ -529,9 +529,9 @@
             // 
             // bookIdx
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle13;
             this.bookIdx.HeaderText = "도서 번호";
             this.bookIdx.MinimumWidth = 6;
             this.bookIdx.Name = "bookIdx";
@@ -548,8 +548,8 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.LightGray;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column5.HeaderText = "저자";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -566,8 +566,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.LightGray;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column4.HeaderText = "분류";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -584,8 +584,8 @@
             // 
             // Column14
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.LightGray;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column14.HeaderText = "연령 제한";
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
@@ -1578,8 +1578,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewTextBoxColumn2.HeaderText = "사용자 이름";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -1596,8 +1596,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewTextBoxColumn4.HeaderText = "핸드폰 번호";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -1801,182 +1801,6 @@
             this.Column18.ReadOnly = true;
             this.Column18.Width = 200;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(111, 14);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 135);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "도서 추가";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(412, 14);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 135);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "대여 현황 관리";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(214, 14);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 135);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "관리 모드";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button5.Location = new System.Drawing.Point(917, 14);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(130, 135);
-            this.button5.TabIndex = 6;
-            this.button5.Text = " 로그아웃";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.White;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button8.Location = new System.Drawing.Point(16, 14);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(91, 134);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "도서 목록";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(511, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 134);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "사용자 관리";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button6.Location = new System.Drawing.Point(313, 14);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(95, 135);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "대여 신청 관리";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click_1);
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.White;
-            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
-            this.button12.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button12.Location = new System.Drawing.Point(611, 13);
-            this.button12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(95, 134);
-            this.button12.TabIndex = 8;
-            this.button12.Text = "공지사항";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click_1);
-            // 
             // TagNotice
             // 
             this.TagNotice.Controls.Add(this.panel11);
@@ -2003,6 +1827,66 @@
             this.panel11.Size = new System.Drawing.Size(1031, 553);
             this.panel11.TabIndex = 0;
             // 
+            // btnUpdateNoticeCencel
+            // 
+            this.btnUpdateNoticeCencel.Location = new System.Drawing.Point(853, 470);
+            this.btnUpdateNoticeCencel.Name = "btnUpdateNoticeCencel";
+            this.btnUpdateNoticeCencel.Size = new System.Drawing.Size(173, 65);
+            this.btnUpdateNoticeCencel.TabIndex = 4;
+            this.btnUpdateNoticeCencel.Text = "취 소";
+            this.btnUpdateNoticeCencel.UseVisualStyleBackColor = true;
+            this.btnUpdateNoticeCencel.Visible = false;
+            this.btnUpdateNoticeCencel.Click += new System.EventHandler(this.btnUpdateNoticeCencel_Click);
+            // 
+            // btnUpdateNoticExcute
+            // 
+            this.btnUpdateNoticExcute.Location = new System.Drawing.Point(671, 470);
+            this.btnUpdateNoticExcute.Name = "btnUpdateNoticExcute";
+            this.btnUpdateNoticExcute.Size = new System.Drawing.Size(183, 65);
+            this.btnUpdateNoticExcute.TabIndex = 3;
+            this.btnUpdateNoticExcute.Text = "수정 완료";
+            this.btnUpdateNoticExcute.UseVisualStyleBackColor = true;
+            this.btnUpdateNoticExcute.Visible = false;
+            this.btnUpdateNoticExcute.Click += new System.EventHandler(this.btnUpdateNoticExcute_Click);
+            // 
+            // btnNoticeUpdate
+            // 
+            this.btnNoticeUpdate.Location = new System.Drawing.Point(793, 470);
+            this.btnNoticeUpdate.Name = "btnNoticeUpdate";
+            this.btnNoticeUpdate.Size = new System.Drawing.Size(114, 65);
+            this.btnNoticeUpdate.TabIndex = 2;
+            this.btnNoticeUpdate.Text = "수 정";
+            this.btnNoticeUpdate.UseVisualStyleBackColor = true;
+            this.btnNoticeUpdate.Click += new System.EventHandler(this.btnNoticeUpdate_Click);
+            // 
+            // btnNoticeAdd
+            // 
+            this.btnNoticeAdd.Location = new System.Drawing.Point(671, 470);
+            this.btnNoticeAdd.Name = "btnNoticeAdd";
+            this.btnNoticeAdd.Size = new System.Drawing.Size(117, 65);
+            this.btnNoticeAdd.TabIndex = 2;
+            this.btnNoticeAdd.Text = "등 록";
+            this.btnNoticeAdd.UseVisualStyleBackColor = true;
+            this.btnNoticeAdd.Click += new System.EventHandler(this.btnNoticeAdd_Click);
+            // 
+            // txtNoticeContent
+            // 
+            this.txtNoticeContent.Location = new System.Drawing.Point(671, 69);
+            this.txtNoticeContent.Multiline = true;
+            this.txtNoticeContent.Name = "txtNoticeContent";
+            this.txtNoticeContent.ReadOnly = true;
+            this.txtNoticeContent.Size = new System.Drawing.Size(355, 395);
+            this.txtNoticeContent.TabIndex = 1;
+            // 
+            // txtNoticeTitle
+            // 
+            this.txtNoticeTitle.Location = new System.Drawing.Point(671, 12);
+            this.txtNoticeTitle.Multiline = true;
+            this.txtNoticeTitle.Name = "txtNoticeTitle";
+            this.txtNoticeTitle.ReadOnly = true;
+            this.txtNoticeTitle.Size = new System.Drawing.Size(355, 51);
+            this.txtNoticeTitle.TabIndex = 1;
+            // 
             // noticeTable
             // 
             this.noticeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -2021,44 +1905,6 @@
             this.noticeTable.Size = new System.Drawing.Size(653, 523);
             this.noticeTable.TabIndex = 0;
             this.noticeTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.noticeTable_CellClick);
-            // 
-            // txtNoticeTitle
-            // 
-            this.txtNoticeTitle.Location = new System.Drawing.Point(671, 12);
-            this.txtNoticeTitle.Multiline = true;
-            this.txtNoticeTitle.Name = "txtNoticeTitle";
-            this.txtNoticeTitle.ReadOnly = true;
-            this.txtNoticeTitle.Size = new System.Drawing.Size(355, 51);
-            this.txtNoticeTitle.TabIndex = 1;
-            // 
-            // txtNoticeContent
-            // 
-            this.txtNoticeContent.Location = new System.Drawing.Point(671, 69);
-            this.txtNoticeContent.Multiline = true;
-            this.txtNoticeContent.Name = "txtNoticeContent";
-            this.txtNoticeContent.ReadOnly = true;
-            this.txtNoticeContent.Size = new System.Drawing.Size(355, 395);
-            this.txtNoticeContent.TabIndex = 1;
-            // 
-            // btnNoticeAdd
-            // 
-            this.btnNoticeAdd.Location = new System.Drawing.Point(671, 470);
-            this.btnNoticeAdd.Name = "btnNoticeAdd";
-            this.btnNoticeAdd.Size = new System.Drawing.Size(117, 65);
-            this.btnNoticeAdd.TabIndex = 2;
-            this.btnNoticeAdd.Text = "등 록";
-            this.btnNoticeAdd.UseVisualStyleBackColor = true;
-            this.btnNoticeAdd.Click += new System.EventHandler(this.btnNoticeAdd_Click);
-            // 
-            // btnNoticeUpdate
-            // 
-            this.btnNoticeUpdate.Location = new System.Drawing.Point(793, 470);
-            this.btnNoticeUpdate.Name = "btnNoticeUpdate";
-            this.btnNoticeUpdate.Size = new System.Drawing.Size(114, 65);
-            this.btnNoticeUpdate.TabIndex = 2;
-            this.btnNoticeUpdate.Text = "수 정";
-            this.btnNoticeUpdate.UseVisualStyleBackColor = true;
-            this.btnNoticeUpdate.Click += new System.EventHandler(this.btnNoticeUpdate_Click);
             // 
             // Column28
             // 
@@ -2101,28 +1947,6 @@
             this.Column27.ReadOnly = true;
             this.Column27.Width = 125;
             // 
-            // btnUpdateNoticExcute
-            // 
-            this.btnUpdateNoticExcute.Location = new System.Drawing.Point(671, 470);
-            this.btnUpdateNoticExcute.Name = "btnUpdateNoticExcute";
-            this.btnUpdateNoticExcute.Size = new System.Drawing.Size(183, 65);
-            this.btnUpdateNoticExcute.TabIndex = 3;
-            this.btnUpdateNoticExcute.Text = "수정 완료";
-            this.btnUpdateNoticExcute.UseVisualStyleBackColor = true;
-            this.btnUpdateNoticExcute.Visible = false;
-            this.btnUpdateNoticExcute.Click += new System.EventHandler(this.btnUpdateNoticExcute_Click);
-            // 
-            // btnUpdateNoticeCencel
-            // 
-            this.btnUpdateNoticeCencel.Location = new System.Drawing.Point(853, 470);
-            this.btnUpdateNoticeCencel.Name = "btnUpdateNoticeCencel";
-            this.btnUpdateNoticeCencel.Size = new System.Drawing.Size(173, 65);
-            this.btnUpdateNoticeCencel.TabIndex = 4;
-            this.btnUpdateNoticeCencel.Text = "취 소";
-            this.btnUpdateNoticeCencel.UseVisualStyleBackColor = true;
-            this.btnUpdateNoticeCencel.Visible = false;
-            this.btnUpdateNoticeCencel.Click += new System.EventHandler(this.btnUpdateNoticeCencel_Click);
-            // 
             // btnNoticeDelete
             // 
             this.btnNoticeDelete.Location = new System.Drawing.Point(912, 470);
@@ -2132,27 +1956,6 @@
             this.btnNoticeDelete.Text = "삭 제";
             this.btnNoticeDelete.UseVisualStyleBackColor = true;
             this.btnNoticeDelete.Click += new System.EventHandler(this.btnNoticeDelete_Click);
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.White;
-            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button13.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button13.Location = new System.Drawing.Point(711, 11);
-            this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(95, 134);
-            this.button13.TabIndex = 9;
-            this.button13.Text = "질문 답변";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click_1);
             // 
             // TagQA
             // 
@@ -2164,6 +1967,55 @@
             this.TagQA.TabIndex = 7;
             this.TagQA.Text = "TagQA";
             this.TagQA.UseVisualStyleBackColor = true;
+            // 
+            // panel12
+            // 
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel12.Controls.Add(this.btnAnswer);
+            this.panel12.Controls.Add(this.txtQAcontent);
+            this.panel12.Controls.Add(this.txtQAcust);
+            this.panel12.Controls.Add(this.txtQAtitle);
+            this.panel12.Location = new System.Drawing.Point(660, 12);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(380, 554);
+            this.panel12.TabIndex = 1;
+            // 
+            // btnAnswer
+            // 
+            this.btnAnswer.Location = new System.Drawing.Point(17, 478);
+            this.btnAnswer.Name = "btnAnswer";
+            this.btnAnswer.Size = new System.Drawing.Size(346, 61);
+            this.btnAnswer.TabIndex = 11;
+            this.btnAnswer.Text = "답변하기";
+            this.btnAnswer.UseVisualStyleBackColor = true;
+            this.btnAnswer.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // txtQAcontent
+            // 
+            this.txtQAcontent.Location = new System.Drawing.Point(17, 128);
+            this.txtQAcontent.Multiline = true;
+            this.txtQAcontent.Name = "txtQAcontent";
+            this.txtQAcontent.ReadOnly = true;
+            this.txtQAcontent.Size = new System.Drawing.Size(346, 336);
+            this.txtQAcontent.TabIndex = 10;
+            // 
+            // txtQAcust
+            // 
+            this.txtQAcust.Location = new System.Drawing.Point(17, 71);
+            this.txtQAcust.Multiline = true;
+            this.txtQAcust.Name = "txtQAcust";
+            this.txtQAcust.ReadOnly = true;
+            this.txtQAcust.Size = new System.Drawing.Size(346, 41);
+            this.txtQAcust.TabIndex = 10;
+            // 
+            // txtQAtitle
+            // 
+            this.txtQAtitle.Location = new System.Drawing.Point(17, 20);
+            this.txtQAtitle.Multiline = true;
+            this.txtQAtitle.Name = "txtQAtitle";
+            this.txtQAtitle.ReadOnly = true;
+            this.txtQAtitle.Size = new System.Drawing.Size(346, 41);
+            this.txtQAtitle.TabIndex = 10;
             // 
             // userQAtable
             // 
@@ -2184,46 +2036,6 @@
             this.userQAtable.Size = new System.Drawing.Size(647, 554);
             this.userQAtable.TabIndex = 0;
             this.userQAtable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userQAtable_CellClick);
-            // 
-            // panel12
-            // 
-            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel12.Controls.Add(this.btnAnswer);
-            this.panel12.Controls.Add(this.txtQAcontent);
-            this.panel12.Controls.Add(this.txtQAcust);
-            this.panel12.Controls.Add(this.txtQAtitle);
-            this.panel12.Location = new System.Drawing.Point(660, 12);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(380, 554);
-            this.panel12.TabIndex = 1;
-            // 
-            // txtQAtitle
-            // 
-            this.txtQAtitle.Location = new System.Drawing.Point(17, 20);
-            this.txtQAtitle.Multiline = true;
-            this.txtQAtitle.Name = "txtQAtitle";
-            this.txtQAtitle.ReadOnly = true;
-            this.txtQAtitle.Size = new System.Drawing.Size(346, 41);
-            this.txtQAtitle.TabIndex = 10;
-            // 
-            // txtQAcontent
-            // 
-            this.txtQAcontent.Location = new System.Drawing.Point(17, 128);
-            this.txtQAcontent.Multiline = true;
-            this.txtQAcontent.Name = "txtQAcontent";
-            this.txtQAcontent.ReadOnly = true;
-            this.txtQAcontent.Size = new System.Drawing.Size(346, 336);
-            this.txtQAcontent.TabIndex = 10;
-            // 
-            // btnAnswer
-            // 
-            this.btnAnswer.Location = new System.Drawing.Point(17, 478);
-            this.btnAnswer.Name = "btnAnswer";
-            this.btnAnswer.Size = new System.Drawing.Size(346, 61);
-            this.btnAnswer.TabIndex = 11;
-            this.btnAnswer.Text = "답변하기";
-            this.btnAnswer.UseVisualStyleBackColor = true;
-            this.btnAnswer.Click += new System.EventHandler(this.button14_Click);
             // 
             // Column29
             // 
@@ -2274,14 +2086,203 @@
             this.Column34.ReadOnly = true;
             this.Column34.Width = 125;
             // 
-            // txtQAcust
+            // button2
             // 
-            this.txtQAcust.Location = new System.Drawing.Point(17, 71);
-            this.txtQAcust.Multiline = true;
-            this.txtQAcust.Name = "txtQAcust";
-            this.txtQAcust.ReadOnly = true;
-            this.txtQAcust.Size = new System.Drawing.Size(346, 41);
-            this.txtQAcust.TabIndex = 10;
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.Location = new System.Drawing.Point(111, 14);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(99, 135);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "도서 추가";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button3.Location = new System.Drawing.Point(412, 14);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(95, 135);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "대여 현황 관리";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnCategory
+            // 
+            this.btnCategory.BackColor = System.Drawing.Color.White;
+            this.btnCategory.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCategory.FlatAppearance.BorderSize = 0;
+            this.btnCategory.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnCategory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategory.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCategory.Image = ((System.Drawing.Image)(resources.GetObject("btnCategory.Image")));
+            this.btnCategory.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCategory.Location = new System.Drawing.Point(214, 14);
+            this.btnCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(95, 135);
+            this.btnCategory.TabIndex = 3;
+            this.btnCategory.Text = "관리 모드";
+            this.btnCategory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCategory.UseVisualStyleBackColor = false;
+            this.btnCategory.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button5.Location = new System.Drawing.Point(917, 14);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(130, 135);
+            this.button5.TabIndex = 6;
+            this.button5.Text = " 로그아웃";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.White;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button8.Location = new System.Drawing.Point(16, 14);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(91, 134);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "도서 목록";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.BackColor = System.Drawing.Color.White;
+            this.btnCustomer.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCustomer.FlatAppearance.BorderSize = 0;
+            this.btnCustomer.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnCustomer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomer.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomer.Image")));
+            this.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCustomer.Location = new System.Drawing.Point(511, 14);
+            this.btnCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Size = new System.Drawing.Size(95, 134);
+            this.btnCustomer.TabIndex = 8;
+            this.btnCustomer.Text = "사용자 관리";
+            this.btnCustomer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCustomer.UseVisualStyleBackColor = false;
+            this.btnCustomer.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button6.Location = new System.Drawing.Point(313, 14);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(95, 135);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "대여 신청 관리";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
+            // btnNotice
+            // 
+            this.btnNotice.BackColor = System.Drawing.Color.White;
+            this.btnNotice.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNotice.FlatAppearance.BorderSize = 0;
+            this.btnNotice.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnNotice.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnNotice.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnNotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotice.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnNotice.Image = ((System.Drawing.Image)(resources.GetObject("btnNotice.Image")));
+            this.btnNotice.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNotice.Location = new System.Drawing.Point(611, 13);
+            this.btnNotice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNotice.Name = "btnNotice";
+            this.btnNotice.Size = new System.Drawing.Size(95, 134);
+            this.btnNotice.TabIndex = 8;
+            this.btnNotice.Text = "공지사항";
+            this.btnNotice.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnNotice.UseVisualStyleBackColor = false;
+            this.btnNotice.Click += new System.EventHandler(this.button12_Click_1);
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.White;
+            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
+            this.button13.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button13.Location = new System.Drawing.Point(711, 11);
+            this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(95, 134);
+            this.button13.TabIndex = 9;
+            this.button13.Text = "질문 답변";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click_1);
             // 
             // BookAdmin
             // 
@@ -2290,19 +2291,20 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1061, 751);
             this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnNotice);
+            this.Controls.Add(this.btnCustomer);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.TabControll);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "BookAdmin";
             this.Text = "admin";
+            this.Load += new System.EventHandler(this.BookAdmin_Load);
             this.TabControll.ResumeLayout(false);
             this.TagBookList.ResumeLayout(false);
             this.TagBookList.PerformLayout();
@@ -2341,9 +2343,9 @@
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.noticeTable)).EndInit();
             this.TagQA.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.userQAtable)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userQAtable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2357,7 +2359,7 @@
         private System.Windows.Forms.TabPage TagUser;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCategory;
         private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox searchBook;
@@ -2376,7 +2378,7 @@
         private System.Windows.Forms.ComboBox categoryList;
         private System.Windows.Forms.Button bookUpdateAndDelete;
         private System.Windows.Forms.Label subBookImg;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel3;
@@ -2502,7 +2504,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnNotice;
         private System.Windows.Forms.TabPage TagNotice;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button btnNoticeUpdate;
