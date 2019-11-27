@@ -75,15 +75,24 @@ namespace bookPjt.DAO
             mySqlConnection.Open();
             try
             {
-                string sql = "SELECT COUNT(rc_idx) FROM rentalchk WHERE rc_c_id = '" + id + "' AND rc_b_idx = " + b_idx;
+                string sql = "select b_stock from book where b_idx = " + b_idx;
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 rdr.Read();
+                bool chkStock = Convert.ToInt32(rdr[0]) > 0 ? true : false;
+                rdr.Close();
+                if (!chkStock)
+                    return false;
+
+                sql = "SELECT COUNT(rc_idx) FROM rentalchk WHERE rc_c_id = '" + id + "' AND rc_b_idx = " + b_idx;
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
                 int count = Convert.ToInt32(rdr[0]);
                 rdr.Close();
+                mySqlConnection.Close();
                 if (count >= 1)
                     return false;
-                mySqlConnection.Close();
             }
             catch (Exception e)
             {
@@ -139,6 +148,9 @@ namespace bookPjt.DAO
                 mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
                 sql = "DELETE FROM rentalchk WHERE rc_c_id = '" + c_id + "' AND rc_b_idx = " + b_idx;
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+                sql = "update book set b_stock = b_stock - 1 where b_idx = " + b_idx;
                 mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
                 mySqlConnection.Close();

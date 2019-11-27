@@ -192,11 +192,14 @@ namespace bookPjt.DAO
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
 
-            string sql = "UPDATE book_management SET bm_status = 1 WHERE bm_idx = " + rental_idx;
             try
             {
                 mySqlConnection.Open();
+                string sql = "UPDATE book_management SET bm_status = 1 WHERE bm_idx = " + rental_idx;
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+                sql = "update book set b_stock = b_stock + 1 where b_idx in (select bm_b_idx from book_management where bm_idx = " + rental_idx + ")";
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
                 mySqlConnection.Close();
             }

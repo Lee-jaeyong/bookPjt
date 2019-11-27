@@ -22,11 +22,6 @@ namespace bookPjt
         private void Form2_Load(object sender, EventArgs e)
         {
             bookName.Text = book.B_name;
-
-            Bitmap img = new Bitmap(Environment.CurrentDirectory.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt\\bin\\Debug", "") + book.B_img);
-            img = UtilClass.imgResize(img, 480, 348);
-            bookImage.Image = img;
-            //bookImage.Image = Image.FromFile((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + book.B_img.Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
             txtSummery.Text = book.B_summary;
             bookName.Focus();
         }

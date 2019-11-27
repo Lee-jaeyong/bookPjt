@@ -130,7 +130,7 @@ namespace BookManagement
                         else
                             MessageBox.Show("대출 신청 실패");
                     else
-                        MessageBox.Show("이미 신청한 도서입니다");
+                        MessageBox.Show("이미 신청한 도서 혹은 수량이 부족한 도서입니다");
                 }
             }
             catch (Exception a)

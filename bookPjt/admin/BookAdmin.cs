@@ -507,39 +507,52 @@ namespace bookPjt
 
         private void button13_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[6].Value) < 3)
+            try
             {
-                if (bookManageDAO.extendRental(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
+                if (Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[6].Value) < 3)
                 {
-                    MessageBox.Show("연장 완료");
-                    selectManageList("");
+                    if (bookManageDAO.extendRental(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
+                    {
+                        MessageBox.Show("연장 완료");
+                        selectManageList("");
+                    }
+                    else
+                        MessageBox.Show("연장 실패");
                 }
                 else
-                    MessageBox.Show("연장 실패");
+                    MessageBox.Show("연장 횟수 초과");
             }
-            else
-                MessageBox.Show("연장 횟수 초과");
+            catch(Exception a)
+            {
+
+            }
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[9].Value.ToString() == "반납")
+            try
             {
-                MessageBox.Show("이미 반납한 도서입니다");
-                return;
-            }
-            if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[7].Value.ToString() == "연체")
+                if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[9].Value.ToString() == "반납")
+                {
+                    MessageBox.Show("이미 반납한 도서입니다");
+                    return;
+                }
+                if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[7].Value.ToString() == "연체")
+                {
+                    TimeSpan timeSpan = Convert.ToDateTime(DateTime.Now.ToString().Substring(0, 10)) - Convert.ToDateTime(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[5].Value.ToString());
+                    bookManageDAO.addReturnOverdue(timeSpan.Days, Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value));
+                }
+                if (bookManageDAO.returnBook(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
+                {
+                    MessageBox.Show("반납 완료");
+                    selectManageList("");
+                }
+                else
+                    MessageBox.Show("반납 실패");
+            }catch(Exception a)
             {
-                TimeSpan timeSpan = Convert.ToDateTime(DateTime.Now.ToString().Substring(0, 10)) - Convert.ToDateTime(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[5].Value.ToString());
-                bookManageDAO.addReturnOverdue(timeSpan.Days, Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value));
+
             }
-            if (bookManageDAO.returnBook(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
-            {
-                MessageBox.Show("반납 완료");
-                selectManageList("");
-            }
-            else
-                MessageBox.Show("반납 실패");
         }
 
         public void comborentalStatusModul(int status, string output)
