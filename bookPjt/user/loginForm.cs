@@ -28,13 +28,13 @@ namespace BookManagement
             {
                 string userRank = dao.checkUserRank(inputId);
                 Form frm;
-                this.Visible = false;
                 if (inputId == "root" || userRank == "C" || userRank == "B")
                     frm = new BookAdmin(userRank);
                 else
                     frm = new index(inputId);
                 frm.Owner = this;
                 frm.Show();
+                this.Hide();
             }
             else
             {
@@ -62,6 +62,11 @@ namespace BookManagement
         {
             IdPw_SearchForm findForm = new IdPw_SearchForm();
             findForm.ShowDialog();
+        }
+
+        private void loginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

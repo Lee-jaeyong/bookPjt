@@ -1291,6 +1291,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "index";
             this.Text = "ㅇㅈㅇ도서관";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.index_FormClosing);
             this.Load += new System.EventHandler(this.index_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bookListTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookImg)).EndInit();

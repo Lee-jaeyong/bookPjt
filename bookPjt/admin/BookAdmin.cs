@@ -933,5 +933,10 @@ namespace bookPjt
                 }
             }
         }
+
+        private void BookAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
