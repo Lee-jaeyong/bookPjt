@@ -21,7 +21,7 @@ namespace bookPjt
 
             string re = dao.findId(name, ph0, ph1, ph2);
             MessageBox.Show(re);
-            this.Hide();
+            Dispose();
         }
 
         private void pwFindBtn_Click(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace bookPjt
 
             string re = dao.findPw(name, id);
             MessageBox.Show(re);
-            this.Hide();
+            Dispose();
         }
 
         private void idFindPh2_KeyDown(object sender, KeyEventArgs e)

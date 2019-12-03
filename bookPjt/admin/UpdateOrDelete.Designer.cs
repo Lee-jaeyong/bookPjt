@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.bookName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBookDelete = new System.Windows.Forms.Button();
             this.btnBookUpdate = new System.Windows.Forms.Button();
-            this.bookImage = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSummery = new System.Windows.Forms.TextBox();
@@ -48,7 +46,7 @@
             this.bookName.Location = new System.Drawing.Point(147, 76);
             this.bookName.Multiline = true;
             this.bookName.Name = "bookName";
-            this.bookName.Size = new System.Drawing.Size(296, 36);
+            this.bookName.Size = new System.Drawing.Size(788, 36);
             this.bookName.TabIndex = 26;
             // 
             // label1
@@ -80,16 +78,6 @@
             this.btnBookUpdate.UseVisualStyleBackColor = true;
             this.btnBookUpdate.Click += new System.EventHandler(this.button9_Click);
             // 
-            // bookImage
-            // 
-            this.bookImage.BackColor = System.Drawing.Color.White;
-            this.bookImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bookImage.Image = ((System.Drawing.Image)(resources.GetObject("bookImage.Image")));
-            this.bookImage.Location = new System.Drawing.Point(561, 21);
-            this.bookImage.Name = "bookImage";
-            this.bookImage.Size = new System.Drawing.Size(480, 348);
-            this.bookImage.TabIndex = 17;
-            // 
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(701, 15);
@@ -114,7 +102,7 @@
             this.txtSummery.Location = new System.Drawing.Point(147, 131);
             this.txtSummery.Multiline = true;
             this.txtSummery.Name = "txtSummery";
-            this.txtSummery.Size = new System.Drawing.Size(296, 122);
+            this.txtSummery.Size = new System.Drawing.Size(788, 122);
             this.txtSummery.TabIndex = 28;
             // 
             // panel1
@@ -128,7 +116,7 @@
             this.panel1.Controls.Add(this.bookName);
             this.panel1.Location = new System.Drawing.Point(23, 21);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(512, 348);
+            this.panel1.Size = new System.Drawing.Size(1018, 348);
             this.panel1.TabIndex = 29;
             // 
             // panel2
@@ -151,7 +139,6 @@
             this.ClientSize = new System.Drawing.Size(1063, 516);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.bookImage);
             this.Name = "Form2";
             this.Text = "수정 및 삭제";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -167,7 +154,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBookDelete;
         private System.Windows.Forms.Button btnBookUpdate;
-        private System.Windows.Forms.Label bookImage;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSummery;

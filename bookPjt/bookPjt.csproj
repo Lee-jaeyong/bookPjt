@@ -225,7 +225,31 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\BookImg\1.png" />
+    <Content Include="Resources\BookImg\10.jpg" />
+    <Content Include="Resources\BookImg\11.jpg" />
+    <Content Include="Resources\BookImg\2.jpg" />
+    <Content Include="Resources\BookImg\21.jpg" />
     <Content Include="Resources\BookImg\3.jpg" />
+    <Content Include="Resources\BookImg\5.jpg" />
+    <Content Include="Resources\BookImg\6.jpg" />
+    <Content Include="Resources\BookImg\895273890x_1.jpg" />
+    <Content Include="Resources\BookImg\8954639771_1.jpg" />
+    <Content Include="Resources\BookImg\8954655971_2.jpg" />
+    <Content Include="Resources\BookImg\8954658121_1.jpg" />
+    <Content Include="Resources\BookImg\896782095x_1.jpg" />
+    <Content Include="Resources\BookImg\91307468_1_1540008883_w640.jpg" />
+    <Content Include="Resources\BookImg\k072636585_1.jpg" />
+    <Content Include="Resources\BookImg\k162636963_1.jpg" />
+    <Content Include="Resources\BookImg\k592636099_1.jpg" />
+    <Content Include="Resources\BookImg\k842534785_1.jpg" />
+    <Content Include="Resources\BookImg\k902636691_1.jpg" />
+    <Content Include="Resources\BookImg\KakaoTalk_20191007_002628389.jpg" />
+    <Content Include="Resources\BookImg\KakaoTalk_20191007_004535166.jpg" />
+    <Content Include="Resources\BookImg\L.jpg" />
+    <Content Include="Resources\BookImg\qhrtn.jpg" />
+    <Content Include="Resources\BookImg\znls.jpg" />
+    <Content Include="Resources\BookImg\달빛이내린다샤라라랄ㄹ랄ㄹ.jpg" />
     <Content Include="SQL\데이터베이스.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

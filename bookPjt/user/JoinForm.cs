@@ -76,7 +76,7 @@ namespace BookManagement
                 if (result == true)
                 {
                     MessageBox.Show("회원가입이 완료되었습니다");
-                    this.Hide();
+                    Dispose();
                 }
                 else
                 {

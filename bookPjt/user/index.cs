@@ -63,7 +63,7 @@ namespace BookManagement
             MessageBox.Show("로그아웃 완료");
             id = "";
             frm.Show();
-            Hide();
+            Dispose();
         }
         private void bookBtn_Click(object sender, EventArgs e)
         {
