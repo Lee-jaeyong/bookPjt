@@ -39,18 +39,20 @@
             // idTxt
             // 
             this.idTxt.Font = new System.Drawing.Font("굴림", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.idTxt.Location = new System.Drawing.Point(547, 242);
+            this.idTxt.Location = new System.Drawing.Point(625, 302);
+            this.idTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.idTxt.Name = "idTxt";
-            this.idTxt.Size = new System.Drawing.Size(304, 34);
+            this.idTxt.Size = new System.Drawing.Size(347, 41);
             this.idTxt.TabIndex = 0;
             // 
             // pwTxt
             // 
             this.pwTxt.Font = new System.Drawing.Font("굴림", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.pwTxt.Location = new System.Drawing.Point(547, 289);
+            this.pwTxt.Location = new System.Drawing.Point(625, 361);
+            this.pwTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pwTxt.Name = "pwTxt";
             this.pwTxt.PasswordChar = '●';
-            this.pwTxt.Size = new System.Drawing.Size(304, 34);
+            this.pwTxt.Size = new System.Drawing.Size(347, 41);
             this.pwTxt.TabIndex = 1;
             this.pwTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pwTxt_KeyDown);
             // 
@@ -59,11 +61,12 @@
             this.loginBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.loginBtn.FlatAppearance.BorderSize = 0;
             this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginBtn.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.loginBtn.Image = ((System.Drawing.Image)(resources.GetObject("loginBtn.Image")));
-            this.loginBtn.Location = new System.Drawing.Point(853, 249);
+            this.loginBtn.Location = new System.Drawing.Point(975, 311);
+            this.loginBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(137, 67);
+            this.loginBtn.Size = new System.Drawing.Size(157, 84);
             this.loginBtn.TabIndex = 2;
             this.loginBtn.Text = "로그인";
             this.loginBtn.UseVisualStyleBackColor = false;
@@ -76,9 +79,10 @@
             this.joinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.joinBtn.Font = new System.Drawing.Font("나눔고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.joinBtn.Image = ((System.Drawing.Image)(resources.GetObject("joinBtn.Image")));
-            this.joinBtn.Location = new System.Drawing.Point(624, 329);
+            this.joinBtn.Location = new System.Drawing.Point(713, 411);
+            this.joinBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.joinBtn.Name = "joinBtn";
-            this.joinBtn.Size = new System.Drawing.Size(182, 38);
+            this.joinBtn.Size = new System.Drawing.Size(208, 48);
             this.joinBtn.TabIndex = 3;
             this.joinBtn.Text = "회원가입";
             this.joinBtn.UseVisualStyleBackColor = false;
@@ -91,9 +95,10 @@
             this.id_pwFindBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.id_pwFindBtn.Font = new System.Drawing.Font("나눔고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.id_pwFindBtn.Image = ((System.Drawing.Image)(resources.GetObject("id_pwFindBtn.Image")));
-            this.id_pwFindBtn.Location = new System.Drawing.Point(809, 329);
+            this.id_pwFindBtn.Location = new System.Drawing.Point(925, 411);
+            this.id_pwFindBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.id_pwFindBtn.Name = "id_pwFindBtn";
-            this.id_pwFindBtn.Size = new System.Drawing.Size(182, 38);
+            this.id_pwFindBtn.Size = new System.Drawing.Size(208, 48);
             this.id_pwFindBtn.TabIndex = 4;
             this.id_pwFindBtn.Text = "아이디 / 비밀번호 찾기";
             this.id_pwFindBtn.UseVisualStyleBackColor = false;
@@ -101,17 +106,19 @@
             // 
             // loginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1062, 617);
+            this.ClientSize = new System.Drawing.Size(1214, 771);
             this.Controls.Add(this.id_pwFindBtn);
             this.Controls.Add(this.joinBtn);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.pwTxt);
             this.Controls.Add(this.idTxt);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "loginForm";
             this.Text = "로그인";
             this.Load += new System.EventHandler(this.loginForm_Load);

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ComboAfterRank = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnUpdateRankExecute = new System.Windows.Forms.Button();
             this.txtBeforeRank = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ComboAfterRank = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(374, 163);
             this.panel1.TabIndex = 0;
+            // 
+            // ComboAfterRank
+            // 
+            this.ComboAfterRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboAfterRank.FormattingEnabled = true;
+            this.ComboAfterRank.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C"});
+            this.ComboAfterRank.Location = new System.Drawing.Point(201, 53);
+            this.ComboAfterRank.Name = "ComboAfterRank";
+            this.ComboAfterRank.Size = new System.Drawing.Size(136, 23);
+            this.ComboAfterRank.TabIndex = 4;
             // 
             // button2
             // 
@@ -99,23 +112,11 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "변경 전";
             // 
-            // ComboAfterRank
-            // 
-            this.ComboAfterRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboAfterRank.FormattingEnabled = true;
-            this.ComboAfterRank.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C"});
-            this.ComboAfterRank.Location = new System.Drawing.Point(201, 53);
-            this.ComboAfterRank.Name = "ComboAfterRank";
-            this.ComboAfterRank.Size = new System.Drawing.Size(136, 23);
-            this.ComboAfterRank.TabIndex = 4;
-            // 
             // UserRankUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(383, 173);
             this.Controls.Add(this.panel1);

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtQATitle = new System.Windows.Forms.TextBox();
-            this.txtQAcontent = new System.Windows.Forms.TextBox();
-            this.btnQAanswer = new System.Windows.Forms.Button();
             this.btnCencel = new System.Windows.Forms.Button();
+            this.btnQAanswer = new System.Windows.Forms.Button();
+            this.txtQAcontent = new System.Windows.Forms.TextBox();
+            this.txtQATitle = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,21 +48,15 @@
             this.panel1.Size = new System.Drawing.Size(598, 372);
             this.panel1.TabIndex = 0;
             // 
-            // txtQATitle
+            // btnCencel
             // 
-            this.txtQATitle.Location = new System.Drawing.Point(24, 24);
-            this.txtQATitle.Multiline = true;
-            this.txtQATitle.Name = "txtQATitle";
-            this.txtQATitle.Size = new System.Drawing.Size(552, 51);
-            this.txtQATitle.TabIndex = 1;
-            // 
-            // txtQAcontent
-            // 
-            this.txtQAcontent.Location = new System.Drawing.Point(24, 86);
-            this.txtQAcontent.Multiline = true;
-            this.txtQAcontent.Name = "txtQAcontent";
-            this.txtQAcontent.Size = new System.Drawing.Size(552, 207);
-            this.txtQAcontent.TabIndex = 1;
+            this.btnCencel.Location = new System.Drawing.Point(310, 305);
+            this.btnCencel.Name = "btnCencel";
+            this.btnCencel.Size = new System.Drawing.Size(266, 56);
+            this.btnCencel.TabIndex = 3;
+            this.btnCencel.Text = "취 소";
+            this.btnCencel.UseVisualStyleBackColor = true;
+            this.btnCencel.Click += new System.EventHandler(this.btnCencel_Click);
             // 
             // btnQAanswer
             // 
@@ -74,20 +68,27 @@
             this.btnQAanswer.UseVisualStyleBackColor = true;
             this.btnQAanswer.Click += new System.EventHandler(this.btnQAanswer_Click);
             // 
-            // btnCencel
+            // txtQAcontent
             // 
-            this.btnCencel.Location = new System.Drawing.Point(310, 305);
-            this.btnCencel.Name = "btnCencel";
-            this.btnCencel.Size = new System.Drawing.Size(266, 56);
-            this.btnCencel.TabIndex = 3;
-            this.btnCencel.Text = "취 소";
-            this.btnCencel.UseVisualStyleBackColor = true;
-            this.btnCencel.Click += new System.EventHandler(this.btnCencel_Click);
+            this.txtQAcontent.Location = new System.Drawing.Point(24, 86);
+            this.txtQAcontent.Multiline = true;
+            this.txtQAcontent.Name = "txtQAcontent";
+            this.txtQAcontent.Size = new System.Drawing.Size(552, 207);
+            this.txtQAcontent.TabIndex = 1;
+            // 
+            // txtQATitle
+            // 
+            this.txtQATitle.Location = new System.Drawing.Point(24, 24);
+            this.txtQATitle.Multiline = true;
+            this.txtQATitle.Name = "txtQATitle";
+            this.txtQATitle.Size = new System.Drawing.Size(552, 51);
+            this.txtQATitle.TabIndex = 1;
             // 
             // QA_answer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(622, 396);
             this.Controls.Add(this.panel1);
