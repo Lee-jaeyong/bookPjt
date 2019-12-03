@@ -14,7 +14,7 @@ namespace bookPjt.admin
     public partial class UpdatePublisher : Form
     {
         BookAdmin bookAdmin;
-        public UpdatePublisher(BookAdmin bookAdmin,string publisherName)
+        public UpdatePublisher(BookAdmin bookAdmin, string publisherName)
         {
             InitializeComponent();
             this.bookAdmin = bookAdmin;
@@ -30,15 +30,22 @@ namespace bookPjt.admin
         private void btnPublisherUpdateExecute_Click(object sender, EventArgs e)
         {
             BookDAO bookDAO = BookDAO.getInstance();
-            if (bookDAO.updatePublisher(txtBefore.Text,txtAfter.Text))
-            {
-                MessageBox.Show("출판사 수정 성공");
-                bookAdmin.selectPublisherList();
-                Hide();
-                Dispose();
-            }
+            if (txtAfter.Text.Trim() != null)
+                if (bookDAO.updatePublisher(txtBefore.Text, replaceAll(txtAfter.Text)))
+                {
+                    MessageBox.Show("출판사 수정 성공");
+                    bookAdmin.selectPublisherList();
+                    Hide();
+                    Dispose();
+                }
+                else
+                    MessageBox.Show("출판사 수정 실패");
             else
-                MessageBox.Show("출판사 수정 실패");
+                MessageBox.Show("수정할 카테고리 명을 입력해주세요.");
+        }
+        private string replaceAll(string str)
+        {
+            return str.Replace("'", "\\singleQ\\");
         }
     }
 }

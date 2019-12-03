@@ -42,7 +42,7 @@ namespace bookPjt
             rentalChkList = bookRentalChkDAO.getRentalChkList();
             foreach (RentalChkDTO item in rentalChkList)
             {
-                rentalChkTable.Rows.Add(item.B_idx, item.C_id, item.BookImg, item.BookTitle, item.RentalUser, item.RentalChkDate);
+                rentalChkTable.Rows.Add(item.B_idx, item.C_id, item.BookImg, returnReplace(item.BookTitle), item.RentalUser, item.RentalChkDate);
             }
         }
 
@@ -59,7 +59,7 @@ namespace bookPjt
                     delinquent = "연체";
                 if (bookManage.Status == 1)
                     status = "반납";
-                rentalTable.Rows.Add(bookManage.Bm_b_idx, bookManage.C_idx, bookManage.B_name, bookManage.C_name, bookManage.Bm_takeDate, bookManage.Bm_returnDate, bookManage.Bm_extend, delinquent, bookManage.Bm_idx, status);
+                rentalTable.Rows.Add(bookManage.Bm_b_idx, bookManage.C_idx, returnReplace(bookManage.B_name), returnReplace(bookManage.C_name), bookManage.Bm_takeDate, bookManage.Bm_returnDate, bookManage.Bm_extend, delinquent, bookManage.Bm_idx, status);
             }
         }
 
@@ -69,8 +69,13 @@ namespace bookPjt
             list = bookDAO.selectList(categoryList.Text, searchBook.Text, false);
             foreach (BookDTO book in list)
             {
-                table.Rows.Add(book.B_idx, book.B_name, book.B_author, book.B_puBlisher, book.B_category, book.B_stock, book.B_guest);
+                table.Rows.Add(book.B_idx, returnReplace(book.B_name), returnReplace(book.B_author), returnReplace(book.B_puBlisher), returnReplace(book.B_category), book.B_stock, returnReplace(book.B_guest));
             }
+        }
+
+        private string returnReplace(string str)
+        {
+            return str.Replace("\\singleQ\\", "'");
         }
 
         private void selectCategoryList()
@@ -105,12 +110,12 @@ namespace bookPjt
             List<string> list = bookDAO.getCategoryList();
             foreach (string categoryItem in list)
             {
-                category.Items.Add(categoryItem);
+                category.Items.Add(returnReplace(categoryItem));
             }
             list = bookDAO.getPublisherList();
             foreach (string publisherItem in list)
             {
-                publisher.Items.Add(publisherItem);
+                publisher.Items.Add(returnReplace(publisherItem));
             }
             publisher.SelectedIndex = 0;
             category.SelectedIndex = 0;
@@ -198,42 +203,42 @@ namespace bookPjt
                 bookStock.Focus();
                 return;
             }
-            if (bookName.Text == "")
+            if (bookName.Text.Trim() == "")
             {
                 MessageBox.Show("도서 명을 입력해주세요.");
                 bookName.Focus();
             }
-            else if (bookAuthor.Text == "")
+            else if (bookAuthor.Text.Trim() == "")
             {
                 MessageBox.Show("저자를 입력해주세요.");
                 bookAuthor.Focus();
             }
-            else if (bookStock.Text == "")
+            else if (bookStock.Text.Trim() == "")
             {
                 MessageBox.Show("수량을 입력해주세요.");
                 bookStock.Focus();
             }
-            else if (publisher.Text == "")
+            else if (publisher.Text.Trim() == "")
             {
                 MessageBox.Show("출판사를 선택해주세요.");
                 publisher.Focus();
             }
-            else if (category.Text == "")
+            else if (category.Text.Trim() == "")
             {
                 MessageBox.Show("카테고리를 선택해주세요.");
                 category.Focus();
             }
-            else if (bookGuest.Text == "")
+            else if (bookGuest.Text.Trim() == "")
             {
                 MessageBox.Show("연령 제한을 선택해주세요.");
                 bookGuest.Focus();
             }
-            else if (bookContent.Text == "")
+            else if (bookContent.Text.Trim() == "")
             {
                 MessageBox.Show("줄거리를 입력해주세요.");
                 bookContent.Focus();
             }
-            else if (bookImg.Text == "")
+            else if (bookImg.Text.Trim() == "")
             {
                 MessageBox.Show("이미지를 선택해주세요.");
                 btnAddImg.Focus();
@@ -246,7 +251,7 @@ namespace bookPjt
                 string copyPath = Environment.CurrentDirectory.ToString().Replace("\\bin\\Debug", "\\Resources\\BookImg") + fileName;
                 try
                 {
-                    BookDTO bookDTO = new BookDTO(bookName.Text, bookAuthor.Text, publisher.Text, category.Text, bookContent.Text, (realPath + fileName), int.Parse(bookStock.Text), bookGuest.Text);
+                    BookDTO bookDTO = new BookDTO(replaceAll(bookName.Text), replaceAll(bookAuthor.Text), replaceAll(publisher.Text), replaceAll(category.Text), replaceAll(bookContent.Text), (realPath + fileName), int.Parse(bookStock.Text), replaceAll(bookGuest.Text));
                     bookDAO.insertBook(bookDTO);
                 }
                 catch (Exception a)
@@ -281,9 +286,9 @@ namespace bookPjt
 
         private void categoryAddBtn_Click(object sender, EventArgs e)
         {
-            if (AddcategoryName.Text != "")
+            if (AddcategoryName.Text.Trim() != "")
             {
-                if (bookDAO.insertCategory(AddcategoryName.Text))
+                if (bookDAO.insertCategory(replaceAll(AddcategoryName.Text)))
                 {
                     MessageBox.Show("카테고리 추가 완료");
                     AddcategoryName.Text = "";
@@ -301,9 +306,9 @@ namespace bookPjt
 
         private void publisherAddBtn_Click(object sender, EventArgs e)
         {
-            if (AddPublisherName.Text != "")
+            if (AddPublisherName.Text.Trim() != "")
             {
-                if (bookDAO.insertPublisher(AddPublisherName.Text))
+                if (bookDAO.insertPublisher(replaceAll(AddPublisherName.Text)))
                 {
                     MessageBox.Show("출판사 추가 완료");
                     AddPublisherName.Text = "";
@@ -343,12 +348,12 @@ namespace bookPjt
                 sourceImage = UtilClass.imgResize(sourceImage, 337, 164);
                 subBookImg.Image = sourceImage;
 
-                txtTitle.Text = bookDTO.B_name;
-                txtAuthor.Text = bookDTO.B_author;
-                txtPublisher.Text = bookDTO.B_puBlisher;
-                txtDate.Text = bookDTO.B_date;
-                txtCategory.Text = bookDTO.B_category;
-                txtStatus.Text = bookDTO.B_status;
+                txtTitle.Text = returnReplace(bookDTO.B_name);
+                txtAuthor.Text = returnReplace(bookDTO.B_author);
+                txtPublisher.Text = returnReplace(bookDTO.B_puBlisher);
+                txtDate.Text = returnReplace(bookDTO.B_date);
+                txtCategory.Text = returnReplace(bookDTO.B_category);
+                txtStatus.Text = returnReplace(bookDTO.B_status);
             }
             catch (Exception a)
             {
@@ -470,9 +475,9 @@ namespace bookPjt
                 Bitmap sourceImage = new Bitmap((Environment.CurrentDirectory.ToString().Substring(0, Environment.CurrentDirectory.ToString().LastIndexOf("\\bin"))) + rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[2].Value.ToString().Replace("\\source\\repos\\bookPjt\\bookPjt", ""));
                 sourceImage = UtilClass.imgResize(sourceImage, 346, 263);
                 rentalChkImg.Image = sourceImage;
-                rentalChkBname.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[3].Value.ToString();
-                rentalChkCname.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[4].Value.ToString();
-                rentalChkDate.Text = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[5].Value.ToString();
+                rentalChkBname.Text = returnReplace(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[3].Value.ToString());
+                rentalChkCname.Text = returnReplace(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[4].Value.ToString());
+                rentalChkDate.Text = returnReplace(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[5].Value.ToString());
             }
             catch (Exception a)
             {
@@ -740,7 +745,7 @@ namespace bookPjt
             noticeTable.Rows.Clear();
             foreach (NoticeDTO notice in list)
             {
-                noticeTable.Rows.Add(notice.No_idx, notice.No_title, notice.No_content, notice.No_date, notice.No_hit);
+                noticeTable.Rows.Add(notice.No_idx, returnReplace(notice.No_title), returnReplace(notice.No_content), notice.No_date, notice.No_hit);
             }
         }
 
@@ -761,8 +766,8 @@ namespace bookPjt
         {
             try
             {
-                txtNoticeTitle.Text = noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[1].Value.ToString();
-                txtNoticeContent.Text = noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[2].Value.ToString();
+                txtNoticeTitle.Text = returnReplace(noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[1].Value.ToString());
+                txtNoticeContent.Text = returnReplace(noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[2].Value.ToString());
                 noticeNumber = Convert.ToInt32(noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[0].Value);
                 txtNoticeTitle.ReadOnly = true;
                 txtNoticeContent.ReadOnly = true;
@@ -794,7 +799,7 @@ namespace bookPjt
 
         private void btnUpdateNoticExcute_Click(object sender, EventArgs e)
         {
-            if (noticeDAO.updateNotice(txtNoticeTitle.Text, txtNoticeContent.Text, noticeNumber))
+            if (noticeDAO.updateNotice(replaceAll(txtNoticeTitle.Text), replaceAll(txtNoticeContent.Text), noticeNumber))
             {
                 MessageBox.Show("수정 완료");
                 showNoticeList();
@@ -831,7 +836,7 @@ namespace bookPjt
             List<UserQADTO> list = userQADAO.getUserQAList("");
             foreach (UserQADTO userQA in list)
             {
-                userQAtable.Rows.Add(userQA.Q_idx, userQA.Q_c_name, userQA.Q_title, userQA.Q_content, userQA.Q_date, userQA.Q_status);
+                userQAtable.Rows.Add(userQA.Q_idx, userQA.Q_c_name, returnReplace(userQA.Q_title), returnReplace(userQA.Q_content), userQA.Q_date, userQA.Q_status);
             }
         }
 
@@ -876,6 +881,57 @@ namespace bookPjt
         private void BookAdmin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private string replaceAll(string str)
+        {
+            return str.Replace("'", "\\singleQ\\");
+        }
+
+        private void AddcategoryName_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (AddcategoryName.Text.Trim() != "")
+                {
+                    if (bookDAO.insertCategory(replaceAll(AddcategoryName.Text)))
+                    {
+                        MessageBox.Show("카테고리 추가 완료");
+                        AddcategoryName.Text = "";
+                        categoryListShow();
+                    }
+                    else
+                        MessageBox.Show("카테고리 추가 실패");
+                }
+                else
+                {
+                    MessageBox.Show("추가할 카테고리를 입력해주세요.");
+                    AddcategoryName.Focus();
+                }
+            }
+        }
+
+        private void AddPublisherName_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (AddPublisherName.Text.Trim() != "")
+                {
+                    if (bookDAO.insertPublisher(replaceAll(AddPublisherName.Text)))
+                    {
+                        MessageBox.Show("출판사 추가 완료");
+                        AddPublisherName.Text = "";
+                        selectPublisherList();
+                    }
+                    else
+                        MessageBox.Show("출판사 추가 실패");
+                }
+                else
+                {
+                    MessageBox.Show("추가할 출판사를 입력해주세요.");
+                    AddPublisherName.Focus();
+                }
+            }
         }
     }
 }

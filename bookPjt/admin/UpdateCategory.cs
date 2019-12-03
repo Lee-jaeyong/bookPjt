@@ -23,14 +23,17 @@ namespace bookPjt.admin
         private void btnCategoryUpdateExecute_Click(object sender, EventArgs e)
         {
             BookDAO bookDAO = BookDAO.getInstance();
-            if (bookDAO.updateCategory(txtBefore.Text, txtAfter.Text))
-            {
-                MessageBox.Show("수정 완료");
-                form.categoryListShow();
-                Hide();
-            }
+            if(txtAfter.Text.Trim() != null)
+                if (bookDAO.updateCategory(txtBefore.Text, replaceAll(txtAfter.Text)))
+                {
+                    MessageBox.Show("수정 완료");
+                    form.categoryListShow();
+                    Hide();
+                }
+                else
+                    MessageBox.Show("수정 실패");
             else
-                MessageBox.Show("수정 실패");
+                    MessageBox.Show("수정할 카테고리 명을 입력해주세요.");
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -38,6 +41,9 @@ namespace bookPjt.admin
             Hide();
         }
 
-
+        private string replaceAll(string str)
+        {
+            return str.Replace("'", "\\singleQ\\");
+        }
     }
 }
