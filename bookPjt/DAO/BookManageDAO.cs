@@ -95,7 +95,7 @@ namespace bookPjt.DAO
 
             string sql = "SELECT bm_idx,c_idx,b_idx,b_name,c_name,bm_takeDate,bm_returnDate,bm_extend,bm_status FROM customer, book_management, book WHERE customer.c_idx = book_management.bm_c_idx AND book_management.bm_b_idx = book.b_idx";
             if (search != "")
-                sql += " AND c_name like '" + search + "'";
+                sql += " AND c_name like '%" + search + "%'";
             try
             {
                 mySqlConnection.Open();

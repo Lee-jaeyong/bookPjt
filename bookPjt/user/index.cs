@@ -216,7 +216,7 @@ namespace BookManagement
             List<RentalChkDTO> list = bookRentalChkDAO.getRentalList(id);
             foreach (RentalChkDTO item in list)
             {
-                rentalChkTable.Rows.Add(item.BookTitle, item.RentalChkDate);
+                rentalChkTable.Rows.Add(item.BookTitle, item.RentalChkDate,item.RentalChk_idx);
             }
         }
 
@@ -271,6 +271,16 @@ namespace BookManagement
         {
             tabControl1.SelectedIndex = 5;
             getUserQnA();
+            txtQtitle.ReadOnly = true;
+            txtQcontent.ReadOnly = true;
+            txtQtitle.Text = "";
+            txtQcontent.Text = "";
+            btnQadd.Visible = true;
+            button7.Visible = true;
+            button8.Visible = false;
+            button9.Visible = false;
+            button9.Visible = false;
+            add_status = update_status = false;
         }
 
         private void noticeTable_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -285,7 +295,69 @@ namespace BookManagement
             }
         }
 
+        bool add_status = false;
+
         private void btnQadd_Click(object sender, EventArgs e)
+        {
+            add_status = true;
+            txtQtitle.Text = "";
+            txtQcontent.Text = "";
+            txtQcontent.ReadOnly = false;
+            txtQtitle.ReadOnly = false;
+            button7.Visible = false;
+            button8.Visible = true;
+            button9.Visible = true;
+            btnQadd.Visible = false;
+        }
+
+        private void userQnAtable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (add_status == false && update_status == false)
+                try
+                {
+                    txtQtitle.Text = userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[1].Value.ToString();
+                    txtQcontent.Text = userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[2].Value.ToString();
+                    txtQtitle.ReadOnly = true;
+                    txtQcontent.ReadOnly = true;
+                    qnaIdx = userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[4].Value.ToString();
+                    if (userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[3].Value.ToString() == "답변 완료")
+                    {
+                        AdminAnswerDTO adminAnswerDTO = userQADAO.getAnswerInfo(Convert.ToInt32(userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[4].Value));
+                        txtAnsTitle.Text = adminAnswerDTO.Ans_title;
+                        txtAnsContent.Text = adminAnswerDTO.Ans_content;
+                    }
+                    else
+                    {
+                        txtAnsTitle.Text = "";
+                        txtAnsContent.Text = "";
+                    }
+                }
+                catch (Exception a)
+                {
+
+                }
+        }
+
+        private void index_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            add_status = update_status = false;
+            button8.Visible = false;
+            btnQadd.Visible = true;
+            button7.Visible = true;
+            button9.Visible = false;
+            button10.Visible = false;
+            txtQtitle.ReadOnly = true;
+            txtQcontent.ReadOnly = true;
+            txtQtitle.Text = "";
+            txtQcontent.Text = "";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
         {
             if (userQADAO.insertUserQ(id, txtQtitle.Text, txtQcontent.Text))
             {
@@ -293,34 +365,85 @@ namespace BookManagement
                 txtQtitle.Text = "";
                 txtQcontent.Text = "";
                 getUserQnA();
+                button8.Visible = false;
+                btnQadd.Visible = true;
+                button7.Visible = true;
+                button9.Visible = false;
+                txtQtitle.ReadOnly = true;
+                txtQcontent.ReadOnly = true;
+                add_status = false;
             }
             else
                 MessageBox.Show("질문 등록 실패");
         }
 
-        private void userQnAtable_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtQtitle.Text = userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[1].Value.ToString();
-            txtQcontent.Text = userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[2].Value.ToString();
-            txtQtitle.ReadOnly = true;
-            txtQcontent.ReadOnly = true;
+        bool update_status = false;
 
-            if (userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[3].Value.ToString() == "답변 완료")
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
             {
-                AdminAnswerDTO adminAnswerDTO = userQADAO.getAnswerInfo(Convert.ToInt32(userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[4].Value));
-                txtAnsTitle.Text = adminAnswerDTO.Ans_title;
-                txtAnsContent.Text = adminAnswerDTO.Ans_content;
+                userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[2].Value.ToString();
+                if (txtQtitle.Text.Trim() != "")
+                {
+                    update_status = true;
+                    txtQtitle.ReadOnly = false;
+                    txtQcontent.ReadOnly = false;
+                    button7.Visible = false;
+                    button9.Visible = true;
+                    button10.Visible = true;
+                }
+                else
+                    MessageBox.Show("수정할 항목을 선택해주세요.");
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("수정할 항목을 선택해주세요.");
+            }
+        }
+
+        string qnaIdx = "";
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (userQADAO.updateQnA(qnaIdx, txtQtitle.Text, txtQcontent.Text))
+            {
+                MessageBox.Show("수정 완료");
+                button10.Visible = false;
+                button7.Visible = true;
+                btnQadd.Visible = true;
+                update_status = false;
+                txtQtitle.ReadOnly = true;
+                txtQcontent.ReadOnly = true;
+                txtQtitle.Text = "";
+                txtQcontent.Text = "";
+                getUserQnA();
             }
             else
+                MessageBox.Show("수정 실패");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
             {
-                txtAnsTitle.Text = "";
-                txtAnsContent.Text = "";
+                string idx = rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[2].Value.ToString();
+                if (bookRentalChkDAO.deleteRentalChkFront(idx))
+                    MessageBox.Show("신청 취소 완료");
+                else
+                    MessageBox.Show("신청 취소 실패");
+                rentalChkTable.Rows.Clear();
+                List<RentalChkDTO> list = bookRentalChkDAO.getRentalList(id);
+                foreach (RentalChkDTO item in list)
+                {
+                    rentalChkTable.Rows.Add(item.BookTitle, item.RentalChkDate, item.RentalChk_idx);
+                }
+            }
+            catch(Exception a)
+            {
+
             }
         }
 
-        private void index_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

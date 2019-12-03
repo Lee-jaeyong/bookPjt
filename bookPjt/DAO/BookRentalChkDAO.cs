@@ -49,7 +49,7 @@ namespace bookPjt.DAO
             List<RentalChkDTO> list = new List<RentalChkDTO>();
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
 
-            string sql = "SELECT b_name,rc_date FROM book, rentalchk WHERE book.b_idx = rentalchk.rc_b_idx AND rc_c_id = '" + id + "'";
+            string sql = "SELECT b_name,rc_date,rc_idx FROM book, rentalchk WHERE book.b_idx = rentalchk.rc_b_idx AND rc_c_id = '" + id + "'";
             try
             {
                 mySqlConnection.Open();
@@ -59,7 +59,8 @@ namespace bookPjt.DAO
                 {
                     list.Add(new RentalChkDTO(
                             rdr[0].ToString(),
-                            rdr[1].ToString()));
+                            rdr[1].ToString(),
+                            Convert.ToInt32(rdr[2])));
                 }
                 mySqlConnection.Close();
             }
@@ -162,14 +163,67 @@ namespace bookPjt.DAO
             }
             return true;
         }
-
         public bool deleteRentalChk(int b_idx, string c_id)
+
+        {
+
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+
+            mySqlConnection.Open();
+
+            try
+
+            {
+
+                string sql = "DELETE FROM rentalchk WHERE rc_c_id = '" + c_id + "' AND rc_b_idx = " + b_idx;
+
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+
+                mysqlCommand.ExecuteNonQuery();
+
+                mySqlConnection.Close();
+
+            }
+
+            catch (Exception e)
+
+            {
+
+                MessageBox.Show(e.Message);
+
+                return false;
+
+            }
+
+            return true;
+
+        }
+        public bool deleteRentalChk(string idx)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
             mySqlConnection.Open();
             try
             {
-                string sql = "DELETE FROM rentalchk WHERE rc_c_id = '" + c_id + "' AND rc_b_idx = " + b_idx;
+                string sql = "DELETE FROM rentalchk WHERE rc_idx = " + idx;
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public bool deleteRentalChkFront(string idx)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            mySqlConnection.Open();
+            try
+            {
+                string sql = "DELETE FROM rentalchk WHERE rc_idx = " + idx;
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 mysqlCommand.ExecuteNonQuery();
                 mySqlConnection.Close();

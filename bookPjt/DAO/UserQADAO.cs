@@ -141,5 +141,23 @@ namespace bookPjt.DAO
             }
             return true;
         }
+
+        public bool updateQnA(string qnaIdx, string title,string content)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            mySqlConnection.Open();
+            try
+            {
+                string sql = "UPDATE userquestion SET q_title = '"+title+"', q_content = '"+content+"' WHERE q_idx = " + qnaIdx;
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

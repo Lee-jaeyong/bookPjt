@@ -16,10 +16,11 @@ namespace bookPjt.DTO
         private string rentalUser;
         private string rentalChkDate;
 
-        public RentalChkDTO(string bookTitle,string rentalChkDate)
+        public RentalChkDTO(string bookTitle,string rentalChkDate,int rentalChk_idx)
         {
             this.rentalChkDate = rentalChkDate;
             this.bookTitle = bookTitle;
+            this.rentalChk_idx = rentalChk_idx;
         }
         public RentalChkDTO(int b_idx,string c_id, string bookImg,string bookTitle,string rentalUser,string rentalChkDate)
         {
