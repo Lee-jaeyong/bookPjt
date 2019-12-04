@@ -8,6 +8,7 @@ using bookPjt.util;
 using System.Drawing;
 using bookPjt.DAO;
 using bookPjt.DTO;
+using bookPjt.admin;
 
 namespace BookManagement
 {
@@ -20,6 +21,7 @@ namespace BookManagement
         NoticeDAO noticeDAO = NoticeDAO.getInstance();
         UserQADAO userQADAO = UserQADAO.getInstance();
         UserDTO userDTO;
+        BookReservationDAO bookReservationDAO = BookReservationDAO.getInstance();
 
         private string id;
 
@@ -216,7 +218,7 @@ namespace BookManagement
             List<RentalChkDTO> list = bookRentalChkDAO.getRentalList(id);
             foreach (RentalChkDTO item in list)
             {
-                rentalChkTable.Rows.Add(item.BookTitle, item.RentalChkDate,item.RentalChk_idx);
+                rentalChkTable.Rows.Add(item.BookTitle, item.RentalChkDate, item.RentalChk_idx);
             }
         }
 
@@ -439,11 +441,53 @@ namespace BookManagement
                     rentalChkTable.Rows.Add(item.BookTitle, item.RentalChkDate, item.RentalChk_idx);
                 }
             }
-            catch(Exception a)
+            catch (Exception a)
             {
 
             }
         }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BookReservation bookReservation = new BookReservation(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[1].Value.ToString(), bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value.ToString(), id);
+                bookReservation.Show();
+            }
+            catch (Exception a)
+            {
+
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 6;
+            List<BookReservationDTO> list = bookReservationDAO.selectReservation(id);
+            userBookReservationTable.Rows.Clear();
+            foreach (BookReservationDTO reservation in list)
+            {
+                userBookReservationTable.Rows.Add(reservation.Rc_idx, reservation.B_name, reservation.ReservationDate);
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("정말 예약을 취소하시겠습니까?", "예약 취소", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (bookReservationDAO.deleteReservation(userBookReservationTable.Rows[userBookReservationTable.CurrentRow.Index].Cells[0].Value.ToString()))
+                {
+                    MessageBox.Show("예약 취소 완료");
+                    List<BookReservationDTO> list = bookReservationDAO.selectReservation(id);
+                    userBookReservationTable.Rows.Clear();
+                    foreach (BookReservationDTO reservation in list)
+                    {
+                        userBookReservationTable.Rows.Add(reservation.Rc_idx, reservation.B_name, reservation.ReservationDate);
+                    }
+                }
+                else
+                    MessageBox.Show("예약 취소 실패");
+            }
+        }
     }
 }

@@ -24,6 +24,8 @@ namespace bookPjt
         BookRentalChkDAO bookRentalChkDAO = BookRentalChkDAO.getInstance();
         NoticeDAO noticeDAO = NoticeDAO.getInstance();
         UserQADAO userQADAO = UserQADAO.getInstance();
+        BookReservationDAO bookReservationDAO = BookReservationDAO.getInstance();
+
         private string userRank;
         private int qaNumber;
         private int noticeNumber;
@@ -936,6 +938,65 @@ namespace bookPjt
         private void BookAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            TabControll.SelectedIndex = 8;
+            List<BookReservationDTO> list = bookReservationDAO.selectReservation("");
+            bookReservationTable.Rows.Clear();
+            foreach (BookReservationDTO reservation in list)
+            {
+                bookReservationTable.Rows.Add(reservation.Rc_idx, reservation.B_idx, reservation.C_id, reservation.B_name, reservation.C_name, reservation.ReservationDate);
+            }
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                bookReservationTable.Rows[bookReservationTable.CurrentRow.Index].Cells[0].Value.ToString();
+            }
+            catch(Exception a)
+            {
+                MessageBox.Show("대출 승인할 항목을 선택해주세요.");
+                return;
+            }
+            if (MessageBox.Show("예약 대출을 승인하시겠습니까?", "대출 승인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (bookRentalChkDAO.insertRental(Convert.ToInt32(bookReservationTable.Rows[bookReservationTable.CurrentRow.Index].Cells[1].Value.ToString()), bookReservationTable.Rows[bookReservationTable.CurrentRow.Index].Cells[2].Value.ToString()))
+                {
+                    bookReservationDAO.deleteReservation(bookReservationTable.Rows[bookReservationTable.CurrentRow.Index].Cells[0].Value.ToString());
+                    MessageBox.Show("대출 승인 완료");
+                    List<BookReservationDTO> list = bookReservationDAO.selectReservation("");
+                    bookReservationTable.Rows.Clear();
+                    foreach (BookReservationDTO reservation in list)
+                    {
+                        bookReservationTable.Rows.Add(reservation.Rc_idx, reservation.B_idx, reservation.C_id, reservation.B_name, reservation.C_name, reservation.ReservationDate);
+                    }
+                }
+                else
+                    MessageBox.Show("대출 승인 실패");
+            }
+        }
+
+        private void button12_Click_2(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("정말 예약을 취소하시겠습니까?", "예약 취소", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (bookReservationDAO.deleteReservation(bookReservationTable.Rows[bookReservationTable.CurrentRow.Index].Cells[0].Value.ToString()))
+                {
+                    MessageBox.Show("예약 취소 완료");
+                    List<BookReservationDTO> list = bookReservationDAO.selectReservation("");
+                    bookReservationTable.Rows.Clear();
+                    foreach (BookReservationDTO reservation in list)
+                    {
+                        bookReservationTable.Rows.Add(reservation.Rc_idx, reservation.B_idx, reservation.C_id, reservation.B_name, reservation.C_name, reservation.ReservationDate);
+                    }
+                }
+                else
+                    MessageBox.Show("예약 취소 실패");
+            }
         }
     }
 }

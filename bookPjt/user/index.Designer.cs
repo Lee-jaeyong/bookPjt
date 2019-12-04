@@ -87,6 +87,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.rentalChkTable = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.ComboRental = new System.Windows.Forms.ComboBox();
             this.rentalBookInfoTable = new System.Windows.Forms.DataGridView();
@@ -109,28 +112,33 @@
             this.txtAnsContent = new System.Windows.Forms.TextBox();
             this.txtAnsTitle = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             this.btnQadd = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.txtQcontent = new System.Windows.Forms.TextBox();
             this.txtQtitle = new System.Windows.Forms.TextBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.userQnAtable = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.OverDueChk = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.OverDueImg = new System.Windows.Forms.PictureBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.userBookReservationTable = new System.Windows.Forms.DataGridView();
+            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button13 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookListTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookImg)).BeginInit();
             this.panel1.SuspendLayout();
@@ -152,6 +160,8 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userQnAtable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OverDueImg)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userBookReservationTable)).BeginInit();
             this.SuspendLayout();
             // 
             // bookBtn
@@ -379,10 +389,10 @@
             this.takeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.takeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.takeBtn.Image = ((System.Drawing.Image)(resources.GetObject("takeBtn.Image")));
-            this.takeBtn.Location = new System.Drawing.Point(776, 535);
+            this.takeBtn.Location = new System.Drawing.Point(778, 535);
             this.takeBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.takeBtn.Name = "takeBtn";
-            this.takeBtn.Size = new System.Drawing.Size(401, 68);
+            this.takeBtn.Size = new System.Drawing.Size(227, 68);
             this.takeBtn.TabIndex = 13;
             this.takeBtn.Text = "대출 신청";
             this.takeBtn.UseVisualStyleBackColor = true;
@@ -489,6 +499,7 @@
             // bookPanel
             // 
             this.bookPanel.BackColor = System.Drawing.Color.White;
+            this.bookPanel.Controls.Add(this.button11);
             this.bookPanel.Controls.Add(this.panel1);
             this.bookPanel.Controls.Add(this.takeBtn);
             this.bookPanel.Controls.Add(this.label6);
@@ -514,6 +525,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.ItemSize = new System.Drawing.Size(0, 1);
             this.tabControl1.Location = new System.Drawing.Point(3, 134);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -831,6 +843,30 @@
             this.rentalChkTable.Size = new System.Drawing.Size(1153, 502);
             this.rentalChkTable.TabIndex = 4;
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "신청 도서명";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 500;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "대출 신청일";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 500;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "대출 신청 번호";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.ComboRental);
@@ -1078,6 +1114,18 @@
             this.panel5.Size = new System.Drawing.Size(593, 288);
             this.panel5.TabIndex = 1;
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(17, 230);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(347, 42);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "질문 수정 완료";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Visible = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // btnQadd
             // 
             this.btnQadd.Location = new System.Drawing.Point(17, 230);
@@ -1118,6 +1166,30 @@
             this.txtQtitle.Size = new System.Drawing.Size(347, 33);
             this.txtQtitle.TabIndex = 0;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(370, 230);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(202, 42);
+            this.button9.TabIndex = 4;
+            this.button9.Text = "취 소";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Visible = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(17, 230);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(347, 42);
+            this.button8.TabIndex = 3;
+            this.button8.Text = "질문 등록 완료";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Visible = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // userQnAtable
             // 
             this.userQnAtable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1137,6 +1209,47 @@
             this.userQnAtable.Size = new System.Drawing.Size(583, 612);
             this.userQnAtable.TabIndex = 0;
             this.userQnAtable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userQnAtable_CellClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "작성 일";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "제 목";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "글 내용";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 215;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "답변 유무";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "idx";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
+            this.Column8.Width = 125;
             // 
             // button1
             // 
@@ -1187,7 +1300,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button5.Location = new System.Drawing.Point(474, 4);
+            this.button5.Location = new System.Drawing.Point(595, 5);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(114, 122);
@@ -1204,7 +1317,7 @@
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button6.Location = new System.Drawing.Point(592, 4);
+            this.button6.Location = new System.Drawing.Point(713, 5);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(114, 122);
@@ -1217,112 +1330,105 @@
             // OverDueImg
             // 
             this.OverDueImg.Image = ((System.Drawing.Image)(resources.GetObject("OverDueImg.Image")));
-            this.OverDueImg.Location = new System.Drawing.Point(821, 94);
+            this.OverDueImg.Location = new System.Drawing.Point(859, 86);
             this.OverDueImg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OverDueImg.Name = "OverDueImg";
             this.OverDueImg.Size = new System.Drawing.Size(37, 40);
             this.OverDueImg.TabIndex = 15;
             this.OverDueImg.TabStop = false;
             // 
-            // button8
+            // button11
             // 
-            this.button8.Location = new System.Drawing.Point(17, 230);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(347, 42);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "질문 등록 완료";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Visible = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.Location = new System.Drawing.Point(1011, 535);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(163, 68);
+            this.button11.TabIndex = 15;
+            this.button11.Text = "대출 예약";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // button9
+            // button12
             // 
-            this.button9.Location = new System.Drawing.Point(370, 230);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(202, 42);
-            this.button9.TabIndex = 4;
-            this.button9.Text = "취 소";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Visible = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
+            this.button12.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button12.Location = new System.Drawing.Point(476, 5);
+            this.button12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(114, 122);
+            this.button12.TabIndex = 16;
+            this.button12.Text = "예약 현황";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // button10
+            // tabPage7
             // 
-            this.button10.Location = new System.Drawing.Point(17, 230);
-            this.button10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(347, 42);
-            this.button10.TabIndex = 5;
-            this.button10.Text = "질문 수정 완료";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Visible = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.tabPage7.Controls.Add(this.button13);
+            this.tabPage7.Controls.Add(this.userBookReservationTable);
+            this.tabPage7.Location = new System.Drawing.Point(4, 5);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(1194, 625);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "tabPage7";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // userBookReservationTable
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "작성 일";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.userBookReservationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userBookReservationTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column35,
+            this.Column36,
+            this.Column37});
+            this.userBookReservationTable.Location = new System.Drawing.Point(22, 80);
+            this.userBookReservationTable.Name = "userBookReservationTable";
+            this.userBookReservationTable.ReadOnly = true;
+            this.userBookReservationTable.RowHeadersWidth = 51;
+            this.userBookReservationTable.RowTemplate.Height = 27;
+            this.userBookReservationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.userBookReservationTable.Size = new System.Drawing.Size(1151, 524);
+            this.userBookReservationTable.TabIndex = 0;
             // 
-            // Column7
+            // Column35
             // 
-            this.Column7.HeaderText = "제 목";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 125;
+            this.Column35.HeaderText = "re_idx";
+            this.Column35.MinimumWidth = 6;
+            this.Column35.Name = "Column35";
+            this.Column35.ReadOnly = true;
+            this.Column35.Width = 125;
             // 
-            // dataGridViewTextBoxColumn9
+            // Column36
             // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "글 내용";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 215;
+            this.Column36.HeaderText = "도서명";
+            this.Column36.MinimumWidth = 6;
+            this.Column36.Name = "Column36";
+            this.Column36.ReadOnly = true;
+            this.Column36.Width = 125;
             // 
-            // dataGridViewTextBoxColumn10
+            // Column37
             // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "답변 유무";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 125;
+            this.Column37.HeaderText = "예약 일자";
+            this.Column37.MinimumWidth = 6;
+            this.Column37.Name = "Column37";
+            this.Column37.ReadOnly = true;
+            this.Column37.Width = 125;
             // 
-            // Column8
+            // button13
             // 
-            this.Column8.HeaderText = "idx";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
-            this.Column8.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "신청 도서명";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 500;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "대출 신청일";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 500;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "대출 신청 번호";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 125;
+            this.button13.Location = new System.Drawing.Point(852, 15);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(321, 50);
+            this.button13.TabIndex = 1;
+            this.button13.Text = "예약 취소";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // index
             // 
@@ -1331,6 +1437,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1214, 771);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.OverDueImg);
             this.Controls.Add(this.OverDueChk);
             this.Controls.Add(this.button6);
@@ -1375,6 +1482,8 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userQnAtable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OverDueImg)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.userBookReservationTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1483,6 +1592,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.DataGridView userBookReservationTable;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column37;
     }
 }
 

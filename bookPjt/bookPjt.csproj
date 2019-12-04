@@ -70,6 +70,12 @@
     <Compile Include="admin\AddNotice.Designer.cs">
       <DependentUpon>AddNotice.cs</DependentUpon>
     </Compile>
+    <Compile Include="admin\BookReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\BookReservation.Designer.cs">
+      <DependentUpon>BookReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin\QA_answer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,7 @@
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\BookManageDAO.cs" />
     <Compile Include="DAO\BookRentalChkDAO.cs" />
+    <Compile Include="DAO\BookReservationDAO.cs" />
     <Compile Include="DAO\UserQADAO.cs" />
     <Compile Include="DAO\NoticeDAO.cs" />
     <Compile Include="DTO\AdminAnswerDTO.cs" />
@@ -120,6 +127,7 @@
       <DependentUpon>UpdateOrDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="DTO\BookManageDTO.cs" />
+    <Compile Include="DTO\BookReservationDTO.cs" />
     <Compile Include="DTO\NoticeDTO.cs" />
     <Compile Include="DTO\RentalChkDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
@@ -157,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="admin\AddNotice.resx">
       <DependentUpon>AddNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\BookReservation.resx">
+      <DependentUpon>BookReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="admin\QA_answer.resx">
       <DependentUpon>QA_answer.cs</DependentUpon>
