@@ -64,11 +64,14 @@ namespace BookManagement
         }
         private void outBtn_Click(object sender, EventArgs e)
         {
-            loginForm frm = new loginForm();
-            MessageBox.Show("로그아웃 완료");
-            id = "";
-            frm.Show();
-            Dispose();
+            if (MessageBox.Show("정말 로그아웃 하시겠습니까?", "로그아웃", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                loginForm frm = new loginForm();
+                MessageBox.Show("로그아웃 완료");
+                id = "";
+                frm.Show();
+                Dispose();
+            }
         }
         private void bookBtn_Click(object sender, EventArgs e)
         {
@@ -451,6 +454,8 @@ namespace BookManagement
                     txtQcontent.ReadOnly = true;
                     txtQtitle.Text = "";
                     txtQcontent.Text = "";
+                    txtAnsContent.Text = "";
+                    txtAnsTitle.Text = "";
                     getUserQnA();
                 }
                 else

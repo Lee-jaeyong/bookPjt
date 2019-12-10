@@ -54,6 +54,7 @@
             this.pwTxt.PasswordChar = '●';
             this.pwTxt.Size = new System.Drawing.Size(347, 41);
             this.pwTxt.TabIndex = 1;
+            this.pwTxt.Enter += new System.EventHandler(this.pwTxt_Enter);
             this.pwTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pwTxt_KeyDown);
             // 
             // loginBtn

@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControll = new System.Windows.Forms.TabControl();
             this.TagBookList = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -65,6 +65,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.searchBook = new System.Windows.Forms.TextBox();
             this.table = new System.Windows.Forms.DataGridView();
+            this.bookIdx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TagAddBook = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -177,6 +184,12 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.rentalChkTable = new System.Windows.Forms.DataGridView();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TagNotice = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnUpdateNoticeCencel = new System.Windows.Forms.Button();
@@ -209,6 +222,12 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.bookReservationTable = new System.Windows.Forms.DataGridView();
+            this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.b_idx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
@@ -219,25 +238,6 @@
             this.btnNotice = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.b_idx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookIdx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabControll.SuspendLayout();
             this.TagBookList.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -551,6 +551,80 @@
             this.table.TabIndex = 0;
             this.table.Tag = "";
             this.table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.table_CellClick);
+            // 
+            // bookIdx
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 12F);
+            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle1;
+            this.bookIdx.HeaderText = "도서 번호";
+            this.bookIdx.MinimumWidth = 6;
+            this.bookIdx.Name = "bookIdx";
+            this.bookIdx.ReadOnly = true;
+            this.bookIdx.Width = 70;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.HeaderText = "책 이름";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 130;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 12F);
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column5.HeaderText = "저자";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 66;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 12F);
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column2.HeaderText = "출판사";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 81;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 12F);
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column4.HeaderText = "분류";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 66;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("굴림", 12F);
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column3.HeaderText = "수량";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 66;
+            // 
+            // Column14
+            // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("굴림", 12F);
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column14.HeaderText = "연령 제한";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 101;
             // 
             // TagAddBook
             // 
@@ -1555,8 +1629,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn2.HeaderText = "사용자 이름";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -1573,8 +1647,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn4.HeaderText = "핸드폰 번호";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -1742,6 +1816,57 @@
             this.rentalChkTable.Size = new System.Drawing.Size(656, 551);
             this.rentalChkTable.TabIndex = 9;
             this.rentalChkTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rentalChkTable_CellClick);
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "b_idx";
+            this.Column19.MinimumWidth = 6;
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            this.Column19.Visible = false;
+            this.Column19.Width = 125;
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "c_idx";
+            this.Column20.MinimumWidth = 6;
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            this.Column20.Visible = false;
+            this.Column20.Width = 125;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "bookImg";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            this.Column15.Width = 125;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "도서명";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 200;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "대여자명";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            this.Column17.Width = 200;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "대출신청일";
+            this.Column18.MinimumWidth = 6;
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            this.Column18.Width = 200;
             // 
             // TagNotice
             // 
@@ -2079,6 +2204,69 @@
             this.bookReservationTable.Size = new System.Drawing.Size(1021, 469);
             this.bookReservationTable.TabIndex = 0;
             // 
+            // Column38
+            // 
+            this.Column38.HeaderText = "re_idx";
+            this.Column38.MinimumWidth = 6;
+            this.Column38.Name = "Column38";
+            this.Column38.ReadOnly = true;
+            this.Column38.Visible = false;
+            this.Column38.Width = 125;
+            // 
+            // b_idx
+            // 
+            this.b_idx.HeaderText = "b_idx";
+            this.b_idx.MinimumWidth = 6;
+            this.b_idx.Name = "b_idx";
+            this.b_idx.ReadOnly = true;
+            this.b_idx.Visible = false;
+            this.b_idx.Width = 125;
+            // 
+            // c_id
+            // 
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.c_id.DefaultCellStyle = dataGridViewCellStyle10;
+            this.c_id.HeaderText = "사용자 아이디";
+            this.c_id.MinimumWidth = 6;
+            this.c_id.Name = "c_id";
+            this.c_id.ReadOnly = true;
+            this.c_id.Width = 150;
+            // 
+            // Column35
+            // 
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Column35.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Column35.HeaderText = "예약 도서명";
+            this.Column35.MinimumWidth = 6;
+            this.Column35.Name = "Column35";
+            this.Column35.ReadOnly = true;
+            this.Column35.Width = 200;
+            // 
+            // Column36
+            // 
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Column36.DefaultCellStyle = dataGridViewCellStyle12;
+            this.Column36.HeaderText = "예약 사용자";
+            this.Column36.MinimumWidth = 6;
+            this.Column36.Name = "Column36";
+            this.Column36.ReadOnly = true;
+            this.Column36.Width = 150;
+            // 
+            // Column37
+            // 
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            this.Column37.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column37.HeaderText = "예약 일자";
+            this.Column37.MinimumWidth = 6;
+            this.Column37.Name = "Column37";
+            this.Column37.ReadOnly = true;
+            this.Column37.Width = 400;
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
@@ -2298,194 +2486,6 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "b_idx";
-            this.Column19.MinimumWidth = 6;
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
-            this.Column19.Visible = false;
-            this.Column19.Width = 125;
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "c_idx";
-            this.Column20.MinimumWidth = 6;
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
-            this.Column20.Visible = false;
-            this.Column20.Width = 125;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "bookImg";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
-            this.Column15.Width = 125;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "도서명";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 200;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "대여자명";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            this.Column17.Width = 200;
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "대출신청일";
-            this.Column18.MinimumWidth = 6;
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            this.Column18.Width = 200;
-            // 
-            // Column38
-            // 
-            this.Column38.HeaderText = "re_idx";
-            this.Column38.MinimumWidth = 6;
-            this.Column38.Name = "Column38";
-            this.Column38.ReadOnly = true;
-            this.Column38.Visible = false;
-            this.Column38.Width = 125;
-            // 
-            // b_idx
-            // 
-            this.b_idx.HeaderText = "b_idx";
-            this.b_idx.MinimumWidth = 6;
-            this.b_idx.Name = "b_idx";
-            this.b_idx.ReadOnly = true;
-            this.b_idx.Visible = false;
-            this.b_idx.Width = 125;
-            // 
-            // c_id
-            // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.c_id.DefaultCellStyle = dataGridViewCellStyle16;
-            this.c_id.HeaderText = "사용자 아이디";
-            this.c_id.MinimumWidth = 6;
-            this.c_id.Name = "c_id";
-            this.c_id.ReadOnly = true;
-            this.c_id.Width = 150;
-            // 
-            // Column35
-            // 
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Column35.DefaultCellStyle = dataGridViewCellStyle17;
-            this.Column35.HeaderText = "예약 도서명";
-            this.Column35.MinimumWidth = 6;
-            this.Column35.Name = "Column35";
-            this.Column35.ReadOnly = true;
-            this.Column35.Width = 200;
-            // 
-            // Column36
-            // 
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Column36.DefaultCellStyle = dataGridViewCellStyle18;
-            this.Column36.HeaderText = "예약 사용자";
-            this.Column36.MinimumWidth = 6;
-            this.Column36.Name = "Column36";
-            this.Column36.ReadOnly = true;
-            this.Column36.Width = 150;
-            // 
-            // Column37
-            // 
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            this.Column37.DefaultCellStyle = dataGridViewCellStyle19;
-            this.Column37.HeaderText = "예약 일자";
-            this.Column37.MinimumWidth = 6;
-            this.Column37.Name = "Column37";
-            this.Column37.ReadOnly = true;
-            this.Column37.Width = 400;
-            // 
-            // bookIdx
-            // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("굴림", 12F);
-            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle20;
-            this.bookIdx.HeaderText = "도서 번호";
-            this.bookIdx.MinimumWidth = 6;
-            this.bookIdx.Name = "bookIdx";
-            this.bookIdx.ReadOnly = true;
-            this.bookIdx.Width = 70;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle21;
-            this.Column1.HeaderText = "책 이름";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 130;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("굴림", 12F);
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle22;
-            this.Column5.HeaderText = "저자";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 66;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("굴림", 12F);
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle23;
-            this.Column2.HeaderText = "출판사";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 81;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("굴림", 12F);
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle24;
-            this.Column4.HeaderText = "분류";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 66;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("굴림", 12F);
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle25;
-            this.Column3.HeaderText = "수량";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 66;
-            // 
-            // Column14
-            // 
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("굴림", 12F);
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle26;
-            this.Column14.HeaderText = "연령 제한";
-            this.Column14.MinimumWidth = 6;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 101;
             // 
             // BookAdmin
             // 
