@@ -29,6 +29,7 @@ namespace bookPjt
         private string userRank;
         private int qaNumber;
         private int noticeNumber;
+
         public void selectUserList(string type, string search, bool overdueChk)
         {
             userListTable.Rows.Clear();
@@ -488,6 +489,9 @@ namespace bookPjt
 
         private void button7_Click(object sender, EventArgs e)
         {
+            
+
+
             try
             {
                 if (bookRentalChkDAO.insertRental(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString()))

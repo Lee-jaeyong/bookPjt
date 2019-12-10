@@ -25,7 +25,26 @@ namespace bookPjt.DAO
         {
 
         }
+        public bool selectCheckReservation(int b_idx)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            mySqlConnection.Open();
+            try
+            {
+                string sql = "SELECT COUNT(RE_IDX) FROM bookreservation where re_b_idx = " + b_idx;
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
 
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
         public bool insertRentalChk(string u_id, int b_idx)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
