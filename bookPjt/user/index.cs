@@ -24,9 +24,10 @@ namespace BookManagement
         BookReservationDAO bookReservationDAO = BookReservationDAO.getInstance();
 
         private string id;
+        private int age;
 
         List<BookDTO> bookList;
-        private void getBookList(string type, string search)
+        private void getBookList(string type, string search,int age)
         {
             if (type == "책제목")
                 type = "b_name";
@@ -37,7 +38,7 @@ namespace BookManagement
             else if (type == "분류")
                 type = "c_n_name";
             bookListTable.Rows.Clear();
-            bookList = bookDAO.getBookList(type, search.Trim());
+            bookList = bookDAO.getBookList(type, search.Trim(), age);
             foreach (BookDTO book in bookList)
                 bookListTable.Rows.Add(book.B_idx, book.B_name, book.B_status, book.B_author, book.B_puBlisher, book.B_category, book.B_img, book.B_summary);
         }
@@ -54,9 +55,10 @@ namespace BookManagement
             txtUserPhone3.Text = phone[2];
         }
 
-        public index(string id,string rank)
+        public index(string id, string rank, int age)
         {
             this.id = id;
+            this.age = age;
             InitializeComponent();
             laCrank.Text = rank + " 등급 입니다.";
         }
@@ -71,7 +73,7 @@ namespace BookManagement
         private void bookBtn_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 0;
-            getBookList("", "");
+            getBookList("", "", age);
             searchSelect.SelectedIndex = 0;
         }
 
@@ -83,7 +85,7 @@ namespace BookManagement
                 OverDueChk.Text = "*연체된 도서가 존재합니다.";
                 OverDueImg.Visible = true;
             }
-            getBookList("", "");
+            getBookList("", "", age);
             searchSelect.SelectedIndex = 0;
         }
 
@@ -108,7 +110,7 @@ namespace BookManagement
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            getBookList(searchSelect.Text, searchBook.Text);
+            getBookList(searchSelect.Text, searchBook.Text, age);
             searchBook.Text = "";
         }
 
@@ -116,7 +118,7 @@ namespace BookManagement
         {
             if (e.KeyCode == Keys.Enter)
             {
-                getBookList(searchSelect.Text, searchBook.Text);
+                getBookList(searchSelect.Text, searchBook.Text, age);
                 searchBook.Text = "";
             }
         }
@@ -144,7 +146,8 @@ namespace BookManagement
                     else
                         MessageBox.Show("이미 신청한 도서 혹은 수량이 부족한 도서입니다");
                 }
-            }else
+            }
+            else
             {
                 MessageBox.Show("1인당 최대 3권의 도서를 빌릴 수 있습니다.");
             }

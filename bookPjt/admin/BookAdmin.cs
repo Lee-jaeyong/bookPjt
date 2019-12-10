@@ -29,7 +29,7 @@ namespace bookPjt
         private string userRank;
         private int qaNumber;
         private int noticeNumber;
-
+        private int age;
 
         public void selectUserList(string type, string search, bool overdueChk)
         {
@@ -96,6 +96,7 @@ namespace bookPjt
         {
             InitializeComponent();
             this.userRank = userRank;
+            this.age = age;
             if (userRank != "관리자")
             {
                 btnCategory.Visible = false;
@@ -193,7 +194,8 @@ namespace bookPjt
 
         private void button9_Click(object sender, EventArgs e)
         {
-            clearText();
+            if (MessageBox.Show("초기화를 누를 시 지금까지 입력하신 데이터는 모두 소멸됩니다.\r정말 초기화 하시겠습니까?", "초기화", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                clearText();
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -250,33 +252,36 @@ namespace bookPjt
             }
             else
             {
-                string realPath = "\\\\source\\\\repos\\\\bookPjt\\\\bookPjt\\\\Resources\\\\BookImg";
-                string imgPath = bookImg.Text.ToString().Replace("\\", "\\\\");
-                string fileName = imgPath.Substring(imgPath.LastIndexOf("\\\\"));
-                string copyPath = Environment.CurrentDirectory.ToString().Replace("\\bin\\Debug", "\\Resources\\BookImg") + fileName;
-                try
+                if (MessageBox.Show("정말 도서를 등록하시겠습니까?", "도서 등록", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    BookDTO bookDTO = new BookDTO(replaceAll(bookName.Text), replaceAll(bookAuthor.Text), replaceAll(publisher.Text), replaceAll(category.Text), replaceAll(bookContent.Text), (realPath + fileName), int.Parse(bookStock.Text), replaceAll(bookGuest.Text));
-                    bookDAO.insertBook(bookDTO);
-                }
-                catch (Exception a)
-                {
-                    MessageBox.Show("도서 추가 중 문제가 발생했습니다.");
-                }
-                try
-                {
-                    File.Copy(@imgPath, @copyPath);
-                }
-                catch (Exception a)
-                {
+                    string realPath = "\\\\source\\\\repos\\\\bookPjt\\\\bookPjt\\\\Resources\\\\BookImg";
+                    string imgPath = bookImg.Text.ToString().Replace("\\", "\\\\");
+                    string fileName = imgPath.Substring(imgPath.LastIndexOf("\\\\"));
+                    string copyPath = Environment.CurrentDirectory.ToString().Replace("\\bin\\Debug", "\\Resources\\BookImg") + fileName;
+                    try
+                    {
+                        BookDTO bookDTO = new BookDTO(replaceAll(bookName.Text), replaceAll(bookAuthor.Text), replaceAll(publisher.Text), replaceAll(category.Text), replaceAll(bookContent.Text), (realPath + fileName), int.Parse(bookStock.Text), replaceAll(bookGuest.Text));
+                        bookDAO.insertBook(bookDTO);
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("도서 추가 중 문제가 발생했습니다.");
+                    }
+                    try
+                    {
+                        File.Copy(@imgPath, @copyPath);
+                    }
+                    catch (Exception a)
+                    {
 
-                }
-                finally
-                {
-                    MessageBox.Show("도서 등록 완료");
-                    clearText();
-                    selectList();
-                    TabControll.SelectedIndex = 0;
+                    }
+                    finally
+                    {
+                        MessageBox.Show("도서 등록 완료");
+                        clearText();
+                        selectList();
+                        TabControll.SelectedIndex = 0;
+                    }
                 }
             }
         }
@@ -293,14 +298,15 @@ namespace bookPjt
         {
             if (AddcategoryName.Text.Trim() != "")
             {
-                if (bookDAO.insertCategory(replaceAll(AddcategoryName.Text)))
-                {
-                    MessageBox.Show("카테고리 추가 완료");
-                    AddcategoryName.Text = "";
-                    categoryListShow();
-                }
-                else
-                    MessageBox.Show("카테고리 추가 실패");
+                if (MessageBox.Show("정말 카테고리를 추가하시겠습니까?", "카테고리 추가", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (bookDAO.insertCategory(replaceAll(AddcategoryName.Text)))
+                    {
+                        MessageBox.Show("카테고리 추가 완료");
+                        AddcategoryName.Text = "";
+                        categoryListShow();
+                    }
+                    else
+                        MessageBox.Show("카테고리 추가 실패");
             }
             else
             {
@@ -313,14 +319,15 @@ namespace bookPjt
         {
             if (AddPublisherName.Text.Trim() != "")
             {
-                if (bookDAO.insertPublisher(replaceAll(AddPublisherName.Text)))
-                {
-                    MessageBox.Show("출판사 추가 완료");
-                    AddPublisherName.Text = "";
-                    selectPublisherList();
-                }
-                else
-                    MessageBox.Show("출판사 추가 실패");
+                if (MessageBox.Show("정말 출판사를 추가하시겠습니까?", "출판사 추가", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (bookDAO.insertPublisher(replaceAll(AddPublisherName.Text)))
+                    {
+                        MessageBox.Show("출판사 추가 완료");
+                        AddPublisherName.Text = "";
+                        selectPublisherList();
+                    }
+                    else
+                        MessageBox.Show("출판사 추가 실패");
             }
             else
             {
@@ -334,7 +341,7 @@ namespace bookPjt
             try
             {
                 bookrowItem = int.Parse(table.Rows[table.CurrentRow.Index].Cells[0].Value.ToString());
-                Form2 form = new Form2(this, bookrowItem);
+                Form2 form = new Form2(this, bookrowItem, age);
                 form.Show();
             }
             catch (Exception a)
@@ -362,7 +369,7 @@ namespace bookPjt
             }
             catch (Exception a)
             {
-
+                MessageBox.Show(a.Message);
             }
         }
 
@@ -380,10 +387,13 @@ namespace bookPjt
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Hide();
-            MessageBox.Show("로그아웃 완료");
-            loginForm login = new loginForm();
-            login.Show();
+            if (MessageBox.Show("정말 로그아웃 하시겠습니까?", "로그아웃", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Hide();
+                MessageBox.Show("로그아웃 완료");
+                loginForm login = new loginForm();
+                login.Show();
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -420,9 +430,12 @@ namespace bookPjt
 
         private void btnCategoryUpdate_Click(object sender, EventArgs e)
         {
-            string updateCategoryStr = categoryTable.Rows[categoryTable.CurrentRow.Index].Cells[0].Value.ToString();
-            updateCategoryForm updateCategory = new updateCategoryForm(this, updateCategoryStr);
-            updateCategory.Show();
+            if (MessageBox.Show("정말 카테고리를 수정하시겠습니까?", "카테고리 수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                string updateCategoryStr = categoryTable.Rows[categoryTable.CurrentRow.Index].Cells[0].Value.ToString();
+                updateCategoryForm updateCategory = new updateCategoryForm(this, updateCategoryStr);
+                updateCategory.Show();
+            }
         }
 
         private void selectRentalBook(int b_idx)
@@ -493,6 +506,8 @@ namespace bookPjt
         {
             try
             {
+                if (rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value.ToString() == "")
+                    new Exception();
                 Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value);
             }
             catch
@@ -513,11 +528,14 @@ namespace bookPjt
             }
             else
             {
-                if (bookRentalChkDAO.insertRental(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString()))
-                    MessageBox.Show("대여 처리 완료");
-                else
-                    MessageBox.Show("대여 처리 실패");
-                selectRentalChkList();
+                if (MessageBox.Show("대출 승인 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (bookRentalChkDAO.insertRental(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString()))
+                        MessageBox.Show("대여 처리 완료");
+                    else
+                        MessageBox.Show("대여 처리 실패");
+                    selectRentalChkList();
+                }
             }
         }
 
@@ -525,15 +543,20 @@ namespace bookPjt
         {
             try
             {
+                Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value);
+            }
+            catch
+            {
+                MessageBox.Show("처리할 데이터를 선택해주세요");
+                return;
+            }
+            if (MessageBox.Show("정말 대출신청을 삭제하시겠습니까?", "대출 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
                 if (bookRentalChkDAO.deleteRentalChk(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString()))
                     MessageBox.Show("삭제 완료");
                 else
                     MessageBox.Show("삭제 실패");
                 selectRentalChkList();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("처리할 데이터를 선택해주세요");
             }
         }
 
@@ -541,8 +564,20 @@ namespace bookPjt
         {
             try
             {
-                if (Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[6].Value) < 3)
+                if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[9].Value.ToString() == "반납")
                 {
+                    MessageBox.Show("이미 반납된 도서입니다.");
+                    return;
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("연장할 도서를 선택해주세요.");
+                return;
+            }
+            if (Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[6].Value) < 3)
+            {
+                if (MessageBox.Show("정말 대출을 연장하시겠습니까?", "대출 연장", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     if (bookManageDAO.extendRental(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
                     {
                         MessageBox.Show("연장 완료");
@@ -550,37 +585,35 @@ namespace bookPjt
                     }
                     else
                         MessageBox.Show("연장 실패");
-                }
-                else
-                    MessageBox.Show("연장 횟수 초과");
             }
-            catch (Exception a)
-            {
-
-            }
+            else
+                MessageBox.Show("연장 횟수 초과");
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             try
             {
-                if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[9].Value.ToString() == "반납")
+                if (MessageBox.Show("정말 반납 처리하시겠습니까?", "도서 반납", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    MessageBox.Show("이미 반납한 도서입니다");
-                    return;
+                    if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[9].Value.ToString() == "반납")
+                    {
+                        MessageBox.Show("이미 반납한 도서입니다");
+                        return;
+                    }
+                    if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[7].Value.ToString() == "연체")
+                    {
+                        TimeSpan timeSpan = Convert.ToDateTime(DateTime.Now.ToString().Substring(0, 10)) - Convert.ToDateTime(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[5].Value.ToString());
+                        bookManageDAO.addReturnOverdue(timeSpan.Days, Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value), Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[0].Value));
+                    }
+                    if (bookManageDAO.returnBook(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
+                    {
+                        MessageBox.Show("반납 완료");
+                        selectManageList("");
+                    }
+                    else
+                        MessageBox.Show("반납 실패");
                 }
-                if (rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[7].Value.ToString() == "연체")
-                {
-                    TimeSpan timeSpan = Convert.ToDateTime(DateTime.Now.ToString().Substring(0, 10)) - Convert.ToDateTime(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[5].Value.ToString());
-                    bookManageDAO.addReturnOverdue(timeSpan.Days, Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value));
-                }
-                if (bookManageDAO.returnBook(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
-                {
-                    MessageBox.Show("반납 완료");
-                    selectManageList("");
-                }
-                else
-                    MessageBox.Show("반납 실패");
             }
             catch (Exception a)
             {
@@ -597,7 +630,7 @@ namespace bookPjt
                 if (Convert.ToDateTime(bookManage.Bm_returnDate) < Convert.ToDateTime(DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString()))
                 {
                     delinquent = "연체";
-                    if (output == "연체")
+                    if (output == "연체" && bookManage.Status == 0)
                         rentalTable.Rows.Add(bookManage.Bm_b_idx, bookManage.C_idx, bookManage.B_name, bookManage.C_name, bookManage.Bm_takeDate, bookManage.Bm_returnDate, bookManage.Bm_extend, delinquent, bookManage.Bm_idx, "미 반납");
                 }
                 if (output != "연체" && bookManage.Status == status)
@@ -682,12 +715,14 @@ namespace bookPjt
                 selectUserList("", "", true);
                 changeRentalOverdue = false;
                 btnOverdueRelease.Visible = true;
+                btnShowPenalty.Visible = true;
             }
             else
             {
                 selectUserList("", "", false);
                 changeRentalOverdue = true;
                 btnOverdueRelease.Visible = false;
+                btnShowPenalty.Visible = false;
             }
         }
 
@@ -755,8 +790,11 @@ namespace bookPjt
 
         private void btnPublisherUpdate_Click(object sender, EventArgs e)
         {
-            UpdatePublisher updatePublisher = new UpdatePublisher(this, publisherTable.Rows[publisherTable.CurrentRow.Index].Cells[0].Value.ToString());
-            updatePublisher.Show();
+            if (MessageBox.Show("정말 출판사를 수정하시겠습니까?", "출판사 수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                UpdatePublisher updatePublisher = new UpdatePublisher(this, publisherTable.Rows[publisherTable.CurrentRow.Index].Cells[0].Value.ToString());
+                updatePublisher.Show();
+            }
         }
 
         public void showNoticeList()
@@ -805,49 +843,84 @@ namespace bookPjt
 
         private void btnNoticeUpdate_Click(object sender, EventArgs e)
         {
-            txtNoticeTitle.ReadOnly = false;
-            txtNoticeContent.ReadOnly = false;
-            btnUpdateNoticExcute.Visible = true;
-            btnUpdateNoticeCencel.Visible = true;
+            try
+            {
+                if (txtNoticeTitle.Text.Trim() == "" || noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[1].Value.ToString() == "")
+                    MessageBox.Show("수정할 항목을 선택해주세요.");
+                else
+                {
+                    txtNoticeTitle.ReadOnly = false;
+                    txtNoticeContent.ReadOnly = false;
+                    btnUpdateNoticExcute.Visible = true;
+                    btnUpdateNoticeCencel.Visible = true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("수정할 항목을 선택해주세요.");
+                return;
+            }
         }
 
         private void btnUpdateNoticeCencel_Click(object sender, EventArgs e)
         {
-            btnUpdateNoticExcute.Visible = false;
-            btnUpdateNoticeCencel.Visible = false;
-        }
-
-        private void btnUpdateNoticExcute_Click(object sender, EventArgs e)
-        {
-            if (noticeDAO.updateNotice(replaceAll(txtNoticeTitle.Text), replaceAll(txtNoticeContent.Text), noticeNumber))
+            if (MessageBox.Show("취소를 누르시면 입력하신 내용이 모두 초기화 됩니다.\r계속 하시겠습니까?", "취소", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                MessageBox.Show("수정 완료");
-                showNoticeList();
+                txtNoticeTitle.Text = "";
+                txtNoticeContent.Text = "";
                 btnUpdateNoticExcute.Visible = false;
                 btnUpdateNoticeCencel.Visible = false;
                 txtNoticeTitle.ReadOnly = true;
                 txtNoticeContent.ReadOnly = true;
             }
-            else
-                MessageBox.Show("수정 실패");
+        }
+
+        private void btnUpdateNoticExcute_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("공지사항 수정시 다시 복구할 수 없습니다. \r공지사항을 정말 수정하시겠습니까?", "수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (noticeDAO.updateNotice(replaceAll(txtNoticeTitle.Text), replaceAll(txtNoticeContent.Text), noticeNumber))
+                {
+                    MessageBox.Show("수정 완료");
+                    showNoticeList();
+                    btnUpdateNoticExcute.Visible = false;
+                    btnUpdateNoticeCencel.Visible = false;
+                    txtNoticeTitle.ReadOnly = true;
+                    txtNoticeContent.ReadOnly = true;
+                }
+                else
+                    MessageBox.Show("수정 실패");
         }
 
         private void btnNoticeDelete_Click(object sender, EventArgs e)
         {
-            if (noticeNumber != -1)
-                if (noticeDAO.deleteNotice(noticeNumber))
+            try
+            {
+                if (txtNoticeTitle.Text == "" || noticeTable.Rows[noticeTable.CurrentRow.Index].Cells[1].Value.ToString() == "")
                 {
-                    MessageBox.Show("삭제 완료");
-                    showNoticeList();
-                    txtNoticeTitle.ReadOnly = true;
-                    txtNoticeContent.ReadOnly = true;
-                    txtNoticeTitle.Text = "";
-                    txtNoticeContent.Text = "";
+                    MessageBox.Show("삭제할 공지사항을 선택해주세요.");
+                    return;
                 }
+            }
+            catch
+            {
+                MessageBox.Show("삭제할 공지사항을 선택해주세요.");
+                return;
+            }
+            if (MessageBox.Show("공지사항 삭제시 다시 복구할 수 없습니다. \r공지사항을 정말 삭제하시겠습니까?", "삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (noticeNumber != -1)
+                    if (noticeDAO.deleteNotice(noticeNumber))
+                    {
+                        MessageBox.Show("삭제 완료");
+                        showNoticeList();
+                        txtNoticeTitle.ReadOnly = true;
+                        txtNoticeContent.ReadOnly = true;
+                        txtNoticeTitle.Text = "";
+                        txtNoticeContent.Text = "";
+                    }
+                    else
+                        MessageBox.Show("삭제 실패");
                 else
-                    MessageBox.Show("삭제 실패");
-            else
-                MessageBox.Show("삭제할 항목을 선택해주세요");
+                    MessageBox.Show("삭제할 항목을 선택해주세요");
         }
 
         public void getQAlist()
@@ -1025,6 +1098,21 @@ namespace bookPjt
                 else
                     MessageBox.Show("예약 취소 실패");
             }
+        }
+
+        private void btnShowPenalty_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                userListTable.Rows[userListTable.CurrentRow.Index].Cells[1].Value.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("연체금 확인할 사용자를 선택해주세요.");
+                return;
+            }
+            ShowPenalty showPenalty = new ShowPenalty(userListTable.Rows[userListTable.CurrentRow.Index].Cells[1].Value.ToString(), Convert.ToInt32(userListTable.Rows[userListTable.CurrentRow.Index].Cells[5].Value));
+            showPenalty.Show();
         }
     }
 }

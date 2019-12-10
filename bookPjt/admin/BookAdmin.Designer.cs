@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControll = new System.Windows.Forms.TabControl();
             this.TagBookList = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -228,6 +228,7 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnShowPenalty = new System.Windows.Forms.Button();
             this.TabControll.SuspendLayout();
             this.TagBookList.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -543,9 +544,9 @@
             // 
             // bookIdx
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle61.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle61;
             this.bookIdx.HeaderText = "도서 번호";
             this.bookIdx.MinimumWidth = 6;
             this.bookIdx.Name = "bookIdx";
@@ -562,8 +563,8 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle62.BackColor = System.Drawing.Color.LightGray;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle62;
             this.Column5.HeaderText = "저자";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -580,8 +581,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle63.BackColor = System.Drawing.Color.LightGray;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle63;
             this.Column4.HeaderText = "분류";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -598,8 +599,8 @@
             // 
             // Column14
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle64.BackColor = System.Drawing.Color.LightGray;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle64;
             this.Column14.HeaderText = "연령 제한";
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
@@ -1469,6 +1470,7 @@
             // TagUser
             // 
             this.TagUser.BackColor = System.Drawing.Color.White;
+            this.TagUser.Controls.Add(this.btnShowPenalty);
             this.TagUser.Controls.Add(this.btnSelectUser);
             this.TagUser.Controls.Add(this.comboUserSelectType);
             this.TagUser.Controls.Add(this.rentalOverdue);
@@ -1486,7 +1488,7 @@
             // 
             // btnSelectUser
             // 
-            this.btnSelectUser.Location = new System.Drawing.Point(473, 19);
+            this.btnSelectUser.Location = new System.Drawing.Point(333, 19);
             this.btnSelectUser.Name = "btnSelectUser";
             this.btnSelectUser.Size = new System.Drawing.Size(62, 37);
             this.btnSelectUser.TabIndex = 9;
@@ -1509,7 +1511,7 @@
             // rentalOverdue
             // 
             this.rentalOverdue.AutoSize = true;
-            this.rentalOverdue.Location = new System.Drawing.Point(565, 28);
+            this.rentalOverdue.Location = new System.Drawing.Point(414, 28);
             this.rentalOverdue.Name = "rentalOverdue";
             this.rentalOverdue.Size = new System.Drawing.Size(109, 19);
             this.rentalOverdue.TabIndex = 7;
@@ -1544,6 +1546,7 @@
             this.btnOverdueRelease.TabIndex = 2;
             this.btnOverdueRelease.Text = "연체 해제";
             this.btnOverdueRelease.UseVisualStyleBackColor = true;
+            this.btnOverdueRelease.Visible = false;
             this.btnOverdueRelease.Click += new System.EventHandler(this.button16_Click);
             // 
             // btnRankUpdate
@@ -1561,7 +1564,7 @@
             this.txtUserSelect.Location = new System.Drawing.Point(201, 19);
             this.txtUserSelect.Multiline = true;
             this.txtUserSelect.Name = "txtUserSelect";
-            this.txtUserSelect.Size = new System.Drawing.Size(263, 37);
+            this.txtUserSelect.Size = new System.Drawing.Size(111, 37);
             this.txtUserSelect.TabIndex = 1;
             this.txtUserSelect.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUserSelect_KeyUp);
             // 
@@ -1594,8 +1597,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle65;
             this.dataGridViewTextBoxColumn2.HeaderText = "사용자 이름";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -1612,8 +1615,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle66;
             this.dataGridViewTextBoxColumn4.HeaderText = "핸드폰 번호";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -2421,6 +2424,17 @@
             this.Column18.ReadOnly = true;
             this.Column18.Width = 200;
             // 
+            // btnShowPenalty
+            // 
+            this.btnShowPenalty.Location = new System.Drawing.Point(568, 19);
+            this.btnShowPenalty.Name = "btnShowPenalty";
+            this.btnShowPenalty.Size = new System.Drawing.Size(108, 37);
+            this.btnShowPenalty.TabIndex = 10;
+            this.btnShowPenalty.Text = "연체금 확인";
+            this.btnShowPenalty.UseVisualStyleBackColor = true;
+            this.btnShowPenalty.Visible = false;
+            this.btnShowPenalty.Click += new System.EventHandler(this.btnShowPenalty_Click);
+            // 
             // BookAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -2687,6 +2701,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.Button btnShowPenalty;
     }
 }
 

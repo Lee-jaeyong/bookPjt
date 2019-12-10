@@ -82,6 +82,12 @@
     <Compile Include="admin\QA_answer.Designer.cs">
       <DependentUpon>QA_answer.cs</DependentUpon>
     </Compile>
+    <Compile Include="admin\ShowPenalty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\ShowPenalty.Designer.cs">
+      <DependentUpon>ShowPenalty.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin\UpdatePublisher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="admin\QA_answer.resx">
       <DependentUpon>QA_answer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\ShowPenalty.resx">
+      <DependentUpon>ShowPenalty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="admin\UpdatePublisher.resx">
       <DependentUpon>UpdatePublisher.cs</DependentUpon>

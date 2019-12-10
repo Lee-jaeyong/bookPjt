@@ -21,17 +21,17 @@ namespace BookManagement
             UserDAO dao = UserDAO.getInstance();
             string inputId = idTxt.Text;
             string inputPw = pwTxt.Text;
-
             bool re = dao.userLogin(inputId, inputPw);
 
             if (re)
             {
                 string userRank = dao.checkUserRank(inputId);
+                int age = dao.checkAge(inputId);
                 Form frm;
                 if (inputId == "root" || userRank == "관리자" || userRank == "사서")
                     frm = new BookAdmin(userRank, userRank);
                 else
-                    frm = new index(inputId, userRank);
+                    frm = new index(inputId, userRank,age);
                 frm.Owner = this;
                 frm.Show();
                 this.Hide();
