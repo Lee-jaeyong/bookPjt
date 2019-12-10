@@ -36,7 +36,7 @@ namespace bookPjt
             userListTable.Rows.Clear();
             userList = userDAO.getUserList(type, search, overdueChk);
             foreach (UserDTO user in userList)
-                userListTable.Rows.Add(user.C_identy, user.C_name, user.C_birth, user.C_phone, user.C_rank, user.C_idx);
+                userListTable.Rows.Add(user.C_identy, user.C_name, user.C_birth, user.C_phone, user.C_rank, user.C_idx, user.Email, user.Address);
         }
 
         private void selectRentalChkList()
