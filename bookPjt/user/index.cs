@@ -292,8 +292,11 @@ namespace BookManagement
             txtQcontent.ReadOnly = true;
             txtQtitle.Text = "";
             txtQcontent.Text = "";
+            txtAnsTitle.Text = "";
+            txtAnsContent.Text = "";
             btnQadd.Visible = true;
             button7.Visible = true;
+            button10.Visible = false;
             button8.Visible = false;
             button9.Visible = false;
             button9.Visible = false;
@@ -316,6 +319,11 @@ namespace BookManagement
 
         private void btnQadd_Click(object sender, EventArgs e)
         {
+            if (txtQtitle.Text.Trim() == "" || txtQcontent.Text.Trim() == "")
+            {
+                MessageBox.Show("항목을 모두 입력해주세요.");
+                return;
+            }
             add_status = true;
             txtQtitle.Text = "";
             txtQcontent.Text = "";
@@ -342,9 +350,12 @@ namespace BookManagement
                         AdminAnswerDTO adminAnswerDTO = userQADAO.getAnswerInfo(Convert.ToInt32(userQnAtable.Rows[userQnAtable.CurrentRow.Index].Cells[4].Value));
                         txtAnsTitle.Text = adminAnswerDTO.Ans_title;
                         txtAnsContent.Text = adminAnswerDTO.Ans_content;
+                        button7.Visible = false;
+                        button9.Visible = false;
                     }
                     else
                     {
+                        button7.Visible = true;
                         txtAnsTitle.Text = "";
                         txtAnsContent.Text = "";
                     }
@@ -423,21 +434,27 @@ namespace BookManagement
 
         private void button10_Click(object sender, EventArgs e)
         {
-            if (userQADAO.updateQnA(qnaIdx, txtQtitle.Text, txtQcontent.Text))
+            if(txtQtitle.Text.Trim() == "" || txtQcontent.Text.Trim() == "")
             {
-                MessageBox.Show("수정 완료");
-                button10.Visible = false;
-                button7.Visible = true;
-                btnQadd.Visible = true;
-                update_status = false;
-                txtQtitle.ReadOnly = true;
-                txtQcontent.ReadOnly = true;
-                txtQtitle.Text = "";
-                txtQcontent.Text = "";
-                getUserQnA();
+                MessageBox.Show("항목을 모두 입력해주세요.");
+                return;
             }
-            else
-                MessageBox.Show("수정 실패");
+            if (MessageBox.Show("질문을 수정하시겠습니까?", "질문 수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (userQADAO.updateQnA(qnaIdx, txtQtitle.Text, txtQcontent.Text))
+                {
+                    MessageBox.Show("수정 완료");
+                    button10.Visible = false;
+                    button7.Visible = true;
+                    btnQadd.Visible = true;
+                    update_status = false;
+                    txtQtitle.ReadOnly = true;
+                    txtQcontent.ReadOnly = true;
+                    txtQtitle.Text = "";
+                    txtQcontent.Text = "";
+                    getUserQnA();
+                }
+                else
+                    MessageBox.Show("수정 실패");
         }
 
         private void button4_Click(object sender, EventArgs e)
