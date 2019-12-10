@@ -277,10 +277,6 @@ namespace bookPjt
             {
                 MessageBox.Show("이미지는 jpg 형식만 첨부 가능합니다.");
                 btnAddImg.Focus();
-            }else if(Regex.IsMatch(btnAddImg.Text, @"[^a-zA-Z0-9가-힣]"))
-            {
-                MessageBox.Show("이미지는 첨부시 특수문자를 제외해주시기 바랍니다.");
-                btnAddImg.Focus();
             }
             else
             {
