@@ -27,7 +27,7 @@ namespace BookManagement
         private int age;
 
         List<BookDTO> bookList;
-        private void getBookList(string type, string search,int age)
+        private void getBookList(string type, string search, int age)
         {
             if (type == "책제목")
                 type = "b_name";
@@ -259,7 +259,10 @@ namespace BookManagement
 
             foreach (BookManageDTO item in list)
             {
-                rentalBookInfoTable.Rows.Add(item.B_name, item.Bm_takeDate, item.Bm_returnDate, item.Bm_extend, item.Status);
+                string status = "대출 중";
+                if (item.Status == 1)
+                    status = "반납 완료";
+                rentalBookInfoTable.Rows.Add(item.B_name, item.Bm_takeDate, item.Bm_returnDate, item.Bm_extend, status);
             }
         }
 
