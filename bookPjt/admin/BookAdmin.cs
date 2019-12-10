@@ -957,7 +957,7 @@ namespace bookPjt
             {
                 bookReservationTable.Rows[bookReservationTable.CurrentRow.Index].Cells[0].Value.ToString();
             }
-            catch(Exception a)
+            catch (Exception a)
             {
                 MessageBox.Show("대출 승인할 항목을 선택해주세요.");
                 return;
@@ -982,6 +982,15 @@ namespace bookPjt
 
         private void button12_Click_2(object sender, EventArgs e)
         {
+            try
+            {
+                bookReservationTable.Rows[bookReservationTable.CurrentRow.Index].Cells[0].Value.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("삭제할 항목을 선택해주세요.");
+                return;
+            }
             if (MessageBox.Show("정말 예약을 취소하시겠습니까?", "예약 취소", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (bookReservationDAO.deleteReservation(bookReservationTable.Rows[bookReservationTable.CurrentRow.Index].Cells[0].Value.ToString()))
