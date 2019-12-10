@@ -3,6 +3,7 @@ using System;
 using bookPjt.DTO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace BookManagement
 {
@@ -22,6 +23,28 @@ namespace BookManagement
 
         }
 
+        public int checkAge(string id)
+        {
+            MySqlConnection connection = new MySqlConnection(dbInfo);
+            try
+            {
+                int age = 0;
+                string sql = "SELECT c_birth,(YEAR(CURDATE())-YEAR(c_birth)) AS age  FROM customer WHERE c_identy = '" + id + "'";
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader chk = command.ExecuteReader();
+                chk.Read();
+                age = Convert.ToInt32(chk[1]);
+                chk.Close();
+                connection.Close();
+                return age;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return 0;
+        }
         public string checkUserRank(string id)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);
@@ -76,11 +99,10 @@ namespace BookManagement
 
         }
 
-        public bool joinDB(string name, string ph1, string ph2, string ph3, string id, string pw, string birth)
+        public bool joinDB(string name, string ph1, string ph2, string ph3, string id, string pw, string birth, string email, string address)
         {
             MySqlConnection connection = new MySqlConnection(dbInfo);
-            string sql = "insert customer values(NULL,'" + name + "','" + ph1 + "','" + ph2 + "','" + ph3 + "','" + id + "','" + pw + "','" + birth + "','A')";
-
+            string sql = "insert customer values(NULL,'" + name + "','" + ph1 + "','" + ph2 + "','" + ph3 + "','" + id + "','" + pw + "','" + birth + "','일반 회원','" + email + "','" + address + "')";
             try
             {
                 connection.Open();
@@ -192,10 +214,10 @@ namespace BookManagement
             MySqlConnection connection = new MySqlConnection(dbInfo);
             string sql = "";
             if (overdueChk)
-                sql += "SELECT c_idx,c_identy,c_name,c_birth,CONCAT(c_phone1,'-',c_phone2,'-',c_phone3),c_rank FROM customer WHERE searchOverdue(c_idx) > 0 or c_idx IN(SELECT bm_c_idx FROM book_management WHERE bm_returnDate < LEFT(NOW(), 10) AND bm_status = 0)";
+                sql += "SELECT c_idx,c_identy,c_name,c_birth,CONCAT(c_phone1,'-',c_phone2,'-',c_phone3),c_rank,email,address FROM customer WHERE searchOverdue(c_idx) > 0 or c_idx IN(SELECT bm_c_idx FROM book_management WHERE bm_returnDate < LEFT(NOW(), 10) AND bm_status = 0)";
             else
             {
-                sql = "SELECT c_idx,c_identy,c_name,c_birth,CONCAT(c_phone1,'-',c_phone2,'-',c_phone3),c_rank FROM customer";
+                sql = "SELECT c_idx,c_identy,c_name,c_birth,CONCAT(c_phone1,'-',c_phone2,'-',c_phone3),c_rank,email,address FROM customer";
                 if (search != "")
                     sql += " WHERE " + type + " like '%" + search + "%'";
             }
@@ -212,7 +234,9 @@ namespace BookManagement
                             rdr[3].ToString(),
                             rdr[4].ToString(),
                             rdr[5].ToString(),
-                            Convert.ToInt32(rdr[0])
+                            Convert.ToInt32(rdr[0]),
+                            rdr[6].ToString(),
+                            rdr[7].ToString()
                         ));
                 }
                 connection.Close();

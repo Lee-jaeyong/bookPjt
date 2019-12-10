@@ -26,6 +26,80 @@ namespace bookPjt.DAO
 
         }
 
+        public bool selectChkReturnBook(int c_idx)
+        {
+            bool chk = true;
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            string sql = "SELECT count(bm_status) FROM book_management where bm_status = 0 AND bm_c_idx = " + c_idx;
+            try
+            {
+                mySqlConnection.Open();
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
+                if (Convert.ToInt32(rdr[0]) > 0)
+                    chk = false;
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return chk;
+        }
+
+        public int selectPenalty(int c_idx)
+        {
+            int penalty = 0;
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            string sql = "SELECT SUM(DATEDIFF(bm_returnDate, now())) from book_management where bm_status = 0 AND bm_returnDate<left(now(),10) AND bm_c_idx = " + c_idx;
+            mySqlConnection.Open();
+            MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+            MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+            try
+            {
+                rdr.Read();
+                penalty = Convert.ToInt32(rdr[0]) * -100;
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                rdr.Close();
+                sql = "SELECT d_penalty FROM delinquent WHERE d_c_idx = " + c_idx;
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
+                penalty = Convert.ToInt32(rdr[0]);
+                mySqlConnection.Close();
+            }
+            return penalty;
+        }
+
+        public bool updatePenalty(int originPenalty, int inputPenalty, int c_idx)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            try
+            {
+                mySqlConnection.Open();
+                string sql = "";
+                if (originPenalty == inputPenalty)
+                    sql = "DELETE FROM delinquent WHERE d_c_idx = " + c_idx;
+                else
+                    sql = "UPDATE delinquent SET d_penalty = d_penalty - " + inputPenalty + " WHERE d_c_idx = " + c_idx;
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                mysqlCommand.ExecuteNonQuery();
+                mySqlConnection.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        }
+
         public bool userChkOverDue(string c_id)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
@@ -168,11 +242,11 @@ namespace bookPjt.DAO
             return true;
         }
 
-        public bool addReturnOverdue(int overdueDay, int idx)
+        public bool addReturnOverdue(int overdueDay, int idx, int c_idx)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
 
-            string sql = "INSERT INTO delinquent VALUES (" + idx + "," + overdueDay * 1000 + ")";
+            string sql = "INSERT INTO delinquent VALUES (" + idx + "," + overdueDay * 100 + "," + c_idx + ")";
             try
             {
                 mySqlConnection.Open();

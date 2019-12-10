@@ -11,10 +11,12 @@ namespace bookPjt
         BookDTO book;
         BookAdmin bookManage;
         int bookrowItem;
-        public Form2(BookAdmin bookManage, int bookrowItem)
+        int age;
+        public Form2(BookAdmin bookManage, int bookrowItem,int age)
         {
             InitializeComponent();
             this.bookManage = bookManage;
+            this.age = age;
             this.bookrowItem = bookrowItem;
             book = bookDAO.selectBook(bookrowItem);
         }
@@ -28,22 +30,28 @@ namespace bookPjt
 
         private void button10_Click(object sender, EventArgs e)
         {
-            if (bookDAO.deleteBook(bookrowItem))
-                MessageBox.Show("상품 삭제 완료");
-            else
-                MessageBox.Show("상품 삭제 실패");
-            bookManage.selectList();
-            Hide();
+            if (MessageBox.Show("정말 도서를 삭제하시겠습니까?", "도서 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (bookDAO.deleteBook(bookrowItem))
+                    MessageBox.Show("도서 삭제 완료");
+                else
+                    MessageBox.Show("도서 삭제 실패");
+                bookManage.selectList();
+                Hide();
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (bookDAO.updateBook(bookrowItem, bookName.Text, txtSummery.Text))
-                MessageBox.Show("상품 수정 완료");
-            else
-                MessageBox.Show("상품 수정 실패");
-            bookManage.selectList();
-            Hide();
+            if (MessageBox.Show("정말 도서를 수정하시겠습니까?", "도서 수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (bookDAO.updateBook(bookrowItem, bookName.Text, txtSummery.Text))
+                    MessageBox.Show("도서 수정 완료");
+                else
+                    MessageBox.Show("상품 수정 실패");
+                bookManage.selectList();
+                Hide();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

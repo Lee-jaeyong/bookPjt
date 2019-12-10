@@ -69,11 +69,22 @@ namespace bookPjt
             return true;
         }
 
-        public List<BookDTO> getBookList(string type, string search)
+        public List<BookDTO> getBookList(string type, string search, int age)
         {
             List<BookDTO> list = new List<BookDTO>();
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
-            string sql = "SELECT b_idx,b_name,b_author,c_n_name,p_n_name,IF(rentalBookCountChk(b_idx) >= 3,'대출 불가','대출 가능'),b_img,b_summary FROM book, category, categoryName, publisher, publisherName WHERE book.b_idx = category.ct_b_id AND book.b_idx = publisher.p_b_id AND categoryname.c_n_idx = category.ct_idx AND publisherName.p_n_idx = publisher.p_idx";
+            string ageWhere = "";
+            if (age >= 19)
+                ageWhere = "";
+            else if (age >= 15 && age < 19)
+                ageWhere = " AND b_guest < 19 ";
+            else if (age >= 12 && age <= 15)
+                ageWhere = " AND b_guest <= 15 ";
+            else if (age <= 12)
+                ageWhere = " AND b_guest <= 12 ";
+            else
+                ageWhere = " AND b_guest != 19 AND b_guest != 15 AND b_guest != 12 ";
+            string sql = "SELECT b_idx,b_name,b_author,c_n_name,p_n_name,IF(b_stock = 0,'대출 불가','대출 가능'),b_img,b_summary FROM book, category, categoryName, publisher, publisherName WHERE book.b_idx = category.ct_b_id AND book.b_idx = publisher.p_b_id AND categoryname.c_n_idx = category.ct_idx AND publisherName.p_n_idx = publisher.p_idx " + ageWhere;
             if (search != "")
                 sql += " AND " + type + " like '%" + search + "%'";
             try
@@ -205,8 +216,15 @@ namespace bookPjt
             string b_summery = bookDTO.B_summary;
             string b_img = bookDTO.B_img;
             int b_stock = bookDTO.B_stock;
-            string b_guest = bookDTO.B_guest;
-
+            string b_guest = "0";
+            if (bookDTO.B_guest == "전체 이용")
+                b_guest = "0";
+            else if (bookDTO.B_guest == "12세 이용")
+                b_guest = "12";
+            else if (bookDTO.B_guest == "15세 이용")
+                b_guest = "15";
+            else if (bookDTO.B_guest == "성인")
+                b_guest = "19";
             try
             {
                 string sql = "insert into book values (NULL,'" + b_name + "'," + b_stock + ",'" + b_author + "','" + b_summery + "','" + b_img + "','" + b_guest + "',now())";
@@ -308,12 +326,12 @@ namespace bookPjt
         {
             List<BookDTO> list = new List<BookDTO>();
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
-
+            string ageWhere = "";
             string sql = "select b_idx ,b_name,b_stock,b_author, p_n_name , c_n_name, b_summary, b_img, b_guest, b_date, searchBook(b_idx)";
             sql += " from book, category, categoryName, publisher, publisherName";
             sql += " where book.b_idx = category.ct_b_id and book.b_idx = publisher.p_b_id";
             sql += " and category.ct_idx = categoryName.c_n_idx and publisher.p_idx = publisherName.p_n_idx";
-            sql += " and b_name like '%" + search + "%'";
+            sql += " and b_name like '%" + search + "%'" + ageWhere;
             if (category != "도서 분류" && category != "")
                 sql += " and c_n_name = '" + category + "'";
             if (sort)

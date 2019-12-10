@@ -17,7 +17,7 @@ namespace bookPjt.admin
         BookAdmin bookAdmin;
         UserDAO userDAO = UserDAO.getInstance();
         UserDTO userDTO = new UserDTO();
-        public UpdateUser(BookAdmin bookAdmin,string id,string name,string phone,string birth,int c_idx)
+        public UpdateUser(BookAdmin bookAdmin, string id, string name, string phone, string birth, int c_idx)
         {
             InitializeComponent();
             this.bookAdmin = bookAdmin;
@@ -42,15 +42,16 @@ namespace bookPjt.admin
             userDTO.C_birth = txtUserBirth.Text.Trim();
             userDTO.C_name = txtUserName.Text.Trim();
             string[] phone = new string[] { txtUserPhone1.Text.Trim(), txtUserPhone2.Text.Trim(), txtUserPhone3.Text.Trim() };
-            if (userDAO.updateUser(userDTO, phone))
-            {
-                MessageBox.Show("수정 완료");
-                bookAdmin.selectUserList("", "", false);
-                Hide();
-                Dispose();
-            }
-            else
-                MessageBox.Show("수정 실패");
+            if (MessageBox.Show("사용자 정보를 정말 수정하시겠습니까?", "사용자 정보 수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (userDAO.updateUser(userDTO, phone))
+                {
+                    MessageBox.Show("수정 완료");
+                    bookAdmin.selectUserList("", "", false);
+                    Hide();
+                    Dispose();
+                }
+                else
+                    MessageBox.Show("수정 실패");
         }
 
         private void BtnUpdateUserInfo_Click(object sender, EventArgs e)

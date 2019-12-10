@@ -16,11 +16,14 @@ namespace bookPjt.DTO
         private string c_birth;
         private string c_rank;
         private int totalManageCount;
+        private string email;
+        private string address;
+
         public UserDTO()
         {
 
         }
-        public UserDTO(int c_idx,string c_identy, string c_name, string c_phone, string c_birth)
+        public UserDTO(int c_idx, string c_identy, string c_name, string c_phone, string c_birth)
         {
             this.c_idx = c_idx;
             this.c_name = c_name;
@@ -28,8 +31,10 @@ namespace bookPjt.DTO
             this.c_birth = c_birth;
             this.c_phone = c_phone;
         }
-        public UserDTO(string c_identy, string c_name, string c_birth, string c_phone, string c_rank, int c_idx)
+        public UserDTO(string c_identy, string c_name, string c_birth, string c_phone, string c_rank, int c_idx,string email,string address)
         {
+            this.email = email;
+            this.address = address;
             this.c_idx = c_idx;
             this.c_name = c_name;
             this.c_identy = c_identy;
@@ -49,6 +54,8 @@ namespace bookPjt.DTO
         public int TotalManageCount { get { return totalManageCount; } set { totalManageCount = value; } }
         public int C_idx { get { return c_idx; } set { c_idx = value; } }
         public string C_name { get { return c_name; } set { c_name = value; } }
+        public string Email { get { return email; } set { email = value; } }
+        public string Address { get { return address; } set { address = value; } }
         public string C_phone { get { return c_phone; } set { c_phone = value; } }
         public string C_identy { get { return c_identy; } set { c_identy = value; } }
         public string C_birth { get { return c_birth; } set { c_birth = value; } }

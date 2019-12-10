@@ -29,19 +29,27 @@ namespace bookPjt.admin
 
         private void btnPublisherUpdateExecute_Click(object sender, EventArgs e)
         {
-            BookDAO bookDAO = BookDAO.getInstance();
-            if (txtAfter.Text.Trim() != null)
-                if (bookDAO.updatePublisher(txtBefore.Text, replaceAll(txtAfter.Text)))
-                {
-                    MessageBox.Show("출판사 수정 성공");
-                    bookAdmin.selectPublisherList();
-                    Hide();
-                    Dispose();
-                }
+            if (txtAfter.Text.Trim() == "")
+            {
+                MessageBox.Show("출판사를 입력해주세요.");
+                return;
+            }
+            if (MessageBox.Show("정말 출판사를 수정하시겠습니까?", "출판사 수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                BookDAO bookDAO = BookDAO.getInstance();
+                if (txtAfter.Text.Trim() != null)
+                    if (bookDAO.updatePublisher(txtBefore.Text, replaceAll(txtAfter.Text)))
+                    {
+                        MessageBox.Show("출판사 수정 성공");
+                        bookAdmin.selectPublisherList();
+                        Hide();
+                        Dispose();
+                    }
+                    else
+                        MessageBox.Show("출판사 수정 실패");
                 else
-                    MessageBox.Show("출판사 수정 실패");
-            else
-                MessageBox.Show("수정할 카테고리 명을 입력해주세요.");
+                    MessageBox.Show("수정할 카테고리 명을 입력해주세요.");
+            }
         }
         private string replaceAll(string str)
         {

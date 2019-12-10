@@ -26,19 +26,21 @@ namespace bookPjt.admin
 
         private void btnQAanswer_Click(object sender, EventArgs e)
         {
-            if(userQADAO.answerQA(txtQATitle.Text,txtQAcontent.Text,idx))
-            {
-                MessageBox.Show("답변 완료");
-                bookAdmin.getQAlist();
-                Dispose();
-            }
-            else
-                MessageBox.Show("답변 실패");
+            if (MessageBox.Show("답변 등록시 수정할 수 없습니다.\r정말 답변을 등록하시겠습니까?", "답변 등록", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (userQADAO.answerQA(txtQATitle.Text, txtQAcontent.Text, idx))
+                {
+                    MessageBox.Show("답변 완료");
+                    bookAdmin.getQAlist();
+                    Dispose();
+                }
+                else
+                    MessageBox.Show("답변 실패");
         }
 
         private void btnCencel_Click(object sender, EventArgs e)
         {
-            Dispose();
+            if (MessageBox.Show("취소하시겠습니까?", "답변 취소", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                Dispose();
         }
     }
 }

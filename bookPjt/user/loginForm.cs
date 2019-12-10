@@ -22,7 +22,6 @@ namespace BookManagement
             string inputId = idTxt.Text;
             string inputPw = pwTxt.Text;
             bool re = dao.userLogin(inputId, inputPw);
-
             if (re)
             {
                 string userRank = dao.checkUserRank(inputId);
@@ -41,7 +40,6 @@ namespace BookManagement
                 MessageBox.Show("아이디 또는 비밀번호 오류 입니다.");
             }
         }
-
 
         private void joinBtn_Click(object sender, EventArgs e)
         {

@@ -8,6 +8,7 @@ using bookPjt.util;
 using bookPjt.admin;
 using bookPjt.DAO;
 using bookPjt.DTO;
+using System.Text.RegularExpressions;
 
 namespace bookPjt
 {
@@ -215,9 +216,19 @@ namespace bookPjt
                 MessageBox.Show("도서 명을 입력해주세요.");
                 bookName.Focus();
             }
+            else if (Regex.IsMatch(bookName.Text, @"[^a-zA-Z0-9가-힣]"))
+            {
+                MessageBox.Show("도서 명에 특수문자가 포함되어 있습니다.");
+                bookName.Focus();
+            }
             else if (bookAuthor.Text.Trim() == "")
             {
                 MessageBox.Show("저자를 입력해주세요.");
+                bookAuthor.Focus();
+            }
+            else if (Regex.IsMatch(bookAuthor.Text, @"[^a-zA-Z0-9가-힣]"))
+            {
+                MessageBox.Show("저자에 특수문자가 포함되어 있습니다.");
                 bookAuthor.Focus();
             }
             else if (bookStock.Text.Trim() == "")
@@ -243,6 +254,11 @@ namespace bookPjt
             else if (bookContent.Text.Trim() == "")
             {
                 MessageBox.Show("줄거리를 입력해주세요.");
+                bookContent.Focus();
+            }
+            else if (Regex.IsMatch(bookContent.Text, @"[^a-zA-Z0-9가-힣]"))
+            {
+                MessageBox.Show("줄거리에 특수문자가 포함되어 있습니다.");
                 bookContent.Focus();
             }
             else if (bookImg.Text.Trim() == "")
@@ -369,7 +385,6 @@ namespace bookPjt
             }
             catch (Exception a)
             {
-                MessageBox.Show(a.Message);
             }
         }
 
@@ -401,6 +416,7 @@ namespace bookPjt
             TabControll.SelectedIndex = 4;
             selectUserList("", "", false);
             comboUserSelectType.SelectedIndex = 0;
+            rentalOverdue.Checked = false;
         }
 
 
@@ -430,12 +446,18 @@ namespace bookPjt
 
         private void btnCategoryUpdate_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("정말 카테고리를 수정하시겠습니까?", "카테고리 수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                string updateCategoryStr = categoryTable.Rows[categoryTable.CurrentRow.Index].Cells[0].Value.ToString();
-                updateCategoryForm updateCategory = new updateCategoryForm(this, updateCategoryStr);
-                updateCategory.Show();
+                categoryTable.Rows[categoryTable.CurrentRow.Index].Cells[0].Value.ToString();
             }
+            catch
+            {
+                MessageBox.Show("수정할 카테고리를 선택해주세요.");
+                return;
+            }
+            string updateCategoryStr = categoryTable.Rows[categoryTable.CurrentRow.Index].Cells[0].Value.ToString();
+            updateCategoryForm updateCategory = new updateCategoryForm(this, updateCategoryStr);
+            updateCategory.Show();
         }
 
         private void selectRentalBook(int b_idx)
@@ -696,6 +718,7 @@ namespace bookPjt
         private void btnSelectUser_Click(object sender, EventArgs e)
         {
             serachUser();
+            rentalOverdue.Checked = false;
         }
 
         private void txtUserSelect_KeyUp(object sender, KeyEventArgs e)
@@ -790,11 +813,17 @@ namespace bookPjt
 
         private void btnPublisherUpdate_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("정말 출판사를 수정하시겠습니까?", "출판사 수정", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                UpdatePublisher updatePublisher = new UpdatePublisher(this, publisherTable.Rows[publisherTable.CurrentRow.Index].Cells[0].Value.ToString());
-                updatePublisher.Show();
+                publisherTable.Rows[publisherTable.CurrentRow.Index].Cells[0].Value.ToString();
             }
+            catch
+            {
+                MessageBox.Show("수정할 출판사를 선택해주세요.");
+                return;
+            }
+            UpdatePublisher updatePublisher = new UpdatePublisher(this, publisherTable.Rows[publisherTable.CurrentRow.Index].Cells[0].Value.ToString());
+            updatePublisher.Show();
         }
 
         public void showNoticeList()
@@ -812,6 +841,12 @@ namespace bookPjt
             TabControll.SelectedIndex = 6;
             showNoticeList();
             noticeNumber = -1;
+            txtNoticeTitle.Text = "";
+            txtNoticeContent.Text = "";
+            btnUpdateNoticExcute.Visible = false;
+            btnUpdateNoticeCencel.Visible = false;
+            txtNoticeTitle.ReadOnly = true;
+            txtNoticeContent.ReadOnly = true;
         }
 
         private void btnNoticeAdd_Click(object sender, EventArgs e)
