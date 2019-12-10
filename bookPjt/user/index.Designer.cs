@@ -1437,9 +1437,8 @@
             this.laCrank.AutoSize = true;
             this.laCrank.Location = new System.Drawing.Point(856, 24);
             this.laCrank.Name = "laCrank";
-            this.laCrank.Size = new System.Drawing.Size(53, 15);
+            this.laCrank.Size = new System.Drawing.Size(0, 15);
             this.laCrank.TabIndex = 17;
-            this.laCrank.Text = "label15";
             // 
             // index
             // 
