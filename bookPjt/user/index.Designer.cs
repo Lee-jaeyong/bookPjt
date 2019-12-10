@@ -1144,7 +1144,7 @@
             // 
             // btnQadd
             // 
-            this.btnQadd.Location = new System.Drawing.Point(17, 230);
+            this.btnQadd.Location = new System.Drawing.Point(17, 228);
             this.btnQadd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnQadd.Name = "btnQadd";
             this.btnQadd.Size = new System.Drawing.Size(347, 42);

@@ -319,11 +319,6 @@ namespace BookManagement
 
         private void btnQadd_Click(object sender, EventArgs e)
         {
-            if (txtQtitle.Text.Trim() == "" || txtQcontent.Text.Trim() == "")
-            {
-                MessageBox.Show("항목을 모두 입력해주세요.");
-                return;
-            }
             add_status = true;
             txtQtitle.Text = "";
             txtQcontent.Text = "";
@@ -387,6 +382,11 @@ namespace BookManagement
 
         private void button8_Click(object sender, EventArgs e)
         {
+            if(txtQtitle.Text.Trim() == "" || txtQcontent.Text.Trim() == "")
+            {
+                MessageBox.Show("항목을 모두 입력해주세요.");
+                return;
+            }
             if (userQADAO.insertUserQ(id, txtQtitle.Text, txtQcontent.Text))
             {
                 MessageBox.Show("질문 등록 완료");
