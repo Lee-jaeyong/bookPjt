@@ -20,7 +20,8 @@ namespace BookManagement
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            Dispose();
+            if (MessageBox.Show("회원가입을 취소하시겠습니까?", "회원가입 취소", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                Dispose();
         }
 
         private void okBtn_Click(object sender, EventArgs e)
@@ -33,6 +34,8 @@ namespace BookManagement
             string inputPh2 = ph2Txt.Text;
             string inputPh0 = ph0Select.Text;
             string inputBirth = txtBirth.Text;
+            string inputEmail = txtEmail.Text;
+            string inputAddress = txtAddress.Text;
             int birth;
             Regex regex_name = new Regex(@"^[가-힣]+$");
             Regex regex_id = new Regex(@"^[a-zA-Z0-9]+$");
@@ -56,6 +59,11 @@ namespace BookManagement
                 MessageBox.Show("아이디는 영문,숫자 8자 이상입니다");
                 idTxt.Focus();
             }
+            else if (!(regex_id.IsMatch(inputPw)) || inputPw.Length < 8)
+            {
+                MessageBox.Show("비밀번호는 영문, 숫자 8자 이상입니다.");
+                pw2Txt.Text = "";
+            }
             else if (inputPw != pwCheck)
             {
                 MessageBox.Show("비밀번호가 일치하지 않습니다");
@@ -68,19 +76,31 @@ namespace BookManagement
                 idTxt.Text = "";
                 idTxt.Focus();
             }
+            else if (!Regex.IsMatch(inputEmail, @"[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?"))
+            {
+                MessageBox.Show("이메일 형식이 올바르지 않습니다");
+                txtEmail.Focus();
+            }
+            else if (inputAddress.Trim() == "")
+            {
+                MessageBox.Show("주소를 입력해주세요");
+                txtAddress.Focus();
+            }
             else
             {
                 //DAO연결 insert
-
-                bool result = dao.joinDB(inputName, inputPh0, inputPh1, inputPh2, inputId, inputPw, inputBirth);
-                if (result == true)
+                if (MessageBox.Show("입력하신 해당 정보로 회원가입 하시겠습니까?", "회원가입", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    MessageBox.Show("회원가입이 완료되었습니다");
-                    Dispose();
-                }
-                else
-                {
-                    MessageBox.Show("회원가입 실행 오류");
+                    bool result = dao.joinDB(inputName, inputPh0, inputPh1, inputPh2, inputId, inputPw, inputBirth, inputEmail, inputAddress);
+                    if (result == true)
+                    {
+                        MessageBox.Show("회원가입이 완료되었습니다");
+                        Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("회원가입 실행 오류");
+                    }
                 }
             }
         }
@@ -153,9 +173,9 @@ namespace BookManagement
                 lblDupChk.Text = "* 아이디는 영문,숫자 8자 이상입니다";
             else
                 if (dao.dupCheck(inputId))
-                    lblDupChk.Text = "* 중복된 아이디가 존재합니다";
-                else
-                    lblDupChk.Text = "* 사용 가능한 아이디입니다";
+                lblDupChk.Text = "* 중복된 아이디가 존재합니다";
+            else
+                lblDupChk.Text = "* 사용 가능한 아이디입니다";
         }
     }
 }
