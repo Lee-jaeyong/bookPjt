@@ -165,17 +165,25 @@ namespace bookPjt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDlg = new OpenFileDialog();
-            openFileDlg.ShowDialog();
-            if (openFileDlg.FileName.Length > 0)
+            try
             {
-                foreach (string filename in openFileDlg.FileNames)
+                OpenFileDialog openFileDlg = new OpenFileDialog();
+                openFileDlg.ShowDialog();
+                if (openFileDlg.FileName.Length > 0)
                 {
-                    bookImg.Text = filename;
-                    Bitmap img = new Bitmap(bookImg.Text);
-                    img = UtilClass.imgResize(img, 420, 245);
-                    bookImage.Image = img;
+                    foreach (string filename in openFileDlg.FileNames)
+                    {
+                        bookImg.Text = filename;
+                        Bitmap img = new Bitmap(bookImg.Text);
+                        img = UtilClass.imgResize(img, 420, 245);
+                        bookImage.Image = img;
+                    }
                 }
+            }
+            catch
+            {
+                MessageBox.Show("jpg 형식 이미지 파일만 업로드 가능합니다.");
+                bookImg.Text = "";
             }
         }
 
@@ -264,6 +272,14 @@ namespace bookPjt
             else if (bookImg.Text.Trim() == "")
             {
                 MessageBox.Show("이미지를 선택해주세요.");
+                btnAddImg.Focus();
+            }else if(bookImg.Text.Substring(bookImg.Text.Length -3 ) != "jpg")
+            {
+                MessageBox.Show("이미지는 jpg 형식만 첨부 가능합니다.");
+                btnAddImg.Focus();
+            }else if(Regex.IsMatch(btnAddImg.Text, @"[^a-zA-Z0-9가-힣]"))
+            {
+                MessageBox.Show("이미지는 첨부시 특수문자를 제외해주시기 바랍니다.");
                 btnAddImg.Focus();
             }
             else
@@ -603,6 +619,7 @@ namespace bookPjt
                     if (bookManageDAO.extendRental(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
                     {
                         MessageBox.Show("연장 완료");
+                        ComboRentalStatus.SelectedIndex = 0;
                         selectManageList("");
                     }
                     else
@@ -631,6 +648,7 @@ namespace bookPjt
                     if (bookManageDAO.returnBook(Convert.ToInt32(rentalTable.Rows[rentalTable.CurrentRow.Index].Cells[8].Value)))
                     {
                         MessageBox.Show("반납 완료");
+                        ComboRentalStatus.SelectedIndex = 0;
                         selectManageList("");
                     }
                     else
