@@ -54,10 +54,11 @@ namespace BookManagement
             txtUserPhone3.Text = phone[2];
         }
 
-        public index(string id)
+        public index(string id,string rank)
         {
             this.id = id;
             InitializeComponent();
+            laCrank.Text = rank + " 등급 입니다.";
         }
         private void outBtn_Click(object sender, EventArgs e)
         {
@@ -124,6 +125,15 @@ namespace BookManagement
         {
             try
             {
+                Convert.ToInt32(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value);
+            }
+            catch
+            {
+                MessageBox.Show("대출 하실 도서를 선택해주세요.");
+                return;
+            }
+            if (bookRentalChkDAO.selectChkRentalCount(id))
+            {
                 if (MessageBox.Show("대출 신청 하시겠습니까?", "대출 신청", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     if (bookRentalChkDAO.getChkRental(id, Convert.ToInt32(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value)))
@@ -134,10 +144,9 @@ namespace BookManagement
                     else
                         MessageBox.Show("이미 신청한 도서 혹은 수량이 부족한 도서입니다");
                 }
-            }
-            catch (Exception a)
+            }else
             {
-                MessageBox.Show("도서를 클릭해주세요");
+                MessageBox.Show("1인당 최대 3권의 도서를 빌릴 수 있습니다.");
             }
         }
 

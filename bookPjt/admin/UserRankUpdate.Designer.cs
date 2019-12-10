@@ -58,9 +58,9 @@
             this.ComboAfterRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboAfterRank.FormattingEnabled = true;
             this.ComboAfterRank.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C"});
+            "일반 회원",
+            "사서",
+            "관리자"});
             this.ComboAfterRank.Location = new System.Drawing.Point(201, 53);
             this.ComboAfterRank.Name = "ComboAfterRank";
             this.ComboAfterRank.Size = new System.Drawing.Size(136, 23);

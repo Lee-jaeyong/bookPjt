@@ -25,8 +25,39 @@ namespace bookPjt.DAO
         {
 
         }
+
+        public bool selectChkRentalCount(string c_id)
+        {
+            bool chk = true;
+            MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
+            mySqlConnection.Open();
+            try
+            {
+                string sql = "SELECT c_idx FROM customer WHERE c_identy = '" + c_id + "'";
+                MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                MySqlDataReader rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
+                int c_idx = Convert.ToInt32(rdr[0]);
+                rdr.Close();
+                sql = "SELECT COUNT(bm_idx) FROM book_management WHERE bm_status = 0 AND bm_c_idx = " + c_idx;
+                mysqlCommand = new MySqlCommand(sql, mySqlConnection);
+                rdr = mysqlCommand.ExecuteReader();
+                rdr.Read();
+                if (Convert.ToInt32(rdr[0]) >= 3)
+                    chk = false;
+                mySqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return chk;
+        }
+
         public bool selectCheckReservation(int b_idx)
         {
+            bool chk = true;
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
             mySqlConnection.Open();
             try
@@ -35,15 +66,15 @@ namespace bookPjt.DAO
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
                 MySqlDataReader rdr = mysqlCommand.ExecuteReader();
                 rdr.Read();
-
+                if (Convert.ToInt32(rdr[0]) > 0)
+                    chk = false;
                 mySqlConnection.Close();
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
                 return false;
             }
-            return true;
+            return chk;
         }
         public bool insertRentalChk(string u_id, int b_idx)
         {
@@ -187,31 +218,19 @@ namespace bookPjt.DAO
         {
 
             MySqlConnection mySqlConnection = new MySqlConnection(dbInfo);
-
             mySqlConnection.Open();
-
             try
 
             {
-
                 string sql = "DELETE FROM rentalchk WHERE rc_c_id = '" + c_id + "' AND rc_b_idx = " + b_idx;
-
                 MySqlCommand mysqlCommand = new MySqlCommand(sql, mySqlConnection);
-
                 mysqlCommand.ExecuteNonQuery();
-
                 mySqlConnection.Close();
-
             }
-
             catch (Exception e)
-
             {
-
                 MessageBox.Show(e.Message);
-
                 return false;
-
             }
 
             return true;

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControll = new System.Windows.Forms.TabControl();
             this.TagBookList = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -136,6 +136,16 @@
             this.btnExtend = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.rentalTable = new System.Windows.Forms.DataGridView();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TagUser = new System.Windows.Forms.TabPage();
             this.btnSelectUser = new System.Windows.Forms.Button();
             this.comboUserSelectType = new System.Windows.Forms.ComboBox();
@@ -164,12 +174,6 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.rentalChkTable = new System.Windows.Forms.DataGridView();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TagNotice = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnUpdateNoticeCencel = new System.Windows.Forms.Button();
@@ -198,6 +202,16 @@
             this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TagBook = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.bookReservationTable = new System.Windows.Forms.DataGridView();
+            this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.b_idx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
@@ -207,27 +221,13 @@
             this.button6 = new System.Windows.Forms.Button();
             this.btnNotice = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.TagBook = new System.Windows.Forms.TabPage();
-            this.bookReservationTable = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.b_idx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabControll.SuspendLayout();
             this.TagBookList.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -543,9 +543,9 @@
             // 
             // bookIdx
             // 
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bookIdx.DefaultCellStyle = dataGridViewCellStyle1;
             this.bookIdx.HeaderText = "도서 번호";
             this.bookIdx.MinimumWidth = 6;
             this.bookIdx.Name = "bookIdx";
@@ -562,8 +562,8 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.LightGray;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column5.HeaderText = "저자";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -580,8 +580,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.LightGray;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column4.HeaderText = "분류";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -598,8 +598,8 @@
             // 
             // Column14
             // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.LightGray;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column14.HeaderText = "연령 제한";
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
@@ -1383,6 +1383,89 @@
             this.rentalTable.TabIndex = 3;
             this.rentalTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rentalTable_CellClick);
             // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "c_idx";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            this.Column10.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "b_idx";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            this.Column11.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "도서명";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 140;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "대여자";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "대여 일자";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "반납 일자";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "연장 횟수";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "연 체";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
+            // 
+            // Column21
+            // 
+            this.Column21.HeaderText = "bm_idx";
+            this.Column21.MinimumWidth = 6;
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
+            this.Column21.Visible = false;
+            this.Column21.Width = 125;
+            // 
+            // Column22
+            // 
+            this.Column22.HeaderText = "상태";
+            this.Column22.MinimumWidth = 6;
+            this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
+            this.Column22.Width = 125;
+            // 
             // TagUser
             // 
             this.TagUser.BackColor = System.Drawing.Color.White;
@@ -1511,8 +1594,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.HeaderText = "사용자 이름";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -1529,8 +1612,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn4.HeaderText = "핸드폰 번호";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -1682,57 +1765,6 @@
             this.rentalChkTable.Size = new System.Drawing.Size(656, 551);
             this.rentalChkTable.TabIndex = 9;
             this.rentalChkTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rentalChkTable_CellClick);
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "b_idx";
-            this.Column19.MinimumWidth = 6;
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
-            this.Column19.Visible = false;
-            this.Column19.Width = 125;
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "c_idx";
-            this.Column20.MinimumWidth = 6;
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
-            this.Column20.Visible = false;
-            this.Column20.Width = 125;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "bookImg";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
-            this.Column15.Width = 125;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "도서명";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 200;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "대여자명";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            this.Column17.Width = 200;
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "대출신청일";
-            this.Column18.MinimumWidth = 6;
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            this.Column18.Width = 200;
             // 
             // TagNotice
             // 
@@ -2019,6 +2051,106 @@
             this.Column34.ReadOnly = true;
             this.Column34.Width = 125;
             // 
+            // TagBook
+            // 
+            this.TagBook.Controls.Add(this.button12);
+            this.TagBook.Controls.Add(this.button4);
+            this.TagBook.Controls.Add(this.bookReservationTable);
+            this.TagBook.Location = new System.Drawing.Point(4, 5);
+            this.TagBook.Name = "TagBook";
+            this.TagBook.Size = new System.Drawing.Size(1048, 572);
+            this.TagBook.TabIndex = 8;
+            this.TagBook.Text = " ";
+            this.TagBook.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(888, 13);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(140, 58);
+            this.button12.TabIndex = 2;
+            this.button12.Text = "예약 취소";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click_2);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(742, 13);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(140, 58);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "예약 대출 승인";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // bookReservationTable
+            // 
+            this.bookReservationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bookReservationTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column38,
+            this.b_idx,
+            this.c_id,
+            this.Column35,
+            this.Column36,
+            this.Column37});
+            this.bookReservationTable.Location = new System.Drawing.Point(17, 86);
+            this.bookReservationTable.Name = "bookReservationTable";
+            this.bookReservationTable.ReadOnly = true;
+            this.bookReservationTable.RowHeadersWidth = 51;
+            this.bookReservationTable.RowTemplate.Height = 27;
+            this.bookReservationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.bookReservationTable.Size = new System.Drawing.Size(1021, 469);
+            this.bookReservationTable.TabIndex = 0;
+            // 
+            // Column38
+            // 
+            this.Column38.HeaderText = "re_idx";
+            this.Column38.MinimumWidth = 6;
+            this.Column38.Name = "Column38";
+            this.Column38.ReadOnly = true;
+            this.Column38.Width = 125;
+            // 
+            // b_idx
+            // 
+            this.b_idx.HeaderText = "b_idx";
+            this.b_idx.MinimumWidth = 6;
+            this.b_idx.Name = "b_idx";
+            this.b_idx.ReadOnly = true;
+            this.b_idx.Visible = false;
+            this.b_idx.Width = 125;
+            // 
+            // c_id
+            // 
+            this.c_id.HeaderText = "c_id";
+            this.c_id.MinimumWidth = 6;
+            this.c_id.Name = "c_id";
+            this.c_id.ReadOnly = true;
+            this.c_id.Width = 150;
+            // 
+            // Column35
+            // 
+            this.Column35.HeaderText = "예약 도서명";
+            this.Column35.MinimumWidth = 6;
+            this.Column35.Name = "Column35";
+            this.Column35.ReadOnly = true;
+            this.Column35.Width = 150;
+            // 
+            // Column36
+            // 
+            this.Column36.HeaderText = "예약 사용자";
+            this.Column36.MinimumWidth = 6;
+            this.Column36.Name = "Column36";
+            this.Column36.ReadOnly = true;
+            this.Column36.Width = 150;
+            // 
+            // Column37
+            // 
+            this.Column37.HeaderText = "예약 일자";
+            this.Column37.MinimumWidth = 6;
+            this.Column37.Name = "Column37";
+            this.Column37.ReadOnly = true;
+            this.Column37.Width = 150;
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
@@ -2217,89 +2349,6 @@
             this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click_1);
             // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "c_idx";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Visible = false;
-            this.Column10.Width = 125;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "b_idx";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Visible = false;
-            this.Column11.Width = 125;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "도서명";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 140;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "대여자";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "대여 일자";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "반납 일자";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 125;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "연장 횟수";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 125;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "연 체";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 125;
-            // 
-            // Column21
-            // 
-            this.Column21.HeaderText = "bm_idx";
-            this.Column21.MinimumWidth = 6;
-            this.Column21.Name = "Column21";
-            this.Column21.ReadOnly = true;
-            this.Column21.Visible = false;
-            this.Column21.Width = 125;
-            // 
-            // Column22
-            // 
-            this.Column22.HeaderText = "상태";
-            this.Column22.MinimumWidth = 6;
-            this.Column22.Name = "Column22";
-            this.Column22.ReadOnly = true;
-            this.Column22.Width = 125;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
@@ -2322,105 +2371,55 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // TagBook
+            // Column19
             // 
-            this.TagBook.Controls.Add(this.button12);
-            this.TagBook.Controls.Add(this.button4);
-            this.TagBook.Controls.Add(this.bookReservationTable);
-            this.TagBook.Location = new System.Drawing.Point(4, 5);
-            this.TagBook.Name = "TagBook";
-            this.TagBook.Size = new System.Drawing.Size(1048, 572);
-            this.TagBook.TabIndex = 8;
-            this.TagBook.Text = " ";
-            this.TagBook.UseVisualStyleBackColor = true;
+            this.Column19.HeaderText = "b_idx";
+            this.Column19.MinimumWidth = 6;
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            this.Column19.Width = 125;
             // 
-            // bookReservationTable
+            // Column20
             // 
-            this.bookReservationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bookReservationTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column38,
-            this.b_idx,
-            this.c_id,
-            this.Column35,
-            this.Column36,
-            this.Column37});
-            this.bookReservationTable.Location = new System.Drawing.Point(17, 86);
-            this.bookReservationTable.Name = "bookReservationTable";
-            this.bookReservationTable.ReadOnly = true;
-            this.bookReservationTable.RowHeadersWidth = 51;
-            this.bookReservationTable.RowTemplate.Height = 27;
-            this.bookReservationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bookReservationTable.Size = new System.Drawing.Size(1021, 469);
-            this.bookReservationTable.TabIndex = 0;
+            this.Column20.HeaderText = "c_idx";
+            this.Column20.MinimumWidth = 6;
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            this.Column20.Visible = false;
+            this.Column20.Width = 125;
             // 
-            // button4
+            // Column15
             // 
-            this.button4.Location = new System.Drawing.Point(742, 13);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(140, 58);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "예약 대출 승인";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.Column15.HeaderText = "bookImg";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            this.Column15.Width = 125;
             // 
-            // button12
+            // Column16
             // 
-            this.button12.Location = new System.Drawing.Point(888, 13);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(140, 58);
-            this.button12.TabIndex = 2;
-            this.button12.Text = "예약 취소";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click_2);
+            this.Column16.HeaderText = "도서명";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 200;
             // 
-            // Column38
+            // Column17
             // 
-            this.Column38.HeaderText = "re_idx";
-            this.Column38.MinimumWidth = 6;
-            this.Column38.Name = "Column38";
-            this.Column38.ReadOnly = true;
-            this.Column38.Width = 125;
+            this.Column17.HeaderText = "대여자명";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            this.Column17.Width = 200;
             // 
-            // b_idx
+            // Column18
             // 
-            this.b_idx.HeaderText = "b_idx";
-            this.b_idx.MinimumWidth = 6;
-            this.b_idx.Name = "b_idx";
-            this.b_idx.ReadOnly = true;
-            this.b_idx.Visible = false;
-            this.b_idx.Width = 125;
-            // 
-            // c_id
-            // 
-            this.c_id.HeaderText = "c_id";
-            this.c_id.MinimumWidth = 6;
-            this.c_id.Name = "c_id";
-            this.c_id.ReadOnly = true;
-            this.c_id.Width = 150;
-            // 
-            // Column35
-            // 
-            this.Column35.HeaderText = "예약 도서명";
-            this.Column35.MinimumWidth = 6;
-            this.Column35.Name = "Column35";
-            this.Column35.ReadOnly = true;
-            this.Column35.Width = 150;
-            // 
-            // Column36
-            // 
-            this.Column36.HeaderText = "예약 사용자";
-            this.Column36.MinimumWidth = 6;
-            this.Column36.Name = "Column36";
-            this.Column36.ReadOnly = true;
-            this.Column36.Width = 150;
-            // 
-            // Column37
-            // 
-            this.Column37.HeaderText = "예약 일자";
-            this.Column37.MinimumWidth = 6;
-            this.Column37.Name = "Column37";
-            this.Column37.ReadOnly = true;
-            this.Column37.Width = 150;
+            this.Column18.HeaderText = "대출신청일";
+            this.Column18.MinimumWidth = 6;
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            this.Column18.Width = 200;
             // 
             // BookAdmin
             // 
@@ -2631,12 +2630,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.Button btnNotice;
         private System.Windows.Forms.TabPage TagNotice;
         private System.Windows.Forms.Panel panel11;
@@ -2688,6 +2681,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column36;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
     }
 }
 

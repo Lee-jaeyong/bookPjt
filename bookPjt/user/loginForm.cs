@@ -28,10 +28,10 @@ namespace BookManagement
             {
                 string userRank = dao.checkUserRank(inputId);
                 Form frm;
-                if (inputId == "root" || userRank == "C" || userRank == "B")
-                    frm = new BookAdmin(userRank);
+                if (inputId == "root" || userRank == "관리자" || userRank == "사서")
+                    frm = new BookAdmin(userRank, userRank);
                 else
-                    frm = new index(inputId);
+                    frm = new index(inputId, userRank);
                 frm.Owner = this;
                 frm.Show();
                 this.Hide();

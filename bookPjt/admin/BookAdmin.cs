@@ -30,6 +30,7 @@ namespace bookPjt
         private int qaNumber;
         private int noticeNumber;
 
+
         public void selectUserList(string type, string search, bool overdueChk)
         {
             userListTable.Rows.Clear();
@@ -91,16 +92,17 @@ namespace bookPjt
                 categoryList.Items.Add(listItem);
         }
 
-        public BookAdmin(string userRank)
+        public BookAdmin(string userRank, string rank)
         {
             InitializeComponent();
             this.userRank = userRank;
-            if (userRank != "C")
+            if (userRank != "관리자")
             {
                 btnCategory.Visible = false;
                 btnCustomer.Visible = false;
                 btnNotice.Visible = false;
             }
+            this.Text = "admin (" + userRank + ")";
             selectList();
             selectCategoryList();
         }
@@ -489,20 +491,33 @@ namespace bookPjt
 
         private void button7_Click(object sender, EventArgs e)
         {
-            
-
-
             try
+            {
+                Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value);
+            }
+            catch
+            {
+                MessageBox.Show("대여 처리할 항목을 선택해주세요.");
+                return;
+            }
+            if (!bookRentalChkDAO.selectCheckReservation(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value)))
+            {
+                if (MessageBox.Show("이미 예약되어 있는 도서입니다. 그래도 대출 승인하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (bookRentalChkDAO.insertRental(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString()))
+                        MessageBox.Show("대여 처리 완료");
+                    else
+                        MessageBox.Show("대여 처리 실패");
+                    selectRentalChkList();
+                }
+            }
+            else
             {
                 if (bookRentalChkDAO.insertRental(Convert.ToInt32(rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[0].Value), rentalChkTable.Rows[rentalChkTable.CurrentRow.Index].Cells[1].Value.ToString()))
                     MessageBox.Show("대여 처리 완료");
                 else
                     MessageBox.Show("대여 처리 실패");
                 selectRentalChkList();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("처리할 데이터를 선택해주세요");
             }
         }
 

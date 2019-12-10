@@ -59,6 +59,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.bookPanel = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -125,20 +126,20 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button13 = new System.Windows.Forms.Button();
+            this.userBookReservationTable = new System.Windows.Forms.DataGridView();
+            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.OverDueChk = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.OverDueImg = new System.Windows.Forms.PictureBox();
-            this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.userBookReservationTable = new System.Windows.Forms.DataGridView();
-            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button13 = new System.Windows.Forms.Button();
+            this.laCrank = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bookListTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookImg)).BeginInit();
             this.panel1.SuspendLayout();
@@ -159,9 +160,9 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userQnAtable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OverDueImg)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBookReservationTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OverDueImg)).BeginInit();
             this.SuspendLayout();
             // 
             // bookBtn
@@ -515,6 +516,21 @@
             this.bookPanel.Name = "bookPanel";
             this.bookPanel.Size = new System.Drawing.Size(1186, 611);
             this.bookPanel.TabIndex = 0;
+            // 
+            // button11
+            // 
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.Location = new System.Drawing.Point(1011, 535);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(163, 68);
+            this.button11.TabIndex = 15;
+            this.button11.Text = "대출 예약";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // tabControl1
             // 
@@ -1251,6 +1267,67 @@
             this.Column8.Visible = false;
             this.Column8.Width = 125;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.button13);
+            this.tabPage7.Controls.Add(this.userBookReservationTable);
+            this.tabPage7.Location = new System.Drawing.Point(4, 5);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(1194, 625);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "tabPage7";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(852, 15);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(321, 50);
+            this.button13.TabIndex = 1;
+            this.button13.Text = "예약 취소";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // userBookReservationTable
+            // 
+            this.userBookReservationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userBookReservationTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column35,
+            this.Column36,
+            this.Column37});
+            this.userBookReservationTable.Location = new System.Drawing.Point(22, 80);
+            this.userBookReservationTable.Name = "userBookReservationTable";
+            this.userBookReservationTable.ReadOnly = true;
+            this.userBookReservationTable.RowHeadersWidth = 51;
+            this.userBookReservationTable.RowTemplate.Height = 27;
+            this.userBookReservationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.userBookReservationTable.Size = new System.Drawing.Size(1151, 524);
+            this.userBookReservationTable.TabIndex = 0;
+            // 
+            // Column35
+            // 
+            this.Column35.HeaderText = "re_idx";
+            this.Column35.MinimumWidth = 6;
+            this.Column35.Name = "Column35";
+            this.Column35.ReadOnly = true;
+            this.Column35.Width = 125;
+            // 
+            // Column36
+            // 
+            this.Column36.HeaderText = "도서명";
+            this.Column36.MinimumWidth = 6;
+            this.Column36.Name = "Column36";
+            this.Column36.ReadOnly = true;
+            this.Column36.Width = 125;
+            // 
+            // Column37
+            // 
+            this.Column37.HeaderText = "예약 일자";
+            this.Column37.MinimumWidth = 6;
+            this.Column37.Name = "Column37";
+            this.Column37.ReadOnly = true;
+            this.Column37.Width = 125;
+            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 0;
@@ -1337,21 +1414,6 @@
             this.OverDueImg.TabIndex = 15;
             this.OverDueImg.TabStop = false;
             // 
-            // button11
-            // 
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(1011, 535);
-            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(163, 68);
-            this.button11.TabIndex = 15;
-            this.button11.Text = "대출 예약";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
             // button12
             // 
             this.button12.FlatAppearance.BorderSize = 0;
@@ -1369,66 +1431,14 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // tabPage7
+            // laCrank
             // 
-            this.tabPage7.Controls.Add(this.button13);
-            this.tabPage7.Controls.Add(this.userBookReservationTable);
-            this.tabPage7.Location = new System.Drawing.Point(4, 5);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1194, 625);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "tabPage7";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // userBookReservationTable
-            // 
-            this.userBookReservationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userBookReservationTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column35,
-            this.Column36,
-            this.Column37});
-            this.userBookReservationTable.Location = new System.Drawing.Point(22, 80);
-            this.userBookReservationTable.Name = "userBookReservationTable";
-            this.userBookReservationTable.ReadOnly = true;
-            this.userBookReservationTable.RowHeadersWidth = 51;
-            this.userBookReservationTable.RowTemplate.Height = 27;
-            this.userBookReservationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.userBookReservationTable.Size = new System.Drawing.Size(1151, 524);
-            this.userBookReservationTable.TabIndex = 0;
-            // 
-            // Column35
-            // 
-            this.Column35.HeaderText = "re_idx";
-            this.Column35.MinimumWidth = 6;
-            this.Column35.Name = "Column35";
-            this.Column35.ReadOnly = true;
-            this.Column35.Width = 125;
-            // 
-            // Column36
-            // 
-            this.Column36.HeaderText = "도서명";
-            this.Column36.MinimumWidth = 6;
-            this.Column36.Name = "Column36";
-            this.Column36.ReadOnly = true;
-            this.Column36.Width = 125;
-            // 
-            // Column37
-            // 
-            this.Column37.HeaderText = "예약 일자";
-            this.Column37.MinimumWidth = 6;
-            this.Column37.Name = "Column37";
-            this.Column37.ReadOnly = true;
-            this.Column37.Width = 125;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(852, 15);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(321, 50);
-            this.button13.TabIndex = 1;
-            this.button13.Text = "예약 취소";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.laCrank.AutoSize = true;
+            this.laCrank.Location = new System.Drawing.Point(856, 24);
+            this.laCrank.Name = "laCrank";
+            this.laCrank.Size = new System.Drawing.Size(53, 15);
+            this.laCrank.TabIndex = 17;
+            this.laCrank.Text = "label15";
             // 
             // index
             // 
@@ -1437,6 +1447,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1214, 771);
+            this.Controls.Add(this.laCrank);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.OverDueImg);
             this.Controls.Add(this.OverDueChk);
@@ -1481,10 +1492,11 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userQnAtable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OverDueImg)).EndInit();
             this.tabPage7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userBookReservationTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OverDueImg)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1600,6 +1612,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column36;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column37;
+        private System.Windows.Forms.Label laCrank;
     }
 }
 
