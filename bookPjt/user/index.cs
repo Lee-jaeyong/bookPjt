@@ -128,6 +128,11 @@ namespace BookManagement
 
         private void takeBtn_Click(object sender, EventArgs e)
         {
+            if(OverDueChk.Text.Contains("연체"))
+            {
+                MessageBox.Show("연체된 도서가 존재합니다.");
+                return;
+            }
             try
             {
                 Convert.ToInt32(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value);
@@ -486,6 +491,11 @@ namespace BookManagement
 
         private void button11_Click(object sender, EventArgs e)
         {
+            if (OverDueChk.Text.Contains("연체"))
+            {
+                MessageBox.Show("연체된 도서가 존재합니다.");
+                return;
+            }
             try
             {
                 BookReservation bookReservation = new BookReservation(bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[1].Value.ToString(), bookListTable.Rows[bookListTable.CurrentRow.Index].Cells[0].Value.ToString(), id);
@@ -526,5 +536,6 @@ namespace BookManagement
                     MessageBox.Show("예약 취소 실패");
             }
         }
+
     }
 }
