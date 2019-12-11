@@ -99,7 +99,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtNoticeContent = new System.Windows.Forms.TextBox();
@@ -887,7 +886,6 @@
             // 
             this.tabPage4.Controls.Add(this.ComboRental);
             this.tabPage4.Controls.Add(this.rentalBookInfoTable);
-            this.tabPage4.Controls.Add(this.button3);
             this.tabPage4.Location = new System.Drawing.Point(4, 5);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage4.Name = "tabPage4";
@@ -969,16 +967,6 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Width = 200;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1070, 9);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 52);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "연 장";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
@@ -1564,7 +1552,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView rentalBookInfoTable;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox ComboRental;
         private System.Windows.Forms.Label OverDueChk;
         private System.Windows.Forms.TabPage tabPage5;
